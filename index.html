@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hommage à l'Inspecteur Séraphin M. GBINLO</title>
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS pour le style et le responsive -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- html2canvas pour la génération de l'invitation -->
+    <!-- html2canvas pour permettre le téléchargement de la carte d'invitation en PNG -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Liaison avec ton fichier CSS personnalisé -->
     <link rel="stylesheet" href="style.css">
     <script>
-        // Configuration Tailwind pour le mode sombre basé sur une classe
+        // Configuration de Tailwind pour le Dark Mode
         tailwind.config = {
             darkMode: 'class'
         }
@@ -25,11 +26,19 @@
         </button>
     </div>
 
-    <!-- 1. HERO EN-TÊTE -->
-    <header class="relative h-[65vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-stone-950 via-stone-900 to-stone-950 shadow-inner">
-        <img src="inspecteur.png" alt="Fond Mémorial" class="absolute inset-0 w-full h-full object-cover opacity-20 filter blur-sm scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/50"></div>
+    <!-- 1. HERO EN-TÊTE AVEC VIDÉO TECH 3D FUTURISTE -->
+    <header class="relative h-[75vh] flex items-center justify-center overflow-hidden bg-stone-950 shadow-inner">
+        <!-- Vidéo d'arrière-plan 3D HD en boucle infinie -->
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-40 filter brightness-75">
+            <source src="futuristic-device.mp4" type="video/mp4">
+            <!-- Image de secours si la vidéo ne charge pas -->
+            <img src="inspecteur.png" alt="Fond" class="absolute inset-0 w-full h-full object-cover opacity-20 filter blur-sm">
+        </video>
         
+        <!-- Dégradé sombre pour garantir la parfaite lisibilité du texte -->
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-stone-950"></div>
+        
+        <!-- Contenu textuel principal -->
         <div class="relative z-10 text-center text-white px-4 space-y-4 max-w-3xl animate-fade-in">
             <p class="text-xs uppercase tracking-[0.3em] text-amber-400 font-semibold">À notre Patriarche Bien-Aimé</p>
             <h1 class="font-serif-elegant text-4xl md:text-6xl text-stone-100 font-bold tracking-wide drop-shadow-2xl">
@@ -37,19 +46,19 @@
             </h1>
             <div class="w-12 h-[2px] bg-amber-400 mx-auto my-4"></div>
             <p class="text-sm md:text-base font-light italic text-stone-300 font-sans-clean max-w-xl mx-auto">
-                "Que votre cœur ne se trouble point. Croyez en Dieu, et croyez en moi..." <br>
-                <span class="block text-xs mt-1 text-amber-500 not-italic font-bold tracking-widest">— JEAN 14: 1-2</span>
+                "Que votre cœur ne se trouble point. Croyez en Dieu, et croyez en moi. Il y a plusieurs demeures dans la maison de mon Père." <br>
+                <span class="block text-xs mt-2 text-amber-500 not-italic font-bold tracking-widest">— JEAN 14: 1-2</span>
             </p>
         </div>
     </header>
 
-    <!-- 2. ANNONCE OFFICIELLE & BIOGRAPHIE -->
+    <!-- 2. ANNONCE OFFICIELLE, BIOGRAPHIE & DESCENDANCE -->
     <section class="py-20 px-4 max-w-6xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             
-            <!-- Photo Portrait Officiel -->
+            <!-- Photo Portrait Officiel de l'Inspecteur -->
             <div class="md:col-span-5 flex justify-center">
-                <div class="relative max-w-xs md:max-w-sm rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-stone-900 transform hover:scale-102 transition-all duration-500">
+                <div class="relative max-w-xs md:max-w-sm rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] dark:shadow-[0_25px_50px_-12px_rgba(59,130,246,0.2)] border-4 border-white dark:border-stone-900 transform hover:scale-102 transition-all duration-500">
                     <img src="inspecteur.png" alt="M. Séraphin M. GBINLO" class="w-full h-auto object-cover">
                 </div>
             </div>
@@ -67,23 +76,31 @@
                 </div>
                 
                 <p class="text-stone-600 dark:text-stone-300 leading-relaxed font-light text-base md:text-lg">
-                    Endormi dans la paix du Seigneur le <strong>jeudi 04 décembre 2025</strong> dans sa 83ème année au <strong>CNHU - HKM de Cotonou</strong>.
+                    Survenue le <strong>jeudi 04 décembre 2025</strong> dans sa 83ème année au <strong>CNHU - HKM de Cotonou</strong>.
                 </p>
                 
                 <p class="text-stone-700 dark:text-stone-200 font-medium leading-relaxed bg-amber-500/5 dark:bg-amber-500/10 p-4 rounded-xl border border-amber-500/20">
                     Les familles Gbinlo et alliées vous prient de bien vouloir assister ou de vous unir d'intention à la messe d'action de grâce suivant le programme ci-après.
                 </p>
 
-                <!-- Liste de la Descendance -->
+                <!-- Liste Officielle des 12 Enfants -->
                 <div class="pt-4">
-                    <h3 class="font-serif-elegant text-lg text-amber-800 dark:text-amber-400 mb-3 flex items-center gap-2 font-bold">
+                    <h3 class="font-serif-elegant text-lg text-amber-800 dark:text-amber-400 mb-4 flex items-center gap-2 font-bold">
                         <span>✦</span> Sa Descendance (Ses Enfants)
                     </h3>
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-stone-600 dark:text-stone-300">
-                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-amber-500"></span> [Enfant 1]</li>
-                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-amber-500"></span> [Enfant 2]</li>
-                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-amber-500"></span> [Enfant 3]</li>
-                        <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-amber-500"></span> [Enfant 4]</li>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-stone-600 dark:text-stone-300 font-sans-clean">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> GBINLO Clémence</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> GBINLO Michael</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> GBINLO Edgard</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> GBINLO Hervé</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> GBINLO Hospice</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> GBINLO Modeste</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> GBINLO Ginette</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> GBINLO Éloïse</li>
+                        <li class="flex items-center gap-2 text-stone-400 dark:text-stone-500 italic"><span class="w-1.5 h-1.5 rounded-full bg-stone-400 dark:bg-stone-600"></span> Feu GBINLO Eudoxie</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> GBINLO Eric</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> GBINLO Florine</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> GBINLO Auguste</li>
                     </ul>
                 </div>
             </div>
@@ -91,7 +108,7 @@
         </div>
     </section>
 
-    <!-- 3. LE PROGRAMME & LE COMPTE À REBOURS -->
+    <!-- 3. LE PROGRAMME OFFICIEL DES OBSÈQUES & COMPTE À REBOURS -->
     <section class="bg-stone-900 text-white dark:bg-stone-900/40 py-20 px-4 border-t border-b border-stone-800">
         <div class="max-w-5xl mx-auto space-y-16">
             
@@ -100,8 +117,8 @@
                 <h2 class="font-serif-elegant text-3xl md:text-4xl text-stone-100">Programme de l'Hommage</h2>
             </div>
 
-            <!-- Grille du Programme Chronologique -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Grille Chronologique des 3 Jours -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans-clean">
                 
                 <!-- Jeudi 27 Août -->
                 <div class="bg-stone-950/60 p-6 rounded-2xl border border-stone-800 shadow-xl hover:border-amber-500/30 transition-all duration-300 group">
@@ -136,7 +153,7 @@
                 </div>
             </div>
 
-            <!-- COMPTE À REBOURS -->
+            <!-- COMPTE À REBOURS VISUEL -->
             <div class="space-y-4 pt-6 text-center">
                 <p class="text-stone-400 text-xs tracking-wider uppercase">Début des hommages dans :</p>
                 <div class="grid grid-cols-4 gap-4 max-w-md mx-auto text-center">
@@ -162,7 +179,7 @@
         </div>
     </section>
 
-    <!-- 4. GÉNÉRATEUR DE CARTES D'INVITATION -->
+    <!-- 4. GÉNÉRATEUR DE CARTES D'INVITATION AVEC STYLE NÉON BLEU & OR -->
     <section class="py-24 px-4 bg-stone-100 dark:bg-stone-900/20">
         <div class="max-w-5xl mx-auto text-center space-y-12">
             
@@ -174,11 +191,11 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
                 
-                <!-- Formulaire -->
+                <!-- Formulaire de saisie -->
                 <div class="lg:col-span-5 bg-white dark:bg-stone-900 p-8 rounded-2xl shadow-xl border border-stone-200/60 dark:border-stone-800 space-y-6">
                     <div class="space-y-2">
                         <label class="block text-sm font-semibold text-stone-700 dark:text-stone-300">Votre Nom Complet :</label>
-                        <input type="text" id="guestNameInput" placeholder="Ex: M. et Mme COFFI" 
+                        <input type="text" id="guestNameInput" placeholder="Ex: M. et Mme COFFI et enfants" 
                                class="w-full px-4 py-3 border border-stone-300 dark:border-stone-700 rounded-lg bg-transparent focus:ring-2 focus:ring-amber-500 focus:outline-none transition-all text-stone-800 dark:text-stone-100">
                     </div>
                     <button onclick="genererCarte()" 
@@ -187,14 +204,19 @@
                     </button>
                 </div>
 
-                <!-- Aperçu et téléchargement -->
+                <!-- Zone d'aperçu de la carte et bouton de téléchargement -->
                 <div class="lg:col-span-7 flex flex-col items-center space-y-6">
-                    <div id="captureArea" class="bg-stone-950 text-white w-[340px] p-6 rounded-2xl border-[4px] border-amber-500/80 shadow-2xl space-y-6 relative overflow-hidden text-center mx-auto">
-                        <div class="absolute inset-0 bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 opacity-95 z-0"></div>
+                    
+                    <!-- DESIGN DE LA CARTE D'INVITATION (Palette Bleu Néon & Or) -->
+                    <div id="captureArea" class="bg-stone-950 text-white w-[340px] p-6 rounded-2xl border-[4px] border-amber-500/80 shadow-[0_0_30px_rgba(59,130,246,0.3)] space-y-6 relative overflow-hidden text-center mx-auto transition-all duration-500">
+                        <!-- Arrière-plan dégradé bleu nuit néon -->
+                        <div class="absolute inset-0 bg-gradient-to-b from-stone-900 via-blue-950/20 to-stone-950 opacity-95 z-0"></div>
+                        
                         <div class="relative z-10 space-y-4">
-                            <p class="text-[9px] uppercase tracking-[0.3em] text-amber-400 font-semibold">Invitation Officielle</p>
+                            <p class="text-[9px] uppercase tracking-[0.3em] text-amber-400 font-semibold neon-glow-gold">Invitation Officielle</p>
                             
-                            <div class="w-20 h-20 rounded-full mx-auto border-2 border-amber-400 overflow-hidden bg-stone-900 shadow-md">
+                            <!-- Vignette circulaire du Patriarche -->
+                            <div class="w-20 h-20 rounded-full mx-auto border-2 border-amber-400 overflow-hidden bg-stone-900 shadow-[0_0_15px_rgba(245,158,11,0.4)]">
                                 <img src="inspecteur.png" alt="Inspecteur GBINLO" class="w-full h-full object-cover">
                             </div>
 
@@ -203,18 +225,20 @@
                                 <p class="text-[9px] text-stone-400 font-light">Obsèques & Messe d'Action de Grâce</p>
                             </div>
 
-                            <div class="bg-stone-900/90 border border-stone-800/80 py-2.5 px-2 rounded-xl my-3">
+                            <!-- Nom de l'invité inséré en JS -->
+                            <div class="bg-stone-900/95 border border-blue-900/50 py-2.5 px-2 rounded-xl my-3 shadow-inner">
                                 <p class="text-[8px] text-stone-500 uppercase tracking-wider">Délivrée au respectueux convive :</p>
                                 <p id="cardGuestName" class="font-serif-elegant text-sm text-stone-100 font-bold tracking-wide mt-0.5">VOTRE NOM ICI</p>
                             </div>
 
-                            <div class="text-[8px] text-stone-300 space-y-1 text-left bg-stone-900/40 p-3 rounded-lg border border-stone-800/40">
+                            <div class="text-[8px] text-stone-300 space-y-1 text-left bg-blue-950/40 p-3 rounded-lg border border-blue-800/20">
                                 <p>🗓️ **Du 27 au 29 Août 2026**</p>
                                 <p>📍 **Fonkpamin & Abomey (Bénin)**</p>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Bouton de téléchargement final -->
                     <button id="btnTelecharger" disabled onclick="telechargerImage()"
                             class="bg-stone-800 hover:bg-stone-900 text-white font-medium py-3 px-8 rounded-xl opacity-50 cursor-not-allowed transition-all shadow-md">
                         📥 Télécharger en PNG
@@ -225,7 +249,7 @@
         </div>
     </section>
 
-    <!-- 5. SECTION SINCÈRES REMERCIEMENTS -->
+    <!-- 5. SECTION OFFICIELLE SINCÈRES REMERCIEMENTS -->
     <section class="bg-stone-200 dark:bg-stone-900 text-stone-800 dark:text-stone-200 py-16 px-6 shadow-inner transition-colors duration-500">
         <div class="max-w-3xl mx-auto text-center space-y-6">
             <h3 class="font-serif-elegant text-2xl tracking-wider text-stone-900 dark:text-amber-400 uppercase font-bold">Remerciement</h3>
@@ -241,6 +265,7 @@
         <p>© 2026 — Union de Prière avec la Famille GBINLO. Tous droits réservés.</p>
     </footer>
 
+    <!-- Liaisons avec ton script d'automatisation JS -->
     <script src="script.js"></script>
 </body>
 </html>
