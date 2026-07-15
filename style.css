@@ -28,3 +28,16 @@
 .animate-fade-in {
     animation: fadeIn 1.2s ease-out forwards;
 }
+/* Animation douce pour les boutons flottants au chargement */
+@keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.fixed.bottom-6.right-6 a {
+    animation: bounce-subtle 4s infinite ease-in-out;
+}
+
+.fixed.bottom-6.right-6 a:nth-child(2) {
+    animation-delay: 2s;
+}
