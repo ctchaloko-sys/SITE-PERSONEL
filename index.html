@@ -3,158 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Enseignement de l'Allemand, IA & Design</title>
+    <title>Hommage à notre Inspecteur</title>
+    <!-- Tailwind CSS pour les classes utilitaires -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- html2canvas pour générer la carte d'invitation en image PNG -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Ton fichier CSS personnalisé -->
     <link rel="stylesheet" href="style.css">
-    <!-- Importation des icônes modernes -->
-    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
+<body class="bg-stone-50 text-stone-800 font-sans-clean">
 
-    <header class="navbar">
-        <div class="logo">Deutsch<span>.AI</span></div>
-        <nav class="nav-links">
-            <a href="#accueil" class="active">Accueil</a>
-            <a href="#projets">Ressources & Design</a>
-            <a href="#services">Services</a>
-            <a href="#contact" class="btn-nav">Me contacter</a>
-        </nav>
+    <!-- 1. EN-TÊTE / ACCUEIL -->
+    <header class="relative h-[80vh] flex items-center justify-center overflow-hidden bg-stone-950">
+        <!-- Image de fond floutée pour l'ambiance -->
+        <img src="inspecteur.png" alt="Fond" class="absolute inset-0 w-full h-full object-cover opacity-30 filter blur-md scale-110">
+        
+        <div class="relative z-10 text-center text-white px-4 space-y-4">
+            <p class="text-xs uppercase tracking-[0.2em] text-amber-400 font-semibold font-sans-clean">En mémoire de notre cher Patriarche</p>
+            <h1 class="font-serif-elegant text-4xl md:text-6xl text-stone-100 font-light drop-shadow-lg">
+                M. l'Inspecteur
+            </h1>
+            <p class="text-lg md:text-xl font-light italic text-stone-300 font-sans-clean">"Un grand enseignant n'est jamais oublié."</p>
+            <div class="w-16 h-[1px] bg-amber-400 mx-auto my-6"></div>
+        </div>
     </header>
 
-    <section id="accueil" class="hero-section">
-        <div class="hero-content">
-            <span class="badge">L'Allemand à l'ère du digital</span>
-            <h1>Apprenez l'allemand boosté par <span class="highlight">l'IA</span></h1>
-            <h2>Je suis <span id="dynamic-text" class="text-rotator"></span><span class="cursor">|</span></h2>
-            <p>Fusionner la rigueur de la langue allemande avec la puissance de l'intelligence artificielle et la clarté du design visuel pour un apprentissage ultra-rapide.</p>
+    <!-- 2. BIOGRAPHIE & ENFANTS -->
+    <section class="py-20 px-4 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             
-            <div class="hero-buttons">
-                <a href="#services" class="btn-primary">Découvrir mes cours</a>
-                <a href="#projets" class="btn-secondary">Explorer les ressources <i data-lucide="arrow-right"></i></a>
+            <!-- Photo officielle -->
+            <div class="md:col-span-5 flex justify-center">
+                <div class="relative max-w-xs md:max-w-sm rounded-lg overflow-hidden shadow-2xl border-4 border-amber-500/20">
+                    <img src="inspecteur.png" alt="Inspecteur de l'Enseignement Primaire" class="w-full h-auto object-cover">
+                </div>
             </div>
-        </div>
 
-        <div class="hero-visual">
-            <div class="visual-card main-card">
-                <!-- Ici, tu pourras mettre sa photo portrait -->
-                <div class="avatar-placeholder">
-                    <i data-lucide="sparkles" class="ai-sparkle"></i>
+            <!-- Texte de présentation et Liste des enfants -->
+            <div class="md:col-span-7 space-y-8">
+                <div>
+                    <span class="text-xs uppercase tracking-wider text-amber-600 font-semibold font-sans-clean">Hommage</span>
+                    <h2 class="font-serif-elegant text-3xl md:text-4xl text-stone-900 mt-1">Une Vie de Dévouement à l'Éducation</h2>
                 </div>
-                <div class="card-info">
-                    <h3>Enseignant & Prompt Designer</h3>
-                    <p>Cotonou & En ligne</p>
+                
+                <p class="text-stone-600 leading-relaxed font-light font-sans-clean">
+                    Inspecteur de l’enseignement primaire à la retraite, il a consacré sa vie à l'éducation, à la formation des générations et au service de sa nation avec excellence et rigueur. Son héritage intellectuel et moral continuera de guider ses enfants, ses proches et tous ses anciens élèves.
+                </p>
+
+                <!-- Cadre de la Famille -->
+                <div class="bg-amber-50/50 p-6 rounded-xl border border-amber-200/40 shadow-sm">
+                    <h3 class="font-serif-elegant text-lg text-amber-900 mb-4 flex items-center gap-2 font-bold">
+                        <span>✦</span> Sa Descendance (Ses Enfants)
+                    </h3>
+                    
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-stone-700 font-sans-clean">
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                            <span class="font-medium">Enfant 1</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                            <span class="font-medium">Enfant 2</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                            <span class="font-medium">Enfant 3</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                            <span class="font-medium">Enfant 4</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <!-- Éléments flottants pour le dynamisme -->
-            <div class="floating-badge badge-1">
-                <i data-lucide="languages" class="icon-yellow"></i> <span>Deutsch A1-C2</span>
-            </div>
-            <div class="floating-badge badge-2">
-                <i data-lucide="cpu" class="icon-blue"></i> <span>Intégration IA</span>
-            </div>
+
         </div>
     </section>
 
-    <!-- Initialisation des icônes -->
-    <script>
-        lucide.createIcons();
-    </script>
+    <!-- 3. CÉRÉMONIE & COMPTE À REBOURS -->
+    <section class="bg-stone-950 text-white py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center space-y-12">
+            
+            <div class="space-y-2">
+                <span class="text-xs uppercase tracking-[0.2em] text-amber-400 font-sans-clean">Programme des obsèques</span>
+                <h2 class="font-serif-elegant text-3xl md:text-5xl text-stone-100">La Cérémonie d'Hommage</h2>
+            </div>
+
+            <!-- Détails de la Cérémonie -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left font-sans-clean">
+                <div class="bg-stone-900 border border-stone-800 p-6 rounded-xl">
+                    <p class="text-xs text-amber-400 uppercase tracking-wider mb-1">Date & Heure</p>
+                    <p class="font-serif-elegant text-lg text-stone-200">Samedi 12 Septembre 2026 à 10h00</p>
+                </div>
+                <div class="bg-stone-900 border border-stone-800 p-6 rounded-xl">
+                    <p class="text-xs text-amber-400 uppercase tracking-wider mb-1">Lieu</p>
+                    <p class="font-serif-elegant text-lg text-stone-200">Paroisse, Cotonou, Bénin</p>
+                </div>
+            </div>
+
+            <!-- COMPTE À REBOURS -->
+            <div class="space-y-4 pt-6 font-sans-clean">
+                <p class="text-stone-400 text-sm">Le compte à rebours est lancé :</p>
+                <div class="grid grid-cols-4 gap-3 max-w-md mx-auto text-center">
+                    <div class="bg-stone-900 border border-stone-800 p-4 rounded-xl">
+                        <span id="days" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-stone-500">Jours</span>
+                    </div>
+                    <div class="bg-stone-900 border border-stone-800 p-4 rounded-xl">
+                        <span id="hours" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-stone-500">Heures</span>
+                    </div>
+                    <div class="bg-stone-900 border border-stone-800 p-4 rounded-xl">
+                        <span id="minutes" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-stone-500">Minutes</span>
+                    </div>
+                    <div class="bg-stone-900 border border-stone-800 p-4 rounded-xl">
+                        <span id="seconds" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold">00</span>
+                        <span class="text-[10px] uppercase tracking-wider text-stone-500">Sec</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. GÉNÉRATEUR DE CARTES D'INVITATION -->
+    <section class="py-20 px-4 bg-stone-100">
+        <div class="max-w-5xl mx-auto text-center space-y-12">
+            
+            <div class="space-y-2">
+                <span class="text-xs uppercase tracking-wider text-amber-600 font-semibold font-sans-clean">Invitation Individuelle</span>
+                <h2 class="font-serif-elegant text-3xl md:text-4xl text-stone-900">Obtenir votre carte d'invitation</h2>
+                <p class="text-stone-600 max-w-md mx-auto font-light font-sans-clean">Saisissez votre nom pour générer votre invitation officielle et la télécharger.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left font-sans-clean">
+                
+                <!-- Formulaire -->
+                <div class="lg:col-span-5 bg-white p-8 rounded-2xl shadow-md border border-stone-200/60 space-y-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-stone-700">Votre Nom Complet :</label>
+                        <input type="text" id="guestNameInput" placeholder="Ex: M. et Mme COFFI" 
+                               class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none transition-all">
+                    </div>
+                    <button onclick="genererCarte()" 
+                            class="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-6 rounded-lg shadow-lg shadow-amber-950/10 transition-all">
+                        Créer mon invitation
+                    </button>
+                </div>
+
+                <!-- Aperçu et téléchargement -->
+                <div class="lg:col-span-7 flex flex-col items-center space-y-6">
+                    
+                    <!-- LA CARTE -->
+                    <div id="captureArea" class="bg-stone-950 text-white w-[350px] p-6 rounded-xl border-[6px] border-amber-500 shadow-2xl space-y-6 relative overflow-hidden text-center mx-auto">
+                        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-stone-900 via-stone-950 to-stone-950 opacity-90 z-0"></div>
+                        
+                        <div class="relative z-10 space-y-4">
+                            <p class="text-[9px] uppercase tracking-[0.3em] text-amber-400">Faire-part d'Invitation</p>
+                            
+                            <div class="w-24 h-24 rounded-full mx-auto border-2 border-amber-500 overflow-hidden bg-stone-800">
+                                <img src="inspecteur.png" alt="Inspecteur" class="w-full h-full object-cover">
+                            </div>
+
+                            <div class="space-y-1">
+                                <h3 class="font-serif-elegant text-xl text-amber-400">Hommage & Obsèques</h3>
+                                <p class="text-xs text-stone-400">En mémoire de notre cher Inspecteur</p>
+                            </div>
+
+                            <div class="bg-stone-900/80 border border-stone-800 py-3 px-2 rounded-lg my-4">
+                                <p class="text-[10px] text-stone-500 uppercase">Invitation délivrée à :</p>
+                                <p id="cardGuestName" class="font-serif-elegant text-base text-stone-100 font-bold tracking-wide mt-1">VOTRE NOM ICI</p>
+                            </div>
+
+                            <div class="text-[10px] text-stone-400 space-y-1">
+                                <p>🗓️ Samedi 12 Septembre 2026 à 10h00</p>
+                                <p>📍 Cotonou, Bénin</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bouton de téléchargement -->
+                    <button id="btnTelecharger" disabled onclick="telechargerImage()"
+                            class="bg-stone-800 hover:bg-stone-900 text-white font-medium py-2.5 px-8 rounded-lg opacity-50 cursor-not-allowed transition-all">
+                        📥 Télécharger la carte d'invitation (PNG)
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PIED DE PAGE -->
+    <footer class="bg-stone-950 text-stone-500 text-center py-8 border-t border-stone-900 text-sm font-sans-clean">
+        <p>© 2026 — Union de Prière avec la Famille. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Liaison avec ton script JavaScript séparé -->
     <script src="script.js"></script>
 </body>
 </html>
-<!-- SECTION SERVICES (Avec cartes interactives 3D) -->
-    <section id="services" class="services-section">
-        <div class="section-header">
-            <span class="badge">Mes Prestations</span>
-            <h2>Des services uniques pour booster votre allemand</h2>
-            <p>Une approche moderne qui combine l'apprentissage linguistique avec les outils technologiques de pointe.</p>
-        </div>
-
-        <div class="services-grid">
-            <!-- Carte 1 : Cours d'allemand -->
-            <div class="card-3d" data-tilt>
-                <div class="card-content">
-                    <div class="card-icon icon-de">
-                        <i data-lucide="languages"></i>
-                    </div>
-                    <h3>Deutsch Coaching</h3>
-                    <p>Cours d'allemand personnalisés du niveau A1 à C2. Apprenez deux fois plus vite grâce à une méthodologie active et des supports visuels impactants.</p>
-                    <span class="card-tag">Individuel ou Groupe</span>
-                </div>
-            </div>
-
-            <!-- Carte 2 : IA & Prompt Engineering -->
-            <div class="card-3d" data-tilt>
-                <div class="card-content">
-                    <div class="card-icon icon-ia">
-                        <i data-lucide="sparkles"></i>
-                    </div>
-                    <h3>IA & Pédagogie</h3>
-                    <p>Apprenez à utiliser l'IA (ChatGPT, Midjourney) pour automatiser vos révisions, générer des exercices interactifs et créer vos propres tuteurs virtuels.</p>
-                    <span class="card-tag">Workshop & Formation</span>
-                </div>
-            </div>
-
-            <!-- Carte 3 : Design de ressources -->
-            <div class="card-3d" data-tilt>
-                <div class="card-content">
-                    <div class="card-icon icon-design">
-                        <i data-lucide="palette"></i>
-                    </div>
-                    <h3>Design Pédagogique</h3>
-                    <p>Création de supports de cours ultra-visuels sur Canva (fiches de grammaire, infographies, e-books). Idéal pour enseignants et étudiants visuels.</p>
-                    <span class="card-tag">Sur-mesure</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION CONTACT & RÉSERVATION -->
-    <section id="contact" class="contact-section">
-        <div class="contact-container">
-            <div class="contact-info">
-                <span class="badge">Discutons de votre projet</span>
-                <h2>Prêt à réinventer votre apprentissage ?</h2>
-                <p>Que vous soyez un particulier souhaitant maîtriser l'allemand ou une structure intéressée par une formation sur l'IA, envoyez-moi un message.</p>
-                
-                <div class="contact-details">
-                    <div class="detail-item">
-                        <i data-lucide="mail"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>contact@emmanuelclarius.com</p>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <i data-lucide="map-pin"></i>
-                        <div>
-                            <h4>Localisation</h4>
-                            <p>Cotonou, Bénin & En ligne</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Formulaire 3D dynamique -->
-            <div class="contact-form-container" data-tilt>
-                <form id="interactive-form" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Votre Nom</label>
-                        <input type="text" id="name" required placeholder="Ex: Emmanuel Clarius">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Votre Email</label>
-                        <input type="email" id="email" required placeholder="Ex: nom@domaine.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Votre Message</label>
-                        <textarea id="message" rows="5" required placeholder="Décrivez votre besoin en quelques lignes..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <span>Envoyer le message</span>
-                        <i data-lucide="send"></i>
-                    </button>
-                </form>
-                <div id="form-status" class="form-status hidden"></div>
-            </div>
-        </div>
-    </section>

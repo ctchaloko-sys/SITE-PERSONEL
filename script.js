@@ -1,105 +1,60 @@
-// Liste des compétences à faire défiler de manière dynamique
-const words = ["Enseignant d'allemand", "Prompt Engineer", "Créateur de ressources"];
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const dynamicText = document.getElementById("dynamic-text");
+// 1. COMPTE À REBOURS DYNAMIQUE (Date cible : 12 Septembre 2026 à 10:00:00)
+const dateObsèques = new Date(2026, 8, 12, 10, 0, 0).getTime();
 
-function typeEffect() {
-    const currentWord = words[wordIndex];
+setInterval(function() {
+    const maintenant = new Date().getTime();
+    const distance = dateObsèques - maintenant;
+
+    // Calcul du temps restant
+    const jours = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const heures = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const secondes = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Affichage avec un zéro devant si < 10
+    document.getElementById("days").innerText = jours < 10 ? "0" + jours : jours;
+    document.getElementById("hours").innerText = heures < 10 ? "0" + heures : heures;
+    document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds").innerText = secondes < 10 ? "0" + secondes : secondes;
+}, 1000);
+
+// 2. LOGIQUE DE GÉNÉRATION DE LA CARTE D'INVITATION
+let imageGenereeBlob = null;
+
+function genererCarte() {
+    const nomSaisi = document.getElementById("guestNameInput").value.trim();
+    if (nomSaisi === "") {
+        alert("Veuillez saisir votre nom pour générer la carte.");
+        return;
+    }
+
+    // Met à jour dynamiquement le texte sur la carte d'invitation
+    document.getElementById("cardGuestName").innerText = nomSaisi.toUpperCase();
+
+    // Récupère l'élément HTML de la carte
+    const elementACapturer = document.getElementById("captureArea");
     
-    if (isDeleting) {
-        // Enlever une lettre
-        dynamicText.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        // Ajouter une lettre
-        dynamicText.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-    }
+    // Génère l'image avec html2canvas
+    html2canvas(elementACapturer, {
+        useCORS: true, 
+        scale: 2 // Améliore la qualité (évite que ce soit flou)
+    }).then(canvas => {
+        imageGenereeBlob = canvas.toDataURL("image/png");
+        
+        // Active le bouton de téléchargement
+        const btn = document.getElementById("btnTelecharger");
+        btn.disabled = false;
+        btn.classList.remove("opacity-50", "cursor-not-allowed");
+        btn.classList.add("bg-amber-600", "hover:bg-amber-700");
 
-    // Gestion de la vitesse d'écriture/suppression
-    let typeSpeed = isDeleting ? 50 : 100;
-
-    // Si le mot est entièrement écrit
-    if (!isDeleting && charIndex === currentWord.length) {
-        typeSpeed = 2000; // Pause à la fin du mot
-        isDeleting = true;
-    } 
-    // Si le mot est entièrement effacé
-    else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length; // Passer au mot suivant
-        typeSpeed = 500; // Petite pause avant d'écrire le nouveau mot
-    }
-
-    setTimeout(typeEffect, typeSpeed);
+        alert("Votre invitation a été générée avec succès ! Vous pouvez maintenant la télécharger.");
+    });
 }
 
-// Lancement de l'animation au chargement de la page
-document.addEventListener("DOMContentLoaded", () => {
-    typeEffect();
-});
-// --- EFFET DE PARALLAXE 3D (TILT EFFECT) ---
-const tiltElements = document.querySelectorAll('[data-tilt]');
-
-tiltElements.forEach(element => {
-    element.addEventListener('mousemove', (e) => {
-        const rect = element.getBoundingClientRect();
-        const x = e.clientX - rect.left; // Position X de la souris dans l'élément
-        const y = e.clientY - rect.top;  // Position Y de la souris dans l'élément
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        // Calcul de l'angle de rotation (Max 15 degrés pour rester élégant)
-        const rotateX = ((centerY - y) / centerY) * 15;
-        const rotateY = ((x - centerX) / centerX) * 15;
-        
-        // Application de la transformation 3D
-        element.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-    });
-    
-    // Réinitialisation de l'angle quand la souris sort de la carte
-    element.addEventListener('mouseleave', () => {
-        element.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
-        element.style.transition = 'transform 0.5s ease';
-    });
-
-    element.addEventListener('mouseenter', () => {
-        element.style.transition = 'none'; // Désactive la transition pendant le mouvement
-    });
-});
-
-
-// --- ENVOI DE FORMULAIRE INTERACTIF ---
-const form = document.getElementById('interactive-form');
-const statusDiv = document.getElementById('form-status');
-
-form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Empêche le rechargement de la page
-    
-    // Animation de chargement sur le bouton
-    const submitBtn = form.querySelector('.btn-submit');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = `<span>Envoi en cours...</span> <i data-lucide="loader" class="animate-spin"></i>`;
-    lucide.createIcons(); // Recréer l'icône de chargement
-
-    // Simulation d'envoi (Ici tu pourras lier un service comme EmailJS ou un script PHP de traitement)
-    setTimeout(() => {
-        submitBtn.innerHTML = originalText;
-        lucide.createIcons();
-
-        // Affichage du message de succès dynamique
-        statusDiv.className = "form-status success";
-        statusDiv.textContent = "Vielen Dank! Votre message a bien été envoyé. À très vite !";
-        
-        form.reset(); // Réinitialisation du formulaire
-        
-        // Disparition automatique après 5 secondes
-        setTimeout(() => {
-            statusDiv.className = "form-status hidden";
-        }, 5000);
-
-    }, 1500); // Temps de simulation de 1.5s
-});
+function telechargerImage() {
+    if (!imageGenereeBlob) return;
+    const link = document.createElement('a');
+    link.download = 'invitation-hommage.png';
+    link.href = imageGenereeBlob;
+    link.click();
+}
