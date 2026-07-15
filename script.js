@@ -1,7 +1,8 @@
-// 1. COMPTE À REBOURS DYNAMIQUE (Date cible : 12 Septembre 2026 à 10:00:00)
-const dateObsèques = new Date(2026, 8, 12, 10, 0, 0).getTime();
+// 1. COMPTE À REBOURS DYNAMIQUE (Cible : Jeudi 27 Août 2026 à 20:00:00)
+// Rappel JS: Le mois d'Août est indexé à 7 (Janvier = 0)
+const dateObsèques = new Date(2026, 7, 27, 20, 0, 0).getTime();
 
-setInterval(function() {
+const intervalCompte = setInterval(function() {
     const maintenant = new Date().getTime();
     const distance = dateObsèques - maintenant;
 
@@ -11,11 +12,20 @@ setInterval(function() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const secondes = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Affichage avec un zéro devant si < 10
+    // Affichage des chiffres sur le site
     document.getElementById("days").innerText = jours < 10 ? "0" + jours : jours;
     document.getElementById("hours").innerText = heures < 10 ? "0" + heures : heures;
     document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
     document.getElementById("seconds").innerText = secondes < 10 ? "0" + secondes : secondes;
+
+    // Si la date est atteinte
+    if (distance < 0) {
+        clearInterval(intervalCompte);
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+    }
 }, 1000);
 
 // 2. LOGIQUE DE GÉNÉRATION DE LA CARTE D'INVITATION
@@ -24,37 +34,36 @@ let imageGenereeBlob = null;
 function genererCarte() {
     const nomSaisi = document.getElementById("guestNameInput").value.trim();
     if (nomSaisi === "") {
-        alert("Veuillez saisir votre nom pour générer la carte.");
+        alert("Veuillez saisir votre nom pour personnaliser l'invitation.");
         return;
     }
 
     // Met à jour dynamiquement le texte sur la carte d'invitation
     document.getElementById("cardGuestName").innerText = nomSaisi.toUpperCase();
 
-    // Récupère l'élément HTML de la carte
+    // Capture de l'élément de la carte
     const elementACapturer = document.getElementById("captureArea");
     
-    // Génère l'image avec html2canvas
     html2canvas(elementACapturer, {
         useCORS: true, 
-        scale: 2 // Améliore la qualité (évite que ce soit flou)
+        scale: 2 // Assure un rendu net en HD
     }).then(canvas => {
         imageGenereeBlob = canvas.toDataURL("image/png");
         
-        // Active le bouton de téléchargement
+        // Active proprement le bouton de téléchargement
         const btn = document.getElementById("btnTelecharger");
         btn.disabled = false;
         btn.classList.remove("opacity-50", "cursor-not-allowed");
-        btn.classList.add("bg-amber-600", "hover:bg-amber-700");
+        btn.classList.add("bg-amber-600", "hover:bg-amber-700", "scale-105");
 
-        alert("Votre invitation a été générée avec succès ! Vous pouvez maintenant la télécharger.");
+        alert("L'invitation de la famille GBINLO pour " + nomSaisi + " a été générée avec succès ! Vous pouvez la télécharger.");
     });
 }
 
 function telechargerImage() {
     if (!imageGenereeBlob) return;
     const link = document.createElement('a');
-    link.download = 'invitation-hommage.png';
+    link.download = 'invitation-Patriarche-GBINLO.png';
     link.href = imageGenereeBlob;
     link.click();
 }

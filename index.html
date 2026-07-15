@@ -3,75 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hommage à notre Inspecteur</title>
-    <!-- Tailwind CSS pour les classes utilitaires -->
+    <title>Hommage à l'Inspecteur GBINLO Séraphin</title>
+    <!-- Tailwind CSS pour les classes utilitaires et animations -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- html2canvas pour générer la carte d'invitation en image PNG -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <!-- Ton fichier CSS personnalisé -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-stone-50 text-stone-800 font-sans-clean">
+<body class="bg-stone-50 text-stone-800 font-sans-clean selection:bg-amber-200">
 
-    <!-- 1. EN-TÊTE / ACCUEIL -->
-    <header class="relative h-[80vh] flex items-center justify-center overflow-hidden bg-stone-950">
-        <!-- Image de fond floutée pour l'ambiance -->
-        <img src="inspecteur.png" alt="Fond" class="absolute inset-0 w-full h-full object-cover opacity-30 filter blur-md scale-110">
+    <!-- 1. HERO EN-TÊTE (Effet Parallaxe et 3D Immersive) -->
+    <header class="relative h-[85vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-stone-950 via-stone-900 to-stone-950 shadow-inner">
+        <!-- Image de fond avec filtre flou HD et superposition de relief -->
+        <img src="inspecteur.png" alt="Fond Mémorial" class="absolute inset-0 w-full h-full object-cover opacity-25 filter blur-sm scale-105 transition-transform duration-1000 ease-out">
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/50"></div>
         
-        <div class="relative z-10 text-center text-white px-4 space-y-4">
-            <p class="text-xs uppercase tracking-[0.2em] text-amber-400 font-semibold font-sans-clean">En mémoire de notre cher Patriarche</p>
-            <h1 class="font-serif-elegant text-4xl md:text-6xl text-stone-100 font-light drop-shadow-lg">
-                M. l'Inspecteur
+        <div class="relative z-10 text-center text-white px-4 space-y-6 max-w-3xl animate-fade-in">
+            <p class="text-xs uppercase tracking-[0.3em] text-amber-400 font-semibold animate-pulse">Hommage Officiel & Célébration</p>
+            <h1 class="font-serif-elegant text-4xl md:text-6xl text-stone-100 font-bold tracking-wide drop-shadow-2xl">
+                Inspecteur<br><span class="text-amber-400">GBINLO Séraphin</span>
             </h1>
-            <p class="text-lg md:text-xl font-light italic text-stone-300 font-sans-clean">"Un grand enseignant n'est jamais oublié."</p>
-            <div class="w-16 h-[1px] bg-amber-400 mx-auto my-6"></div>
+            <p class="text-base md:text-lg font-light italic text-stone-300 font-sans-clean max-w-xl mx-auto border-t border-b border-stone-800/60 py-4">
+                "Que votre cœur ne se trouble point. Croyez en Dieu, et croyez en moi. Il y a plusieurs demeures dans la maison de mon Père." <br>
+                <span class="block text-xs mt-2 text-amber-500 not-italic font-bold tracking-widest">— JEAN 14: 1-2</span>
+            </p>
+            <div class="w-12 h-[2px] bg-amber-400 mx-auto mt-6"></div>
         </div>
     </header>
 
-    <!-- 2. BIOGRAPHIE & ENFANTS -->
-    <section class="py-20 px-4 max-w-6xl mx-auto">
+    <!-- 2. BIOGRAPHIE & RETRAITE -->
+    <section class="py-24 px-4 max-w-6xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
             
-            <!-- Photo officielle -->
+            <!-- Cadre Photo Portrait Principal avec effet 3D d'ombrage -->
             <div class="md:col-span-5 flex justify-center">
-                <div class="relative max-w-xs md:max-w-sm rounded-lg overflow-hidden shadow-2xl border-4 border-amber-500/20">
-                    <img src="inspecteur.png" alt="Inspecteur de l'Enseignement Primaire" class="w-full h-auto object-cover">
+                <div class="relative max-w-xs md:max-w-sm rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] border-[6px] border-white transform hover:scale-105 hover:rotate-1 transition-all duration-500">
+                    <img src="inspecteur.png" alt="Inspecteur GBINLO Séraphin" class="w-full h-auto object-cover">
                 </div>
             </div>
 
             <!-- Texte de présentation et Liste des enfants -->
             <div class="md:col-span-7 space-y-8">
                 <div>
-                    <span class="text-xs uppercase tracking-wider text-amber-600 font-semibold font-sans-clean">Hommage</span>
-                    <h2 class="font-serif-elegant text-3xl md:text-4xl text-stone-900 mt-1">Une Vie de Dévouement à l'Éducation</h2>
+                    <span class="text-xs uppercase tracking-wider text-amber-600 font-semibold">Service - Dévouement - Excellence</span>
+                    <h2 class="font-serif-elegant text-3xl md:text-4xl text-stone-900 mt-1">Inspecteur de l’Enseignement Primaire à la Retraite</h2>
                 </div>
                 
                 <p class="text-stone-600 leading-relaxed font-light font-sans-clean">
-                    Inspecteur de l’enseignement primaire à la retraite, il a consacré sa vie à l'éducation, à la formation des générations et au service de sa nation avec excellence et rigueur. Son héritage intellectuel et moral continuera de guider ses enfants, ses proches et tous ses anciens élèves.
+                    Un homme d'exception qui a consacré sa vie avec rigueur et passion à l'éducation, à la formation des générations et à l'avancement du savoir. Son dévouement précieux reste gravé dans le cœur de sa famille, de ses collègues et de la nation.
                 </p>
 
-                <!-- Cadre de la Famille -->
-                <div class="bg-amber-50/50 p-6 rounded-xl border border-amber-200/40 shadow-sm">
-                    <h3 class="font-serif-elegant text-lg text-amber-900 mb-4 flex items-center gap-2 font-bold">
+                <!-- Cadre de la Descendance -->
+                <div class="bg-gradient-to-br from-amber-50/60 to-stone-100 p-8 rounded-2xl border border-amber-200/30 shadow-md">
+                    <h3 class="font-serif-elegant text-lg text-amber-950 mb-4 flex items-center gap-2 font-bold tracking-wide">
                         <span>✦</span> Sa Descendance (Ses Enfants)
                     </h3>
-                    
                     <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-stone-700 font-sans-clean">
-                        <li class="flex items-center gap-2">
+                        <li class="flex items-center gap-2 transform hover:translate-x-1 transition-transform">
                             <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                            <span class="font-medium">Enfant 1</span>
+                            <span class="font-medium">[Nom de l'Enfant 1]</span>
                         </li>
-                        <li class="flex items-center gap-2">
+                        <li class="flex items-center gap-2 transform hover:translate-x-1 transition-transform">
                             <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                            <span class="font-medium">Enfant 2</span>
+                            <span class="font-medium">[Nom de l'Enfant 2]</span>
                         </li>
-                        <li class="flex items-center gap-2">
+                        <li class="flex items-center gap-2 transform hover:translate-x-1 transition-transform">
                             <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                            <span class="font-medium">Enfant 3</span>
+                            <span class="font-medium">[Nom de l'Enfant 3]</span>
                         </li>
-                        <li class="flex items-center gap-2">
+                        <li class="flex items-center gap-2 transform hover:translate-x-1 transition-transform">
                             <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                            <span class="font-medium">Enfant 4</span>
+                            <span class="font-medium">[Nom de l'Enfant 4]</span>
                         </li>
                     </ul>
                 </div>
@@ -80,46 +83,70 @@
         </div>
     </section>
 
-    <!-- 3. CÉRÉMONIE & COMPTE À REBOURS -->
-    <section class="bg-stone-950 text-white py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center space-y-12">
+    <!-- 3. PROGRAMME DU COMMÉMORATION & COMPTE À REBOURS -->
+    <section class="bg-stone-950 text-white py-24 px-4 shadow-[inset_0_20px_30px_rgba(0,0,0,0.7)]">
+        <div class="max-w-5xl mx-auto space-y-16">
             
-            <div class="space-y-2">
-                <span class="text-xs uppercase tracking-[0.2em] text-amber-400 font-sans-clean">Programme des obsèques</span>
-                <h2 class="font-serif-elegant text-3xl md:text-5xl text-stone-100">La Cérémonie d'Hommage</h2>
+            <div class="text-center space-y-2">
+                <span class="text-xs uppercase tracking-[0.2em] text-amber-400">Chronologie des Obsèques</span>
+                <h2 class="font-serif-elegant text-3xl md:text-5xl text-stone-100">Le Programme de l'Hommage</h2>
             </div>
 
-            <!-- Détails de la Cérémonie -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left font-sans-clean">
-                <div class="bg-stone-900 border border-stone-800 p-6 rounded-xl">
-                    <p class="text-xs text-amber-400 uppercase tracking-wider mb-1">Date & Heure</p>
-                    <p class="font-serif-elegant text-lg text-stone-200">Samedi 12 Septembre 2026 à 10h00</p>
+            <!-- Grille du Programme Officiel -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans-clean">
+                
+                <!-- Jeudi -->
+                <div class="bg-stone-900/60 border border-stone-800/80 p-6 rounded-2xl shadow-xl hover:border-amber-500/30 transition-all duration-300">
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">Jeudi 27 Août 2026</span>
+                    <div class="w-8 h-[1px] bg-stone-700 my-3"></div>
+                    <p class="text-lg font-bold text-stone-200">20h00</p>
+                    <p class="text-stone-400 text-sm mt-1 leading-relaxed">
+                        Veillée de prières à <strong class="text-stone-200">FONKPAMIN</strong> dans la maison GBINLO, suivie d'animations folkloriques.
+                    </p>
                 </div>
-                <div class="bg-stone-900 border border-stone-800 p-6 rounded-xl">
-                    <p class="text-xs text-amber-400 uppercase tracking-wider mb-1">Lieu</p>
-                    <p class="font-serif-elegant text-lg text-stone-200">Paroisse, Cotonou, Bénin</p>
+
+                <!-- Vendredi -->
+                <div class="bg-stone-900/60 border border-stone-800/80 p-6 rounded-2xl shadow-xl hover:border-amber-500/30 transition-all duration-300">
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">Vendredi 28 Août 2026</span>
+                    <div class="w-8 h-[1px] bg-stone-700 my-3"></div>
+                    <p class="text-lg font-bold text-stone-200">09h00</p>
+                    <p class="text-stone-400 text-sm mt-1 leading-relaxed">
+                        Messe solennelle dans la maison <strong class="text-stone-200">GBINLO</strong>, suivie de la réception des invités.
+                    </p>
+                </div>
+
+                <!-- Samedi -->
+                <div class="bg-stone-900/60 border border-stone-800/80 p-6 rounded-2xl shadow-xl hover:border-amber-500/30 transition-all duration-300 md:col-span-1">
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">Samedi 29 Août 2026</span>
+                    <div class="w-8 h-[1px] bg-stone-700 my-3"></div>
+                    <p class="text-stone-400 text-sm leading-relaxed">
+                        <strong class="text-stone-200 font-bold block text-base">11h00 :</strong> Messe d'action de grâce en l'église Bon-Pasteur d'Adandokpodji <strong class="text-stone-200">ABOMEY</strong>.
+                    </p>
+                    <p class="text-stone-400 text-sm leading-relaxed mt-3">
+                        <strong class="text-stone-200 font-bold block text-base">13h00 :</strong> Réception à la CNSS (OBSS) d'Abomey située à <strong class="text-stone-200">GOHO</strong>.
+                    </p>
                 </div>
             </div>
 
-            <!-- COMPTE À REBOURS -->
-            <div class="space-y-4 pt-6 font-sans-clean">
-                <p class="text-stone-400 text-sm">Le compte à rebours est lancé :</p>
-                <div class="grid grid-cols-4 gap-3 max-w-md mx-auto text-center">
-                    <div class="bg-stone-900 border border-stone-800 p-4 rounded-xl">
-                        <span id="days" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold">00</span>
-                        <span class="text-[10px] uppercase tracking-wider text-stone-500">Jours</span>
+            <!-- COMPTE À REBOURS VISUEL (Stylisé 3D Métallique) -->
+            <div class="space-y-4 pt-6 text-center font-sans-clean">
+                <p class="text-stone-400 text-xs tracking-wider uppercase">L'hommage débute dans :</p>
+                <div class="grid grid-cols-4 gap-4 max-w-md mx-auto text-center">
+                    <div class="bg-gradient-to-b from-stone-900 to-stone-950 border border-stone-800 p-4 rounded-xl shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+                        <span id="days" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold tracking-tight">00</span>
+                        <span class="text-[9px] uppercase tracking-widest text-stone-500 font-medium block mt-1">Jours</span>
                     </div>
-                    <div class="bg-stone-900 border border-stone-800 p-4 rounded-xl">
-                        <span id="hours" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold">00</span>
-                        <span class="text-[10px] uppercase tracking-wider text-stone-500">Heures</span>
+                    <div class="bg-gradient-to-b from-stone-900 to-stone-950 border border-stone-800 p-4 rounded-xl shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+                        <span id="hours" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold tracking-tight">00</span>
+                        <span class="text-[9px] uppercase tracking-widest text-stone-500 font-medium block mt-1">Heures</span>
                     </div>
-                    <div class="bg-stone-900 border border-stone-800 p-4 rounded-xl">
-                        <span id="minutes" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold">00</span>
-                        <span class="text-[10px] uppercase tracking-wider text-stone-500">Minutes</span>
+                    <div class="bg-gradient-to-b from-stone-900 to-stone-950 border border-stone-800 p-4 rounded-xl shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+                        <span id="minutes" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold tracking-tight">00</span>
+                        <span class="text-[9px] uppercase tracking-widest text-stone-500 font-medium block mt-1">Minutes</span>
                     </div>
-                    <div class="bg-stone-900 border border-stone-800 p-4 rounded-xl">
-                        <span id="seconds" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold">00</span>
-                        <span class="text-[10px] uppercase tracking-wider text-stone-500">Sec</span>
+                    <div class="bg-gradient-to-b from-stone-900 to-stone-950 border border-stone-800 p-4 rounded-xl shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+                        <span id="seconds" class="block font-serif-elegant text-3xl md:text-4xl text-amber-400 font-bold tracking-tight">00</span>
+                        <span class="text-[9px] uppercase tracking-widest text-stone-500 font-medium block mt-1">Sec</span>
                     </div>
                 </div>
             </div>
@@ -128,64 +155,67 @@
     </section>
 
     <!-- 4. GÉNÉRATEUR DE CARTES D'INVITATION -->
-    <section class="py-20 px-4 bg-stone-100">
+    <section class="py-24 px-4 bg-stone-100">
         <div class="max-w-5xl mx-auto text-center space-y-12">
             
             <div class="space-y-2">
-                <span class="text-xs uppercase tracking-wider text-amber-600 font-semibold font-sans-clean">Invitation Individuelle</span>
-                <h2 class="font-serif-elegant text-3xl md:text-4xl text-stone-900">Obtenir votre carte d'invitation</h2>
-                <p class="text-stone-600 max-w-md mx-auto font-light font-sans-clean">Saisissez votre nom pour générer votre invitation officielle et la télécharger.</p>
+                <span class="text-xs uppercase tracking-wider text-amber-600 font-semibold font-sans-clean">Faire-part Numérique</span>
+                <h2 class="font-serif-elegant text-3xl md:text-4xl text-stone-900">Votre Invitation Personnalisée</h2>
+                <p class="text-stone-600 max-w-md mx-auto text-sm font-light font-sans-clean">Générez et téléchargez votre carte d'invitation officielle pour les cérémonies.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start text-left font-sans-clean">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left font-sans-clean">
                 
                 <!-- Formulaire -->
-                <div class="lg:col-span-5 bg-white p-8 rounded-2xl shadow-md border border-stone-200/60 space-y-6">
+                <div class="lg:col-span-5 bg-white p-8 rounded-2xl shadow-xl border border-stone-200/60 space-y-6 transform hover:-translate-y-1 transition-transform duration-300">
                     <div class="space-y-2">
-                        <label class="block text-sm font-semibold text-stone-700">Votre Nom Complet :</label>
-                        <input type="text" id="guestNameInput" placeholder="Ex: M. et Mme COFFI" 
-                               class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none transition-all">
+                        <label class="block text-sm font-semibold text-stone-700">Entrez Votre Nom ou Famille :</label>
+                        <input type="text" id="guestNameInput" placeholder="Ex: M. et Mme COFFI et enfants" 
+                               class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none transition-all text-stone-800 placeholder-stone-400">
                     </div>
                     <button onclick="genererCarte()" 
-                            class="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-6 rounded-lg shadow-lg shadow-amber-950/10 transition-all">
+                            class="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-200">
                         Créer mon invitation
                     </button>
                 </div>
 
-                <!-- Aperçu et téléchargement -->
+                <!-- Aperçu 3D et téléchargement -->
                 <div class="lg:col-span-7 flex flex-col items-center space-y-6">
                     
-                    <!-- LA CARTE -->
-                    <div id="captureArea" class="bg-stone-950 text-white w-[350px] p-6 rounded-xl border-[6px] border-amber-500 shadow-2xl space-y-6 relative overflow-hidden text-center mx-auto">
-                        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-stone-900 via-stone-950 to-stone-950 opacity-90 z-0"></div>
+                    <!-- DESIGN DE LA CARTE D'INVITATION (Prête pour capture PNG) -->
+                    <div id="captureArea" class="bg-stone-950 text-white w-[350px] p-6 rounded-2xl border-[4px] border-amber-500/80 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] space-y-6 relative overflow-hidden text-center mx-auto">
+                        <div class="absolute inset-0 bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 opacity-95 z-0"></div>
                         
                         <div class="relative z-10 space-y-4">
-                            <p class="text-[9px] uppercase tracking-[0.3em] text-amber-400">Faire-part d'Invitation</p>
+                            <p class="text-[9px] uppercase tracking-[0.3em] text-amber-400 font-semibold">Faire-part officiel d'Invitation</p>
                             
-                            <div class="w-24 h-24 rounded-full mx-auto border-2 border-amber-500 overflow-hidden bg-stone-800">
-                                <img src="inspecteur.png" alt="Inspecteur" class="w-full h-full object-cover">
+                            <!-- Mini Portrait -->
+                            <div class="w-20 h-20 rounded-full mx-auto border-2 border-amber-400 overflow-hidden bg-stone-900 shadow-md">
+                                <img src="inspecteur.png" alt="Inspecteur GBINLO" class="w-full h-full object-cover">
                             </div>
 
                             <div class="space-y-1">
-                                <h3 class="font-serif-elegant text-xl text-amber-400">Hommage & Obsèques</h3>
-                                <p class="text-xs text-stone-400">En mémoire de notre cher Inspecteur</p>
+                                <h3 class="font-serif-elegant text-lg text-amber-400 font-bold">Inspecteur GBINLO Séraphin</h3>
+                                <p class="text-[10px] text-stone-400 font-light">Hommage et Célébration de Vie</p>
                             </div>
 
-                            <div class="bg-stone-900/80 border border-stone-800 py-3 px-2 rounded-lg my-4">
-                                <p class="text-[10px] text-stone-500 uppercase">Invitation délivrée à :</p>
-                                <p id="cardGuestName" class="font-serif-elegant text-base text-stone-100 font-bold tracking-wide mt-1">VOTRE NOM ICI</p>
+                            <!-- Nom invité dynamique -->
+                            <div class="bg-stone-900/90 border border-stone-800/80 py-2.5 px-2 rounded-xl my-4 shadow-inner">
+                                <p class="text-[9px] text-stone-500 uppercase tracking-wider">Invitation accordée à :</p>
+                                <p id="cardGuestName" class="font-serif-elegant text-sm text-stone-100 font-bold tracking-wide mt-0.5">VOTRE NOM ICI</p>
                             </div>
 
-                            <div class="text-[10px] text-stone-400 space-y-1">
-                                <p>🗓️ Samedi 12 Septembre 2026 à 10h00</p>
-                                <p>📍 Cotonou, Bénin</p>
+                            <div class="text-[9px] text-stone-300 space-y-1.5 text-left bg-stone-900/30 p-3 rounded-lg border border-stone-800/40">
+                                <p>🗓️ **Du 27 au 29 Août 2026**</p>
+                                <p>📍 **Fonkpamin & Abomey (Bénin)**</p>
+                                <p class="text-[8px] text-amber-400/80 text-center italic mt-1">Présence honorable souhaitée</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Bouton de téléchargement -->
+                    <!-- Bouton Télécharger -->
                     <button id="btnTelecharger" disabled onclick="telechargerImage()"
-                            class="bg-stone-800 hover:bg-stone-900 text-white font-medium py-2.5 px-8 rounded-lg opacity-50 cursor-not-allowed transition-all">
+                            class="bg-stone-800 hover:bg-stone-900 text-white font-medium py-3 px-8 rounded-xl opacity-50 cursor-not-allowed transition-all shadow-md">
                         📥 Télécharger la carte d'invitation (PNG)
                     </button>
                 </div>
@@ -195,9 +225,20 @@
         </div>
     </section>
 
+    <!-- 5. BLOC OFFICIEL DE REMERCIEMENT (Bas de page) -->
+    <section class="bg-stone-200 text-stone-800 py-16 px-6 border-t border-stone-300/60 shadow-inner">
+        <div class="max-w-3xl mx-auto text-center space-y-6 font-sans-clean">
+            <h3 class="font-serif-elegant text-2xl tracking-wider text-stone-900 uppercase font-bold">Remerciement</h3>
+            <div class="w-12 h-[1px] bg-amber-600 mx-auto"></div>
+            <p class="text-stone-600 leading-relaxed text-sm md:text-base font-light italic max-w-2xl mx-auto">
+                "Les familles éplorées profondément touchées des marques de sympathie et d'affection que vous leur avez témoignées de diverses manières vous prient de trouver ici l'expression de leurs sincères remerciements. Que le tout puissant vous comble de grâces."
+            </p>
+        </div>
+    </section>
+
     <!-- PIED DE PAGE -->
-    <footer class="bg-stone-950 text-stone-500 text-center py-8 border-t border-stone-900 text-sm font-sans-clean">
-        <p>© 2026 — Union de Prière avec la Famille. Tous droits réservés.</p>
+    <footer class="bg-stone-950 text-stone-600 text-center py-8 border-t border-stone-900 text-xs font-sans-clean tracking-wider">
+        <p>© 2026 — Union de Prière avec la Famille GBINLO. Tous droits réservés.</p>
     </footer>
 
     <!-- Liaison avec ton script JavaScript séparé -->
