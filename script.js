@@ -1,78 +1,74 @@
-// 1. GESTION DU MODE SOMBRE / CLAIR DYNAMIQUE
-function toggleDarkMode() {
-    const htmlElement = document.documentElement;
-    const themeIcon = document.getElementById("themeIcon");
-    const themeText = document.getElementById("themeText");
+// ==========================================
+// 1. GESTION DU COMPTE À REBOURS
+// ==========================================
+const targetDate = new Date("August 27, 2026 20:00:00").getTime();
 
-    if (htmlElement.classList.contains("dark")) {
-        htmlElement.classList.remove("dark");
-        themeIcon.innerText = "🌙";
-        themeText.innerText = "Mode Sombre";
-    } else {
-        htmlElement.classList.add("dark");
-        themeIcon.innerText = "☀️";
-        themeText.innerText = "Mode Clair";
-    }
-}
+const countdownInterval = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
 
-// 2. COMPTE À REBOURS DYNAMIQUE (Cible : Jeudi 27 Août 2026 à 20:00:00)
-const dateObsèques = new Date(2026, 7, 27, 20, 0, 0).getTime();
-
-const intervalCompte = setInterval(function() {
-    const maintenant = new Date().getTime();
-    const distance = dateObsèques - maintenant;
-
-    const jours = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const heures = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    // Calcul du temps restant
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const secondes = Math.floor((distance % (1000 * 60)) / 1000);
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("days").innerText = jours < 10 ? "0" + jours : jours;
-    document.getElementById("hours").innerText = heures < 10 ? "0" + heures : heures;
-    document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-    document.getElementById("seconds").innerText = secondes < 10 ? "0" + secondes : secondes;
+    // Affichage dans le HTML
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
 
+    if (daysEl) daysEl.innerText = String(days).padStart(2, '0');
+    if (hoursEl) hoursEl.innerText = String(hours).padStart(2, '0');
+    if (minutesEl) minutesEl.innerText = String(minutes).padStart(2, '0');
+    if (secondsEl) secondsEl.innerText = String(seconds).padStart(2, '0');
+
+    // Si le compte à rebours est terminé
     if (distance < 0) {
-        clearInterval(intervalCompte);
-        document.getElementById("days").innerText = "00";
-        document.getElementById("hours").innerText = "00";
-        document.getElementById("minutes").innerText = "00";
-        document.getElementById("seconds").innerText = "00";
+        clearInterval(countdownInterval);
+        const countdownContainer = document.querySelector("#programme .grid-cols-4");
+        if (countdownContainer) {
+            countdownContainer.innerHTML = "<p class='col-span-4 text-amber-400 font-serif-elegant text-lg uppercase tracking-wider'>Les obsèques ont commencé</p>";
+        }
     }
 }, 1000);
 
-// 3. GÉNÉRATEUR DE LA CARTE D'INVITATION
-let imageGenereeBlob = null;
+// ==========================================
+// 2. GESTION DU DARK MODE (MODE SOMBRE)
+// ==========================================
+function toggleDarkMode() {
+    const html = document.documentElement;
+    const themeIcon = document.getElementById("themeIcon");
+    const themeText = document.getElementById("themeText");
 
-function genererCarte() {
-    const nomSaisi = document.getElementById("guestNameInput").value.trim();
-    if (nomSaisi === "") {
-        alert("Vaudriez-vous bien saisir votre nom avant de continuer ?");
-        return;
+    if (html.classList.contains("dark")) {
+        html.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        if (themeIcon) themeIcon.innerText = "🌙";
+        if (themeText) themeText.innerText = "Mode Sombre";
+    } else {
+        html.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        if (themeIcon) themeIcon.innerText = "☀️";
+        if (themeText) themeText.innerText = "Mode Clair";
     }
-
-    document.getElementById("cardGuestName").innerText = nomSaisi.toUpperCase();
-    const elementACapturer = document.getElementById("captureArea");
-    
-    html2canvas(elementACapturer, {
-        useCORS: true, 
-        scale: 2
-    }).then(canvas => {
-        imageGenereeBlob = canvas.toDataURL("image/png");
-        
-        const btn = document.getElementById("btnTelecharger");
-        btn.disabled = false;
-        btn.classList.remove("opacity-50", "cursor-not-allowed");
-        btn.classList.add("bg-amber-600", "hover:bg-amber-700");
-
-        alert("L'invitation de la famille GBINLO pour " + nomSaisi + " a été générée avec succès ! Vous pouvez la télécharger.");
-    });
 }
 
-function telechargerImage() {
-    if (!imageGenereeBlob) return;
-    const link = document.createElement('a');
-    link.download = 'invitation-Inspecteur-GBINLO.png';
-    link.href = imageGenereeBlob;
-    link.click();
-}
+// Appliquer le thème sauvegardé au chargement de la page
+document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    const html = document.documentElement;
+    const themeIcon = document.getElementById("themeIcon");
+    const themeText = document.getElementById("themeText");
+
+    if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        html.classList.add("dark");
+        if (themeIcon) themeIcon.innerText = "☀️";
+        if (themeText) themeText.innerText = "Mode Clair";
+    } else {
+        html.classList.remove("dark");
+        if (themeIcon) themeIcon.innerText = "🌙";
+        if (themeText) themeText.innerText = "Mode Sombre";
+    }
+});
