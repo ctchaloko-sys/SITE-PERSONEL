@@ -61,3 +61,100 @@
     <script src="script.js"></script>
 </body>
 </html>
+<!-- SECTION SERVICES (Avec cartes interactives 3D) -->
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <span class="badge">Mes Prestations</span>
+            <h2>Des services uniques pour booster votre allemand</h2>
+            <p>Une approche moderne qui combine l'apprentissage linguistique avec les outils technologiques de pointe.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Carte 1 : Cours d'allemand -->
+            <div class="card-3d" data-tilt>
+                <div class="card-content">
+                    <div class="card-icon icon-de">
+                        <i data-lucide="languages"></i>
+                    </div>
+                    <h3>Deutsch Coaching</h3>
+                    <p>Cours d'allemand personnalisés du niveau A1 à C2. Apprenez deux fois plus vite grâce à une méthodologie active et des supports visuels impactants.</p>
+                    <span class="card-tag">Individuel ou Groupe</span>
+                </div>
+            </div>
+
+            <!-- Carte 2 : IA & Prompt Engineering -->
+            <div class="card-3d" data-tilt>
+                <div class="card-content">
+                    <div class="card-icon icon-ia">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <h3>IA & Pédagogie</h3>
+                    <p>Apprenez à utiliser l'IA (ChatGPT, Midjourney) pour automatiser vos révisions, générer des exercices interactifs et créer vos propres tuteurs virtuels.</p>
+                    <span class="card-tag">Workshop & Formation</span>
+                </div>
+            </div>
+
+            <!-- Carte 3 : Design de ressources -->
+            <div class="card-3d" data-tilt>
+                <div class="card-content">
+                    <div class="card-icon icon-design">
+                        <i data-lucide="palette"></i>
+                    </div>
+                    <h3>Design Pédagogique</h3>
+                    <p>Création de supports de cours ultra-visuels sur Canva (fiches de grammaire, infographies, e-books). Idéal pour enseignants et étudiants visuels.</p>
+                    <span class="card-tag">Sur-mesure</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT & RÉSERVATION -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <span class="badge">Discutons de votre projet</span>
+                <h2>Prêt à réinventer votre apprentissage ?</h2>
+                <p>Que vous soyez un particulier souhaitant maîtriser l'allemand ou une structure intéressée par une formation sur l'IA, envoyez-moi un message.</p>
+                
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <i data-lucide="mail"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contact@emmanuelclarius.com</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i data-lucide="map-pin"></i>
+                        <div>
+                            <h4>Localisation</h4>
+                            <p>Cotonou, Bénin & En ligne</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulaire 3D dynamique -->
+            <div class="contact-form-container" data-tilt>
+                <form id="interactive-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Votre Nom</label>
+                        <input type="text" id="name" required placeholder="Ex: Emmanuel Clarius">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Votre Email</label>
+                        <input type="email" id="email" required placeholder="Ex: nom@domaine.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Votre Message</label>
+                        <textarea id="message" rows="5" required placeholder="Décrivez votre besoin en quelques lignes..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <span>Envoyer le message</span>
+                        <i data-lucide="send"></i>
+                    </button>
+                </form>
+                <div id="form-status" class="form-status hidden"></div>
+            </div>
+        </div>
+    </section>

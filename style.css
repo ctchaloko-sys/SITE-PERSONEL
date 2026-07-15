@@ -303,3 +303,256 @@ body {
         margin-top: 3rem;
     }
 }
+/* --- SECTION SERVICES --- */
+.services-section {
+    padding: 6rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.section-header p {
+    color: var(--text-light);
+    max-width: 600px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    perspective: 1000px; /* Indispensable pour l'effet 3D */
+}
+
+/* Cartes 3D */
+.card-3d {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2.5rem;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+    transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+    transform-style: preserve-3d; /* Permet aux enfants d'avoir du relief */
+    position: relative;
+    cursor: pointer;
+}
+
+.card-3d:hover {
+    box-shadow: 0 30px 60px rgba(37, 99, 235, 0.12);
+}
+
+.card-content {
+    transform: translateZ(50px); /* Fait "sortir" le contenu de la carte en 3D */
+    transition: transform 0.15s ease-out;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-icon i {
+    width: 28px;
+    height: 28px;
+}
+
+.icon-de { background-color: #FEF08A; color: #CA8A04; }
+.icon-ia { background-color: var(--accent-glow); color: var(--accent); }
+.icon-design { background-color: #FED7AA; color: #EA580C; }
+
+.card-3d h3 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.card-3d p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.card-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-light);
+    background-color: #F1F5F9;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+}
+
+/* --- SECTION CONTACT --- */
+.contact-section {
+    padding: 6rem 5%;
+    background-color: #F1F5F9;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-info h2 {
+    font-size: 2.8rem;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.contact-info p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.contact-details {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.detail-item i {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    background-color: var(--white);
+    border-radius: 12px;
+    color: var(--accent);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.detail-item h4 {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-item p {
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Formulaire en Relief 3D */
+.contact-form-container {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 28px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.contact-form {
+    transform: translateZ(30px); /* Fait ressortir le formulaire */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.form-group input, .form-group textarea {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.btn-submit {
+    background-color: var(--accent);
+    color: var(--white);
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit:hover {
+    background-color: #1D4ED8;
+    transform: translateY(-2px);
+}
+
+/* Status du formulaire */
+.form-status {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+.form-status.success { background-color: #DCFCE7; color: #15803D; }
+.form-status.error { background-color: #FEE2E2; color: #B91C1C; }
+.hidden { display: none; }
+
+@media (max-width: 968px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .contact-form-container {
+        padding: 2rem;
+    }
+}
