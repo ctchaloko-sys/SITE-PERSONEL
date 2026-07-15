@@ -1,2 +1,63 @@
-site 
-zeus
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Enseignement de l'Allemand, IA & Design</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Importation des icônes modernes -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Deutsch<span>.AI</span></div>
+        <nav class="nav-links">
+            <a href="#accueil" class="active">Accueil</a>
+            <a href="#projets">Ressources & Design</a>
+            <a href="#services">Services</a>
+            <a href="#contact" class="btn-nav">Me contacter</a>
+        </nav>
+    </header>
+
+    <section id="accueil" class="hero-section">
+        <div class="hero-content">
+            <span class="badge">L'Allemand à l'ère du digital</span>
+            <h1>Apprenez l'allemand boosté par <span class="highlight">l'IA</span></h1>
+            <h2>Je suis <span id="dynamic-text" class="text-rotator"></span><span class="cursor">|</span></h2>
+            <p>Fusionner la rigueur de la langue allemande avec la puissance de l'intelligence artificielle et la clarté du design visuel pour un apprentissage ultra-rapide.</p>
+            
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary">Découvrir mes cours</a>
+                <a href="#projets" class="btn-secondary">Explorer les ressources <i data-lucide="arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="visual-card main-card">
+                <!-- Ici, tu pourras mettre sa photo portrait -->
+                <div class="avatar-placeholder">
+                    <i data-lucide="sparkles" class="ai-sparkle"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Enseignant & Prompt Designer</h3>
+                    <p>Cotonou & En ligne</p>
+                </div>
+            </div>
+            <!-- Éléments flottants pour le dynamisme -->
+            <div class="floating-badge badge-1">
+                <i data-lucide="languages" class="icon-yellow"></i> <span>Deutsch A1-C2</span>
+            </div>
+            <div class="floating-badge badge-2">
+                <i data-lucide="cpu" class="icon-blue"></i> <span>Intégration IA</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initialisation des icônes -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
