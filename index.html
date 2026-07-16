@@ -14,6 +14,7 @@
     </script>
     
     <!-- TOUS LES STYLES CSS CENTRALISÉS -->
+    <!-- STREAMING_CHUNK:Configuring custom fonts and animations... -->
     <style>
         /* Importation de polices élégantes depuis Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -59,183 +60,12 @@
         .animate-fade-in {
             animation: fadeIn 1s ease-out forwards;
         }
-
-        /* ==========================================
-           ANIMATIONS AU DÉFILEMENT (SCROLL REVEAL)
-           ========================================== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: opacity, transform;
-        }
-        .reveal.reveal-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ==========================================
-           EFFET 3D (TILT) SUR LES CARTES ET LE PORTRAIT
-           ========================================== */
-        .tilt-3d {
-            transform-style: preserve-3d;
-            perspective: 1000px;
-            transition: transform 0.15s ease-out, box-shadow 0.3s ease;
-        }
-        .tilt-3d:hover {
-            box-shadow: 0 25px 45px -10px rgba(0,0,0,0.35);
-        }
-
-        /* ==========================================
-           PROGRAMME : APPARITION "COULEUR PAR COULEUR"
-           ========================================== */
-        @keyframes colorPulseAmber {
-            0%   { opacity: 0; transform: translateY(24px) scale(0.96); border-color: rgba(245,158,11,0); box-shadow: none; }
-            35%  { opacity: 1; transform: translateY(0) scale(1.02); border-color: rgba(245,158,11,0.9); box-shadow: 0 0 25px rgba(245,158,11,0.35); }
-            100% { opacity: 1; transform: translateY(0) scale(1); border-color: rgba(120,113,108,0.8); box-shadow: none; }
-        }
-        @keyframes colorPulseBlue {
-            0%   { opacity: 0; transform: translateY(24px) scale(0.96); border-color: rgba(59,130,246,0); box-shadow: none; }
-            35%  { opacity: 1; transform: translateY(0) scale(1.02); border-color: rgba(59,130,246,0.9); box-shadow: 0 0 25px rgba(59,130,246,0.35); }
-            100% { opacity: 1; transform: translateY(0) scale(1); border-color: rgba(120,113,108,0.8); box-shadow: none; }
-        }
-        @keyframes colorPulseEmerald {
-            0%   { opacity: 0; transform: translateY(24px) scale(0.96); border-color: rgba(16,185,129,0); box-shadow: none; }
-            35%  { opacity: 1; transform: translateY(0) scale(1.02); border-color: rgba(16,185,129,0.9); box-shadow: 0 0 25px rgba(16,185,129,0.35); }
-            100% { opacity: 1; transform: translateY(0) scale(1); border-color: rgba(120,113,108,0.8); box-shadow: none; }
-        }
-        .programme-card {
-            opacity: 0;
-        }
-        .programme-card.animate-card-1 {
-            animation: colorPulseAmber 1.1s ease-out 0.1s forwards;
-        }
-        .programme-card.animate-card-2 {
-            animation: colorPulseBlue 1.1s ease-out 0.5s forwards;
-        }
-        .programme-card.animate-card-3 {
-            animation: colorPulseEmerald 1.1s ease-out 0.9s forwards;
-        }
-
-        /* Rotation légère du portrait pour renforcer l'effet 3D */
-        .portrait-3d {
-            transform-style: preserve-3d;
-            perspective: 1200px;
-        }
-
-        /* ==========================================
-           STYLE POUR LES NOMS DES COLLECTIVES 
-           (Chaque nom = Gros bouton avec son propre cadre)
-           ========================================== */
-        .collective-name {
-            display: inline-block;
-            font-size: 1.8rem;
-            font-weight: 800;
-            padding: 14px 24px;
-            margin: 6px 4px;
-            border: 5px solid #D63031;
-            border-radius: 16px;
-            background: linear-gradient(145deg, #FFF5F5, #FFE0E0);
-            color: #C0392B;
-            box-shadow: 0 6px 0 #B03A2E, 0 8px 20px rgba(214, 48, 49, 0.3);
-            transition: all 0.15s ease;
-            font-family: 'Cinzel', Georgia, serif;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            text-shadow: 0 1px 0 rgba(255,255,255,0.3);
-            min-width: 120px;
-            text-align: center;
-        }
-        .collective-name:active {
-            transform: translateY(4px);
-            box-shadow: 0 2px 0 #B03A2E, 0 8px 20px rgba(214, 48, 49, 0.3);
-        }
-        .collective-name:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 8px 0 #B03A2E, 0 12px 30px rgba(214, 48, 49, 0.4);
-        }
-
-        /* Variantes de couleurs pour les collectives */
-        .collective-name.blue {
-            border-color: #2471A3;
-            background: linear-gradient(145deg, #EBF5FB, #D4E6F1);
-            color: #1A5276;
-            box-shadow: 0 6px 0 #1A5276, 0 8px 20px rgba(41, 128, 185, 0.3);
-            text-shadow: 0 1px 0 rgba(255,255,255,0.3);
-        }
-        .collective-name.blue:active {
-            transform: translateY(4px);
-            box-shadow: 0 2px 0 #1A5276, 0 8px 20px rgba(41, 128, 185, 0.3);
-        }
-        .collective-name.blue:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 8px 0 #1A5276, 0 12px 30px rgba(41, 128, 185, 0.4);
-        }
-
-        .collective-name.green {
-            border-color: #1E8449;
-            background: linear-gradient(145deg, #EAFAF1, #D5F5E3);
-            color: #1A7A42;
-            box-shadow: 0 6px 0 #1A7A42, 0 8px 20px rgba(39, 174, 96, 0.3);
-            text-shadow: 0 1px 0 rgba(255,255,255,0.3);
-        }
-        .collective-name.green:active {
-            transform: translateY(4px);
-            box-shadow: 0 2px 0 #1A7A42, 0 8px 20px rgba(39, 174, 96, 0.3);
-        }
-        .collective-name.green:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 8px 0 #1A7A42, 0 12px 30px rgba(39, 174, 96, 0.4);
-        }
-
-        .collective-name.purple {
-            border-color: #7D3C98;
-            background: linear-gradient(145deg, #F4ECF7, #E8DAEF);
-            color: #5B2C6F;
-            box-shadow: 0 6px 0 #5B2C6F, 0 8px 20px rgba(142, 68, 173, 0.3);
-            text-shadow: 0 1px 0 rgba(255,255,255,0.3);
-        }
-        .collective-name.purple:active {
-            transform: translateY(4px);
-            box-shadow: 0 2px 0 #5B2C6F, 0 8px 20px rgba(142, 68, 173, 0.3);
-        }
-        .collective-name.purple:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 8px 0 #5B2C6F, 0 12px 30px rgba(142, 68, 173, 0.4);
-        }
-
-        .collective-name.gold {
-            border-color: #B7950B;
-            background: linear-gradient(145deg, #FEF9E7, #FDEBD0);
-            color: #7D6608;
-            box-shadow: 0 6px 0 #7D6608, 0 8px 20px rgba(212, 172, 13, 0.3);
-            text-shadow: 0 1px 0 rgba(255,255,255,0.3);
-        }
-        .collective-name.gold:active {
-            transform: translateY(4px);
-            box-shadow: 0 2px 0 #7D6608, 0 8px 20px rgba(212, 172, 13, 0.3);
-        }
-        .collective-name.gold:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 8px 0 #7D6608, 0 12px 30px rgba(212, 172, 13, 0.4);
-        }
-
-        /* Version responsive pour petits écrans */
-        @media (max-width: 640px) {
-            .collective-name {
-                font-size: 1.2rem;
-                padding: 10px 16px;
-                min-width: 80px;
-                border-width: 4px;
-                border-radius: 12px;
-                margin: 4px 2px;
-            }
-        }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-100 font-sans-clean transition-colors duration-500 pt-12 md:pt-10">
 
     <!-- BARRE DE NAVIGATION COMPACTE (Responsive & Fixe) -->
+    <!-- STREAMING_CHUNK:Rendering slim navigation bar... -->
     <nav class="fixed top-0 left-0 w-full bg-white/95 dark:bg-stone-950/95 backdrop-blur-md z-40 border-b border-stone-200 dark:border-stone-900 transition-colors duration-500">
         <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
             <a href="#" class="font-serif-elegant text-amber-600 dark:text-amber-400 font-bold tracking-wider text-xs md:text-sm">HOMMAGE — S.M.G</a>
@@ -267,6 +97,7 @@
     </nav>
 
     <!-- BOUTONS FLOTTANTS COMPACTS DE CONTACT (En bas à droite) -->
+    <!-- STREAMING_CHUNK:Adding floating touch targets... -->
     <div class="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
         <!-- Appel direct (+2290168049979) -->
         <a href="tel:+2290168049979" title="Appeler pour un renseignement" 
@@ -286,6 +117,7 @@
     </div>
 
     <!-- 1. HERO EN-TÊTE SPECTACULAIRE ET COMPACT (H-70vh) -->
+    <!-- STREAMING_CHUNK:Rendering cinematic header... -->
     <header class="relative h-[65vh] flex items-center justify-center overflow-hidden bg-stone-950 shadow-inner">
         <!-- Vidéo cinématique d'arrière-plan en boucle infinie -->
         <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-40 filter brightness-75">
@@ -311,39 +143,37 @@
     </header>
 
     <!-- 2. ANNONCE OFFICIELLE (Ordre des collectivités et biographie) -->
+    <!-- STREAMING_CHUNK:Rendering announcements and collectivités... -->
     <section id="propos" class="py-14 px-4 max-w-5xl mx-auto border-b border-stone-200 dark:border-stone-900">
         <div class="space-y-8">
             
-            <!-- Bloc d'Annonce Officielle structurée rigoureusement -->
-            <div class="reveal bg-stone-100/50 dark:bg-stone-900/30 border border-stone-200/50 dark:border-stone-800/60 rounded-xl p-5 md:p-6 space-y-4">
+            <!-- Bloc d'Annonce Officielle structuré rigoureusement -->
+            <div class="bg-stone-100/50 dark:bg-stone-900/30 border border-stone-200/50 dark:border-stone-800/60 rounded-xl p-5 md:p-6 space-y-4">
                 <div class="text-center space-y-1">
                     <span class="text-[10px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">UNION DE COMMUNION</span>
+                    <h2 class="font-serif-elegant text-xl md:text-2xl font-bold">Les Grandes Collectivités Organisatrices</h2>
                 </div>
 
-                <!-- COLLECTIVITÉS AVEC CHAQUE NOM EN GROS BOUTON -->
-                <div class="text-center space-y-4">
-                    <div class="flex flex-wrap justify-center items-center gap-2">
-                        <span class="text-sm font-semibold text-stone-600 dark:text-stone-400">La collectivité</span>
-                        <span class="collective-name">GBINLO – GUEGUELIGUE – AZONTOKPO – AGBOFO – AGBOLEAFI</span>
-                        <span class="text-sm font-semibold text-stone-600 dark:text-stone-400">de Fonkpamè Agondji</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans-clean">
+                    <div class="space-y-2">
+                        <p class="flex items-start gap-2">
+                            <span class="text-amber-500 font-bold mt-0.5">•</span>
+                            <span>La collectivité <strong>GBINLO – GUEGUELIGUE – AZONTOKPO – AGBOFO – AGBOLEAFI</strong> de Fonkpamè Agondji ;</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-amber-500 font-bold mt-0.5">•</span>
+                            <span>La collectivité <strong>TANHOUNNON – GBADENON</strong> de Zounmè Oumbèga ;</span>
+                        </p>
                     </div>
-                    
-                    <div class="flex flex-wrap justify-center items-center gap-2">
-                        <span class="text-sm font-semibold text-stone-600 dark:text-stone-400">La collectivité</span>
-                        <span class="collective-name blue">TANHOUNNON – GBADENON</span>
-                        <span class="text-sm font-semibold text-stone-600 dark:text-stone-400">de Zounmè Oumbèga</span>
-                    </div>
-                    
-                    <div class="flex flex-wrap justify-center items-center gap-2">
-                        <span class="text-sm font-semibold text-stone-600 dark:text-stone-400">La collectivité</span>
-                        <span class="collective-name green">GBASSI – DEDAGO</span>
-                        <span class="text-sm font-semibold text-stone-600 dark:text-stone-400">d'Ahozoun Oumbèga</span>
-                    </div>
-                    
-                    <div class="flex flex-wrap justify-center items-center gap-2">
-                        <span class="text-sm font-semibold text-stone-600 dark:text-stone-400">La collectivité</span>
-                        <span class="collective-name purple">BOCODAHO – GBEHOLO</span>
-                        <span class="text-sm font-semibold text-stone-600 dark:text-stone-400">de Tchêly, Abomey</span>
+                    <div class="space-y-2">
+                        <p class="flex items-start gap-2">
+                            <span class="text-amber-500 font-bold mt-0.5">•</span>
+                            <span>La collectivité <strong>GBASSI – DEDAGO</strong> d'Ahozoun Oumbèga ;</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-amber-500 font-bold mt-0.5">•</span>
+                            <span>La collectivité <strong>BOCODAHO – GBEHOLO</strong> de Tchêly, Abomey ;</span>
+                        </p>
                     </div>
                 </div>
 
@@ -355,7 +185,8 @@
             </div>
 
             <!-- Liste des Familles Alliées et Amies Compacte -->
-            <div class="reveal space-y-3">
+            <!-- STREAMING_CHUNK:Rendering families list... -->
+            <div class="space-y-3">
                 <h3 class="font-serif-elegant text-sm font-semibold tracking-wide text-center text-stone-500 dark:text-stone-400">LES FAMILLES PARENTES, ALLIÉES ET AMIES :</h3>
                 <p class="text-[11px] md:text-xs text-stone-500 dark:text-stone-400 text-center leading-relaxed max-w-4xl mx-auto uppercase tracking-wide bg-stone-100/30 dark:bg-stone-900/10 p-3 rounded-lg border border-stone-200/30 dark:border-stone-800/20">
                     AHO-GLELÈ, GBASSI-DEDAGO, FÉLIHO, AGBI-DAVO, ADJALIAN, GBEHOLO, KPOMALEGNI, AYIVI, DEGBÉ, SOUTON, TCHALOKO, GBAGUIDI, DENAKPO, SEKPE, AGBIDI, WOUEHA, AGBESSI, AHOUISSOU, TOKOU, LOKONON, HOUADJÉTO, TONOUÉHOUA, TOUGAN, LOKPO, HOUNSOUNON, TCHOBO et GOÏTO
@@ -366,9 +197,10 @@
             </div>
 
             <!-- Focus Majeur : Le Portrait et les Renseignements Personnels -->
-            <div class="reveal grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-4">
-                <div class="md:col-span-5 flex justify-center portrait-3d">
-                    <div class="tilt-3d relative max-w-xs rounded-xl overflow-hidden shadow-xl border-2 border-white dark:border-stone-900">
+            <!-- STREAMING_CHUNK:Rendering primary focus and portrait... -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-4">
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative max-w-xs rounded-xl overflow-hidden shadow-xl border-2 border-white dark:border-stone-900 transform hover:scale-[1.01] transition-all duration-500">
                         <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Monsieur SÉRAPHIN MAKPONFA GBINLO" class="w-full h-auto object-cover">
                     </div>
                 </div>
@@ -400,10 +232,11 @@
     </section>
 
     <!-- 3. SECTION : PROGRAMME CHRONOLOGIQUE -->
+    <!-- STREAMING_CHUNK:Rendering program itinerary... -->
     <section id="programme" class="bg-stone-900 text-white dark:bg-stone-900/40 py-14 px-4 border-t border-b border-stone-800">
         <div class="max-w-5xl mx-auto space-y-10">
             
-            <div class="reveal text-center space-y-1">
+            <div class="text-center space-y-1">
                 <span class="text-[10px] uppercase tracking-[0.2em] text-amber-400">CHRONOGRAMME</span>
                 <h2 class="font-serif-elegant text-2xl md:text-3xl text-stone-100 font-bold">Programme Officiel</h2>
             </div>
@@ -412,7 +245,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-sans-clean">
                 
                 <!-- Jeudi 27 août 2026 -->
-                <div class="programme-card tilt-3d bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg">
+                <div class="bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg hover:border-amber-500/20 transition-all duration-300">
                     <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Jeudi 27 août 2026</span>
                     <div class="w-6 h-[1px] bg-stone-700 my-2"></div>
                     <p class="text-base font-bold text-stone-200">20 h 00</p>
@@ -422,7 +255,7 @@
                 </div>
 
                 <!-- Vendredi 28 août 2026 -->
-                <div class="programme-card tilt-3d bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg">
+                <div class="bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg hover:border-amber-500/20 transition-all duration-300">
                     <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Vendredi 28 août 2026</span>
                     <div class="w-6 h-[1px] bg-stone-700 my-2"></div>
                     <p class="text-base font-bold text-stone-200">09 h 00</p>
@@ -432,7 +265,7 @@
                 </div>
 
                 <!-- Samedi 29 août 2026 -->
-                <div class="programme-card tilt-3d bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg">
+                <div class="bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg hover:border-amber-500/20 transition-all duration-300">
                     <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Samedi 29 août 2026</span>
                     <div class="w-6 h-[1px] bg-stone-700 my-2"></div>
                     <p class="text-stone-400 text-xs leading-relaxed">
@@ -445,9 +278,263 @@
             </div>
 
             <!-- COMPTE À REBOURS DE L'ÉVÉNEMENT -->
-            <div class="reveal space-y-3 pt-2 text-center">
+            <div class="space-y-3 pt-2 text-center">
                 <p class="text-stone-400 text-[10px] tracking-wider uppercase">Début de la célébration dans :</p>
                 <div class="grid grid-cols-4 gap-2.5 max-w-sm mx-auto text-center">
                     <div class="bg-stone-950/80 border border-stone-800 p-2.5 rounded-lg">
                         <span id="days" class="block font-serif-elegant text-xl md:text-2xl text-amber-400 font-bold">00</span>
-                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Jours</
+                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Jours</span>
+                    </div>
+                    <div class="bg-stone-950/80 border border-stone-800 p-2.5 rounded-lg">
+                        <span id="hours" class="block font-serif-elegant text-xl md:text-2xl text-amber-400 font-bold">00</span>
+                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Heures</span>
+                    </div>
+                    <div class="bg-stone-950/80 border border-stone-800 p-2.5 rounded-lg">
+                        <span id="minutes" class="block font-serif-elegant text-xl md:text-2xl text-amber-400 font-bold">00</span>
+                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Min</span>
+                    </div>
+                    <div class="bg-stone-950/80 border border-stone-800 p-2.5 rounded-lg">
+                        <span id="seconds" class="block font-serif-elegant text-xl md:text-2xl text-amber-400 font-bold">00</span>
+                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Sec</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. SECTION : FAIRE-PART (Téléchargement direct) -->
+    <!-- STREAMING_CHUNK:Rendering pdf downloads... -->
+    <section id="fairepart" class="py-14 px-4 bg-stone-100 dark:bg-stone-900/20 border-b border-stone-200 dark:border-stone-900">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <div class="space-y-1">
+                <span class="text-[10px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">FAIRE-PART NUMÉRIQUE</span>
+                <h2 class="font-serif-elegant text-2xl font-bold">Téléchargez L'Invitation Officielle</h2>
+                <p class="text-stone-600 dark:text-stone-400 max-w-md mx-auto text-xs font-light leading-relaxed">
+                    Téléchargez directement le faire-part numérique complet au format PDF pour conserver toutes les coordonnées de l'organisation.
+                </p>
+            </div>
+
+            <div class="max-w-xs mx-auto bg-stone-950 text-white p-6 rounded-2xl border border-amber-400/40 shadow-xl space-y-4 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-stone-900 via-blue-950/15 to-stone-950 opacity-95"></div>
+                <div class="relative z-10 space-y-4">
+                    <!-- Vignette d'hommage de l'Inspecteur -->
+                    <div class="w-16 h-16 rounded-full mx-auto border-2 border-amber-400 overflow-hidden shadow-md">
+                        <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Séraphin GBINLO" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="space-y-0.5">
+                        <h3 class="font-serif-elegant text-sm text-amber-400 font-bold">M. SÉRAPHIN M. GBINLO</h3>
+                        <p class="text-[9px] text-stone-400 font-light">Faire-part officiel des Obsèques</p>
+                    </div>
+
+                    <a href="faire-part-officiel.pdf" download 
+                       class="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-5 rounded-lg shadow-lg transition-all w-full text-xs">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Télécharger le Faire-part (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SECTION : LA DESCENDANCE NUMÉROTÉE (Placée juste après le téléchargement) -->
+    <!-- STREAMING_CHUNK:Rendering numbered children list... -->
+    <section id="enfants" class="py-14 px-4 max-w-4xl mx-auto border-b border-stone-200 dark:border-stone-900">
+        <div class="space-y-6">
+            <div class="text-center space-y-1">
+                <span class="text-[10px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">LA DESCENDANCE DIRECTE</span>
+                <h2 class="font-serif-elegant text-2xl font-bold">Liste des Enfants du Défunt</h2>
+                <div class="w-8 h-[1.5px] bg-amber-500 mx-auto mt-2"></div>
+            </div>
+
+            <!-- Liste Numérotée Harmonisée -->
+            <div class="bg-white dark:bg-stone-900/40 border border-stone-200/60 dark:border-stone-800/80 rounded-xl p-5 md:p-6 shadow-md">
+                <ol class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3.5 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-sans-clean font-medium">
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">01</span>
+                        <span>GBINLO Clémence</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">02</span>
+                        <span>GBINLO Edgard</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">03</span>
+                        <span>GBINLO Hospice</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">04</span>
+                        <span>GBINLO Michael</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">05</span>
+                        <span>GBINLO Hervé</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">06</span>
+                        <span>GBINLO Ginette</span>
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-400 dark:text-stone-500 italic">
+                        <span class="bg-stone-100 dark:bg-stone-900 text-stone-500 dark:text-stone-600 text-[10px] font-bold px-2 py-1 rounded">07</span>
+                        <span>Feue GBINLO Eudoxie</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">08</span>
+                        <span>GBINLO Éloïse</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">09</span>
+                        <span>GBINLO Modeste</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">10</span>
+                        <span>GBINLO Eric</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">11</span>
+                        <span>GBINLO Florine</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">12</span>
+                        <span>GBINLO Auguste</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SECTION : SINCÈRES REMERCIEMENTS & CLÔTURE -->
+    <!-- STREAMING_CHUNK:Rendering acknowledgements... -->
+    <section id="remerciements" class="bg-stone-200/60 dark:bg-stone-900 text-stone-800 dark:text-stone-200 py-12 px-6 shadow-inner transition-colors duration-500">
+        <div class="max-w-3xl mx-auto text-center space-y-4">
+            <h3 class="font-serif-elegant text-xl tracking-wider text-stone-900 dark:text-amber-400 uppercase font-bold">Remerciements</h3>
+            <div class="w-10 h-[1px] bg-amber-600 dark:bg-amber-400 mx-auto"></div>
+            <div class="space-y-3 text-stone-600 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-light italic max-w-2xl mx-auto">
+                <p>
+                    « Les familles éplorées, profondément touchées par les nombreuses marques de sympathie, de compassion et d'affection que vous leur avez témoignées lors du décès et des obsèques de leur regretté parent, vous prient de trouver ici l'expression de leur profonde gratitude. »
+                </p>
+                <p class="font-semibold text-amber-600 dark:text-amber-400 not-italic">
+                    Que le Dieu Tout-Puissant vous comble de ses abondantes grâces et vous le rende au centuple.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. ENCART PROFESSIONNEL : VOTRE ENTREPRISE "DIGITAL" -->
+    <!-- STREAMING_CHUNK:Rendering studio showcase... -->
+    <section class="bg-stone-100 dark:bg-stone-950 py-10 px-6 border-t border-stone-200 dark:border-stone-900/60 transition-colors duration-500">
+        <div class="max-w-xl mx-auto bg-white dark:bg-stone-900 p-5 rounded-xl shadow-md border border-stone-200/60 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+            
+            <!-- Votre photo de profil d'agence / de créateur -->
+            <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-amber-400 shrink-0 shadow-md">
+                <img src="emmanuel-clarius.png" alt="Emmanuel Clarius" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'">
+            </div>
+
+            <div class="space-y-2.5 flex-1">
+                <div class="space-y-0.5">
+                    <span class="text-[9px] uppercase tracking-widest text-amber-600 dark:text-amber-400 font-bold block">Conception & Développement Web</span>
+                    <h4 class="font-serif-elegant text-sm font-bold text-stone-900 dark:text-stone-100">Digital</h4>
+                    <p class="text-[11px] text-stone-500 dark:text-stone-400 leading-relaxed">
+                        Vous souhaitez créer un site d'hommage interactif, un faire-part professionnel ou un portail numérique pour votre entreprise ?
+                    </p>
+                </div>
+
+                <!-- Bouton pointant vers votre contact wa.me/22958255572 -->
+                <a href="https://wa.me/22958255572?text=Bonjour%20Digital,%20j'ai%20visité%20le%20site%20d'hommage%20et%20je%20souhaite%20vous%20commander%20un%20site%20web." 
+                   target="_blank" 
+                   class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-[11px] font-semibold px-3 py-1.5 rounded hover:bg-amber-600 dark:hover:bg-amber-400 transition-all shadow-sm">
+                    <span>💬</span> Commander un site similaire
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIED DE PAGE PERSONNALISÉ -->
+    <footer class="bg-stone-950 text-stone-600 text-center py-6 border-t border-stone-900 text-[10px] tracking-wider space-y-1">
+        <p>© 2026 — Famille GBINLO. Tous droits réservés.</p>
+        <p class="text-stone-500 dark:text-stone-400 font-medium">Développé par <span class="text-amber-500 font-bold">Emmanuel</span> — Contact : <a href="tel:+22958255572" class="hover:underline">+229 58 25 55 72</a></p>
+    </footer>
+
+    <!-- TOUT LE CODE JAVASCRIPT LOGIQUE CENTRALISÉ -->
+    <!-- STREAMING_CHUNK:Activating logic... -->
+    <script>
+        // ==========================================
+        // 1. COMPTE À REBOURS DE L'HOMMAGE (Date cible : 27 août 2026 à 20:00:00)
+        // ==========================================
+        const targetDate = new Date("August 27, 2026 20:00:00").getTime();
+
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // Calcul du temps restant (Jours, heures, minutes, secondes)
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Injection dynamique sécurisée dans le HTML
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minutesEl = document.getElementById("minutes");
+            const secondsEl = document.getElementById("seconds");
+
+            if (daysEl) daysEl.innerText = String(days).padStart(2, '0');
+            if (hoursEl) hoursEl.innerText = String(hours).padStart(2, '0');
+            if (minutesEl) minutesEl.innerText = String(minutes).padStart(2, '0');
+            if (secondsEl) secondsEl.innerText = String(seconds).padStart(2, '0');
+
+            // Si le compte à rebours expire
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                const countdownContainer = document.querySelector("#programme .grid-cols-4");
+                if (countdownContainer) {
+                    countdownContainer.innerHTML = "<p class='col-span-4 text-amber-400 font-serif-elegant text-xs uppercase tracking-wider font-bold'>La célébration a commencé</p>";
+                }
+            }
+        }, 1000);
+
+        // ==========================================
+        // 2. LOGIQUE DE BASCULEMENT DU MODE SOMBRE / CLAIR
+        // ==========================================
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById("themeIcon");
+            const themeText = document.getElementById("themeText");
+
+            if (html.classList.contains("dark")) {
+                html.classList.remove("dark");
+                localStorage.setItem("theme", "light");
+                if (themeIcon) themeIcon.innerText = "🌙";
+                if (themeText) themeText.innerText = "Mode Sombre";
+            } else {
+                html.classList.add("dark");
+                localStorage.setItem("theme", "dark");
+                if (themeIcon) themeIcon.innerText = "☀️";
+                if (themeText) themeText.innerText = "Mode Clair";
+            }
+        }
+
+        // Appliquer la configuration enregistrée au premier chargement de la page
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem("theme");
+            const html = document.documentElement;
+            const themeIcon = document.getElementById("themeIcon");
+            const themeText = document.getElementById("themeText");
+
+            if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                html.classList.add("dark");
+                if (themeIcon) themeIcon.innerText = "☀️";
+                if (themeText) themeText.innerText = "Mode Clair";
+            } else {
+                html.classList.remove("dark");
+                if (themeIcon) themeIcon.innerText = "🌙";
+                if (themeText) themeText.innerText = "Mode Sombre";
+            }
+        });
+    </script>
+</body>
+</html>
