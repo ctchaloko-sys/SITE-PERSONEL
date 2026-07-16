@@ -14,7 +14,6 @@
     </script>
     
     <!-- TOUS LES STYLES CSS CENTRALISÉS -->
-    <!-- STREAMING_CHUNK:Configuring custom fonts and animations... -->
     <style>
         /* Importation de polices élégantes depuis Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -60,12 +59,76 @@
         .animate-fade-in {
             animation: fadeIn 1s ease-out forwards;
         }
+
+        /* ==========================================
+           ANIMATIONS AU DÉFILEMENT (SCROLL REVEAL)
+           ========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==========================================
+           EFFET 3D (TILT) SUR LES CARTES ET LE PORTRAIT
+           ========================================== */
+        .tilt-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+        }
+        .tilt-3d:hover {
+            box-shadow: 0 25px 45px -10px rgba(0,0,0,0.35);
+        }
+
+        /* ==========================================
+           PROGRAMME : APPARITION "COULEUR PAR COULEUR"
+           Chaque carte s'anime l'une après l'autre avec sa
+           propre teinte d'accent avant de se stabiliser.
+           ========================================== */
+        @keyframes colorPulseAmber {
+            0%   { opacity: 0; transform: translateY(24px) scale(0.96); border-color: rgba(245,158,11,0); box-shadow: none; }
+            35%  { opacity: 1; transform: translateY(0) scale(1.02); border-color: rgba(245,158,11,0.9); box-shadow: 0 0 25px rgba(245,158,11,0.35); }
+            100% { opacity: 1; transform: translateY(0) scale(1); border-color: rgba(120,113,108,0.8); box-shadow: none; }
+        }
+        @keyframes colorPulseBlue {
+            0%   { opacity: 0; transform: translateY(24px) scale(0.96); border-color: rgba(59,130,246,0); box-shadow: none; }
+            35%  { opacity: 1; transform: translateY(0) scale(1.02); border-color: rgba(59,130,246,0.9); box-shadow: 0 0 25px rgba(59,130,246,0.35); }
+            100% { opacity: 1; transform: translateY(0) scale(1); border-color: rgba(120,113,108,0.8); box-shadow: none; }
+        }
+        @keyframes colorPulseEmerald {
+            0%   { opacity: 0; transform: translateY(24px) scale(0.96); border-color: rgba(16,185,129,0); box-shadow: none; }
+            35%  { opacity: 1; transform: translateY(0) scale(1.02); border-color: rgba(16,185,129,0.9); box-shadow: 0 0 25px rgba(16,185,129,0.35); }
+            100% { opacity: 1; transform: translateY(0) scale(1); border-color: rgba(120,113,108,0.8); box-shadow: none; }
+        }
+        .programme-card {
+            opacity: 0;
+        }
+        .programme-card.animate-card-1 {
+            animation: colorPulseAmber 1.1s ease-out 0.1s forwards;
+        }
+        .programme-card.animate-card-2 {
+            animation: colorPulseBlue 1.1s ease-out 0.5s forwards;
+        }
+        .programme-card.animate-card-3 {
+            animation: colorPulseEmerald 1.1s ease-out 0.9s forwards;
+        }
+
+        /* Rotation légère du portrait pour renforcer l'effet 3D */
+        .portrait-3d {
+            transform-style: preserve-3d;
+            perspective: 1200px;
+        }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-100 font-sans-clean transition-colors duration-500 pt-12 md:pt-10">
 
     <!-- BARRE DE NAVIGATION COMPACTE (Responsive & Fixe) -->
-    <!-- STREAMING_CHUNK:Rendering slim navigation bar... -->
     <nav class="fixed top-0 left-0 w-full bg-white/95 dark:bg-stone-950/95 backdrop-blur-md z-40 border-b border-stone-200 dark:border-stone-900 transition-colors duration-500">
         <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
             <a href="#" class="font-serif-elegant text-amber-600 dark:text-amber-400 font-bold tracking-wider text-xs md:text-sm">HOMMAGE — S.M.G</a>
@@ -97,7 +160,6 @@
     </nav>
 
     <!-- BOUTONS FLOTTANTS COMPACTS DE CONTACT (En bas à droite) -->
-    <!-- STREAMING_CHUNK:Adding floating touch targets... -->
     <div class="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
         <!-- Appel direct (+2290168049979) -->
         <a href="tel:+2290168049979" title="Appeler pour un renseignement" 
@@ -117,7 +179,6 @@
     </div>
 
     <!-- 1. HERO EN-TÊTE SPECTACULAIRE ET COMPACT (H-70vh) -->
-    <!-- STREAMING_CHUNK:Rendering cinematic header... -->
     <header class="relative h-[65vh] flex items-center justify-center overflow-hidden bg-stone-950 shadow-inner">
         <!-- Vidéo cinématique d'arrière-plan en boucle infinie -->
         <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-40 filter brightness-75">
@@ -143,15 +204,13 @@
     </header>
 
     <!-- 2. ANNONCE OFFICIELLE (Ordre des collectivités et biographie) -->
-    <!-- STREAMING_CHUNK:Rendering announcements and collectivités... -->
     <section id="propos" class="py-14 px-4 max-w-5xl mx-auto border-b border-stone-200 dark:border-stone-900">
         <div class="space-y-8">
             
             <!-- Bloc d'Annonce Officielle structuré rigoureusement -->
-            <div class="bg-stone-100/50 dark:bg-stone-900/30 border border-stone-200/50 dark:border-stone-800/60 rounded-xl p-5 md:p-6 space-y-4">
+            <div class="reveal bg-stone-100/50 dark:bg-stone-900/30 border border-stone-200/50 dark:border-stone-800/60 rounded-xl p-5 md:p-6 space-y-4">
                 <div class="text-center space-y-1">
                     <span class="text-[10px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">UNION DE COMMUNION</span>
-                    <h2 class="font-serif-elegant text-xl md:text-2xl font-bold">Les Grandes Collectivités Organisatrices</h2>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans-clean">
@@ -185,8 +244,7 @@
             </div>
 
             <!-- Liste des Familles Alliées et Amies Compacte -->
-            <!-- STREAMING_CHUNK:Rendering families list... -->
-            <div class="space-y-3">
+            <div class="reveal space-y-3">
                 <h3 class="font-serif-elegant text-sm font-semibold tracking-wide text-center text-stone-500 dark:text-stone-400">LES FAMILLES PARENTES, ALLIÉES ET AMIES :</h3>
                 <p class="text-[11px] md:text-xs text-stone-500 dark:text-stone-400 text-center leading-relaxed max-w-4xl mx-auto uppercase tracking-wide bg-stone-100/30 dark:bg-stone-900/10 p-3 rounded-lg border border-stone-200/30 dark:border-stone-800/20">
                     AHO-GLELÈ, GBASSI-DEDAGO, FÉLIHO, AGBI-DAVO, ADJALIAN, GBEHOLO, KPOMALEGNI, AYIVI, DEGBÉ, SOUTON, TCHALOKO, GBAGUIDI, DENAKPO, SEKPE, AGBIDI, WOUEHA, AGBESSI, AHOUISSOU, TOKOU, LOKONON, HOUADJÉTO, TONOUÉHOUA, TOUGAN, LOKPO, HOUNSOUNON, TCHOBO et GOÏTO
@@ -197,10 +255,9 @@
             </div>
 
             <!-- Focus Majeur : Le Portrait et les Renseignements Personnels -->
-            <!-- STREAMING_CHUNK:Rendering primary focus and portrait... -->
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-4">
-                <div class="md:col-span-5 flex justify-center">
-                    <div class="relative max-w-xs rounded-xl overflow-hidden shadow-xl border-2 border-white dark:border-stone-900 transform hover:scale-[1.01] transition-all duration-500">
+            <div class="reveal grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-4">
+                <div class="md:col-span-5 flex justify-center portrait-3d">
+                    <div class="tilt-3d relative max-w-xs rounded-xl overflow-hidden shadow-xl border-2 border-white dark:border-stone-900">
                         <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Monsieur SÉRAPHIN MAKPONFA GBINLO" class="w-full h-auto object-cover">
                     </div>
                 </div>
@@ -232,11 +289,10 @@
     </section>
 
     <!-- 3. SECTION : PROGRAMME CHRONOLOGIQUE -->
-    <!-- STREAMING_CHUNK:Rendering program itinerary... -->
     <section id="programme" class="bg-stone-900 text-white dark:bg-stone-900/40 py-14 px-4 border-t border-b border-stone-800">
         <div class="max-w-5xl mx-auto space-y-10">
             
-            <div class="text-center space-y-1">
+            <div class="reveal text-center space-y-1">
                 <span class="text-[10px] uppercase tracking-[0.2em] text-amber-400">CHRONOGRAMME</span>
                 <h2 class="font-serif-elegant text-2xl md:text-3xl text-stone-100 font-bold">Programme Officiel</h2>
             </div>
@@ -245,7 +301,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-sans-clean">
                 
                 <!-- Jeudi 27 août 2026 -->
-                <div class="bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg hover:border-amber-500/20 transition-all duration-300">
+                <div class="programme-card tilt-3d bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg">
                     <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Jeudi 27 août 2026</span>
                     <div class="w-6 h-[1px] bg-stone-700 my-2"></div>
                     <p class="text-base font-bold text-stone-200">20 h 00</p>
@@ -255,7 +311,7 @@
                 </div>
 
                 <!-- Vendredi 28 août 2026 -->
-                <div class="bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg hover:border-amber-500/20 transition-all duration-300">
+                <div class="programme-card tilt-3d bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg">
                     <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Vendredi 28 août 2026</span>
                     <div class="w-6 h-[1px] bg-stone-700 my-2"></div>
                     <p class="text-base font-bold text-stone-200">09 h 00</p>
@@ -265,7 +321,7 @@
                 </div>
 
                 <!-- Samedi 29 août 2026 -->
-                <div class="bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg hover:border-amber-500/20 transition-all duration-300">
+                <div class="programme-card tilt-3d bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg">
                     <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Samedi 29 août 2026</span>
                     <div class="w-6 h-[1px] bg-stone-700 my-2"></div>
                     <p class="text-stone-400 text-xs leading-relaxed">
@@ -278,7 +334,7 @@
             </div>
 
             <!-- COMPTE À REBOURS DE L'ÉVÉNEMENT -->
-            <div class="space-y-3 pt-2 text-center">
+            <div class="reveal space-y-3 pt-2 text-center">
                 <p class="text-stone-400 text-[10px] tracking-wider uppercase">Début de la célébration dans :</p>
                 <div class="grid grid-cols-4 gap-2.5 max-w-sm mx-auto text-center">
                     <div class="bg-stone-950/80 border border-stone-800 p-2.5 rounded-lg">
@@ -304,10 +360,9 @@
     </section>
 
     <!-- 4. SECTION : FAIRE-PART (Téléchargement direct) -->
-    <!-- STREAMING_CHUNK:Rendering pdf downloads... -->
     <section id="fairepart" class="py-14 px-4 bg-stone-100 dark:bg-stone-900/20 border-b border-stone-200 dark:border-stone-900">
         <div class="max-w-4xl mx-auto text-center space-y-6">
-            <div class="space-y-1">
+            <div class="reveal space-y-1">
                 <span class="text-[10px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">FAIRE-PART NUMÉRIQUE</span>
                 <h2 class="font-serif-elegant text-2xl font-bold">Téléchargez L'Invitation Officielle</h2>
                 <p class="text-stone-600 dark:text-stone-400 max-w-md mx-auto text-xs font-light leading-relaxed">
@@ -315,7 +370,7 @@
                 </p>
             </div>
 
-            <div class="max-w-xs mx-auto bg-stone-950 text-white p-6 rounded-2xl border border-amber-400/40 shadow-xl space-y-4 relative overflow-hidden">
+            <div class="reveal tilt-3d max-w-xs mx-auto bg-stone-950 text-white p-6 rounded-2xl border border-amber-400/40 shadow-xl space-y-4 relative overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-b from-stone-900 via-blue-950/15 to-stone-950 opacity-95"></div>
                 <div class="relative z-10 space-y-4">
                     <!-- Vignette d'hommage de l'Inspecteur -->
@@ -341,17 +396,16 @@
     </section>
 
     <!-- 5. SECTION : LA DESCENDANCE NUMÉROTÉE (Placée juste après le téléchargement) -->
-    <!-- STREAMING_CHUNK:Rendering numbered children list... -->
     <section id="enfants" class="py-14 px-4 max-w-4xl mx-auto border-b border-stone-200 dark:border-stone-900">
         <div class="space-y-6">
-            <div class="text-center space-y-1">
+            <div class="reveal text-center space-y-1">
                 <span class="text-[10px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">LA DESCENDANCE DIRECTE</span>
                 <h2 class="font-serif-elegant text-2xl font-bold">Liste des Enfants du Défunt</h2>
                 <div class="w-8 h-[1.5px] bg-amber-500 mx-auto mt-2"></div>
             </div>
 
             <!-- Liste Numérotée Harmonisée -->
-            <div class="bg-white dark:bg-stone-900/40 border border-stone-200/60 dark:border-stone-800/80 rounded-xl p-5 md:p-6 shadow-md">
+            <div class="reveal tilt-3d bg-white dark:bg-stone-900/40 border border-stone-200/60 dark:border-stone-800/80 rounded-xl p-5 md:p-6 shadow-md">
                 <ol class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3.5 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-sans-clean font-medium">
                     <li class="flex items-center gap-3">
                         <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">01</span>
@@ -407,9 +461,8 @@
     </section>
 
     <!-- 6. SECTION : SINCÈRES REMERCIEMENTS & CLÔTURE -->
-    <!-- STREAMING_CHUNK:Rendering acknowledgements... -->
     <section id="remerciements" class="bg-stone-200/60 dark:bg-stone-900 text-stone-800 dark:text-stone-200 py-12 px-6 shadow-inner transition-colors duration-500">
-        <div class="max-w-3xl mx-auto text-center space-y-4">
+        <div class="reveal max-w-3xl mx-auto text-center space-y-4">
             <h3 class="font-serif-elegant text-xl tracking-wider text-stone-900 dark:text-amber-400 uppercase font-bold">Remerciements</h3>
             <div class="w-10 h-[1px] bg-amber-600 dark:bg-amber-400 mx-auto"></div>
             <div class="space-y-3 text-stone-600 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-light italic max-w-2xl mx-auto">
@@ -424,9 +477,8 @@
     </section>
 
     <!-- 7. ENCART PROFESSIONNEL : VOTRE ENTREPRISE "DIGITAL" -->
-    <!-- STREAMING_CHUNK:Rendering studio showcase... -->
     <section class="bg-stone-100 dark:bg-stone-950 py-10 px-6 border-t border-stone-200 dark:border-stone-900/60 transition-colors duration-500">
-        <div class="max-w-xl mx-auto bg-white dark:bg-stone-900 p-5 rounded-xl shadow-md border border-stone-200/60 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+        <div class="reveal tilt-3d max-w-xl mx-auto bg-white dark:bg-stone-900 p-5 rounded-xl shadow-md border border-stone-200/60 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
             
             <!-- Votre photo de profil d'agence / de créateur -->
             <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-amber-400 shrink-0 shadow-md">
@@ -459,7 +511,6 @@
     </footer>
 
     <!-- TOUT LE CODE JAVASCRIPT LOGIQUE CENTRALISÉ -->
-    <!-- STREAMING_CHUNK:Activating logic... -->
     <script>
         // ==========================================
         // 1. COMPTE À REBOURS DE L'HOMMAGE (Date cible : 27 août 2026 à 20:00:00)
@@ -534,6 +585,63 @@
                 if (themeIcon) themeIcon.innerText = "🌙";
                 if (themeText) themeText.innerText = "Mode Sombre";
             }
+        });
+
+        // ==========================================
+        // 3. ANIMATIONS AU DÉFILEMENT (SCROLL REVEAL)
+        // ==========================================
+        document.addEventListener("DOMContentLoaded", () => {
+            const revealEls = document.querySelectorAll(".reveal");
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("reveal-visible");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach(el => revealObserver.observe(el));
+
+            // Déclenchement de l'animation "couleur par couleur" du programme
+            const programmeSection = document.getElementById("programme");
+            const programmeCards = document.querySelectorAll(".programme-card");
+            if (programmeSection && programmeCards.length) {
+                const programmeObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            programmeCards.forEach((card, index) => {
+                                card.classList.add("animate-card-" + (index + 1));
+                            });
+                            programmeObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                programmeObserver.observe(programmeSection);
+            }
+        });
+
+        // ==========================================
+        // 4. EFFET 3D (TILT) AU SURVOL DE LA SOURIS
+        // ==========================================
+        document.addEventListener("DOMContentLoaded", () => {
+            const tiltElements = document.querySelectorAll(".tilt-3d");
+            const maxTilt = 8; // degrés maximum d'inclinaison
+
+            tiltElements.forEach(el => {
+                el.addEventListener("mousemove", (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -maxTilt;
+                    const rotateY = ((x - centerX) / centerX) * maxTilt;
+                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+                el.addEventListener("mouseleave", () => {
+                    el.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)";
+                });
+            });
         });
     </script>
 </body>
