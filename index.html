@@ -1,904 +1,540 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hommage à l'Inspecteur Séraphin M. GBINLO</title>
+    <!-- Tailwind CSS pour un design moderne, rapide et responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuration de Tailwind pour gérer le Dark Mode par classe
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    
+    <!-- TOUS LES STYLES CSS CENTRALISÉS -->
+    <!-- STREAMING_CHUNK:Configuring custom fonts and animations... -->
+    <style>
+        /* Importation de polices élégantes depuis Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        .font-serif-elegant {
+            font-family: 'Cinzel', Georgia, serif;
+        }
 
-<title>Hommage à Monsieur Séraphin MAKPONFA GBINLO</title>
+        .font-sans-clean {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
 
-<meta name="description"
-content="Site officiel de la cérémonie d'action de grâce en mémoire de Monsieur Séraphin MAKPONFA GBINLO.">
+        /* Masquer la barre de défilement sur le menu mobile tout en permettant le scroll */
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
-<meta name="keywords"
-content="GBINLO, hommage, Abomey, Fonkpamè, action de grâce, obsèques">
+        /* Animation de flottement pour les boutons de contact en bas à droite */
+        @keyframes float-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
 
-<meta name="author"
-content="Famille GBINLO">
+        .floating-btn {
+            animation: float-subtle 4s infinite ease-in-out;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+        .floating-btn-delayed {
+            animation: float-subtle 4s infinite ease-in-out;
+            animation-delay: 2s;
+        }
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+        /* Animation fluide au chargement */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="icon" href="images/logo.png">
-
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
 </head>
-
-<body>
-
-
-<!-- ========================================= -->
-<!-- PRELOADER -->
-<!-- ========================================= -->
-
-<div id="preloader">
-
-<div class="loader">
-
-<div class="cross"></div>
-
-<p>Chargement...</p>
-
-</div>
-
-</div>
-
-
-
-<!-- ========================================= -->
-<!-- BOUTON RETOUR EN HAUT -->
-<!-- ========================================= -->
-
-<button id="scrollTop">
-
-↑
-
-</button>
-
-
-
-<!-- ========================================= -->
-<!-- BARRE DE NAVIGATION -->
-<!-- ========================================= -->
-
-<header>
-
-<nav class="navbar">
-
-<div class="logo">
-
-GBINLO
-
-</div>
-
-<ul>
-
-<li><a href="#accueil">Accueil</a></li>
-
-<li><a href="#biographie">Biographie</a></li>
-
-<li><a href="#programme">Programme</a></li>
-
-<li><a href="#galerie">Galerie</a></li>
-
-<li><a href="#acces">Accès</a></li>
-
-<li><a href="#livredor">Livre d'or</a></li>
-
-</ul>
-
-<div class="actions">
-
-<button onclick="toggleDarkMode()">
-
-<span id="themeIcon">🌙</span>
-
-<span id="themeText">
-
-Mode sombre
-
-</span>
-
-</button>
-
-</div>
-
-</nav>
-
-</header>
-
-
-
-<!-- ========================================= -->
-<!-- HERO -->
-<!-- ========================================= -->
-
-<section id="accueil" class="hero">
-
-<div class="overlay"></div>
-
-<img
-src="images/portrait.jpg"
-class="hero-image"
-alt="Monsieur Séraphin GBINLO">
-
-<div class="hero-content">
-
-<h3>
-
-En mémoire de
-
-</h3>
-
-<h1>
-
-Monsieur
-
-<br>
-
-SÉRAPHIN MAKPONFA GBINLO
-
-</h1>
-
-<p>
-
-Inspecteur de l'Enseignement du Premier Degré à la retraite
-
-</p>
-
-<span>
-
-1942 — 2025
-
-</span>
-
-<div class="hero-buttons">
-
-<a href="#programme">
-
-Programme
-
-</a>
-
-<a href="#acces">
-
-Itinéraire
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ========================================= -->
-<!-- CITATION -->
-<!-- ========================================= -->
-
-<section class="citation">
-
-<blockquote>
-
-« Que votre cœur ne se trouble pas.
-Croyez en Dieu, croyez aussi en moi.
-Il y a plusieurs demeures dans la maison de mon Père. »
-
-</blockquote>
-
-<p>
-
-Jean 14 : 1-2
-
-</p>
-
-</section>
-
-
-
-<!-- ========================================= -->
-<!-- COMPTE À REBOURS -->
-<!-- ========================================= -->
-
-<section class="countdown-section">
-
-<h2>
-
-Compte à rebours
-
-</h2>
-
-<p>
-
-Avant la cérémonie d'action de grâce
-
-</p>
-
-<div class="countdown">
-
-<div class="box">
-
-<span id="days">
-
-00
-
-</span>
-
-<p>Jours</p>
-
-</div>
-
-<div class="box">
-
-<span id="hours">
-
-00
-
-</span>
-
-<p>Heures</p>
-
-</div>
-
-<div class="box">
-
-<span id="minutes">
-
-00
-
-</span>
-
-<p>Minutes</p>
-
-</div>
-
-<div class="box">
-
-<span id="seconds">
-
-00
-
-</span>
-
-<p>Secondes</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ========================================= -->
-<!-- BIOGRAPHIE -->
-<!-- ========================================= -->
-
-<section id="biographie" class="biographie">
-
-<div class="container">
-
-<div class="photo">
-
-<img
-src="images/portrait.jpg"
-alt="Portrait">
-
-</div>
-
-<div class="texte">
-
-<h2>
-
-Biographie
-
-</h2>
-
-<p>
-
-Monsieur Séraphin MAKPONFA GBINLO,
-Inspecteur de l'Enseignement du Premier Degré à la retraite,
-a consacré sa vie à l'éducation,
-à sa famille,
-à sa communauté
-et au service de Dieu.
-
-Son parcours demeure un exemple de sagesse,
-de dévouement
-et d'amour du prochain.
-
-Aujourd'hui,
-sa famille lui rend hommage
-dans un esprit de reconnaissance
-et d'action de grâce.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-<!-- ========================================= -->
-<!-- PROGRAMME -->
-<!-- ========================================= -->
-
-<section id="programme" class="programme">
-
-    <div class="section-title">
-        <h2>Programme des cérémonies</h2>
-        <p>Trois jours de prière, d'action de grâce et de communion fraternelle</p>
-    </div>
-
-    <div class="timeline">
-
-        <div class="timeline-item left">
-            <div class="timeline-content">
-
-                <span class="date">
-                    Jeudi 27 Août 2026
-                </span>
-
-                <h3>Veillée de prières</h3>
-
-                <p>
-                    20h00
-                </p>
-
-                <p>
-                    Maison GBINLO
-                    <br>
-                    Fonkpamè Agondji
-                </p>
-
-                <p>
-                    Veillée de prières suivie d'une animation folklorique.
-                </p>
-
+<body class="bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-100 font-sans-clean transition-colors duration-500 pt-12 md:pt-10">
+
+    <!-- BARRE DE NAVIGATION COMPACTE (Responsive & Fixe) -->
+    <!-- STREAMING_CHUNK:Rendering slim navigation bar... -->
+    <nav class="fixed top-0 left-0 w-full bg-white/95 dark:bg-stone-950/95 backdrop-blur-md z-40 border-b border-stone-200 dark:border-stone-900 transition-colors duration-500">
+        <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="#" class="font-serif-elegant text-amber-600 dark:text-amber-400 font-bold tracking-wider text-xs md:text-sm">HOMMAGE — S.M.G</a>
+            
+            <!-- Liens de navigation compacts -->
+            <div class="hidden md:flex items-center gap-5 text-[10px] uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300">
+                <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
+                <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
+                <a href="#fairepart" class="hover:text-amber-500 transition-colors">Faire-part</a>
+                <a href="#enfants" class="hover:text-amber-500 transition-colors">Enfants</a>
+                <a href="#remerciements" class="hover:text-amber-500 transition-colors">Remerciements</a>
             </div>
+
+            <!-- Bouton de bascule du Mode Sombre -->
+            <button onclick="toggleDarkMode()" id="themeBtn" class="bg-stone-100 dark:bg-stone-900 text-stone-800 dark:text-amber-400 p-1.5 px-2.5 rounded-full border border-stone-200 dark:border-stone-800 hover:scale-105 transition-all text-[10px] flex items-center gap-1">
+                <span id="themeIcon">🌙</span> 
+                <span id="themeText" class="hidden sm:inline uppercase tracking-wider font-bold text-[8px]">Mode Sombre</span>
+            </button>
         </div>
 
+        <!-- MENU MOBILE HORIZONTAL DE SCROLL COMPACT -->
+        <div class="flex md:hidden bg-stone-100/95 dark:bg-stone-900/95 overflow-x-auto border-t border-stone-200 dark:border-stone-800 scrollbar-none py-1.5 px-3 gap-4 text-[9px] uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300 whitespace-nowrap">
+            <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
+            <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
+            <a href="#fairepart" class="hover:text-amber-500 transition-colors">Faire-part</a>
+            <a href="#enfants" class="hover:text-amber-500 transition-colors">Enfants</a>
+            <a href="#remerciements" class="hover:text-amber-500 transition-colors">Remerciements</a>
+        </div>
+    </nav>
 
-        <div class="timeline-item right">
+    <!-- BOUTONS FLOTTANTS COMPACTS DE CONTACT (En bas à droite) -->
+    <!-- STREAMING_CHUNK:Adding floating touch targets... -->
+    <div class="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
+        <!-- Appel direct (+2290168049979) -->
+        <a href="tel:+2290168049979" title="Appeler pour un renseignement" 
+           class="floating-btn bg-blue-600 text-white p-3.5 rounded-full shadow-2xl hover:scale-110 hover:bg-blue-700 transition-all flex items-center justify-center border border-white/15">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+        </a>
+        <!-- WhatsApp direct (+22969320612) -->
+        <a href="https://wa.me/22969320612?text=Bonjour,%20je%20souhaite%20avoir%20des%20renseignements%20concernant%20les%20obsèques%20de%20l'Inspecteur%20GBINLO." 
+           target="_blank" title="Écrire sur WhatsApp" 
+           class="floating-btn-delayed bg-emerald-500 text-white p-3.5 rounded-full shadow-2xl hover:scale-110 hover:bg-emerald-600 transition-all flex items-center justify-center border border-white/15">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.863-9.864.001-2.637-1.03-5.114-2.905-6.989-1.874-1.875-4.351-2.903-6.985-2.904-5.442 0-9.867 4.42-9.87 9.865-.001 1.748.46 3.454 1.331 4.966L1.9 22.044l4.747-1.247zm11.417-6.52c-.312-.156-1.844-.91-2.128-1.012-.283-.102-.49-.153-.695.156-.205.307-.795 1.012-.974 1.218-.178.205-.356.23-.668.074-1.09-.546-1.8-1.002-2.518-2.233-.19-.327.19-.304.544-1.013.056-.111.028-.208-.014-.287-.04-.079-.356-.856-.489-1.17-.129-.313-.26-.27-.356-.275-.092-.005-.198-.005-.304-.005s-.278.04-.424.198c-.146.158-.557.545-.557 1.328 0 .783.57 1.538.65 1.644.079.105 1.122 1.714 2.718 2.404.379.164.675.263.906.337.38.12.727.103 1.001.063.305-.045.91-.372 1.038-.73.127-.359.127-.668.09-.729-.04-.061-.147-.098-.459-.254z"/>
+            </svg>
+        </a>
+    </div>
 
-            <div class="timeline-content">
+    <!-- 1. HERO EN-TÊTE SPECTACULAIRE ET COMPACT (H-70vh) -->
+    <!-- STREAMING_CHUNK:Rendering cinematic header... -->
+    <header class="relative h-[65vh] flex items-center justify-center overflow-hidden bg-stone-950 shadow-inner">
+        <!-- Vidéo cinématique d'arrière-plan en boucle infinie -->
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-40 filter brightness-75">
+            <source src="futuristic-device.mp4" type="video/mp4">
+            <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Fond d'hommage" class="absolute inset-0 w-full h-full object-cover opacity-20 filter blur-sm">
+        </video>
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-stone-950"></div>
+        
+        <div class="relative z-10 text-center text-white px-4 space-y-3 max-w-3xl animate-fade-in">
+            <p class="text-[10px] uppercase tracking-[0.25em] text-amber-400 font-bold">ANNONCE DE MESSE D'ACTION DE GRÂCE ET DE REMERCIEMENTS</p>
+            <h1 class="font-serif-elegant text-3xl md:text-5xl text-stone-100 font-bold tracking-wide drop-shadow-xl leading-tight">
+                M. Séraphin Mapkonfa<br><span class="text-amber-400">GBINLO</span>
+            </h1>
+            <div class="w-10 h-[1.5px] bg-amber-400 mx-auto my-2"></div>
+            
+            <!-- Citation biblique condensée et harmonieuse -->
+            <p class="text-xs md:text-sm font-light italic text-stone-300 font-sans-clean max-w-xl mx-auto leading-relaxed">
+                « Que votre cœur ne se trouble pas. Croyez en Dieu, croyez aussi en moi. Il y a plusieurs demeures dans la maison de mon Père... »
+                <span class="block text-[10px] mt-1.5 text-amber-400 not-italic font-bold tracking-widest">— JEAN 14, 1-2</span>
+            </p>
+        </div>
+    </header>
 
-                <span class="date">
+    <!-- 2. ANNONCE OFFICIELLE (Ordre des collectivités et biographie) -->
+    <!-- STREAMING_CHUNK:Rendering announcements and collectivités... -->
+    <section id="propos" class="py-14 px-4 max-w-5xl mx-auto border-b border-stone-200 dark:border-stone-900">
+        <div class="space-y-8">
+            
+            <!-- Bloc d'Annonce Officielle structuré rigoureusement -->
+            <div class="bg-stone-100/50 dark:bg-stone-900/30 border border-stone-200/50 dark:border-stone-800/60 rounded-xl p-5 md:p-6 space-y-4">
+                <div class="text-center space-y-1">
+                    <span class="text-[10px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">UNION DE COMMUNION</span>
+                    <h2 class="font-serif-elegant text-xl md:text-2xl font-bold">Les Grandes Collectivités Organisatrices</h2>
+                </div>
 
-                    Vendredi 28 Août 2026
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans-clean">
+                    <div class="space-y-2">
+                        <p class="flex items-start gap-2">
+                            <span class="text-amber-500 font-bold mt-0.5">•</span>
+                            <span>La collectivité <strong>GBINLO – GUEGUELIGUE – AZONTOKPO – AGBOFO – AGBOLEAFI</strong> de Fonkpamè Agondji ;</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-amber-500 font-bold mt-0.5">•</span>
+                            <span>La collectivité <strong>TANHOUNNON – GBADENON</strong> de Zounmè Oumbèga ;</span>
+                        </p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="flex items-start gap-2">
+                            <span class="text-amber-500 font-bold mt-0.5">•</span>
+                            <span>La collectivité <strong>GBASSI – DEDAGO</strong> d'Ahozoun Oumbèga ;</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span class="text-amber-500 font-bold mt-0.5">•</span>
+                            <span>La collectivité <strong>BOCODAHO – GBEHOLO</strong> de Tchêly, Abomey ;</span>
+                        </p>
+                    </div>
+                </div>
 
-                </span>
+                <div class="border-t border-stone-200 dark:border-stone-800 pt-3 text-xs md:text-sm text-stone-700 dark:text-stone-300 space-y-2 font-sans-clean">
+                    <p><strong>Les frères et sœurs du défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, FEUE EUDOXIE, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE ;</p>
+                    <p>Les petits-enfants et arrière-petits-enfants ;</p>
+                    <p>Les cousins, cousines, neveux et nièces ;</p>
+                </div>
+            </div>
 
-                <h3>
-
-                    Messe familiale
-
-                </h3>
-
-                <p>
-
-                    09h00
-
+            <!-- Liste des Familles Alliées et Amies Compacte -->
+            <!-- STREAMING_CHUNK:Rendering families list... -->
+            <div class="space-y-3">
+                <h3 class="font-serif-elegant text-sm font-semibold tracking-wide text-center text-stone-500 dark:text-stone-400">LES FAMILLES PARENTES, ALLIÉES ET AMIES :</h3>
+                <p class="text-[11px] md:text-xs text-stone-500 dark:text-stone-400 text-center leading-relaxed max-w-4xl mx-auto uppercase tracking-wide bg-stone-100/30 dark:bg-stone-900/10 p-3 rounded-lg border border-stone-200/30 dark:border-stone-800/20">
+                    AHO-GLELÈ, GBASSI-DEDAGO, FÉLIHO, AGBI-DAVO, ADJALIAN, GBEHOLO, KPOMALEGNI, AYIVI, DEGBÉ, SOUTON, TCHALOKO, GBAGUIDI, DENAKPO, SEKPE, AGBIDI, WOUEHA, AGBESSI, AHOUISSOU, TOKOU, LOKONON, HOUADJÉTO, TONOUÉHOUA, TOUGAN, LOKPO, HOUNSOUNON, TCHOBO et GOÏTO
                 </p>
-
-                <p>
-
-                    Maison GBINLO
-
+                <p class="text-center italic text-stone-600 dark:text-stone-300 text-sm font-light mt-3">
+                    vous invitent à vous unir à elles pour une messe d'action de grâce, suivie d'une réception en mémoire de leur très cher et regretté fils, frère, oncle, père, beau-père, grand-père et arrière-grand-père,
                 </p>
+            </div>
 
-                <p>
+            <!-- Focus Majeur : Le Portrait et les Renseignements Personnels -->
+            <!-- STREAMING_CHUNK:Rendering primary focus and portrait... -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-4">
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative max-w-xs rounded-xl overflow-hidden shadow-xl border-2 border-white dark:border-stone-900 transform hover:scale-[1.01] transition-all duration-500">
+                        <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Monsieur SÉRAPHIN MAKPONFA GBINLO" class="w-full h-auto object-cover">
+                    </div>
+                </div>
 
-                    Messe suivie d'une réception familiale.
-
-                </p>
-
+                <div class="md:col-span-7 space-y-4">
+                    <div class="border-l-4 border-amber-500 pl-3 space-y-1">
+                        <span class="text-[10px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">À LA MÉMOIRE DE</span>
+                        <h2 class="font-serif-elegant text-2xl font-bold leading-tight">
+                            Monsieur SÉRAPHIN MAKPONFA GBINLO
+                        </h2>
+                        <p class="text-xs uppercase tracking-wide font-semibold text-stone-500 dark:text-stone-400">
+                            Inspecteur de l'Enseignement du Premier Degré à la retraite
+                        </p>
+                    </div>
+                    
+                    <p class="text-stone-600 dark:text-stone-300 leading-relaxed font-light text-xs md:text-sm">
+                        Rappelé à Dieu le <strong>jeudi 4 décembre 2025</strong>, dans sa 83ᵉ année, au <strong>CNHU-HKM</strong> (Centre National Hospitalier Universitaire Hubert Koutoukou Maga).
+                    </p>
+                    
+                    <div class="bg-amber-500/5 dark:bg-amber-500/10 p-4 rounded-lg border border-amber-500/20">
+                        <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed italic">
+                            « Après son inhumation, la famille vous convie à prendre part à ces moments de prière, de communion fraternelle et de partage, afin de rendre grâce à Dieu pour sa vie et de perpétuer sa mémoire. »
+                        </p>
+                    </div>
+                </div>
             </div>
 
         </div>
+    </section>
 
+    <!-- 3. SECTION : PROGRAMME CHRONOLOGIQUE -->
+    <!-- STREAMING_CHUNK:Rendering program itinerary... -->
+    <section id="programme" class="bg-stone-900 text-white dark:bg-stone-900/40 py-14 px-4 border-t border-b border-stone-800">
+        <div class="max-w-5xl mx-auto space-y-10">
+            
+            <div class="text-center space-y-1">
+                <span class="text-[10px] uppercase tracking-[0.2em] text-amber-400">CHRONOGRAMME</span>
+                <h2 class="font-serif-elegant text-2xl md:text-3xl text-stone-100 font-bold">Programme Officiel</h2>
+            </div>
 
+            <!-- Grille Chronologique Ultra Compacte -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-sans-clean">
+                
+                <!-- Jeudi 27 août 2026 -->
+                <div class="bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg hover:border-amber-500/20 transition-all duration-300">
+                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Jeudi 27 août 2026</span>
+                    <div class="w-6 h-[1px] bg-stone-700 my-2"></div>
+                    <p class="text-base font-bold text-stone-200">20 h 00</p>
+                    <p class="text-stone-400 text-xs mt-1 leading-relaxed">
+                        Veillée de prières à <strong class="text-stone-200">Fonkpamè</strong>, dans la maison GBINLO, suivie d'une animation folklorique.
+                    </p>
+                </div>
 
-        <div class="timeline-item left">
+                <!-- Vendredi 28 août 2026 -->
+                <div class="bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg hover:border-amber-500/20 transition-all duration-300">
+                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Vendredi 28 août 2026</span>
+                    <div class="w-6 h-[1px] bg-stone-700 my-2"></div>
+                    <p class="text-base font-bold text-stone-200">09 h 00</p>
+                    <p class="text-stone-400 text-xs mt-1 leading-relaxed">
+                        Messe dans la maison <strong class="text-stone-200">GBINLO</strong>, suivie d'une réception familiale.
+                    </p>
+                </div>
 
-            <div class="timeline-content">
+                <!-- Samedi 29 août 2026 -->
+                <div class="bg-stone-950/60 p-5 rounded-xl border border-stone-800/80 shadow-lg hover:border-amber-500/20 transition-all duration-300">
+                    <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">Samedi 29 août 2026</span>
+                    <div class="w-6 h-[1px] bg-stone-700 my-2"></div>
+                    <p class="text-stone-400 text-xs leading-relaxed">
+                        <strong class="text-stone-200 font-bold block text-xs">11 h 00 :</strong> Messe d'action de grâce en l'église Bon Pasteur d'Adandokpodji <strong class="text-stone-200">ABOMEY</strong>.
+                    </p>
+                    <p class="text-stone-400 text-xs leading-relaxed mt-1.5">
+                        <strong class="text-stone-200 font-bold block text-xs">13 h 00 :</strong> Réception à la CNSS (OBSS) d'Abomey, située à <strong class="text-stone-200">GOHO</strong>.
+                    </p>
+                </div>
+            </div>
 
-                <span class="date">
-
-                    Samedi 29 Août 2026
-
-                </span>
-
-                <h3>
-
-                    Messe d'action de grâce
-
-                </h3>
-
-                <p>
-
-                    11h00
-
-                </p>
-
-                <p>
-
-                    Église Bon Pasteur
-                    <br>
-                    Adandokpodji - Abomey
-
-                </p>
-
+            <!-- COMPTE À REBOURS DE L'ÉVÉNEMENT -->
+            <div class="space-y-3 pt-2 text-center">
+                <p class="text-stone-400 text-[10px] tracking-wider uppercase">Début de la célébration dans :</p>
+                <div class="grid grid-cols-4 gap-2.5 max-w-sm mx-auto text-center">
+                    <div class="bg-stone-950/80 border border-stone-800 p-2.5 rounded-lg">
+                        <span id="days" class="block font-serif-elegant text-xl md:text-2xl text-amber-400 font-bold">00</span>
+                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Jours</span>
+                    </div>
+                    <div class="bg-stone-950/80 border border-stone-800 p-2.5 rounded-lg">
+                        <span id="hours" class="block font-serif-elegant text-xl md:text-2xl text-amber-400 font-bold">00</span>
+                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Heures</span>
+                    </div>
+                    <div class="bg-stone-950/80 border border-stone-800 p-2.5 rounded-lg">
+                        <span id="minutes" class="block font-serif-elegant text-xl md:text-2xl text-amber-400 font-bold">00</span>
+                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Min</span>
+                    </div>
+                    <div class="bg-stone-950/80 border border-stone-800 p-2.5 rounded-lg">
+                        <span id="seconds" class="block font-serif-elegant text-xl md:text-2xl text-amber-400 font-bold">00</span>
+                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Sec</span>
+                    </div>
+                </div>
             </div>
 
         </div>
+    </section>
 
-
-
-        <div class="timeline-item right">
-
-            <div class="timeline-content">
-
-                <span class="date">
-
-                    Samedi 29 Août 2026
-
-                </span>
-
-                <h3>
-
-                    Réception
-
-                </h3>
-
-                <p>
-
-                    13h00
-
+    <!-- 4. SECTION : FAIRE-PART (Téléchargement direct) -->
+    <!-- STREAMING_CHUNK:Rendering pdf downloads... -->
+    <section id="fairepart" class="py-14 px-4 bg-stone-100 dark:bg-stone-900/20 border-b border-stone-200 dark:border-stone-900">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <div class="space-y-1">
+                <span class="text-[10px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">FAIRE-PART NUMÉRIQUE</span>
+                <h2 class="font-serif-elegant text-2xl font-bold">Téléchargez L'Invitation Officielle</h2>
+                <p class="text-stone-600 dark:text-stone-400 max-w-md mx-auto text-xs font-light leading-relaxed">
+                    Téléchargez directement le faire-part numérique complet au format PDF pour conserver toutes les coordonnées de l'organisation.
                 </p>
-
-                <p>
-
-                    CNSS (OBSS)
-                    <br>
-                    GOHO - Abomey
-
-                </p>
-
             </div>
 
+            <div class="max-w-xs mx-auto bg-stone-950 text-white p-6 rounded-2xl border border-amber-400/40 shadow-xl space-y-4 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-stone-900 via-blue-950/15 to-stone-950 opacity-95"></div>
+                <div class="relative z-10 space-y-4">
+                    <!-- Vignette d'hommage de l'Inspecteur -->
+                    <div class="w-16 h-16 rounded-full mx-auto border-2 border-amber-400 overflow-hidden shadow-md">
+                        <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Séraphin GBINLO" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="space-y-0.5">
+                        <h3 class="font-serif-elegant text-sm text-amber-400 font-bold">M. SÉRAPHIN M. GBINLO</h3>
+                        <p class="text-[9px] text-stone-400 font-light">Faire-part officiel des Obsèques</p>
+                    </div>
+
+                    <a href="faire-part-officiel.pdf" download 
+                       class="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-5 rounded-lg shadow-lg transition-all w-full text-xs">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Télécharger le Faire-part (PDF)
+                    </a>
+                </div>
+            </div>
         </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================= -->
-<!-- GALERIE -->
-<!-- ========================================= -->
-
-<section id="galerie" class="galerie">
-
-    <div class="section-title">
-
-        <h2>
-
-            Galerie Photos
-
-        </h2>
-
-        <p>
-
-            Quelques souvenirs précieux
-
-        </p>
-
-    </div>
-
-
-    <div class="gallery-grid">
-
-        <img src="images/photo1.jpg" alt="">
-
-        <img src="images/photo2.jpg" alt="">
-
-        <img src="images/photo3.jpg" alt="">
-
-        <img src="images/photo4.jpg" alt="">
-
-        <img src="images/photo5.jpg" alt="">
-
-        <img src="images/photo6.jpg" alt="">
-
-    </div>
-
-</section>
-
-
-
-
-<!-- ========================================= -->
-<!-- ACCES -->
-<!-- ========================================= -->
-
-<section id="acces" class="acces">
-
-<div class="section-title">
-
-<h2>
-
-Lieu de la réception
-
-</h2>
-
-<p>
-
-CNSS (OBSS) GOHO
-
-</p>
-
-</div>
-
-<div class="map-container">
-
-<img
-
-src="images/carte3d.png"
-
-alt="Carte"
-
->
-
-</div>
-
-
-<div class="buttons-map">
-
-<a
-
-href="#"
-
-target="_blank"
-
-class="btn-map">
-
-Google Maps
-
-</a>
-
-<a
-
-href="#"
-
-class="btn-map">
-
-Télécharger le plan
-
-</a>
-
-</div>
-
-</section>
-
-
-
-
-<!-- ========================================= -->
-<!-- LIVRE D'OR -->
-<!-- ========================================= -->
-
-<section id="livredor" class="livredor">
-
-<div class="section-title">
-
-<h2>
-
-Livre d'or
-
-</h2>
-
-<p>
-
-Laissez un message à la famille
-
-</p>
-
-</div>
-
-<form>
-
-<input
-
-type="text"
-
-placeholder="Votre nom"
-
->
-
-<textarea
-
-placeholder="Votre message"
-
-></textarea>
-
-<button>
-
-Envoyer
-
-</button>
-
-</form>
-
-<div id="messages">
-
-</div>
-
-</section>
-
-
-
-
-<!-- ========================================= -->
-<!-- MUSIQUE -->
-<!-- ========================================= -->
-
-<audio
-
-id="music"
-
-loop
-
->
-
-<source
-
-src="audio/hommage.mp3"
-
-type="audio/mpeg">
-
-</audio>
-
-<button id="musicButton">
-
-🔇
-
-</button>
-<!-- ========================================= -->
-<!-- FENÊTRE LIGHTBOX -->
-<!-- ========================================= -->
-
-<div id="lightbox" class="lightbox">
-
-    <span id="closeLightbox">&times;</span>
-
-    <img id="lightboxImage" src="" alt="Photo">
-
-    <button id="prevPhoto" class="lightbox-btn left">
-        ❮
-    </button>
-
-    <button id="nextPhoto" class="lightbox-btn right">
-        ❯
-    </button>
-
-</div>
-
-
-
-<!-- ========================================= -->
-<!-- REMERCIEMENTS -->
-<!-- ========================================= -->
-
-<section class="remerciements">
-
-    <div class="container">
-
-        <h2>
-
-            Remerciements
-
-        </h2>
-
-        <p>
-
-            Les familles éplorées, profondément touchées par les nombreuses
-            marques de sympathie, de compassion et d'affection que vous leur
-            avez témoignées lors du décès et des obsèques de leur regretté
-            parent, vous prient de trouver ici l'expression de leur profonde
-            gratitude.
-
-        </p>
-
-        <p>
-
-            Que le Dieu Tout-Puissant vous comble de ses abondantes grâces
-            et vous le rende au centuple.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- ========================================= -->
-<!-- CONTACT -->
-<!-- ========================================= -->
-
-<section class="contact">
-
-    <div class="container">
-
-        <h2>
-
-            Informations
-
-        </h2>
-
-        <div class="contact-grid">
-
-            <div class="contact-card">
-
-                📞
-
-                <h3>
-
-                    Téléphone
-
-                </h3>
-
-                <p>
-
-                    +229 XX XX XX XX
-
-                </p>
-
+    </section>
+
+    <!-- 5. SECTION : LA DESCENDANCE NUMÉROTÉE (Placée juste après le téléchargement) -->
+    <!-- STREAMING_CHUNK:Rendering numbered children list... -->
+    <section id="enfants" class="py-14 px-4 max-w-4xl mx-auto border-b border-stone-200 dark:border-stone-900">
+        <div class="space-y-6">
+            <div class="text-center space-y-1">
+                <span class="text-[10px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">LA DESCENDANCE DIRECTE</span>
+                <h2 class="font-serif-elegant text-2xl font-bold">Liste des Enfants du Défunt</h2>
+                <div class="w-8 h-[1.5px] bg-amber-500 mx-auto mt-2"></div>
             </div>
 
-            <div class="contact-card">
-
-                📍
-
-                <h3>
-
-                    Lieu
-
-                </h3>
-
-                <p>
-
-                    CNSS (OBSS)
-                    <br>
-                    GOHO
-                    <br>
-                    Abomey
-
-                </p>
-
+            <!-- Liste Numérotée Harmonisée -->
+            <div class="bg-white dark:bg-stone-900/40 border border-stone-200/60 dark:border-stone-800/80 rounded-xl p-5 md:p-6 shadow-md">
+                <ol class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3.5 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-sans-clean font-medium">
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">01</span>
+                        <span>GBINLO Clémence</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">02</span>
+                        <span>GBINLO Edgard</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">03</span>
+                        <span>GBINLO Hospice</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">04</span>
+                        <span>GBINLO Michael</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">05</span>
+                        <span>GBINLO Hervé</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">06</span>
+                        <span>GBINLO Ginette</span>
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-400 dark:text-stone-500 italic">
+                        <span class="bg-stone-100 dark:bg-stone-900 text-stone-500 dark:text-stone-600 text-[10px] font-bold px-2 py-1 rounded">07</span>
+                        <span>Feue GBINLO Eudoxie</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">08</span>
+                        <span>GBINLO Éloïse</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">09</span>
+                        <span>GBINLO Modeste</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">10</span>
+                        <span>GBINLO Eric</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">11</span>
+                        <span>GBINLO Florine</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[10px] font-bold px-2 py-1 rounded">12</span>
+                        <span>GBINLO Auguste</span>
+                    </li>
+                </ol>
             </div>
-
-            <div class="contact-card">
-
-                ✉️
-
-                <h3>
-
-                    Email
-
-                </h3>
-
-                <p>
-
-                    famillegbinlo@email.com
-
-                </p>
-
-            </div>
-
         </div>
+    </section>
 
-    </div>
+    <!-- 6. SECTION : SINCÈRES REMERCIEMENTS & CLÔTURE -->
+    <!-- STREAMING_CHUNK:Rendering acknowledgements... -->
+    <section id="remerciements" class="bg-stone-200/60 dark:bg-stone-900 text-stone-800 dark:text-stone-200 py-12 px-6 shadow-inner transition-colors duration-500">
+        <div class="max-w-3xl mx-auto text-center space-y-4">
+            <h3 class="font-serif-elegant text-xl tracking-wider text-stone-900 dark:text-amber-400 uppercase font-bold">Remerciements</h3>
+            <div class="w-10 h-[1px] bg-amber-600 dark:bg-amber-400 mx-auto"></div>
+            <div class="space-y-3 text-stone-600 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-light italic max-w-2xl mx-auto">
+                <p>
+                    « Les familles éplorées, profondément touchées par les nombreuses marques de sympathie, de compassion et d'affection que vous leur avez témoignées lors du décès et des obsèques de leur regretté parent, vous prient de trouver ici l'expression de leur profonde gratitude. »
+                </p>
+                <p class="font-semibold text-amber-600 dark:text-amber-400 not-italic">
+                    Que le Dieu Tout-Puissant vous comble de ses abondantes grâces et vous le rende au centuple.
+                </p>
+            </div>
+        </div>
+    </section>
 
-</section>
+    <!-- 7. ENCART PROFESSIONNEL : VOTRE ENTREPRISE "DIGITAL" -->
+    <!-- STREAMING_CHUNK:Rendering studio showcase... -->
+    <section class="bg-stone-100 dark:bg-stone-950 py-10 px-6 border-t border-stone-200 dark:border-stone-900/60 transition-colors duration-500">
+        <div class="max-w-xl mx-auto bg-white dark:bg-stone-900 p-5 rounded-xl shadow-md border border-stone-200/60 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+            
+            <!-- Votre photo de profil d'agence / de créateur -->
+            <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-amber-400 shrink-0 shadow-md">
+                <img src="emmanuel-clarius.png" alt="Emmanuel Clarius" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'">
+            </div>
 
+            <div class="space-y-2.5 flex-1">
+                <div class="space-y-0.5">
+                    <span class="text-[9px] uppercase tracking-widest text-amber-600 dark:text-amber-400 font-bold block">Conception & Développement Web</span>
+                    <h4 class="font-serif-elegant text-sm font-bold text-stone-900 dark:text-stone-100">Digital</h4>
+                    <p class="text-[11px] text-stone-500 dark:text-stone-400 leading-relaxed">
+                        Vous souhaitez créer un site d'hommage interactif, un faire-part professionnel ou un portail numérique pour votre entreprise ?
+                    </p>
+                </div>
 
+                <!-- Bouton pointant vers votre contact wa.me/22958255572 -->
+                <a href="https://wa.me/22958255572?text=Bonjour%20Digital,%20j'ai%20visité%20le%20site%20d'hommage%20et%20je%20souhaite%20vous%20commander%20un%20site%20web." 
+                   target="_blank" 
+                   class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-[11px] font-semibold px-3 py-1.5 rounded hover:bg-amber-600 dark:hover:bg-amber-400 transition-all shadow-sm">
+                    <span>💬</span> Commander un site similaire
+                </a>
+            </div>
+        </div>
+    </section>
 
-<!-- ========================================= -->
-<!-- FOOTER -->
-<!-- ========================================= -->
+    <!-- PIED DE PAGE PERSONNALISÉ -->
+    <footer class="bg-stone-950 text-stone-600 text-center py-6 border-t border-stone-900 text-[10px] tracking-wider space-y-1">
+        <p>© 2026 — Famille GBINLO. Tous droits réservés.</p>
+        <p class="text-stone-500 dark:text-stone-400 font-medium">Développé par <span class="text-amber-500 font-bold">Emmanuel</span> — Contact : <a href="tel:+22958255572" class="hover:underline">+229 58 25 55 72</a></p>
+    </footer>
 
-<footer>
+    <!-- TOUT LE CODE JAVASCRIPT LOGIQUE CENTRALISÉ -->
+    <!-- STREAMING_CHUNK:Activating logic... -->
+    <script>
+        // ==========================================
+        // 1. COMPTE À REBOURS DE L'HOMMAGE (Date cible : 27 août 2026 à 20:00:00)
+        // ==========================================
+        const targetDate = new Date("August 27, 2026 20:00:00").getTime();
 
-    <div class="footer-overlay">
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
 
-        <h2>
+            // Calcul du temps restant (Jours, heures, minutes, secondes)
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            En mémoire éternelle de
+            // Injection dynamique sécurisée dans le HTML
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minutesEl = document.getElementById("minutes");
+            const secondsEl = document.getElementById("seconds");
 
-        </h2>
+            if (daysEl) daysEl.innerText = String(days).padStart(2, '0');
+            if (hoursEl) hoursEl.innerText = String(hours).padStart(2, '0');
+            if (minutesEl) minutesEl.innerText = String(minutes).padStart(2, '0');
+            if (secondsEl) secondsEl.innerText = String(seconds).padStart(2, '0');
 
-        <h1>
+            // Si le compte à rebours expire
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                const countdownContainer = document.querySelector("#programme .grid-cols-4");
+                if (countdownContainer) {
+                    countdownContainer.innerHTML = "<p class='col-span-4 text-amber-400 font-serif-elegant text-xs uppercase tracking-wider font-bold'>La célébration a commencé</p>";
+                }
+            }
+        }, 1000);
 
-            Monsieur Séraphin MAKPONFA GBINLO
+        // ==========================================
+        // 2. LOGIQUE DE BASCULEMENT DU MODE SOMBRE / CLAIR
+        // ==========================================
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById("themeIcon");
+            const themeText = document.getElementById("themeText");
 
-        </h1>
+            if (html.classList.contains("dark")) {
+                html.classList.remove("dark");
+                localStorage.setItem("theme", "light");
+                if (themeIcon) themeIcon.innerText = "🌙";
+                if (themeText) themeText.innerText = "Mode Sombre";
+            } else {
+                html.classList.add("dark");
+                localStorage.setItem("theme", "dark");
+                if (themeIcon) themeIcon.innerText = "☀️";
+                if (themeText) themeText.innerText = "Mode Clair";
+            }
+        }
 
-        <p>
+        // Appliquer la configuration enregistrée au premier chargement de la page
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem("theme");
+            const html = document.documentElement;
+            const themeIcon = document.getElementById("themeIcon");
+            const themeText = document.getElementById("themeText");
 
-            1942 – 2025
-
-        </p>
-
-        <blockquote>
-
-            "Je vais vous préparer une place."
-
-            <br>
-
-            Jean 14:2
-
-        </blockquote>
-
-        <hr>
-
-        <p>
-
-            Famille GBINLO • 2026
-
-        </p>
-
-        <p>
-
-            Site réalisé en hommage à notre regretté père,
-            grand-père et arrière-grand-père.
-
-        </p>
-
-    </div>
-
-</footer>
-
-
-
-<!-- ========================================= -->
-<!-- PARTICULES -->
-<!-- ========================================= -->
-
-<div id="particles">
-
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-
-</div>
-
-
-
-<!-- ========================================= -->
-<!-- SCRIPTS -->
-<!-- ========================================= -->
-
-<script src="script.js"></script>
-
+            if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                html.classList.add("dark");
+                if (themeIcon) themeIcon.innerText = "☀️";
+                if (themeText) themeText.innerText = "Mode Clair";
+            } else {
+                html.classList.remove("dark");
+                if (themeIcon) themeIcon.innerText = "🌙";
+                if (themeText) themeText.innerText = "Mode Sombre";
+            }
+        });
+    </script>
 </body>
-
 </html>
