@@ -178,3 +178,19 @@ document.querySelectorAll(".fade-up,.zoom").forEach(el=>{
     observer.observe(el);
 
 });
+/* ===============================
+   PRELOADER
+================================ */
+
+window.addEventListener("load", function () {
+
+    const preloader = document.getElementById("preloader");
+
+    preloader.style.opacity = "0";
+    preloader.style.visibility = "hidden";
+
+    setTimeout(() => {
+        preloader.style.display = "none";
+    }, 700);
+
+});
