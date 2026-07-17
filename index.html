@@ -1,3 +1,4 @@
+html:Hommage à l'Inspecteur Séraphin M. GBINLO:index.html
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
 <head>
@@ -16,7 +17,7 @@
     </script>
     
     <!-- TOUS LES STYLES CSS CENTRALISÉS -->
-    <!-- STREAMING_CHUNK:Structuring layout fonts and micro-animations... -->
+    <!-- STREAMING_CHUNK:Configuring custom fonts and micro-interactions... -->
     <style>
         /* Importation de la police Inter pour le corps du texte */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -75,7 +76,7 @@
     <div id="canvas3d-container"></div>
 
     <!-- BARRE DE NAVIGATION COMPACTE ET ÉLÉGANTE -->
-    <!-- STREAMING_CHUNK:Rendering slim navigation bar for devices... -->
+    <!-- STREAMING_CHUNK:Rendering slim header navigation... -->
     <nav class="fixed top-0 left-0 w-full bg-white/80 dark:bg-stone-950/80 backdrop-blur-md z-40 border-b border-stone-200/50 dark:border-stone-900/50 transition-colors duration-500">
         <div class="max-w-6xl mx-auto px-4 py-1.5 flex justify-between items-center">
             <a href="#" class="font-tnr text-amber-600 dark:text-amber-400 tracking-wider text-xs md:text-sm">HOMMAGE — S.M.G</a>
@@ -107,7 +108,7 @@
     </nav>
 
     <!-- BOUTONS FLOTTANTS DE CONTACT HAUTEMENT VISIBLES, EXPLICITES ET ANIMÉS -->
-    <!-- STREAMING_CHUNK:Injecting floating CTA targets... -->
+    <!-- STREAMING_CHUNK:Injecting floating interactive CTA pill buttons... -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 font-sans-clean">
         <!-- Bouton d'Appel (Bleu) -->
         <a href="tel:+2290168049979" title="Appeler pour un renseignement" 
@@ -123,7 +124,7 @@
         </a>
 
         <!-- Bouton WhatsApp (Vert) -->
-        <a href="https://wa.me/2290169320612?text=Bonjour,%20je%20souhaite%20avoir%20des%20renseignements%20concernant%20les%20obsèques%20de%20l'Inspecteur%20GBINLO." 
+        <a href="https://wa.me/22969320612?text=Bonjour,%20je%20souhaite%20avoir%20des%20renseignements%20concernant%20les%20obsèques%20de%20l'Inspecteur%20GBINLO." 
            target="_blank" title="Écrire sur WhatsApp" 
            class="relative flex items-center gap-2.5 bg-emerald-500 hover:bg-emerald-600 text-white pl-3 pr-4 py-2.5 rounded-full shadow-[0_10px_25px_rgba(16,185,129,0.45)] hover:scale-105 transition-all duration-300 border border-white/20 group">
             <!-- Onde de choc WhatsApp -->
@@ -138,14 +139,14 @@
     </div>
 
     <!-- 1. HERO EN-TÊTE DYNAMIQUE ET TRÈS CONCENTRÉ (Hauteur réduite pour supprimer le grand vide comme indiqué dans Screenshot_20260717-094554.jpg) -->
-    <!-- STREAMING_CHUNK:Rendering main top header section... -->
+    <!-- STREAMING_CHUNK:Rendering landing header with custom scripture... -->
     <header class="relative h-[48vh] flex items-center justify-center overflow-hidden bg-transparent">
         <div class="relative z-10 text-center text-stone-900 dark:text-white px-4 space-y-2 max-w-2xl animate-fade-in mt-4">
             <span class="text-[8px] md:text-[10px] uppercase tracking-[0.25em] text-amber-600 dark:text-amber-400 font-bold block">
                 ANNONCE DE MESSE D'ACTION DE GRÂCE ET DE REMERCIEMENTS
             </span>
             <h1 class="font-tnr text-3xl md:text-5xl tracking-wide leading-tight drop-shadow-md">
-                M. SÉRAPHIN S. GBINLO
+                M. Séraphin Mapkonfa<br><span class="text-amber-600 dark:text-amber-400">GBINLO</span>
             </h1>
             <div class="w-8 h-[1px] bg-amber-500 mx-auto"></div>
             
@@ -158,13 +159,13 @@
     </header>
 
     <!-- 2. ANNONCE DE DEUIL & COLLECTIVITÉS (Resserré pour éviter le vide comme indiqué dans Screenshot_20260717-094554.jpg) -->
-    <!-- STREAMING_CHUNK:Rendering announcements and families... -->
+    <!-- STREAMING_CHUNK:Rendering obituary announcements and collectivités grid... -->
     <section id="propos" class="py-6 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-6">
             
-            <!-- Les grandes collectivités (Réorganisées en grille parfaite et alignée au pixel près pour ordinateur et mobile) -->
+            <!-- Les grandes collectivités (Réorganisées en grille parfaite et alignée en mode ordinateur) -->
             <div class="bg-white/60 dark:bg-stone-900/40 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 md:p-5 space-y-3 shadow-sm">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
                     <div class="space-y-1">
                         <p class="flex items-start gap-1.5">
                             <span class="text-amber-500">•</span>
@@ -187,25 +188,58 @@
                     </div>
                 </div>
 
-                <div class="border-t border-stone-200/40 dark:border-stone-800/40 pt-2.5 text-xs text-stone-600 dark:text-stone-300 space-y-1 leading-relaxed">
-                    <p><strong>Les frères et sœurs du défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, FEUE EUDOXIE, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE ;</p>
+                <div class="border-t border-stone-200/40 dark:border-stone-800/40 pt-2.5 text-xs text-stone-600 dark:text-stone-300 space-y-1.5 leading-relaxed font-sans-clean">
+                    <p><strong>Les frères et sœurs du regretté défunt ;</strong></p>
+                    <p><strong>Les enfants du défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, FEUE EUDOXIE, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE ; leurs épouses et époux ;</p>
                     <p>Les petits-enfants et arrière-petits-enfants ; les cousins, cousines, neveux et nièces ;</p>
                 </div>
             </div>
 
-            <!-- Familles Alliées : INTERLIGNE REVISITÉ (Plus aéré) & POLICE PLUS GRANDE (Ajustements de Screenshot_20260717-094609~2.jpg) -->
-            <!-- STREAMING_CHUNK:Rendering parents and siblings listing... -->
-            <div class="space-y-2">
-                <p class="text-xs md:text-sm text-stone-700 dark:text-stone-300 text-center leading-[2] md:leading-[2.2] tracking-wide max-w-4xl mx-auto uppercase font-bold">
-                    Les familles : AHO-GLELÈ, GBASSI-DEDAGO, FÉLIHO, AGBI-DAVO, ADJALIAN, GBEHOLO, KPOMALEGNI, AYIVI, DEGBÉ, SOUTON, TCHALOKO, GBAGUIDI, DENAKPO, SEKPE, AGBIDI, WOUEHA, AGBESSI, AHOUISSOU, TOKOU, LOKONON, HOUADJÉTO, TONOUÉHOUA, TOUGAN, LOKPO, HOUNSOUNON, TCHOBO et GOÏTO
-                </p>
-                <p class="text-center italic text-stone-800 dark:text-stone-200 text-xs md:text-sm font-semibold max-w-2xl mx-auto">
-                    vous invitent à vous unir à elles pour une messe d'action de grâce, suivie d'une réception en mémoire de leur très cher et regretté fils, frère, oncle, père, beau-père, grand-père et arrière-grand-père,
+            <!-- Familles Alliées : BOUTONS D'ACTION COLORÉS ET INTERACTIFS (Screenshot_20260717-094609~2.jpg) -->
+            <!-- STREAMING_CHUNK:Rendering colorized interactive badges for families... -->
+            <div class="space-y-3">
+                <p class="text-center text-[10px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-extrabold">Les familles parentes, alliées et amies</p>
+                <div class="flex flex-wrap justify-center gap-2 max-w-5xl mx-auto py-2 leading-loose">
+                    <!-- Génération des puces d'alliances sous forme de boutons d'action d'alliances stylisés -->
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/30">AHO-GLELE</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/30">GBASSI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30">FELIHO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/30">AGBI-DAVO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/30">ADJALIAN</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/30">TCHALOKO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/30">GBAGUIDI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/30">DENAKPO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30">SEKPE</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/30">DOSSOUHOUAN</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/30">SEGBOZO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/30">BAHINLIN</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/30">EROUBINOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/30">AGBIDI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30">WOUEHA</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/30">AGBESSI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/30">AHOUISSOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/30">TOKOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/30">LOKONON</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/30">HOUADJETO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30">TONOUEHOUA</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/30">KPOMALEGNI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/30">AYIVI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/30">DEGBE</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/30">SOUTON</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/30">TOGBE</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/30">TOUGAN</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/30">LOKPO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/30">HOUNSOUNOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:-rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/30">TCHOBO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:rotate-1 hover:shadow-md transition-all text-xs font-bold px-3 py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/30">GOÏTO</span>
+                </div>
+                <p class="text-center text-xs md:text-sm text-stone-700 dark:text-stone-300 font-bold max-w-3xl mx-auto leading-relaxed">
+                    vous annoncent le rappel à Dieu de leur très cher et regretté fils, frère, oncle, père, beau-père, grand-père et arrière-grand-père,
                 </p>
             </div>
 
             <!-- Portrait du Défunt et Biographies Essentielles -->
-            <!-- STREAMING_CHUNK:Rendering main biography grid... -->
+            <!-- STREAMING_CHUNK:Rendering main biography grid and image... -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center pt-2">
                 <!-- Portrait Photo -->
                 <div class="md:col-span-5 flex justify-center">
@@ -227,14 +261,8 @@
                     </div>
                     
                     <p class="text-stone-700 dark:text-stone-300 text-xs md:text-sm leading-relaxed">
-                        Rappelé à Dieu le <strong>jeudi 4 décembre 2025</strong>, dans sa 83ᵉ année, au <strong>CNHU-HKM (Centre National Hospitalier Universitaire Hubert Koutoukou Maga)</strong>.
+                        Rappelé à Dieu <strong>le jeudi 4 décembre 2025, dans sa 83ᵉ année</strong>, au CNHU-HKM (Centre National Hospitalier Universitaire Hubert Koutoukou Maga) de Cotonou et vous prient de bien vouloir assister ou de vous unir d'intention aux messes d'action de grâce suivant le programme ci-après.
                     </p>
-                    
-                    <div class="bg-amber-500/5 dark:bg-amber-500/10 p-3.5 rounded-lg border border-amber-500/20 text-[11px] md:text-xs">
-                        <p class="text-stone-600 dark:text-stone-300 leading-relaxed italic font-medium">
-                            « Après son inhumation, la famille vous convie à prendre part à ces moments de prière, de communion fraternelle et de partage, afin de rendre grâce à Dieu pour sa vie et de perpétuer sa mémoire. »
-                        </p>
-                    </div>
                 </div>
             </div>
 
@@ -242,7 +270,7 @@
     </section>
 
     <!-- 3. SECTION : PROGRAMME CHRONOLOGIQUE DES OBSÈQUES (TAILLES DE POLICE AGRANDIES - Screenshot_20260717-094609~2.jpg) -->
-    <!-- STREAMING_CHUNK:Rendering schedule cards with physical tilt interactions... -->
+    <!-- STREAMING_CHUNK:Rendering itinerary schedule cards... -->
     <section id="programme" class="py-10 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-8">
             
@@ -260,7 +288,7 @@
                     <div class="w-8 h-[1.5px] bg-amber-500 my-2"></div>
                     <p class="text-lg md:text-xl font-bold text-stone-800 dark:text-stone-200">20 h 00</p>
                     <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm mt-2 leading-relaxed">
-                        Veillée de prières à <strong class="text-stone-800 dark:text-stone-200 font-bold">Fonkpamè</strong>, dans la maison GBINLO, suivie d'une animation folklorique.
+                        Veillée de prières à <strong class="text-stone-800 dark:text-stone-200">Fonkpamè</strong>, dans la maison GBINLO, suivie d'une animation folklorique.
                     </p>
                 </div>
 
@@ -270,7 +298,7 @@
                     <div class="w-8 h-[1.5px] bg-blue-500 my-2"></div>
                     <p class="text-lg md:text-xl font-bold text-stone-800 dark:text-stone-200">09 h 00</p>
                     <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm mt-2 leading-relaxed">
-                        Messe dans la maison <strong class="text-stone-800 dark:text-stone-200 font-bold">GBINLO</strong>, suivie d'une réception familiale.
+                        Messe dans la maison <strong class="text-stone-800 dark:text-stone-200">GBINLO</strong>, suivie d'une réception.
                     </p>
                 </div>
 
@@ -279,33 +307,38 @@
                     <span class="text-[11px] md:text-xs font-extrabold text-purple-600 dark:text-purple-400 uppercase tracking-wider block mb-1">Samedi 29 août 2026</span>
                     <div class="w-8 h-[1px] bg-purple-500 my-2"></div>
                     <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm leading-relaxed mt-2">
-                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-sm md:text-base mb-1">11 h 00 :</strong> Messe d'action de grâce en l'église Bon Pasteur d'Adandokpodji <strong class="text-stone-800 dark:text-stone-200 font-extrabold">ABOMEY</strong>.
+                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-sm md:text-base mb-1">11 h 00 :</strong> Messe en l'église Bon Pasteur d'Adandokpodji <strong class="text-stone-800 dark:text-stone-200 font-extrabold">ABOMEY</strong>.
                     </p>
                     <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm leading-relaxed mt-2.5 pt-2 border-t border-purple-500/10">
-                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-sm md:text-base mb-1">13 h 00 :</strong> Réception à la CNSS (OBSS) d'Abomey, située à <strong class="text-stone-800 dark:text-stone-200 font-extrabold">GOHO</strong>.
+                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-sm md:text-base mb-1">13 h 00 :</strong> Réception à la CNSS (ex OBSS) d'Abomey, située à <strong class="text-stone-800 dark:text-stone-200 font-extrabold">GOHO</strong>.
                     </p>
                 </div>
             </div>
 
-            <!-- COMPTE À REBOURS COMPACT -->
-            <div class="space-y-2 pt-2 text-center">
-                <p class="text-stone-500 dark:text-stone-400 text-[9px] tracking-wider uppercase font-bold">Début de la célébration dans :</p>
-                <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto text-center">
-                    <div class="bg-white/60 dark:bg-stone-950/70 border border-stone-200/40 dark:border-stone-800 p-2 rounded-lg">
-                        <span id="days" class="block font-tnr text-lg md:text-xl text-amber-600 dark:text-amber-400">00</span>
-                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Jours</span>
+            <!-- COMPTE À REBOURS COMPACT AVEC COULEURS DANS CHAQUE CHIFFRE (Demande utilisateur) -->
+            <!-- STREAMING_CHUNK:Rendering dynamic colorful countdown... -->
+            <div class="space-y-2 pt-4 text-center">
+                <p class="text-stone-500 dark:text-stone-400 text-[10px] tracking-wider uppercase font-bold">Début de la célébration dans :</p>
+                <div class="grid grid-cols-4 gap-3 max-w-sm mx-auto text-center font-sans-clean">
+                    <!-- Jours : Dégradé Ambre / Or -->
+                    <div class="bg-stone-100/90 dark:bg-stone-900/90 border border-amber-500/25 p-3 rounded-xl shadow-md transform hover:scale-105 transition-all">
+                        <span id="days" class="block font-tnr text-2xl md:text-3xl bg-gradient-to-br from-amber-500 to-yellow-500 bg-clip-text text-transparent">00</span>
+                        <span class="text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Jours</span>
                     </div>
-                    <div class="bg-white/60 dark:bg-stone-950/70 border border-stone-200/40 dark:border-stone-800 p-2 rounded-lg">
-                        <span id="hours" class="block font-tnr text-lg md:text-xl text-amber-600 dark:text-amber-400">00</span>
-                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Heures</span>
+                    <!-- Heures : Dégradé Cyan / Saphir -->
+                    <div class="bg-stone-100/90 dark:bg-stone-900/90 border border-blue-500/25 p-3 rounded-xl shadow-md transform hover:scale-105 transition-all">
+                        <span id="hours" class="block font-tnr text-2xl md:text-3xl bg-gradient-to-br from-cyan-500 to-blue-600 bg-clip-text text-transparent">00</span>
+                        <span class="text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Heures</span>
                     </div>
-                    <div class="bg-white/60 dark:bg-stone-950/70 border border-stone-200/40 dark:border-stone-800 p-2 rounded-lg">
-                        <span id="minutes" class="block font-tnr text-lg md:text-xl text-amber-600 dark:text-amber-400">00</span>
-                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Min</span>
+                    <!-- Minutes : Dégradé Émeraude / Menthe -->
+                    <div class="bg-stone-100/90 dark:bg-stone-900/90 border border-emerald-500/25 p-3 rounded-xl shadow-md transform hover:scale-105 transition-all">
+                        <span id="minutes" class="block font-tnr text-2xl md:text-3xl bg-gradient-to-br from-emerald-500 to-teal-500 bg-clip-text text-transparent">00</span>
+                        <span class="text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Minutes</span>
                     </div>
-                    <div class="bg-white/60 dark:bg-stone-950/70 border border-stone-200/40 dark:border-stone-800 p-2 rounded-lg">
-                        <span id="seconds" class="block font-tnr text-lg md:text-xl text-amber-600 dark:text-amber-400">00</span>
-                        <span class="text-[8px] uppercase tracking-widest text-stone-500 block">Sec</span>
+                    <!-- Secondes : Dégradé Rubis / Rose -->
+                    <div class="bg-stone-100/90 dark:bg-stone-900/90 border border-rose-500/25 p-3 rounded-xl shadow-md transform hover:scale-105 transition-all">
+                        <span id="seconds" class="block font-tnr text-2xl md:text-3xl bg-gradient-to-br from-rose-500 to-purple-500 bg-clip-text text-transparent">00</span>
+                        <span class="text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Secondes</span>
                     </div>
                 </div>
             </div>
@@ -314,7 +347,6 @@
     </section>
 
     <!-- 4. SECTION : FAIRE-PART (Téléchargement direct, très compact) -->
-    <!-- STREAMING_CHUNK:Rendering PDF invitation download target... -->
     <section id="fairepart" class="py-10 px-4 bg-stone-100/50 dark:bg-stone-900/10 border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="max-w-4xl mx-auto text-center space-y-4">
             <div class="space-y-0.5">
@@ -350,7 +382,7 @@
     </section>
 
     <!-- 5. SECTION : LA DESCENDANCE DIRECTE NUMÉROTÉE (CORRECTIF APPLIQUÉ SUR LE 07 : FEUE EUDOXIE - Screenshot_20260717-094618.jpg) -->
-    <!-- STREAMING_CHUNK:Rendering dynamic children listing... -->
+    <!-- STREAMING_CHUNK:Rendering direct children directory... -->
     <section id="enfants" class="py-10 px-4 max-w-4xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-4">
             <div class="text-center space-y-0.5">
@@ -416,19 +448,22 @@
         </div>
     </section>
 
-    <!-- 6. SECTION : SINCÈRES REMERCIEMENTS (En Gras, demandée) -->
-    <!-- STREAMING_CHUNK:Rendering acknowledgments and blessings... -->
+    <!-- 6. SECTION : SINCÈRES REMERCIEMENTS (En Gras) -->
+    <!-- STREAMING_CHUNK:Rendering appreciations block... -->
     <section id="remerciements" class="bg-stone-200/50 dark:bg-stone-900/60 text-stone-800 dark:text-stone-200 py-10 px-4 shadow-inner transition-colors duration-500">
-        <div class="max-w-2xl mx-auto text-center space-y-3">
+        <div class="max-w-2xl mx-auto text-center space-y-4">
             <h3 class="font-tnr text-lg tracking-wider text-stone-900 dark:text-amber-400 uppercase">Remerciements</h3>
             <div class="w-8 h-[1px] bg-amber-600 dark:bg-amber-400 mx-auto"></div>
             
             <!-- Citation de remerciements en Gras demandée -->
-            <div class="space-y-2 text-stone-700 dark:text-stone-300 leading-relaxed text-xs md:text-sm italic font-bold">
-                <p>
-                    « Les familles éplorées, profondément touchées par les nombreuses marques de sympathie, de compassion et d'affection que vous leur avez témoignées lors du décès et des obsèques de leur regretté parent, vous prient de trouver ici l'expression de leur profonde gratitude. »
+            <div class="space-y-3 text-stone-700 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-bold">
+                <p class="italic">
+                    « Les familles éplorées, profondément touchées par les nombreuses marques de sympathie, de compassion et d'affection que vous leur avez témoignées lors du décès, des obsèques et de l'inhumation de leur regretté parent, vous prient de trouver ici l'expression de leur profonde gratitude. »
                 </p>
-                <p class="font-extrabold text-amber-600 dark:text-amber-400 not-italic">
+                <p class="italic">
+                    « Votre présence ou votre union de prières à ces messes d'action de grâce et à ces réceptions constituera pour elles un précieux témoignage de soutien et de fraternité. »
+                </p>
+                <p class="font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-wide mt-4">
                     Que le Dieu Tout-Puissant vous comble de ses abondantes grâces et vous le rende au centuple.
                 </p>
             </div>
@@ -436,7 +471,7 @@
     </section>
 
     <!-- 7. SECTION CRÉATEUR : VOTRE ENTREPRISE "EMMA DIGI WEB" (TEXTE SUBTILEMENT AGRANDI - Screenshot_20260717-094618.jpg) -->
-    <!-- STREAMING_CHUNK:Rendering corporate business card... -->
+    <!-- STREAMING_CHUNK:Rendering brand credentials... -->
     <section class="bg-stone-100/90 dark:bg-stone-950/90 py-8 px-4 border-t border-stone-200/40 dark:border-stone-900/40 transition-colors duration-500">
         <div class="max-w-xl mx-auto bg-white/70 dark:bg-stone-900/70 backdrop-blur-sm p-5 rounded-xl shadow-md border border-stone-200/50 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             
@@ -483,7 +518,7 @@
     </footer>
 
     <!-- TOUTES LES LOGIQUES JAVASCRIPT ET 3D INTERACTIVES (Three.js) -->
-    <!-- STREAMING_CHUNK:Activating immersive background simulation... -->
+    <!-- STREAMING_CHUNK:Activating dynamic ThreeJS canvas animation... -->
     <script>
         // =========================================================================
         // 1. ARRIÈRE-PLAN DE MODÉLISATION 3D DYNAMIQUE HD (Three.js)
@@ -520,7 +555,7 @@
 
             starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-            // Matériau HD dynamique ambre dorée
+            // Matériau HD dynamique ambre
             const starMaterial = new THREE.PointsMaterial({
                 color: 0xd97706, // Teinte Ambre Dorée premium
                 size: 1.5,
@@ -676,4 +711,3 @@
     </script>
 </body>
 </html>
-```eof
