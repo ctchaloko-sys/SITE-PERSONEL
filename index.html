@@ -1,3 +1,4 @@
+html:Hommage à l'Inspecteur Séraphin M. GBINLO:index.html
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
 <head>
@@ -16,6 +17,7 @@
     </script>
     
     <!-- TOUS LES STYLES CSS CENTRALISÉS -->
+    <!-- STREAMING_CHUNK:Initializing typography and interactive 3D elements... -->
     <style>
         /* Importation de la police Inter pour le corps du texte */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -74,6 +76,7 @@
     <div id="canvas3d-container"></div>
 
     <!-- BARRE DE NAVIGATION COMPACTE ET ÉLÉGANTE -->
+    <!-- STREAMING_CHUNK:Rendering slim mobile menu and top bar... -->
     <nav class="fixed top-0 left-0 w-full bg-white/80 dark:bg-stone-950/80 backdrop-blur-md z-40 border-b border-stone-200/50 dark:border-stone-900/50 transition-colors duration-500">
         <div class="max-w-6xl mx-auto px-4 py-1.5 flex justify-between items-center">
             <a href="#" class="font-tnr text-amber-600 dark:text-amber-400 tracking-wider text-xs md:text-sm">HOMMAGE — S.M.G</a>
@@ -95,7 +98,7 @@
         </div>
 
         <!-- Menu Mobile Horizontal Défilant Compact -->
-        <div class="flex md:hidden bg-stone-100/90 dark:bg-stone-900/90 overflow-x-auto border-t border-stone-200/40 dark:border-stone-800/40 scrollbar-none py-1 py-1 px-3 gap-3 text-[9px] uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300 whitespace-nowrap">
+        <div class="flex md:hidden bg-stone-100/90 dark:bg-stone-900/90 overflow-x-auto border-t border-stone-200/40 dark:border-stone-800/40 scrollbar-none py-1.5 px-3 gap-3 text-[9px] uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300 whitespace-nowrap">
             <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
             <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
             <a href="#fairepart" class="hover:text-amber-500 transition-colors">Faire-part</a>
@@ -130,7 +133,7 @@
                 ANNONCE DE MESSE D'ACTION DE GRÂCE ET DE REMERCIEMENTS
             </span>
             <h1 class="font-tnr text-3xl md:text-5xl tracking-wide leading-tight drop-shadow-md">
-                M. Séraphin Mapkonfa<br><span class="text-amber-600 dark:text-amber-400">GBINLO</span>
+                M. SÉRAPHIN MAPKONFA<br><span class="text-amber-600 dark:text-amber-400">GBINLO</span>
             </h1>
             <div class="w-8 h-[1px] bg-amber-500 mx-auto"></div>
             
@@ -143,6 +146,7 @@
     </header>
 
     <!-- 2. ANNONCE DE DEUIL & COLLECTIVITÉS (Resserré pour éviter le vide) -->
+    <!-- STREAMING_CHUNK:Rendering main body section with revised line heights... -->
     <section id="propos" class="py-6 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-6">
             
@@ -173,13 +177,13 @@
 
                 <div class="border-t border-stone-200/40 dark:border-stone-800/40 pt-2.5 text-xs text-stone-600 dark:text-stone-300 space-y-1 leading-relaxed">
                     <p><strong>Les frères et sœurs du défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, FEUE EUDOXIE, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE ;</p>
-                    <p>Les petits-enfants et arrière-petits-enfants ; les cousins, cousins, neveux et nièces ;</p>
+                    <p>Les petits-enfants et arrière-petits-enfants ; les cousins, cousines, neveux et nièces ;</p>
                 </div>
             </div>
 
-            <!-- Familles Alliées Liste Compacte -->
+            <!-- Familles Alliées : INTERLIGNE REVISITÉ (Plus aéré) & POLICE UN PEU PLUS GRANDE -->
             <div class="space-y-2">
-                <p class="text-[10px] text-stone-500 dark:text-stone-400 text-center leading-relaxed max-w-4xl mx-auto uppercase tracking-wider font-semibold">
+                <p class="text-xs md:text-sm text-stone-700 dark:text-stone-300 text-center leading-[2] md:leading-[2.2] tracking-wide max-w-4xl mx-auto uppercase font-bold">
                     Les familles : AHO-GLELÈ, GBASSI-DEDAGO, FÉLIHO, AGBI-DAVO, ADJALIAN, GBEHOLO, KPOMALEGNI, AYIVI, DEGBÉ, SOUTON, TCHALOKO, GBAGUIDI, DENAKPO, SEKPE, AGBIDI, WOUEHA, AGBESSI, AHOUISSOU, TOKOU, LOKONON, HOUADJÉTO, TONOUÉHOUA, TOUGAN, LOKPO, HOUNSOUNON, TCHOBO et GOÏTO
                 </p>
                 <p class="text-center italic text-stone-800 dark:text-stone-200 text-xs md:text-sm font-semibold max-w-2xl mx-auto">
@@ -223,7 +227,8 @@
         </div>
     </section>
 
-    <!-- 3. SECTION : PROGRAMME CHRONOLOGIQUE DES OBSÈQUES (Cartes 3D Animées Colorées) -->
+    <!-- 3. SECTION : PROGRAMME CHRONOLOGIQUE DES OBSÈQUES (TAILLES DE POLICE AGRANDIES) -->
+    <!-- STREAMING_CHUNK:Rendering interactive schedule cards... -->
     <section id="programme" class="py-10 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-8">
             
@@ -232,38 +237,38 @@
                 <h2 class="font-tnr text-xl md:text-2xl">Le Programme Officiel</h2>
             </div>
 
-            <!-- Grille de cartes inclinables physiquement en 3D (Mouse tilt) avec 3 couleurs distinctes -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-sans-clean">
+            <!-- Grille de cartes programmatiques avec police agrandie et puces spacieuses -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 font-sans-clean">
                 
                 <!-- Jeudi (Or / Ambre) -->
-                <div class="card-3d-tilt bg-gradient-to-br from-amber-50/90 to-amber-100/50 dark:from-amber-950/20 dark:to-stone-900/60 p-4 rounded-xl border border-amber-500/30 dark:border-amber-500/20 shadow-md hover:shadow-amber-500/10 cursor-pointer overflow-hidden relative">
-                    <span class="text-[9px] font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-widest block">Jeudi 27 août 2026</span>
-                    <div class="w-6 h-[1.5px] bg-amber-500 my-2"></div>
-                    <p class="text-base font-bold text-stone-800 dark:text-stone-200">20 h 00</p>
-                    <p class="text-stone-600 dark:text-stone-400 text-[11px] mt-1 leading-relaxed">
+                <div class="card-3d-tilt bg-gradient-to-br from-amber-50/90 to-amber-100/50 dark:from-amber-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-amber-500/30 dark:border-amber-500/20 shadow-md hover:shadow-amber-500/10 cursor-pointer overflow-hidden relative">
+                    <span class="text-[11px] md:text-xs font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-wider block mb-1">Jeudi 27 août 2026</span>
+                    <div class="w-8 h-[1.5px] bg-amber-500 my-2"></div>
+                    <p class="text-lg md:text-xl font-bold text-stone-800 dark:text-stone-200">20 h 00</p>
+                    <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm mt-2 leading-relaxed">
                         Veillée de prières à <strong class="text-stone-800 dark:text-stone-200">Fonkpamè</strong>, dans la maison GBINLO, suivie d'une animation folklorique.
                     </p>
                 </div>
 
                 <!-- Vendredi (Bleu Néon) -->
-                <div class="card-3d-tilt bg-gradient-to-br from-blue-50/90 to-blue-100/50 dark:from-blue-950/20 dark:to-stone-900/60 p-4 rounded-xl border border-blue-500/30 dark:border-blue-500/20 shadow-md hover:shadow-blue-500/10 cursor-pointer overflow-hidden relative">
-                    <span class="text-[9px] font-extrabold text-blue-600 dark:text-blue-400 uppercase tracking-widest block">Vendredi 28 août 2026</span>
-                    <div class="w-6 h-[1.5px] bg-blue-500 my-2"></div>
-                    <p class="text-base font-bold text-stone-800 dark:text-stone-200">09 h 00</p>
-                    <p class="text-stone-600 dark:text-stone-400 text-[11px] mt-1 leading-relaxed">
+                <div class="card-3d-tilt bg-gradient-to-br from-blue-50/90 to-blue-100/50 dark:from-blue-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-blue-500/30 dark:border-blue-500/20 shadow-md hover:shadow-blue-500/10 cursor-pointer overflow-hidden relative">
+                    <span class="text-[11px] md:text-xs font-extrabold text-blue-600 dark:text-blue-400 uppercase tracking-wider block mb-1">Vendredi 28 août 2026</span>
+                    <div class="w-8 h-[1.5px] bg-blue-500 my-2"></div>
+                    <p class="text-lg md:text-xl font-bold text-stone-800 dark:text-stone-200">09 h 00</p>
+                    <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm mt-2 leading-relaxed">
                         Messe dans la maison <strong class="text-stone-800 dark:text-stone-200">GBINLO</strong>, suivie d'une réception familiale.
                     </p>
                 </div>
 
                 <!-- Samedi (Violet / Pourpre) -->
-                <div class="card-3d-tilt bg-gradient-to-br from-purple-50/90 to-purple-100/50 dark:from-purple-950/20 dark:to-stone-900/60 p-4 rounded-xl border border-purple-500/30 dark:border-purple-500/20 shadow-md hover:shadow-purple-500/10 cursor-pointer overflow-hidden relative">
-                    <span class="text-[9px] font-extrabold text-purple-600 dark:text-purple-400 uppercase tracking-widest block">Samedi 29 août 2026</span>
-                    <div class="w-6 h-[1px] bg-purple-500 my-2"></div>
-                    <p class="text-stone-600 dark:text-stone-400 text-[11px] leading-relaxed">
-                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-[11px] mb-0.5">11 h 00 :</strong> Messe d'action de grâce en l'église Bon Pasteur d'Adandokpodji <strong class="text-stone-800 dark:text-stone-200">ABOMEY</strong>.
+                <div class="card-3d-tilt bg-gradient-to-br from-purple-50/90 to-purple-100/50 dark:from-purple-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-purple-500/30 dark:border-purple-500/20 shadow-md hover:shadow-purple-500/10 cursor-pointer overflow-hidden relative">
+                    <span class="text-[11px] md:text-xs font-extrabold text-purple-600 dark:text-purple-400 uppercase tracking-wider block mb-1">Samedi 29 août 2026</span>
+                    <div class="w-8 h-[1px] bg-purple-500 my-2"></div>
+                    <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm leading-relaxed mt-2">
+                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-sm md:text-base mb-1">11 h 00 :</strong> Messe d'action de grâce en l'église Bon Pasteur d'Adandokpodji <strong class="text-stone-800 dark:text-stone-200 font-extrabold">ABOMEY</strong>.
                     </p>
-                    <p class="text-stone-600 dark:text-stone-400 text-[11px] leading-relaxed mt-1">
-                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-[11px] mb-0.5">13 h 00 :</strong> Réception à la CNSS (OBSS) d'Abomey, située à <strong class="text-stone-800 dark:text-stone-200">GOHO</strong>.
+                    <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm leading-relaxed mt-2.5 pt-2 border-t border-purple-500/10">
+                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-sm md:text-base mb-1">13 h 00 :</strong> Réception à la CNSS (OBSS) d'Abomey, située à <strong class="text-stone-800 dark:text-stone-200 font-extrabold">GOHO</strong>.
                     </p>
                 </div>
             </div>
@@ -329,7 +334,8 @@
         </div>
     </section>
 
-    <!-- 5. SECTION : LA DESCENDANCE DIRECTE NUMÉROTÉE (Sans déranger l'ordre du texte) -->
+    <!-- 5. SECTION : LA DESCENDANCE DIRECTE NUMÉROTÉE (CORRECTIF : Screenshot_20260717-094618.jpg) -->
+    <!-- STREAMING_CHUNK:Rendering direct children list with revised color classes... -->
     <section id="enfants" class="py-10 px-4 max-w-4xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-4">
             <div class="text-center space-y-0.5">
@@ -338,7 +344,7 @@
                 <div class="w-6 h-[1px] bg-amber-500 mx-auto mt-1"></div>
             </div>
 
-            <!-- Liste Numérotée Harmonisée Compacte -->
+            <!-- Liste Numérotée Harmonisée Compacte avec correction pour le 07 (Même couleur blanche/sombre que les autres) -->
             <div class="bg-white/60 dark:bg-stone-900/30 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 shadow-sm">
                 <ol class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2.5 text-xs text-stone-700 dark:text-stone-300 font-medium font-sans-clean">
                     <li class="flex items-center gap-2">
@@ -365,8 +371,9 @@
                         <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded">06</span>
                         <span>GINETTE</span>
                     </li>
-                    <li class="flex items-center gap-2 text-stone-400 dark:text-stone-500 italic">
-                        <span class="bg-stone-100 dark:bg-stone-900 text-stone-500 dark:text-stone-600 text-[9px] font-extrabold px-1.5 py-0.5 rounded">07</span>
+                    <!-- Correction demandée : Même couleur blanche/sombre que les autres -->
+                    <li class="flex items-center gap-2">
+                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded">07</span>
                         <span>FEUE EUDOXIE</span>
                     </li>
                     <li class="flex items-center gap-2">
@@ -412,52 +419,55 @@
         </div>
     </section>
 
-    <!-- 7. SECTION CRÉATEUR : VOTRE ENTREPRISE "EMMA DIGI WEB" (Totalement customisée, sans votre nom) -->
+    <!-- 7. SECTION CRÉATEUR : EMMA DIGI WEB (TAILLE TEXTE AGRANDIE - Screenshot_20260717-094618.jpg) -->
+    <!-- STREAMING_CHUNK:Rendering creator studio card... -->
     <section class="bg-stone-100/90 dark:bg-stone-950/90 py-8 px-4 border-t border-stone-200/40 dark:border-stone-900/40 transition-colors duration-500">
-        <div class="max-w-lg mx-auto bg-white/70 dark:bg-stone-900/70 backdrop-blur-sm p-4 rounded-xl shadow-md border border-stone-200/50 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+        <div class="max-w-xl mx-auto bg-white/70 dark:bg-stone-900/70 backdrop-blur-sm p-5 rounded-xl shadow-md border border-stone-200/50 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             
             <!-- Logo Numérique Épuré & Photo de profil -->
             <div class="flex items-center gap-3 shrink-0">
-                <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-amber-400 shadow-md">
+                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-amber-400 shadow-md">
                     <img src="emmanuel-clarius.png" alt="Emmanuel" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150'">
                 </div>
                 <!-- Icône Numérique SVG (Logo de l'agence) -->
-                <div class="bg-amber-500/10 p-2 rounded-lg border border-amber-500/25">
-                    <svg class="w-6 h-6 text-amber-600 dark:text-amber-400 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <div class="bg-amber-500/10 p-2.5 rounded-lg border border-amber-500/25">
+                    <svg class="w-7.5 h-7.5 text-amber-600 dark:text-amber-400 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
                 </div>
             </div>
 
-            <div class="space-y-2 flex-1">
-                <div class="space-y-0.5">
-                    <span class="text-[8px] uppercase tracking-widest text-amber-600 dark:text-amber-400 font-bold block">Conception & Développement Web</span>
-                    <h4 class="font-tnr text-xs tracking-wide">EMMA DIGI WEB</h4>
-                    <p class="text-[10px] text-stone-500 dark:text-stone-400 leading-relaxed font-light">
+            <!-- Description d'affaires avec taille de police subtilement augmentée -->
+            <div class="space-y-3 flex-1 text-sm md:text-base">
+                <div class="space-y-1">
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-amber-600 dark:text-amber-400 font-extrabold block">Conception & Développement Web</span>
+                    <h4 class="font-tnr text-sm md:text-md tracking-wide">EMMA DIGI WEB</h4>
+                    <p class="text-stone-600 dark:text-stone-300 leading-relaxed font-normal text-xs md:text-sm">
                         Vous souhaitez concevoir un site d'hommage interactif, un faire-part professionnel ou un portail web haute performance pour votre entreprise ?
                     </p>
                 </div>
 
-                <!-- Bouton pointant vers votre contact d'affaires wa.me/22958255572 -->
-                <a href="https://wa.me/22958255572?text=Bonjour%20EMMA%20DIGI%20WEB,%20j'ai%20visité%20le%20site%20d'hommage%20et%20je%20souhaite%20vous%20commander%20un%20site%20web." 
+                <!-- Bouton pointant vers votre contact d'affaires +229 01 58 25 55 72 -->
+                <a href="https://wa.me/2290158255572?text=Bonjour%20EMMA%20DIGI%20WEB,%20j'ai%20visité%20le%20site%20d'hommage%20et%20je%20souhaite%20vous%20commander%20un%20site%20web." 
                    target="_blank" 
-                   class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-[10px] font-bold px-3 py-1.5 rounded hover:bg-amber-600 dark:hover:bg-amber-400 transition-all shadow-sm">
+                   class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-xs font-bold px-3.5 py-2 rounded-lg hover:bg-amber-600 dark:hover:bg-amber-400 transition-all shadow-sm">
                     <span>💬</span> Commander un site similaire
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- PIED DE PAGE ENTIÈREMENT PERSONNALISÉ SELON VOS INSTRUCTIONS -->
+    <!-- PIED DE PAGE ENTIÈREMENT PERSONNALISÉ (CORRECTIF : Screenshot_20260717-094618.jpg) -->
     <footer class="bg-stone-950 text-stone-600 text-center py-5 border-t border-stone-900 text-[9px] tracking-wider space-y-0.5">
         <p>© 2026 — Famille GBINLO. Tous droits réservés.</p>
         <p class="text-stone-500 dark:text-stone-400 font-semibold uppercase tracking-wide">
-            Développé par <span class="text-amber-500 font-extrabold">Emmanuel</span> — Contact direct : 
-            <a href="tel:+22958255572" class="text-amber-400 hover:underline hover:text-amber-300 font-bold">+229 58 25 55 72</a>
+            Développé par <span class="text-amber-500 font-extrabold">EMMA DIGI WEB</span> — Contact direct : 
+            <a href="tel:+2290158255572" class="text-amber-400 hover:underline hover:text-amber-300 font-bold">+229 01 58 25 55 72</a>
         </p>
     </footer>
 
     <!-- TOUTES LES LOGIQUES JAVASCRIPT ET 3D INTERACTIVES -->
+    <!-- STREAMING_CHUNK:Running particle loops... -->
     <script>
         // =========================================================================
         // 1. ARRIÈRE-PLAN DE MODÉLISATION 3D DYNAMIQUE HD (Three.js)
@@ -494,7 +504,7 @@
 
             starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-            // Matériau HD dynamique néon
+            // Matériau HD dynamique ambre
             const starMaterial = new THREE.PointsMaterial({
                 color: 0xd97706, // Teinte Ambre Dorée premium
                 size: 1.5,
@@ -563,7 +573,7 @@
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
                     
-                    // Calcul de l'angle d'inclinaison physique (Max 15 degrés)
+                    // Calcul de l'angle d'inclinaison physique (Max 12 degrés)
                     const rotateX = ((centerY - y) / centerY) * 12;
                     const rotateY = ((x - centerX) / centerX) * 12;
                     
@@ -650,3 +660,12 @@
     </script>
 </body>
 </html>
+```eof
+
+---
+
+### Résumé des modifications apportées (Screenshot_20260717-094618.jpg) :
+* **Voisinage de Feue EUDOXIE harmonisé** : Comme souhaité, la ligne de l'enfant `FEUE EUDOXIE` (position 07) possède désormais les mêmes classes Tailwind de couleur blanche/sombre que les autres enfants de la fratrie. La mention « FEUE » marque déjà d'elle-même la distinction de façon claire et digne.
+* **Taille de texte EMMA DIGI WEB augmentée** : Le texte à l'intérieur du conteneur de présentation a été légèrement agrandi (`text-xs md:text-sm`) pour une lecture plus aisée et professionnelle.
+* **Correction de l'omission du 01 (Norme Bénin 10 chiffres)** : Tous les numéros liés à votre entreprise ont été modifiés afin d'inclure le **`01`** d'affaires : **`+229 01 58 25 55 72`**.
+* **Développé par EMMA DIGI WEB** : La mention de développement dans le pied de page a été corrigée en remplaçant "Emmanuel" par le nom officiel de votre entreprise : **`EMMA DIGI WEB`**.
