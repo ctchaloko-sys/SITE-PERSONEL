@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,8 +90,8 @@
 
             <!-- Bouton Mode Sombre -->
             <button onclick="toggleDarkMode()" id="themeBtn" class="bg-stone-100/90 dark:bg-stone-900/90 text-stone-800 dark:text-amber-400 p-1.5 px-3 rounded-full border border-stone-200/40 dark:border-stone-800/40 hover:scale-105 transition-all text-[9px] flex items-center gap-1.5">
-                <span id="themeIcon">🌙</span> 
-                <span id="themeText" class="hidden sm:inline uppercase tracking-wider font-bold text-[8px]">Mode Sombre</span>
+                <span id="themeIcon">☀️</span> 
+                <span id="themeText" class="hidden sm:inline uppercase tracking-wider font-bold text-[8px]">Mode Clair</span>
             </button>
         </div>
 
@@ -156,15 +156,15 @@
     </header>
 
     <!-- 2. ANNONCE DE DEUIL & COLLECTIVITÉS -->
-    <!-- STREAMING_CHUNK:Structuring collectivities and tighter flat listing... -->
+    <!-- STREAMING_CHUNK:Structuring collectivities without internal borders and with reduced spacing... -->
     <section id="propos" class="py-4 md:py-6 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-6">
             
             <!-- Les grandes collectivités (Grille mise à plat pour supprimer tout espace vide résiduel) -->
             <div class="bg-white/60 dark:bg-stone-900/40 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 md:p-6 shadow-sm">
                 
-                <!-- Liste plate sans sous-divs intermédiaires pour garantir un défilement mobile parfait et sans saut de hauteur -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3.5 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
+                <!-- Liste plate sans sous-divs intermédiaires pour un alignement optimal et compact -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2.5 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
                     <p class="flex items-start gap-1.5">
                         <span class="text-amber-500 mt-0.5 shrink-0">•</span>
                         <span>La collectivité <strong>GBINLO – GUEGUELIGUE – AZONTOKPO – AGBOFO – AGBOLEAFI</strong> de Fonkpamè Agondji</span>
@@ -183,8 +183,8 @@
                     </p>
                 </div>
 
-                <!-- Section frères, sœurs, enfants, petits-enfants (Unifié, resserré, sans grand vide, Feue EUDOXIE écrit avec casse correcte) -->
-                <div class="border-t border-stone-200/30 dark:border-stone-800/40 mt-5 pt-4 text-xs md:text-sm text-stone-700 dark:text-stone-300 leading-relaxed font-sans-clean font-normal">
+                <!-- Section frères, sœurs, enfants, petits-enfants (Bordure supprimée et écart réduit à mt-3) -->
+                <div class="mt-3 text-xs md:text-sm text-stone-700 dark:text-stone-300 leading-relaxed font-sans-clean font-normal">
                     <p class="flex items-start gap-1.5">
                         <span class="text-amber-500 mt-0.5 shrink-0">•</span>
                         <span><strong>Les frères et sœurs du regretté défunt, les enfants du défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, <span class="font-semibold text-stone-500 dark:text-stone-400">Feue EUDOXIE</span>, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE, leurs épouses et époux, ainsi que les petits-enfants, arrière-petits-enfants, cousins, cousines, neveux et nièces.</span>
@@ -603,7 +603,7 @@
         }, 1000);
 
         // =========================================================================
-        // 4. GESTION DU MODE SOMBRE / CLAIR
+        // 4. GESTION DU MODE SOMBRE / CLAIR (Default: Dark Mode)
         // =========================================================================
         function toggleDarkMode() {
             const html = document.documentElement;
@@ -629,14 +629,16 @@
             const themeIcon = document.getElementById("themeIcon");
             const themeText = document.getElementById("themeText");
 
-            if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-                html.classList.add("dark");
-                if (themeIcon) themeIcon.innerText = "☀️";
-                if (themeText) themeText.innerText = "Mode Clair";
-            } else {
+            // Si l'utilisateur n'a pas encore choisi de thème, on force le Mode Sombre
+            if (savedTheme === "light") {
                 html.classList.remove("dark");
                 if (themeIcon) themeIcon.innerText = "🌙";
                 if (themeText) themeText.innerText = "Mode Sombre";
+            } else {
+                html.classList.add("dark");
+                localStorage.setItem("theme", "dark");
+                if (themeIcon) themeIcon.innerText = "☀️";
+                if (themeText) themeText.innerText = "Mode Clair";
             }
         });
     </script>
