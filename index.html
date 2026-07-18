@@ -2,7 +2,7 @@
 <html lang="fr" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hommage à l'Inspecteur Séraphin M. GBINLO</title>
     <!-- Tailwind CSS pour un design rapide, moderne et ultra-responsive -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,8 +15,8 @@
         }
     </script>
     
-    <!-- TOUS LES STYLES CSS CENTRALISÉS -->
-    <!-- STREAMING_CHUNK:Configuring custom styles and device-specific layouts... -->
+    <!-- TOUS LES STYLES CSS CENTRALISÉS ET OPTIMISÉS GPU -->
+    <!-- STREAMING_CHUNK:Configuring advanced CSS animations and layout tokens... -->
     <style>
         /* Importation de la police Inter pour le corps du texte */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -49,27 +49,49 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
+            will-change: transform;
         }
 
-        /* Animation d'inclinaison 3D physique (Tilt effect) pour les cartes */
+        /* Effet d'inclinaison 3D physique avec accélération matérielle */
         .card-3d-tilt {
             transform-style: preserve-3d;
             perspective: 1000px;
-            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+            transition: transform 0.25s cubic-box-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease;
+            will-change: transform;
+        }
+
+        /* Effet de brillance dorée animée (Shimmer) */
+        @keyframes goldShimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .text-shimmer-gold {
+            background: linear-gradient(90deg, #b45309, #f59e0b, #fffbeb, #f59e0b, #b45309);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: goldShimmer 6s linear infinite;
+        }
+
+        /* Effet de lueur douce pour l'affichage premium */
+        .glow-gold {
+            box-shadow: 0 0 15px rgba(217, 119, 6, 0.15);
         }
 
         /* Animations d'apparition */
         @keyframes fadeInSubtle {
-            from { opacity: 0; transform: translateY(6px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .animate-fade-in {
-            animation: fadeInSubtle 1s ease-out forwards;
+            animation: fadeInSubtle 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
     </style>
 </head>
-<body class="bg-stone-50/80 text-stone-900 dark:bg-stone-950/85 dark:text-stone-100 font-sans-clean transition-colors duration-500 pt-12 md:pt-16 relative font-sans-clean">
+<body class="bg-stone-50/80 text-stone-900 dark:bg-stone-950/85 dark:text-stone-100 font-sans-clean transition-colors duration-500 pt-12 md:pt-16 relative overflow-x-hidden">
 
     <!-- ARRIÈRE-PLAN DE MODÉLISATION 3D DYNAMIQUE HD (Three.js) -->
     <div id="canvas3d-container"></div>
@@ -143,7 +165,7 @@
                 ANNONCE DE DEUILS, MESSES D'ACTION DE GRÂCE ET DE REMERCIEMENTS
             </span>
             <h1 class="font-tnr text-3xl md:text-5xl tracking-wide leading-tight drop-shadow-md">
-                M. Séraphin Mapkonfa<br><span class="text-amber-600 dark:text-amber-400">GBINLO</span>
+                M. Séraphin Mapkonfa<br><span class="text-shimmer-gold">GBINLO</span>
             </h1>
             <div class="w-8 h-[1px] bg-amber-500 mx-auto"></div>
             
@@ -156,12 +178,12 @@
     </header>
 
     <!-- 2. ANNONCE DE DEUIL & COLLECTIVITÉS -->
-    <!-- STREAMING_CHUNK:Structuring collectivities without internal borders and with reduced spacing... -->
+    <!-- STREAMING_CHUNK:Structuring collectivities and tighter flat listing... -->
     <section id="propos" class="py-4 md:py-6 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-6">
             
             <!-- Les grandes collectivités (Grille mise à plat pour supprimer tout espace vide résiduel) -->
-            <div class="bg-white/60 dark:bg-stone-900/40 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 md:p-6 shadow-sm">
+            <div class="bg-white/60 dark:bg-stone-900/40 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 md:p-6 shadow-sm glow-gold card-3d-tilt">
                 
                 <!-- Liste plate sans sous-divs intermédiaires pour un alignement optimal et compact -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2.5 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
@@ -198,37 +220,37 @@
                 <p class="text-center text-[10px] md:text-xs uppercase tracking-wider text-amber-600 dark:text-amber-400 font-extrabold">Les familles parentes, alliées et amies</p>
                 <div class="flex flex-wrap justify-center gap-1.5 md:gap-2 max-w-5xl mx-auto py-2">
                     <!-- Badges uniformes - Teinte ambrée dorée premium pour tout le monde -->
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AHO-GLELE</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GBASSI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">FELIHO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBI-DAVO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">ADJALIAN</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHALOKO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GBAGUIDI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DENAKPO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEKPE</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DOSSOUHOUAN</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEGBOZO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">BAHINLIN</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">EROUBINOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBIDI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">WOUEHA</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBESSI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AHOUISSOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOKOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKONON</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUADJETO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TONOUEHOUA</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">KPOMALEGNI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AYIVI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DEGBE</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SOUTON</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOGBE</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOUGAN</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKPO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUNSOUNOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHOBO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GOÏTO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">AHO-GLELE</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">GBASSI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">FELIHO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBI-DAVO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">ADJALIAN</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHALOKO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GBAGUIDI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DENAKPO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEKPE</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DOSSOUHOUAN</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEGBOZO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">BAHINLIN</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">EROUBINOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBIDI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">WOUEHA</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBESSI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AHOUISSOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOKOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKONON</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUADJETO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TONOUEHOUA</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">KPOMALEGNI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AYIVI</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DEGBE</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SOUTON</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOGBE</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOUGAN</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKPO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUNSOUNOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHOBO</span>
+                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GOÏTO</span>
                 </div>
                 <p class="text-center text-xs md:text-sm text-stone-700 dark:text-stone-300 font-bold max-w-3xl mx-auto leading-relaxed">
                     vous annoncent le rappel à Dieu de leur très cher et regretté fils, frère, oncle, père, beau-père, grand-père et arrière-grand-père,
@@ -240,7 +262,7 @@
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center pt-2">
                 <!-- Portrait Photo -->
                 <div class="md:col-span-5 flex justify-center">
-                    <div class="relative max-w-xs rounded-xl overflow-hidden shadow-lg border border-white dark:border-stone-900">
+                    <div class="relative max-w-xs rounded-xl overflow-hidden shadow-lg border border-white dark:border-stone-900 card-3d-tilt glow-gold">
                         <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Monsieur SÉRAPHIN MAKPONFA GBINLO" class="w-56 md:w-64 h-auto object-cover">
                     </div>
                 </div>
@@ -252,7 +274,7 @@
                         <h2 class="font-tnr text-xl md:text-2xl leading-tight">
                             Monsieur SÉRAPHIN MAKPONFA GBINLO
                         </h2>
-                        <p class="text-[11px] uppercase tracking-wide font-semibold text-stone-500 dark:text-stone-400">
+                        <p class="text-[11px] uppercase tracking-wide font-semibold text-stone-500 dark:text-stone-400 font-bold">
                             Inspecteur de l'Enseignement du Premier Degré à la retraite
                         </p>
                     </div>
@@ -354,7 +376,7 @@
                 </p>
             </div>
 
-            <div class="max-w-xs mx-auto bg-stone-950 text-white p-5 rounded-xl border border-amber-400/40 shadow-lg space-y-3 relative overflow-hidden">
+            <div class="max-w-xs mx-auto bg-stone-950 text-white p-5 rounded-xl border border-amber-400/40 shadow-lg space-y-3 relative overflow-hidden card-3d-tilt glow-gold">
                 <div class="absolute inset-0 bg-gradient-to-b from-stone-900 via-blue-950/15 to-stone-950 opacity-95"></div>
                 <div class="relative z-10 space-y-3">
                     <div class="w-14 h-14 rounded-full mx-auto border-2 border-amber-400 overflow-hidden shadow-md">
@@ -368,7 +390,7 @@
 
                     <!-- Lien vers le fichier PDF d'origine du faire-part -->
                     <a href="P%C3%A9p%C3%A9%20GBINLO%20S%C3%89RAPHIN%20%20%281%29_compressed.pdf" download="Pépé GBINLO SÉRAPHIN  (1)_compressed.pdf" 
-                       class="inline-flex items-center justify-center gap-1.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-1.5 px-4 rounded-lg shadow-lg transition-all w-full text-[11px]">
+                       class="inline-flex items-center justify-center gap-1.5 bg-amber-600 hover:bg-amber-700 active:scale-95 text-white font-semibold py-1.5 px-4 rounded-lg shadow-lg transition-all w-full text-[11px]">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
@@ -404,7 +426,7 @@
     <!-- 7. SECTION CRÉATEUR : VOTRE ENTREPRISE "WELT DER KOMPETENZEN" -->
     <!-- STREAMING_CHUNK:Rendering corporate card signature... -->
     <section class="bg-stone-100/90 dark:bg-stone-950/90 py-8 px-4 border-t border-stone-200/40 dark:border-stone-900/40 transition-colors duration-500">
-        <div class="max-w-xl mx-auto bg-white/70 dark:bg-stone-900/70 backdrop-blur-sm p-4 md:p-5 rounded-xl shadow-md border border-stone-200/50 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+        <div class="max-w-xl mx-auto bg-white/70 dark:bg-stone-900/70 backdrop-blur-sm p-4 md:p-5 rounded-xl shadow-md border border-stone-200/50 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left glow-gold card-3d-tilt">
             
             <!-- Logo Numérique Épuré & Photo de profil -->
             <div class="flex items-center gap-3 shrink-0">
@@ -424,7 +446,7 @@
                 <div class="space-y-1">
                     <span class="text-[9px] uppercase tracking-widest text-amber-600 dark:text-amber-400 font-extrabold block">Conception & Développement Web</span>
                     <h4 class="font-tnr text-sm md:text-md tracking-wide text-stone-900 dark:text-stone-100">WELT DER KOMPETENZEN</h4>
-                    <p class="text-stone-600 dark:text-stone-300 leading-relaxed font-normal text-xs">
+                    <p class="text-stone-600 dark:text-stone-300 leading-relaxed font-normal text-xs font-bold">
                         <strong>Nous créons des solutions numériques pour l'avenir.</strong> Vous souhaitez concevoir un site d'hommage interactif, un faire-part professionnel ou un portail web haute performance ?
                     </p>
                 </div>
@@ -432,7 +454,7 @@
                 <!-- Contact d'affaires -->
                 <a href="https://wa.me/2290158255572?text=Bonjour%20WELT%20DER%20KOMPETENZEN,%20j'ai%20visité%20le%20site%20d'hommage%20et%20je%20souhaite%20vous%20commander%20un%20site%20web." 
                    target="_blank" 
-                   class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-[11px] font-bold px-3 py-1.5 rounded-lg hover:bg-amber-600 dark:hover:hover:bg-amber-400 transition-all shadow-sm">
+                   class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-[11px] font-bold px-3 py-1.5 rounded-lg hover:bg-amber-600 dark:hover:hover:bg-amber-400 active:scale-95 transition-all shadow-sm">
                     <span>💬</span> Commander un site similaire
                 </a>
             </div>
@@ -452,10 +474,11 @@
     <!-- STREAMING_CHUNK:Activating ThreeJS WebGL engine... -->
     <script>
         // =========================================================================
-        // 1. ARRIÈRE-PLAN DE MODÉLISATION 3D DYNAMIQUE HD (Three.js)
+        // 1. ARRIÈRE-PLAN DE MODÉLISATION 3D DYNAMIQUE 4K (Three.js)
         // =========================================================================
-        let scene, camera, renderer, starGeo, stars, starCount = 450;
+        let scene, camera, renderer, starGeo, stars, starCount = 500;
         let mouseX = 0, mouseY = 0;
+        let targetX = 0, targetY = 0; // Pour l'effet de momentum/inertie ultra-fluide
 
         function init3DBackground() {
             const container = document.getElementById('canvas3d-container');
@@ -463,45 +486,68 @@
 
             scene = new THREE.Scene();
 
+            // Caméra avec champ visuel optimisé
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-            camera.position.z = 1;
+            camera.position.z = 1.5;
             camera.rotation.x = Math.PI/2;
 
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            // Rendu 4K adapté à la densité de pixels de l'appareil (téléphone, tablette, laptop)
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limité à 2 pour optimiser l'autonomie mobile tout en restant ultra-net
             container.appendChild(renderer.domElement);
 
             starGeo = new THREE.BufferGeometry();
             const positions = new Float32Array(starCount * 3);
-            const velocities = [];
 
             for(let i=0; i<starCount; i++) {
-                // Modélisation tridimensionnelle des vecteurs de particules
+                // Modélisation spatiale multidimensionnelle des particules d'ambre dorées
                 positions[i*3] = Math.random() * 600 - 300;
                 positions[i*3+1] = Math.random() * 600 - 300;
                 positions[i*3+2] = Math.random() * 600 - 300;
-                velocities.push(0.1 + Math.random() * 0.2);
             }
 
             starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-            // Matériau HD dynamique ambre
+            // CRÉATION D'UNE TEXTURE 4K BOKEH RADIALE SANS LIEN EXTERNE (Mathématique pure)
+            const pCanvas = document.createElement('canvas');
+            pCanvas.width = 64;
+            pCanvas.height = 64;
+            const pCtx = pCanvas.getContext('2d');
+            const gradient = pCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+            gradient.addColorStop(0, 'rgba(217, 119, 6, 1)');     // Or vif au cœur
+            gradient.addColorStop(0.2, 'rgba(245, 158, 11, 0.8)'); // Ambre intermédiaire
+            gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');          // Fondu transparent complet
+            pCtx.fillStyle = gradient;
+            pCtx.fillRect(0, 0, 64, 64);
+            
+            const pTexture = new THREE.CanvasTexture(pCanvas);
+
+            // Matériau HD Premium Bokeh radiale
             const starMaterial = new THREE.PointsMaterial({
-                color: 0xd97706, // Teinte Ambre Dorée premium
-                size: 1.5,
+                size: window.innerWidth < 768 ? 3.0 : 4.5, // Particules légèrement plus larges pour lisibilité écran retina
+                map: pTexture,
                 transparent: true,
-                opacity: 0.8
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
             });
 
             stars = new THREE.Points(starGeo, starMaterial);
             scene.add(stars);
 
-            // Événement d'écoute souris pour interactivité de la modélisation 3D
+            // Écouteurs de mouvements d'ordinateurs (Souris)
             document.addEventListener('mousemove', (e) => {
-                mouseX = (e.clientX - window.innerWidth / 2) * 0.05;
-                mouseY = (e.clientY - window.innerHeight / 2) * 0.05;
+                targetX = (e.clientX - window.innerWidth / 2) * 0.02;
+                targetY = (e.clientY - window.innerHeight / 2) * 0.02;
             });
+
+            // Écouteurs de mouvements tactiles (Doigt sur mobile et tablettes)
+            document.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    targetX = (e.touches[0].clientX - window.innerWidth / 2) * 0.03;
+                    targetY = (e.touches[0].clientY - window.innerHeight / 2) * 0.03;
+                }
+            }, { passive: true });
 
             window.addEventListener('resize', onWindowResize);
             
@@ -514,23 +560,26 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         }
 
-        // Boucle d'animation HD à 60 FPS
+        // Boucle d'animation HD à 60 FPS avec logique de momentum physique (glissement)
         function animate3D() {
             requestAnimationFrame(animate3D);
 
             const positions = starGeo.attributes.position.array;
             
             for(let i=0; i<starCount; i++) {
-                positions[i*3+1] -= 0.15; // Chute subtile
+                positions[i*3+1] -= 0.12; // Chute stellaire fluide et poétique
                 if (positions[i*3+1] < -200) {
                     positions[i*3+1] = 200;
                 }
             }
             starGeo.attributes.position.needsUpdate = true;
 
-            // Rotation douce influencée par la souris de l'utilisateur
-            stars.rotation.y += 0.001 + (mouseX * 0.00005);
-            stars.rotation.x += 0.0005 + (mouseY * 0.00005);
+            // Application du momentum fluide (Lerp physique)
+            mouseX += (targetX - mouseX) * 0.08;
+            mouseY += (targetY - mouseY) * 0.08;
+
+            stars.rotation.y += 0.0008 + (mouseX * 0.0003);
+            stars.rotation.x += 0.0003 + (mouseY * 0.0003);
 
             renderer.render(scene, camera);
         }
@@ -541,32 +590,51 @@
         };
 
         // =========================================================================
-        // 2. EFFET D'INCLINAISON INTERACTIF 3D PHYSIQUE (Tilt Effect)
+        // 2. EFFET D'INCLINAISON INTERACTIF 3D PHYSIQUE (Tilt Effect - Multi-supports)
         // =========================================================================
         function init3DCardTilt() {
             const cards = document.querySelectorAll('.card-3d-tilt');
             
             cards.forEach(card => {
+                // Version Ordinateur (Mousehover)
                 card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left; // Position X de la souris dans la carte
-                    const y = e.clientY - rect.top;  // Position Y de la souris dans la carte
-                    
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    // Calcul de l'angle d'inclinaison physique (Max 12 degrés)
-                    const rotateX = ((centerY - y) / centerY) * 12;
-                    const rotateY = ((x - centerX) / centerX) * 12;
-                    
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+                    handleTilt(e, card);
                 });
+
+                // Version Tactile (Touchmove pour Tablettes et Mobiles)
+                card.addEventListener('touchmove', (e) => {
+                    if (e.touches.length > 0) {
+                        handleTilt(e.touches[0], card);
+                    }
+                }, { passive: true });
                 
+                // Réinitialisations fluides lors de la sortie
                 card.addEventListener('mouseleave', () => {
-                    // Réinitialisation fluide lorsque la souris s'en va
-                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                    resetTilt(card);
+                });
+                card.addEventListener('touchend', () => {
+                    resetTilt(card);
                 });
             });
+        }
+
+        function handleTilt(inputEvent, card) {
+            const rect = card.getBoundingClientRect();
+            const x = inputEvent.clientX - rect.left; 
+            const y = inputEvent.clientY - rect.top;  
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Inclinaison de 12 degrés max, parfaitement balancée
+            const rotateX = ((centerY - y) / centerY) * 12;
+            const rotateY = ((x - centerX) / centerX) * 12;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        }
+
+        function resetTilt(card) {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
         }
 
         // =========================================================================
