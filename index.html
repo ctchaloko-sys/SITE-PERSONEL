@@ -16,7 +16,7 @@
     </script>
     
     <!-- TOUS LES STYLES CSS CENTRALISÉS -->
-    <!-- STREAMING_CHUNK:Configuring custom styles and device-specific layouts... -->
+    <!-- STREAMING_CHUNK:Configuring custom scroll and body layouts... -->
     <style>
         /* Importation de la police Inter pour le corps du texte */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -75,7 +75,7 @@
     <div id="canvas3d-container"></div>
 
     <!-- BARRE DE NAVIGATION COMPACTE ET ÉLÉGANTE -->
-    <!-- STREAMING_CHUNK:Rendering slim top responsive navigation... -->
+    <!-- STREAMING_CHUNK:Rendering navigation system... -->
     <nav class="fixed top-0 left-0 w-full bg-white/80 dark:bg-stone-950/80 backdrop-blur-md z-40 border-b border-stone-200/50 dark:border-stone-900/50 transition-colors duration-500">
         <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
             <a href="#" class="font-tnr text-amber-600 dark:text-amber-400 tracking-wider text-xs md:text-sm">HOMMAGE — S.M.G</a>
@@ -107,7 +107,7 @@
     </nav>
 
     <!-- BOUTONS FLOTTANTS DE CONTACT AJUSTÉS, FINs ET TOTALEMENT RESPONSIVES (Ordinateur & Mobile) -->
-    <!-- STREAMING_CHUNK:Injecting smaller call and WhatsApp floating buttons... -->
+    <!-- STREAMING_CHUNK:Injecting responsive contact buttons... -->
     <div class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col gap-2 font-sans-clean">
         <!-- Bouton d'Appel (Bleu Compact) -->
         <a href="tel:+2290168049979" title="Appeler pour un renseignement" 
@@ -137,14 +137,13 @@
         </a>
     </div>
 
-    <!-- 1. HERO EN-TÊTE DYNAMIQUE ET TRÈS CONCENTRÉ -->
-    <!-- STREAMING_CHUNK:Rendering hero and scripture quotation... -->
+    <!-- 1. HERO EN-TÊTE DYNAMIQUE -->
     <header class="relative min-h-[40vh] md:min-h-[45vh] flex items-center justify-center overflow-hidden bg-transparent pt-6 pb-2">
         <div class="relative z-10 text-center text-stone-900 dark:text-white px-4 space-y-3 max-w-2xl animate-fade-in">
             <span class="text-[8px] md:text-[10px] uppercase tracking-[0.25em] text-amber-600 dark:text-amber-400 font-bold block leading-relaxed">
                 ANNONCE DE DEUILS, MESSES D'ACTION DE GRÂCE ET DE REMERCIEMENTS
             </span>
-            <h1 class="font-tnr text-3xl md:text-5xl tracking-wide leading-tight drop-shadow-sm">
+            <h1 class="font-tnr text-3xl md:text-5xl tracking-wide leading-tight drop-shadow-md">
                 M. Séraphin Mapkonfa<br><span class="text-amber-600 dark:text-amber-400">GBINLO</span>
             </h1>
             <div class="w-8 h-[1px] bg-amber-500 mx-auto"></div>
@@ -158,88 +157,81 @@
     </header>
 
     <!-- 2. ANNONCE DE DEUIL & COLLECTIVITÉS -->
-    <!-- STREAMING_CHUNK:Rendering announcements and collectivites... -->
+    <!-- STREAMING_CHUNK:Structuring consolidated family groups without semicolons... -->
     <section id="propos" class="py-4 md:py-6 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-6">
             
-            <!-- Les grandes collectivités (Réorganisées en grille responsive parfaitement alignée) -->
+            <!-- Les grandes collectivités (Réorganisées en grille responsive parfaitement alignée, points-virgules supprimés) -->
             <div class="bg-white/60 dark:bg-stone-900/40 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 md:p-6 space-y-4 shadow-sm">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
                     <div class="space-y-2">
                         <p class="flex items-start gap-1.5">
                             <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                            <span>La collectivité <strong>GBINLO – GUEGUELIGUE – AZONTOKPO – AGBOFO – AGBOLEAFI</strong> de Fonkpamè Agondji ;</span>
+                            <span>La collectivité <strong>GBINLO – GUEGUELIGUE – AZONTOKPO – AGBOFO – AGBOLEAFI</strong> de Fonkpamè Agondji</span>
                         </p>
                         <p class="flex items-start gap-1.5">
                             <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                            <span>La collectivité <strong>TANHOUNNON – GBADENON</strong> de Zounmè Oumbèga ;</span>
+                            <span>La collectivité <strong>TANHOUNNON – GBADENON</strong> de Zounmè Oumbèga</span>
                         </p>
                     </div>
                     <div class="space-y-2">
                         <p class="flex items-start gap-1.5">
                             <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                            <span>La collectivité <strong>GBASSI – DEDAGO</strong> d'Ahozoun Oumbèga ;</span>
+                            <span>La collectivité <strong>GBASSI – DEDAGO</strong> d'Ahozoun Oumbèga</span>
                         </p>
                         <p class="flex items-start gap-1.5">
                             <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                            <span>La collectivité <strong>BOCODAHO – GBEHOLO</strong> de Tchêly, Abomey ;</span>
+                            <span>La collectivité <strong>BOCODAHO – GBEHOLO</strong> de Tchêly, Abomey</span>
                         </p>
                     </div>
                 </div>
 
-                <div class="border-t border-stone-200/40 dark:border-stone-800/40 pt-3 text-xs md:text-sm text-stone-600 dark:text-stone-300 space-y-2 leading-relaxed font-sans-clean">
-                    <p class="flex items-start gap-1.5">
-                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                        <span><strong>Les frères et sœurs du regretté défunt ;</strong></span>
-                    </p>
-                    <p class="flex items-start gap-1.5">
-                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                        <span><strong>Les enfants du défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, FEUE EUDOXIE, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE ; leurs épouses et époux ;</span>
-                    </p>
-                    <p class="flex items-start gap-1.5">
-                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                        <span>Les petits-enfants et arrière-petits-enfants ; les cousins, cousines, neveux et nièces ;</span>
+                <!-- Section frères, sœurs, petits-enfants et neveux rassemblés de manière compacte et sans points-virgules -->
+                <div class="border-t border-stone-200/40 dark:border-stone-800/40 pt-3 text-xs md:text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans-clean">
+                    <p class="font-normal text-stone-700 dark:text-stone-300">
+                        <span class="text-amber-500 mr-1.5 font-extrabold">•</span>
+                        <strong>Les frères et sœurs du regretté défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, FEUE EUDOXIE, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE, ainsi que les petits-enfants, arrière-petits-enfants, cousins, cousines, neveux et nièces.
                     </p>
                 </div>
             </div>
 
-            <!-- Familles Alliées : BOUTONS D'ACTION COLORÉS ET INTERACTIFS (Totalement harmonisés de façon responsive) -->
-            <!-- STREAMING_CHUNK:Rendering family badges... -->
+            <!-- Familles Alliées : BOUTONS D'ACTION UNIFORMISÉS DANS UNE COULEUR UNIQUE ÉLÉGANTE -->
+            <!-- STREAMING_CHUNK:Uniforming color tokens for alliance badges... -->
             <div class="space-y-4">
                 <p class="text-center text-[10px] md:text-xs uppercase tracking-wider text-amber-600 dark:text-amber-400 font-extrabold">Les familles parentes, alliées et amies</p>
                 <div class="flex flex-wrap justify-center gap-1.5 md:gap-2 max-w-5xl mx-auto py-2">
-                    <!-- Badges stylisés et dynamiques -->
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">AHO-GLELE</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20 shadow-sm">GBASSI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20 shadow-sm">FELIHO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/20 shadow-sm">AGBI-DAVO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20 shadow-sm">ADJALIAN</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/20 shadow-sm">TCHALOKO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">GBAGUIDI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20 shadow-sm">DENAKPO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20 shadow-sm">SEKPE</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/20 shadow-sm">DOSSOUHOUAN</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20 shadow-sm">SEGBOZO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/20 shadow-sm">BAHINLIN</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">EROUBINOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20 shadow-sm">AGBIDI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20 shadow-sm">WOUEHA</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/20 shadow-sm">AGBESSI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20 shadow-sm">AHOUISSOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/20 shadow-sm">TOKOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">LOKONON</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20 shadow-sm">HOUADJETO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20 shadow-sm">TONOUEHOUA</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/20 shadow-sm">KPOMALEGNI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20 shadow-sm">AYIVI</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/20 shadow-sm">DEGBE</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">SOUTON</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20 shadow-sm">TOGBE</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20 shadow-sm">TOUGAN</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/20 shadow-sm">LOKPO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20 shadow-sm">HOUNSOUNOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/20 shadow-sm">TCHOBO</span>
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">GOÏTO</span>
+                    <!-- Badges uniformes - Teinte ambrée dorée premium pour tout le monde -->
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AHO-GLELE</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GBASSI</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">FELIHO</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBI-DAVO</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">ADJALIAN</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHALOKO</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GBAGUIDI</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DENAKPO</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEKPE</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DOSSOUHOUAN</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEGBOZO</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">BAHINLIN</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">EROUBINOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBIDI</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">WOUEHA</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBESSI</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AHOUISSOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOKOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKONON</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUADJETO</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TONOUEHOUA</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">KPOMALEGNI</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AYIVI</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DEGBE</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SOUTON</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOGBE</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOUGAN</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKPO</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUNSOUNOU</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHOBO</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GOÏTO</span>
                 </div>
                 <p class="text-center text-xs md:text-sm text-stone-700 dark:text-stone-300 font-bold max-w-3xl mx-auto leading-relaxed">
                     vous annoncent le rappel à Dieu de leur très cher et regretté fils, frère, oncle, père, beau-père, grand-père et arrière-grand-père,
@@ -247,7 +239,7 @@
             </div>
 
             <!-- Portrait du Défunt et Biographies Essentielles -->
-            <!-- STREAMING_CHUNK:Rendering biography grid with image... -->
+            <!-- STREAMING_CHUNK:Rendering hero portrait segment... -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center pt-2">
                 <!-- Portrait Photo -->
                 <div class="md:col-span-5 flex justify-center">
@@ -256,7 +248,7 @@
                     </div>
                 </div>
 
-                <!-- Descriptifs administratifs -->
+                <!-- Descriptifs administratifs (Points-virgules nettoyés) -->
                 <div class="md:col-span-7 space-y-3">
                     <div class="border-l-4 border-amber-500 pl-3 space-y-0.5">
                         <span class="text-[9px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold block">RECONNAISSANCE SOLENNELLE</span>
@@ -268,8 +260,8 @@
                         </p>
                     </div>
                     
-                    <p class="text-stone-700 dark:text-stone-300 text-xs md:text-sm leading-relaxed">
-                        Rappelé à Dieu <strong>le jeudi 4 décembre 2025, dans sa 83ᵉ année</strong>, au CNHU-HKM (Centre National Hospitalier Universitaire Hubert Koutoukou Maga) de Cotonou et vous prient de bien vouloir assister ou de vous unir d'intention aux messes d'action de grâce suivant le programme ci-après.
+                    <p class="text-stone-700 dark:text-stone-300 text-xs md:text-sm leading-relaxed font-normal">
+                        Rappelé à Dieu <strong>le jeudi 4 décembre 2025, dans sa 83ᵉ année</strong> au CNHU-HKM (Centre National Hospitalier Universitaire Hubert Koutoukou Maga) de Cotonou, et vous prient de bien vouloir assister ou de vous unir d'intention aux messes d'action de grâce suivant le programme ci-après.
                     </p>
                 </div>
             </div>
@@ -278,7 +270,7 @@
     </section>
 
     <!-- 3. SECTION : PROGRAMME CHRONOLOGIQUE DES OBSÈQUES -->
-    <!-- STREAMING_CHUNK:Rendering chronological schedule cards... -->
+    <!-- STREAMING_CHUNK:Rendering scheduling dynamic component... -->
     <section id="programme" class="py-10 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-8">
             
@@ -296,7 +288,7 @@
                     <div class="w-8 h-[1.5px] bg-amber-500 my-2"></div>
                     <p class="text-lg md:text-xl font-bold text-stone-800 dark:text-stone-200">20 h 00</p>
                     <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm mt-2 leading-relaxed">
-                        Veillée de prières à <strong class="text-stone-800 dark:text-stone-200">Fonkpamè</strong>, dans la maison GBINLO, suivie d'une animation folklorique.
+                        Veillée de prières à <strong class="text-stone-800 dark:text-stone-200">Fonkpamè</strong> dans la maison GBINLO, suivie d'une animation folklorique.
                     </p>
                 </div>
 
@@ -306,7 +298,7 @@
                     <div class="w-8 h-[1.5px] bg-blue-500 my-2"></div>
                     <p class="text-lg md:text-xl font-bold text-stone-800 dark:text-stone-200">09 h 00</p>
                     <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm mt-2 leading-relaxed">
-                        Messe dans la maison <strong class="text-stone-800 dark:text-stone-200">GBINLO</strong>, suivie d'une réception.
+                        Messe dans la maison <strong class="text-stone-800 dark:text-stone-200">GBINLO</strong> suivie d'une réception.
                     </p>
                 </div>
 
@@ -318,13 +310,12 @@
                         <strong class="text-stone-800 dark:text-stone-200 font-bold block text-sm md:text-base mb-1">11 h 00 :</strong> Messe en l'église Bon Pasteur d'Adandokpodji <strong class="text-stone-800 dark:text-stone-200 font-extrabold">ABOMEY</strong>.
                     </p>
                     <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm leading-relaxed mt-2.5 pt-2 border-t border-purple-500/10">
-                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-sm md:text-base mb-1">13 h 00 :</strong> Réception à la CNSS (ex OBSS) d'Abomey, située à <strong class="text-stone-800 dark:text-stone-200 font-extrabold">GOHO</strong>.
+                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-sm md:text-base mb-1">13 h 00 :</strong> Réception à la CNSS (ex OBSS) d'Abomey située à <strong class="text-stone-800 dark:text-stone-200 font-extrabold">GOHO</strong>.
                     </p>
                 </div>
             </div>
 
-            <!-- COMPTE À REBOURS COMPACT AVEC COULEURS SPECIFIQUES DANS CHAQUE CHIFFRE (Optimisé Responsive) -->
-            <!-- STREAMING_CHUNK:Rendering dynamic colourful countdown grid... -->
+            <!-- COMPTE À REBOURS COMPACT AVEC COULEURS SPECIFIQUES DANS CHAQUE CHIFFRE -->
             <div class="space-y-3 pt-4 text-center">
                 <p class="text-stone-500 dark:text-stone-400 text-[10px] tracking-wider uppercase font-bold">Début de la célébration dans :</p>
                 <div class="grid grid-cols-4 gap-2 md:gap-3 max-w-sm mx-auto text-center font-sans-clean px-2">
@@ -354,8 +345,7 @@
         </div>
     </section>
 
-    <!-- 4. SECTION : FAIRE-PART (Téléchargement direct, très compact) -->
-    <!-- STREAMING_CHUNK:Rendering elegant PDF download target... -->
+    <!-- 4. SECTION : FAIRE-PART (Téléchargement direct) -->
     <section id="fairepart" class="py-10 px-4 bg-stone-100/50 dark:bg-stone-900/10 border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="max-w-4xl mx-auto text-center space-y-4">
             <div class="space-y-0.5">
@@ -378,7 +368,8 @@
                         <p class="text-[8px] text-stone-400 font-light">Faire-part officiel des Obsèques</p>
                     </div>
 
-                    <a href="faire-part-officiel.pdf" download 
+                    <!-- Lien vers le fichier PDF -->
+                    <a href="P%C3%A9p%C3%A9%20GBINLO%20S%C3%89RAPHIN%20%20%281%29_compressed.pdf" download="Pépé GBINLO SÉRAPHIN  (1)_compressed.pdf" 
                        class="inline-flex items-center justify-center gap-1.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-1.5 px-4 rounded-lg shadow-lg transition-all w-full text-[11px]">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -390,8 +381,8 @@
         </div>
     </section>
 
-    <!-- 5. SECTION : LA DESCENDANCE DIRECTE NUMÉROTÉE (Totalement responsive avec grille optimisée) -->
-    <!-- STREAMING_CHUNK:Rendering structured children grid... -->
+    <!-- 5. SECTION : LA DESCENDANCE DIRECTE NUMÉROTÉE -->
+    <!-- STREAMING_CHUNK:Rendering list of children... -->
     <section id="enfants" class="py-10 px-4 max-w-4xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-4">
             <div class="text-center space-y-0.5">
@@ -457,13 +448,13 @@
     </section>
 
     <!-- 6. SECTION : SINCÈRES REMERCIEMENTS (En Gras) -->
-    <!-- STREAMING_CHUNK:Rendering direct acknowledgments section... -->
+    <!-- STREAMING_CHUNK:Rendering thank you quote... -->
     <section id="remerciements" class="bg-stone-200/50 dark:bg-stone-900/60 text-stone-800 dark:text-stone-200 py-10 px-4 shadow-inner transition-colors duration-500">
         <div class="max-w-2xl mx-auto text-center space-y-4">
             <h3 class="font-tnr text-lg tracking-wider text-stone-900 dark:text-amber-400 uppercase">Remerciements</h3>
             <div class="w-8 h-[1px] bg-amber-600 dark:bg-amber-400 mx-auto"></div>
             
-            <!-- Citation de remerciements en Gras demandée -->
+            <!-- Citation de remerciements en Gras demandée (Points-virgules retirés) -->
             <div class="space-y-3 text-stone-700 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-bold">
                 <p class="italic">
                     « Les familles éplorées, profondément touchées par les nombreuses marques de sympathie, de compassion et d'affection que vous leur avez témoignées lors du décès, des obsèques et de l'inhumation de leur regretté parent, vous prient de trouver ici l'expression de leur profonde gratitude. »
@@ -478,8 +469,8 @@
         </div>
     </section>
 
-    <!-- 7. SECTION CRÉATEUR : VOTRE ENTREPRISE "EMMA DIGI WEB" (Optimisation Responsive) -->
-    <!-- STREAMING_CHUNK:Rendering elegant branding card... -->
+    <!-- 7. SECTION CRÉATEUR : VOTRE ENTREPRISE "WELT DER KOMPETENZEN" -->
+    <!-- STREAMING_CHUNK:Rendering corporate footer signature... -->
     <section class="bg-stone-100/90 dark:bg-stone-950/90 py-8 px-4 border-t border-stone-200/40 dark:border-stone-900/40 transition-colors duration-500">
         <div class="max-w-xl mx-auto bg-white/70 dark:bg-stone-900/70 backdrop-blur-sm p-4 md:p-5 rounded-xl shadow-md border border-stone-200/50 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             
@@ -500,14 +491,14 @@
             <div class="space-y-2.5 flex-1 text-sm">
                 <div class="space-y-1">
                     <span class="text-[9px] uppercase tracking-widest text-amber-600 dark:text-amber-400 font-extrabold block">Conception & Développement Web</span>
-                    <h4 class="font-tnr text-sm md:text-md tracking-wide text-stone-900 dark:text-stone-100">EMMA DIGI WEB</h4>
+                    <h4 class="font-tnr text-sm md:text-md tracking-wide text-stone-900 dark:text-stone-100">WELT DER KOMPETENZEN</h4>
                     <p class="text-stone-600 dark:text-stone-300 leading-relaxed font-normal text-xs">
-                        Vous souhaitez concevoir un site d'hommage interactif, un faire-part professionnel ou un portail web haute performance pour votre entreprise ?
+                        <strong>Nous créons des solutions numériques pour l'avenir.</strong> Vous souhaitez concevoir un site d'hommage interactif, un faire-part professionnel ou un portail web haute performance ?
                     </p>
                 </div>
 
-                <!-- Bouton pointant vers votre contact d'affaires +229 01 58 25 55 72 -->
-                <a href="https://wa.me/2290158255572?text=Bonjour%20EMMA%20DIGI%20WEB,%20j'ai%20visité%20le%20site%20d'hommage%20et%20je%20souhaite%20vous%20commander%20un%20site%20web." 
+                <!-- Contact d'affaires -->
+                <a href="https://wa.me/2290158255572?text=Bonjour%20WELT%20DER%20KOMPETENZEN,%20j'ai%20visité%20le%20site%20d'hommage%20et%20je%20souhaite%20vous%20commander%20un%20site%20web." 
                    target="_blank" 
                    class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-[11px] font-bold px-3 py-1.5 rounded-lg hover:bg-amber-600 dark:hover:bg-amber-400 transition-all shadow-sm">
                     <span>💬</span> Commander un site similaire
@@ -516,17 +507,17 @@
         </div>
     </section>
 
-    <!-- PIED DE PAGE ENTIÈREMENT PERSONNALISÉ (DÉVELOPPÉ PAR "EMMA DIGI WEB" AVEC NUMÉRO À 10 CHIFFRES) -->
+    <!-- PIED DE PAGE ENTIÈREMENT PERSONNALISÉ -->
     <footer class="bg-stone-950 text-stone-600 text-center py-5 border-t border-stone-900 text-[9px] tracking-wider space-y-0.5 px-4">
         <p>© 2026 — Famille GBINLO. Tous droits réservés.</p>
         <p class="text-stone-500 dark:text-stone-400 font-semibold uppercase tracking-wide leading-relaxed">
-            Développé par <span class="text-amber-500 font-extrabold">EMMA DIGI WEB</span> — Contact direct : 
+            Développé par <span class="text-amber-500 font-extrabold">WELT DER KOMPETENZEN</span> — Contact direct : 
             <a href="tel:+2290158255572" class="text-amber-400 hover:underline hover:text-amber-300 font-bold whitespace-nowrap">+229 01 58 25 55 72</a>
         </p>
     </footer>
 
     <!-- TOUTES LES LOGIQUES JAVASCRIPT ET 3D INTERACTIVES (Three.js) -->
-    <!-- STREAMING_CHUNK:Activating ThreeJS dynamic background loop... -->
+    <!-- STREAMING_CHUNK:Activating particles background... -->
     <script>
         // =========================================================================
         // 1. ARRIÈRE-PLAN DE MODÉLISATION 3D DYNAMIQUE HD (Three.js)
