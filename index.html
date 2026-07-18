@@ -16,7 +16,7 @@
     </script>
     
     <!-- TOUS LES STYLES CSS CENTRALISÉS -->
-    <!-- STREAMING_CHUNK:Configuring custom page styles and transitions... -->
+    <!-- STREAMING_CHUNK:Configuring custom styles and device-specific layouts... -->
     <style>
         /* Importation de la police Inter pour le corps du texte */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -74,7 +74,7 @@
     <!-- ARRIÈRE-PLAN DE MODÉLISATION 3D DYNAMIQUE HD (Three.js) -->
     <div id="canvas3d-container"></div>
 
-    <!-- BARRE DE NAVIGATION COMPACTE ET ÉLÉGANTE (sans l'onglet enfants dupliqué) -->
+    <!-- BARRE DE NAVIGATION COMPACTE ET ÉLÉGANTE -->
     <!-- STREAMING_CHUNK:Rendering navigation system links... -->
     <nav class="fixed top-0 left-0 w-full bg-white/80 dark:bg-stone-950/80 backdrop-blur-md z-40 border-b border-stone-200/50 dark:border-stone-900/50 transition-colors duration-500">
         <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
@@ -95,7 +95,7 @@
             </button>
         </div>
 
-        <!-- Menu Mobile Horizontal Défilant Compact (sans l'onglet enfants dupliqué) -->
+        <!-- Menu Mobile Horizontal Défilant Compact -->
         <div class="flex md:hidden bg-stone-100/95 dark:bg-stone-900/95 overflow-x-auto border-t border-stone-200/40 dark:border-stone-800/40 scrollbar-none py-1.5 px-4 gap-4 text-[9px] uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300 whitespace-nowrap">
             <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
             <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
@@ -156,40 +156,38 @@
     </header>
 
     <!-- 2. ANNONCE DE DEUIL & COLLECTIVITÉS -->
-    <!-- STREAMING_CHUNK:Structuring collectivities and tighter list of children... -->
+    <!-- STREAMING_CHUNK:Structuring collectivities and tighter flat listing... -->
     <section id="propos" class="py-4 md:py-6 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-6">
             
-            <!-- Les grandes collectivités (Réorganisées en grille responsive parfaitement alignée, points-virgules supprimés) -->
-            <div class="bg-white/60 dark:bg-stone-900/40 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 md:p-6 space-y-3 shadow-sm">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
-                    <div class="space-y-2">
-                        <p class="flex items-start gap-1.5">
-                            <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                            <span>La collectivité <strong>GBINLO – GUEGUELIGUE – AZONTOKPO – AGBOFO – AGBOLEAFI</strong> de Fonkpamè Agondji</span>
-                        </p>
-                        <p class="flex items-start gap-1.5">
-                            <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                            <span>La collectivité <strong>TANHOUNNON – GBADENON</strong> de Zounmè Oumbèga</span>
-                        </p>
-                    </div>
-                    <div class="space-y-2">
-                        <p class="flex items-start gap-1.5">
-                            <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                            <span>La collectivité <strong>GBASSI – DEDAGO</strong> d'Ahozoun Oumbèga</span>
-                        </p>
-                        <p class="flex items-start gap-1.5">
-                            <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                            <span>La collectivité <strong>BOCODAHO – GBEHOLO</strong> de Tchêly, Abomey</span>
-                        </p>
-                    </div>
+            <!-- Les grandes collectivités (Grille mise à plat pour supprimer tout espace vide résiduel) -->
+            <div class="bg-white/60 dark:bg-stone-900/40 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 md:p-6 shadow-sm">
+                
+                <!-- Liste plate sans sous-divs intermédiaires pour garantir un défilement mobile parfait et sans saut de hauteur -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3.5 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
+                    <p class="flex items-start gap-1.5">
+                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
+                        <span>La collectivité <strong>GBINLO – GUEGUELIGUE – AZONTOKPO – AGBOFO – AGBOLEAFI</strong> de Fonkpamè Agondji</span>
+                    </p>
+                    <p class="flex items-start gap-1.5">
+                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
+                        <span>La collectivité <strong>GBASSI – DEDAGO</strong> d'Ahozoun Oumbèga</span>
+                    </p>
+                    <p class="flex items-start gap-1.5">
+                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
+                        <span>La collectivité <strong>TANHOUNNON – GBADENON</strong> de Zounmè Oumbèga</span>
+                    </p>
+                    <p class="flex items-start gap-1.5">
+                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
+                        <span>La collectivité <strong>BOCODAHO – GBEHOLO</strong> de Tchêly, Abomey</span>
+                    </p>
                 </div>
 
-                <!-- Section frères, sœurs, enfants, petits-enfants (Unifié, resserré et Feue EUDOXIE écrit correctement) -->
-                <div class="border-t border-stone-200/30 dark:border-stone-800/40 pt-2.5 text-xs md:text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans-clean font-normal text-stone-700 dark:text-stone-300">
-                    <p class="font-normal text-stone-700 dark:text-stone-300">
-                        <span class="text-amber-500 mr-1.5 font-extrabold">•</span>
-                        <strong>Les frères et sœurs du regretté défunt, les enfants du défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, <span class="font-semibold text-stone-500 dark:text-stone-400">Feue EUDOXIE</span>, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE, leurs épouses et époux, ainsi que les petits-enfants, arrière-petits-enfants, cousins, cousines, neveux et nièces.
+                <!-- Section frères, sœurs, enfants, petits-enfants (Unifié, resserré, sans grand vide, Feue EUDOXIE écrit avec casse correcte) -->
+                <div class="border-t border-stone-200/30 dark:border-stone-800/40 mt-5 pt-4 text-xs md:text-sm text-stone-700 dark:text-stone-300 leading-relaxed font-sans-clean font-normal">
+                    <p class="flex items-start gap-1.5">
+                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
+                        <span><strong>Les frères et sœurs du regretté défunt, les enfants du défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, <span class="font-semibold text-stone-500 dark:text-stone-400">Feue EUDOXIE</span>, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE, leurs épouses et époux, ainsi que les petits-enfants, arrière-petits-enfants, cousins, cousines, neveux et nièces.</span>
                     </p>
                 </div>
             </div>
@@ -200,7 +198,7 @@
                 <p class="text-center text-[10px] md:text-xs uppercase tracking-wider text-amber-600 dark:text-amber-400 font-extrabold">Les familles parentes, alliées et amies</p>
                 <div class="flex flex-wrap justify-center gap-1.5 md:gap-2 max-w-5xl mx-auto py-2">
                     <!-- Badges uniformes - Teinte ambrée dorée premium pour tout le monde -->
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">AHO-GLELE</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AHO-GLELE</span>
                     <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GBASSI</span>
                     <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">FELIHO</span>
                     <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBI-DAVO</span>
@@ -247,7 +245,7 @@
                     </div>
                 </div>
 
-                <!-- Descriptifs administratifs (Points-virgules nettoyés) -->
+                <!-- Descriptifs administratifs -->
                 <div class="md:col-span-7 space-y-3">
                     <div class="border-l-4 border-amber-500 pl-3 space-y-0.5">
                         <span class="text-[9px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold block">RECONNAISSANCE SOLENNELLE</span>
@@ -382,14 +380,14 @@
     </section>
 
     <!-- 6. SECTION : SINCÈRES REMERCIEMENTS (En Gras) -->
-    <!-- STREAMING_CHUNK:Rendering dynamic family acknowledgements... -->
+    <!-- STREAMING_CHUNK:Rendering thank you quote... -->
     <section id="remerciements" class="bg-stone-200/50 dark:bg-stone-900/60 text-stone-800 dark:text-stone-200 py-10 px-4 shadow-inner transition-colors duration-500">
         <div class="max-w-2xl mx-auto text-center space-y-4">
             <h3 class="font-tnr text-lg tracking-wider text-stone-900 dark:text-amber-400 uppercase">Remerciements</h3>
             <div class="w-8 h-[1px] bg-amber-600 dark:bg-amber-400 mx-auto"></div>
             
-            <!-- Citation de remerciements en Gras demandée -->
-            <div class="space-y-3 text-stone-700 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-bold font-sans-clean">
+            <!-- Citation de remerciements en Gras demandée (Points-virgules retirés) -->
+            <div class="space-y-3 text-stone-700 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-bold font-sans-clean font-normal">
                 <p class="italic">
                     « Les familles éplorées, profondément touchées par les nombreuses marques de sympathie, de compassion et d'affection que vous leur avez témoignées lors du décès, des obsèques et de l'inhumation de leur regretté parent, vous prient de trouver ici l'expression de leur profonde gratitude. »
                 </p>
@@ -434,7 +432,7 @@
                 <!-- Contact d'affaires -->
                 <a href="https://wa.me/2290158255572?text=Bonjour%20WELT%20DER%20KOMPETENZEN,%20j'ai%20visité%20le%20site%20d'hommage%20et%20je%20souhaite%20vous%20commander%20un%20site%20web." 
                    target="_blank" 
-                   class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-[11px] font-bold px-3 py-1.5 rounded-lg hover:bg-amber-600 dark:hover:bg-amber-400 transition-all shadow-sm">
+                   class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-[11px] font-bold px-3 py-1.5 rounded-lg hover:bg-amber-600 dark:hover:hover:bg-amber-400 transition-all shadow-sm">
                     <span>💬</span> Commander un site similaire
                 </a>
             </div>
