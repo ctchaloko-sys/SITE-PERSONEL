@@ -16,7 +16,7 @@
     </script>
     
     <!-- TOUS LES STYLES CSS CENTRALISÉS -->
-    <!-- STREAMING_CHUNK:Configuring custom scroll and body layouts... -->
+    <!-- STREAMING_CHUNK:Configuring custom page styles and transitions... -->
     <style>
         /* Importation de la police Inter pour le corps du texte */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -69,23 +69,22 @@
         }
     </style>
 </head>
-<body class="bg-stone-50/80 text-stone-900 dark:bg-stone-950/85 dark:text-stone-100 font-sans-clean transition-colors duration-500 pt-12 md:pt-16 relative">
+<body class="bg-stone-50/80 text-stone-900 dark:bg-stone-950/85 dark:text-stone-100 font-sans-clean transition-colors duration-500 pt-12 md:pt-16 relative font-sans-clean">
 
     <!-- ARRIÈRE-PLAN DE MODÉLISATION 3D DYNAMIQUE HD (Three.js) -->
     <div id="canvas3d-container"></div>
 
-    <!-- BARRE DE NAVIGATION COMPACTE ET ÉLÉGANTE -->
-    <!-- STREAMING_CHUNK:Rendering navigation system... -->
+    <!-- BARRE DE NAVIGATION COMPACTE ET ÉLÉGANTE (sans l'onglet enfants dupliqué) -->
+    <!-- STREAMING_CHUNK:Rendering navigation system links... -->
     <nav class="fixed top-0 left-0 w-full bg-white/80 dark:bg-stone-950/80 backdrop-blur-md z-40 border-b border-stone-200/50 dark:border-stone-900/50 transition-colors duration-500">
         <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
             <a href="#" class="font-tnr text-amber-600 dark:text-amber-400 tracking-wider text-xs md:text-sm">HOMMAGE — S.M.G</a>
             
             <!-- Liens de navigation compacts pour maximiser l'espace sur ordinateur -->
-            <div class="hidden md:flex items-center gap-5 text-[10px] lg:text-xs uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300">
+            <div class="hidden md:flex items-center gap-6 text-[10px] lg:text-xs uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300">
                 <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
                 <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
                 <a href="#fairepart" class="hover:text-amber-500 transition-colors">Faire-part</a>
-                <a href="#enfants" class="hover:text-amber-500 transition-colors">Enfants</a>
                 <a href="#remerciements" class="hover:text-amber-500 transition-colors">Remerciements</a>
             </div>
 
@@ -96,18 +95,17 @@
             </button>
         </div>
 
-        <!-- Menu Mobile Horizontal Défilant Compact -->
+        <!-- Menu Mobile Horizontal Défilant Compact (sans l'onglet enfants dupliqué) -->
         <div class="flex md:hidden bg-stone-100/95 dark:bg-stone-900/95 overflow-x-auto border-t border-stone-200/40 dark:border-stone-800/40 scrollbar-none py-1.5 px-4 gap-4 text-[9px] uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300 whitespace-nowrap">
             <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
             <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
             <a href="#fairepart" class="hover:text-amber-500 transition-colors">Faire-part</a>
-            <a href="#enfants" class="hover:text-amber-500 transition-colors">Enfants</a>
             <a href="#remerciements" class="hover:text-amber-500 transition-colors">Remerciements</a>
         </div>
     </nav>
 
     <!-- BOUTONS FLOTTANTS DE CONTACT AJUSTÉS, FINs ET TOTALEMENT RESPONSIVES (Ordinateur & Mobile) -->
-    <!-- STREAMING_CHUNK:Injecting responsive contact buttons... -->
+    <!-- STREAMING_CHUNK:Injecting responsive communication widgets... -->
     <div class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col gap-2 font-sans-clean">
         <!-- Bouton d'Appel (Bleu Compact) -->
         <a href="tel:+2290168049979" title="Appeler pour un renseignement" 
@@ -137,7 +135,8 @@
         </a>
     </div>
 
-    <!-- 1. HERO EN-TÊTE DYNAMIQUE -->
+    <!-- 1. HERO EN-TÊTE DYNAMIQUE ET TRÈS CONCENTRÉ -->
+    <!-- STREAMING_CHUNK:Rendering hero core introduction... -->
     <header class="relative min-h-[40vh] md:min-h-[45vh] flex items-center justify-center overflow-hidden bg-transparent pt-6 pb-2">
         <div class="relative z-10 text-center text-stone-900 dark:text-white px-4 space-y-3 max-w-2xl animate-fade-in">
             <span class="text-[8px] md:text-[10px] uppercase tracking-[0.25em] text-amber-600 dark:text-amber-400 font-bold block leading-relaxed">
@@ -157,13 +156,13 @@
     </header>
 
     <!-- 2. ANNONCE DE DEUIL & COLLECTIVITÉS -->
-    <!-- STREAMING_CHUNK:Structuring consolidated family groups without semicolons... -->
+    <!-- STREAMING_CHUNK:Structuring collectivities and tighter list of children... -->
     <section id="propos" class="py-4 md:py-6 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-6">
             
             <!-- Les grandes collectivités (Réorganisées en grille responsive parfaitement alignée, points-virgules supprimés) -->
-            <div class="bg-white/60 dark:bg-stone-900/40 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 md:p-6 space-y-4 shadow-sm">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
+            <div class="bg-white/60 dark:bg-stone-900/40 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 md:p-6 space-y-3 shadow-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
                     <div class="space-y-2">
                         <p class="flex items-start gap-1.5">
                             <span class="text-amber-500 mt-0.5 shrink-0">•</span>
@@ -186,22 +185,22 @@
                     </div>
                 </div>
 
-                <!-- Section frères, sœurs, petits-enfants et neveux rassemblés de manière compacte et sans points-virgules -->
-                <div class="border-t border-stone-200/40 dark:border-stone-800/40 pt-3 text-xs md:text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans-clean">
+                <!-- Section frères, sœurs, enfants, petits-enfants (Unifié, resserré et Feue EUDOXIE écrit correctement) -->
+                <div class="border-t border-stone-200/30 dark:border-stone-800/40 pt-2.5 text-xs md:text-sm text-stone-600 dark:text-stone-300 leading-relaxed font-sans-clean font-normal text-stone-700 dark:text-stone-300">
                     <p class="font-normal text-stone-700 dark:text-stone-300">
                         <span class="text-amber-500 mr-1.5 font-extrabold">•</span>
-                        <strong>Les frères et sœurs du regretté défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, FEUE EUDOXIE, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE, ainsi que les petits-enfants, arrière-petits-enfants, cousins, cousines, neveux et nièces.
+                        <strong>Les frères et sœurs du regretté défunt, les enfants du défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, <span class="font-semibold text-stone-500 dark:text-stone-400">Feue EUDOXIE</span>, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE, leurs épouses et époux, ainsi que les petits-enfants, arrière-petits-enfants, cousins, cousines, neveux et nièces.
                     </p>
                 </div>
             </div>
 
             <!-- Familles Alliées : BOUTONS D'ACTION UNIFORMISÉS DANS UNE COULEUR UNIQUE ÉLÉGANTE -->
-            <!-- STREAMING_CHUNK:Uniforming color tokens for alliance badges... -->
+            <!-- STREAMING_CHUNK:Rendering uniformed premium badges for alliances... -->
             <div class="space-y-4">
                 <p class="text-center text-[10px] md:text-xs uppercase tracking-wider text-amber-600 dark:text-amber-400 font-extrabold">Les familles parentes, alliées et amies</p>
                 <div class="flex flex-wrap justify-center gap-1.5 md:gap-2 max-w-5xl mx-auto py-2">
                     <!-- Badges uniformes - Teinte ambrée dorée premium pour tout le monde -->
-                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AHO-GLELE</span>
+                    <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">AHO-GLELE</span>
                     <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GBASSI</span>
                     <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">FELIHO</span>
                     <span class="cursor-pointer transform hover:scale-105 transition-all text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBI-DAVO</span>
@@ -239,7 +238,7 @@
             </div>
 
             <!-- Portrait du Défunt et Biographies Essentielles -->
-            <!-- STREAMING_CHUNK:Rendering hero portrait segment... -->
+            <!-- STREAMING_CHUNK:Rendering biological presentation block... -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center pt-2">
                 <!-- Portrait Photo -->
                 <div class="md:col-span-5 flex justify-center">
@@ -270,7 +269,7 @@
     </section>
 
     <!-- 3. SECTION : PROGRAMME CHRONOLOGIQUE DES OBSÈQUES -->
-    <!-- STREAMING_CHUNK:Rendering scheduling dynamic component... -->
+    <!-- STREAMING_CHUNK:Rendering chronology step blocks... -->
     <section id="programme" class="py-10 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-8">
             
@@ -346,6 +345,7 @@
     </section>
 
     <!-- 4. SECTION : FAIRE-PART (Téléchargement direct) -->
+    <!-- STREAMING_CHUNK:Rendering direct PDF attachment interface... -->
     <section id="fairepart" class="py-10 px-4 bg-stone-100/50 dark:bg-stone-900/10 border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="max-w-4xl mx-auto text-center space-y-4">
             <div class="space-y-0.5">
@@ -368,7 +368,7 @@
                         <p class="text-[8px] text-stone-400 font-light">Faire-part officiel des Obsèques</p>
                     </div>
 
-                    <!-- Lien vers le fichier PDF -->
+                    <!-- Lien vers le fichier PDF d'origine du faire-part -->
                     <a href="P%C3%A9p%C3%A9%20GBINLO%20S%C3%89RAPHIN%20%20%281%29_compressed.pdf" download="Pépé GBINLO SÉRAPHIN  (1)_compressed.pdf" 
                        class="inline-flex items-center justify-center gap-1.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-1.5 px-4 rounded-lg shadow-lg transition-all w-full text-[11px]">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -381,81 +381,15 @@
         </div>
     </section>
 
-    <!-- 5. SECTION : LA DESCENDANCE DIRECTE NUMÉROTÉE -->
-    <!-- STREAMING_CHUNK:Rendering list of children... -->
-    <section id="enfants" class="py-10 px-4 max-w-4xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
-        <div class="space-y-4">
-            <div class="text-center space-y-0.5">
-                <span class="text-[9px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">LA DESCENDANCE DIRECTE</span>
-                <h2 class="font-tnr text-xl md:text-2xl">Liste des Enfants du Défunt</h2>
-                <div class="w-6 h-[1px] bg-amber-500 mx-auto mt-1"></div>
-            </div>
-
-            <!-- Liste Numérotée Harmonisée sur 2 colonnes sur Mobile, 3 colonnes sur Ordinateur -->
-            <div class="bg-white/60 dark:bg-stone-900/30 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 shadow-sm">
-                <ol class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-x-3 gap-y-3 text-[11px] md:text-xs text-stone-700 dark:text-stone-300 font-medium font-sans-clean">
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">01</span>
-                        <span class="truncate">CLÉMENCE</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">02</span>
-                        <span class="truncate">EDGARD</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">03</span>
-                        <span class="truncate">HOSPICE</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">04</span>
-                        <span class="truncate">MICHAEL</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">05</span>
-                        <span class="truncate">HERVÉ</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">06</span>
-                        <span class="truncate">GINETTE</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">07</span>
-                        <span class="truncate">FEUE EUDOXIE</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">08</span>
-                        <span class="truncate">ÉLOÏSE</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">09</span>
-                        <span class="truncate">MODESTE</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">10</span>
-                        <span class="truncate">ÉRIC</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">11</span>
-                        <span class="truncate">FLORINE</span>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-400 text-[9px] font-extrabold px-1.5 py-0.5 rounded shrink-0">12</span>
-                        <span class="truncate">AUGUSTE</span>
-                    </li>
-                </ol>
-            </div>
-        </div>
-    </section>
-
     <!-- 6. SECTION : SINCÈRES REMERCIEMENTS (En Gras) -->
-    <!-- STREAMING_CHUNK:Rendering thank you quote... -->
+    <!-- STREAMING_CHUNK:Rendering dynamic family acknowledgements... -->
     <section id="remerciements" class="bg-stone-200/50 dark:bg-stone-900/60 text-stone-800 dark:text-stone-200 py-10 px-4 shadow-inner transition-colors duration-500">
         <div class="max-w-2xl mx-auto text-center space-y-4">
             <h3 class="font-tnr text-lg tracking-wider text-stone-900 dark:text-amber-400 uppercase">Remerciements</h3>
             <div class="w-8 h-[1px] bg-amber-600 dark:bg-amber-400 mx-auto"></div>
             
-            <!-- Citation de remerciements en Gras demandée (Points-virgules retirés) -->
-            <div class="space-y-3 text-stone-700 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-bold">
+            <!-- Citation de remerciements en Gras demandée -->
+            <div class="space-y-3 text-stone-700 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-bold font-sans-clean">
                 <p class="italic">
                     « Les familles éplorées, profondément touchées par les nombreuses marques de sympathie, de compassion et d'affection que vous leur avez témoignées lors du décès, des obsèques et de l'inhumation de leur regretté parent, vous prient de trouver ici l'expression de leur profonde gratitude. »
                 </p>
@@ -470,7 +404,7 @@
     </section>
 
     <!-- 7. SECTION CRÉATEUR : VOTRE ENTREPRISE "WELT DER KOMPETENZEN" -->
-    <!-- STREAMING_CHUNK:Rendering corporate footer signature... -->
+    <!-- STREAMING_CHUNK:Rendering corporate card signature... -->
     <section class="bg-stone-100/90 dark:bg-stone-950/90 py-8 px-4 border-t border-stone-200/40 dark:border-stone-900/40 transition-colors duration-500">
         <div class="max-w-xl mx-auto bg-white/70 dark:bg-stone-900/70 backdrop-blur-sm p-4 md:p-5 rounded-xl shadow-md border border-stone-200/50 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             
@@ -517,7 +451,7 @@
     </footer>
 
     <!-- TOUTES LES LOGIQUES JAVASCRIPT ET 3D INTERACTIVES (Three.js) -->
-    <!-- STREAMING_CHUNK:Activating particles background... -->
+    <!-- STREAMING_CHUNK:Activating ThreeJS WebGL engine... -->
     <script>
         // =========================================================================
         // 1. ARRIÈRE-PLAN DE MODÉLISATION 3D DYNAMIQUE HD (Three.js)
