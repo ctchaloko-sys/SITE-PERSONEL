@@ -1,115 +1,44 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
+<!DOCTYPE html>
 <html lang="fr" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hommage à l'Inspecteur Séraphin M. GBINLO</title>
-    <!-- Tailwind CSS pour un design rapide, moderne et ultra-responsive -->
+    <!-- Tailwind CSS pour les utilitaires de style -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chargement de la bibliothèque Three.js pour le fond 3D interactif -->
+    <!-- Bibliothèque Three.js pour le fond 3D -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        // Configuration de Tailwind pour gérer le Dark Mode par classe
         tailwind.config = {
             darkMode: 'class'
         }
     </script>
-    
-    <!-- ========================================================================= -->
-    <!-- 🎨 DEBUT DU CODE CSS (À copier dans votre fichier "style.css" si séparé)   -->
-    <!-- ========================================================================= -->
-    <style>
-        /* Importation de la police Inter pour le corps du texte */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-        /* Styles typographiques stricts demandés */
-        .font-tnr {
-            font-family: 'Times New Roman', Times, FreeSerif, serif !important;
-            font-weight: bold !important;
-        }
-
-        .font-sans-clean {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        }
-
-        /* Masquage de la barre de défilement horizontal */
-        .scrollbar-none::-webkit-scrollbar {
-            display: none;
-        }
-        .scrollbar-none {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        /* Arrière-plan 3D interactif fixé */
-        #canvas3d-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            will-change: transform;
-        }
-
-        /* Effet d'inclinaison 3D physique avec accélération matérielle */
-        .card-3d-tilt {
-            transform-style: preserve-3d;
-            perspective: 1000px;
-            transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease;
-            will-change: transform;
-        }
-
-        /* Effet de brillance dorée animée (Shimmer) */
-        @keyframes goldShimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .text-shimmer-gold {
-            background: linear-gradient(90deg, #b45309, #f59e0b, #fffbeb, #f59e0b, #b45309);
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: goldShimmer 6s linear infinite;
-        }
-
-        /* Effet de lueur douce pour l'affichage premium */
-        .glow-gold {
-            box-shadow: 0 0 15px rgba(217, 119, 6, 0.15);
-        }
-
-        /* Animations d'apparition */
-        @keyframes fadeInSubtle {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-fade-in {
-            animation: fadeInSubtle 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-    </style>
-    <!-- ========================================================================= -->
-    <!-- 🎨 FIN DU CODE CSS                                                        -->
-    <!-- ========================================================================= -->
+    <!-- Feuille de style personnalisée -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-stone-50/80 text-stone-900 dark:bg-stone-950/85 dark:text-stone-100 font-sans-clean transition-colors duration-500 pt-12 md:pt-16 relative overflow-x-hidden">
 
-    <!-- ========================================================================= -->
-    <!-- 🧱 DEBUT DU CODE HTML (Squelette et structure visuelle de la page)        -->
-    <!-- ========================================================================= -->
-
-    <!-- Conteneur pour le canevas de l'arrière-plan 3D -->
+    <!-- Canvas Arrière-plan 3D -->
     <div id="canvas3d-container"></div>
 
-    <!-- BARRE DE NAVIGATION COMPACTE ET ÉLÉGANTE -->
+    <!-- BARRE DE NAVIGATION -->
     <nav class="fixed top-0 left-0 w-full bg-white/80 dark:bg-stone-950/80 backdrop-blur-md z-40 border-b border-stone-200/50 dark:border-stone-900/50 transition-colors duration-500">
         <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
             <a href="#" class="font-tnr text-amber-600 dark:text-amber-400 tracking-wider text-xs md:text-sm">HOMMAGE — S.M.G</a>
             
-            <!-- Liens de navigation compacts pour maximiser l'espace sur ordinateur -->
             <div class="hidden md:flex items-center gap-6 text-[10px] lg:text-xs uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300">
                 <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
                 <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
@@ -124,7 +53,7 @@
             </button>
         </div>
 
-        <!-- Menu Mobile Horizontal Défilant Compact -->
+        <!-- Menu Mobile -->
         <div class="flex md:hidden bg-stone-100/95 dark:bg-stone-900/95 overflow-x-auto border-t border-stone-200/40 dark:border-stone-800/40 scrollbar-none py-1.5 px-4 gap-4 text-[9px] uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300 whitespace-nowrap">
             <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
             <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
@@ -133,12 +62,10 @@
         </div>
     </nav>
 
-    <!-- BOUTONS FLOTTANTS DE CONTACT AJUSTÉS, FINs ET TOTALEMENT RESPONSIVES (Ordinateur & Mobile) -->
+    <!-- BOUTONS FLOTTANTS DE CONTACT -->
     <div class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col gap-2 font-sans-clean">
-        <!-- Bouton d'Appel (Bleu Compact) -->
         <a href="tel:+2290168049979" title="Appeler pour un renseignement" 
            class="relative flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white px-2.5 py-1.5 md:px-3 md:py-2 rounded-full shadow-[0_4px_15px_rgba(37,99,235,0.4)] hover:scale-105 transition-all duration-300 border border-white/20 group text-[9px] md:text-xs">
-            <!-- Onde de choc d'appel -->
             <span class="absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-20 animate-ping left-0 top-0 -z-10 pointer-events-none"></span>
             <span class="bg-white/15 p-1 rounded-full shrink-0">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -148,11 +75,9 @@
             <span class="font-bold tracking-wider uppercase">Appel</span>
         </a>
 
-        <!-- Bouton WhatsApp (Vert Compact) -->
         <a href="https://wa.me/22969320612?text=Bonjour,%20je%20souhaite%20avoir%20des%20renseignements%20concernant%20les%20obsèques%20de%20l'Inspecteur%20GBINLO." 
            target="_blank" title="Écrire sur WhatsApp" 
            class="relative flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-white px-2.5 py-1.5 md:px-3 md:py-2 rounded-full shadow-[0_4px_15px_rgba(16,185,129,0.4)] hover:scale-105 transition-all duration-300 border border-white/20 group text-[9px] md:text-xs">
-            <!-- Onde de choc WhatsApp -->
             <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-20 animate-ping left-0 top-0 -z-10 pointer-events-none"></span>
             <span class="bg-white/15 p-1 rounded-full shrink-0">
                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
@@ -163,7 +88,7 @@
         </a>
     </div>
 
-    <!-- 1. HERO EN-TÊTE DYNAMIQUE ET TRÈS CONCENTRÉ -->
+    <!-- HERO EN-TÊTE -->
     <header class="relative min-h-[40vh] md:min-h-[45vh] flex items-center justify-center overflow-hidden bg-transparent pt-6 pb-2">
         <div class="relative z-10 text-center text-stone-900 dark:text-white px-4 space-y-3 max-w-2xl animate-fade-in">
             <span class="text-[8px] md:text-[10px] uppercase tracking-[0.25em] text-amber-600 dark:text-amber-400 font-bold block leading-relaxed">
@@ -174,7 +99,6 @@
             </h1>
             <div class="w-8 h-[1px] bg-amber-500 mx-auto"></div>
             
-            <!-- Citation Biblique en Gras -->
             <p class="text-xs md:text-sm font-bold italic text-stone-700 dark:text-stone-300 max-w-lg mx-auto leading-relaxed">
                 « Que votre cœur ne se trouble pas. Croyez en Dieu, croyez aussi en moi. Il y a plusieurs demeures dans la maison de mon Père. Si cela n'était pas, je vous l'aurais dit. Je vais vous préparer une place. »
                 <span class="block text-[9px] mt-1 text-amber-600 dark:text-amber-400 not-italic tracking-widest font-extrabold">— Jean 14, 1-2</span>
@@ -182,14 +106,10 @@
         </div>
     </header>
 
-    <!-- 2. ANNONCE DE DEUIL & COLLECTIVITÉS -->
+    <!-- ANNONCE DE DEUIL -->
     <section id="propos" class="py-4 md:py-6 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-6">
-            
-            <!-- Les grandes collectivités (Grille mise à plat pour supprimer tout espace vide résiduel) -->
             <div class="bg-white/60 dark:bg-stone-900/40 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 md:p-6 shadow-sm glow-gold card-3d-tilt">
-                
-                <!-- Liste plate sans sous-divs intermédiaires pour un alignement optimal et compact -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2.5 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
                     <p class="flex items-start gap-1.5">
                         <span class="text-amber-500 mt-0.5 shrink-0">•</span>
@@ -209,7 +129,6 @@
                     </p>
                 </div>
 
-                <!-- Section frères, sœurs, enfants, petits-enfants (Bordure supprimée et écart réduit à mt-3) -->
                 <div class="mt-3 text-xs md:text-sm text-stone-700 dark:text-stone-300 leading-relaxed font-sans-clean font-normal">
                     <p class="flex items-start gap-1.5">
                         <span class="text-amber-500 mt-0.5 shrink-0">•</span>
@@ -218,91 +137,86 @@
                 </div>
             </div>
 
-            <!-- Familles Alliées : BOUTONS D'ACTION UNIFORMISÉS DANS UNE COULEUR UNIQUE ÉLÉGANTE -->
+            <!-- Familles Alliées -->
             <div class="space-y-4">
                 <p class="text-center text-[10px] md:text-xs uppercase tracking-wider text-amber-600 dark:text-amber-400 font-extrabold">Les familles parentes, alliées et amies</p>
                 <div class="flex flex-wrap justify-center gap-1.5 md:gap-2 max-w-5xl mx-auto py-2">
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">AHO-GLELE</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">GBASSI</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">FELIHO</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBI-DAVO</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">ADJALIAN</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHALOKO</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GBAGUIDI</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DENAKPO</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEKPE</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DOSSOUHOUAN</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEGBOZO</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">BAHINLIN</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">EROUBINOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBIDI</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">WOUEHA</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBESSI</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AHOUISSOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOKOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKONON</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUADJETO</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TONOUEHOUA</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">KPOMALEGNI</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AYIVI</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DEGBE</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SOUTON</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOGBE</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOUGAN</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKPO</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUNSOUNOU</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHOBO</span>
-                    <span class="cursor-pointer transform hover:scale-105 hover:bg-amber-500/20 active:scale-95 transition-all duration-200 text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GOÏTO</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">AHO-GLELE</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">GBASSI</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">FELIHO</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBI-DAVO</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">ADJALIAN</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHALOKO</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GBAGUIDI</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DENAKPO</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEKPE</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DOSSOUHOUAN</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEGBOZO</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">BAHINLIN</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">EROUBINOU</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBIDI</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">WOUEHA</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBESSI</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AHOUISSOU</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOKOU</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKONON</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUADJETO</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TONOUEHOUA</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">KPOMALEGNI</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AYIVI</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DEGBE</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SOUTON</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOGBE</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOUGAN</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKPO</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUNSOUNOU</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHOBO</span>
+                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GOÏTO</span>
                 </div>
                 <p class="text-center text-xs md:text-sm text-stone-700 dark:text-stone-300 font-bold max-w-3xl mx-auto leading-relaxed">
                     vous annoncent le rappel à Dieu de leur très cher et regretté fils, frère, oncle, père, beau-père, grand-père et arrière-grand-père,
                 </p>
             </div>
 
-            <!-- Portrait du Défunt et Biographies Essentielles -->
+            <!-- Portrait du Défunt -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center pt-2">
-                <!-- Portrait Photo -->
                 <div class="md:col-span-5 flex justify-center">
                     <div class="relative max-w-xs rounded-xl overflow-hidden shadow-lg border border-white dark:border-stone-900 card-3d-tilt glow-gold">
-                        <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Monsieur SÉRAPHIN MAKPONFA GBINLO" class="w-56 md:w-64 h-auto object-cover">
+                        <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Monsieur SÉRAPHIN MAKPONFA GBINLO" class="w-56 md:w-64 h-auto object-cover" onerror="this.src='https://placehold.co/400x500/1c1917/d97706?text=S.M.+GBINLO'">
                     </div>
                 </div>
 
-                <!-- Descriptifs administratifs -->
                 <div class="md:col-span-7 space-y-3">
                     <div class="border-l-4 border-amber-500 pl-3 space-y-0.5">
                         <span class="text-[9px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold block">RECONNAISSANCE SOLENNELLE</span>
                         <h2 class="font-tnr text-xl md:text-2xl leading-tight">
                             Monsieur SÉRAPHIN MAKPONFA GBINLO
                         </h2>
-                        <p class="text-[11px] uppercase tracking-wide font-semibold text-stone-500 dark:text-stone-400 font-bold font-sans-clean">
+                        <p class="text-[11px] uppercase tracking-wide text-stone-500 dark:text-stone-400 font-bold font-sans-clean">
                             Inspecteur de l'Enseignement du Premier Degré à la retraite
                         </p>
                     </div>
                     
                     <p class="text-stone-700 dark:text-stone-300 text-xs md:text-sm leading-relaxed font-normal">
-                        Rappelé à Dieu <strong>le jeudi 4 décembre 2025, dans sa 83ᵉ année</strong> au CNHU-HKM (Centre National Hospitalier Universitaire Hubert Koutoukou Maga) de Cotonou, et vous prient de bien vouloir assister ou de vous unir d'intention aux messes d'action de grâce suivant le programme ci-après.
+                        Rappelé à Dieu <strong>le jeudi 4 décembre 2025, dans sa 83ᵉ année</strong> au CNHU-HKM de Cotonou, et vous prient de bien vouloir assister ou de vous unir d'intention aux messes d'action de grâce suivant le programme ci-après.
                     </p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- 3. SECTION : PROGRAMME CHRONOLOGIQUE DES OBSÈQUES -->
+    <!-- PROGRAMME OFFICIEL -->
     <section id="programme" class="py-10 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="space-y-8">
-            
             <div class="text-center space-y-0.5">
                 <span class="text-[9px] uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold">CHRONOGRAMME</span>
                 <h2 class="font-tnr text-xl md:text-2xl">Le Programme Officiel</h2>
             </div>
 
-            <!-- Grille de cartes programmatiques ajustées pour tous supports -->
+            <!-- Grille du Programme -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5 font-sans-clean">
-                
-                <!-- Jeudi (Or / Ambre) -->
-                <div class="card-3d-tilt bg-gradient-to-br from-amber-50/90 to-amber-100/50 dark:from-amber-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-amber-500/20 dark:border-amber-500/10 shadow-md hover:shadow-amber-500/10 cursor-pointer overflow-hidden relative">
+                <!-- Jeudi -->
+                <div class="card-3d-tilt bg-gradient-to-br from-amber-50/90 to-amber-100/50 dark:from-amber-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-amber-500/20 dark:border-amber-500/10 shadow-md">
                     <span class="text-xs font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-wider block mb-1">Jeudi 27 août 2026</span>
                     <div class="w-8 h-[1.5px] bg-amber-500 my-2"></div>
                     <p class="text-lg md:text-xl font-bold text-stone-800 dark:text-stone-200">20 h 00</p>
@@ -311,8 +225,8 @@
                     </p>
                 </div>
 
-                <!-- Vendredi (Bleu Néon) -->
-                <div class="card-3d-tilt bg-gradient-to-br from-blue-50/90 to-blue-100/50 dark:from-blue-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-blue-500/20 dark:border-blue-500/10 shadow-md hover:shadow-blue-500/10 cursor-pointer overflow-hidden relative">
+                <!-- Vendredi -->
+                <div class="card-3d-tilt bg-gradient-to-br from-blue-50/90 to-blue-100/50 dark:from-blue-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-blue-500/20 dark:border-blue-500/10 shadow-md">
                     <span class="text-xs font-extrabold text-blue-600 dark:text-blue-400 uppercase tracking-wider block mb-1">Vendredi 28 août 2026</span>
                     <div class="w-8 h-[1.5px] bg-blue-500 my-2"></div>
                     <p class="text-lg md:text-xl font-bold text-stone-800 dark:text-stone-200">09 h 00</p>
@@ -321,8 +235,8 @@
                     </p>
                 </div>
 
-                <!-- Samedi (Violet / Pourpre) -->
-                <div class="card-3d-tilt bg-gradient-to-br from-purple-50/90 to-purple-100/50 dark:from-purple-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-purple-500/20 dark:border-purple-500/10 shadow-md hover:shadow-purple-500/10 cursor-pointer overflow-hidden relative">
+                <!-- Samedi (Mise à jour complète de la réception) -->
+                <div class="card-3d-tilt bg-gradient-to-br from-purple-50/90 to-purple-100/50 dark:from-purple-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-purple-500/20 dark:border-purple-500/10 shadow-md">
                     <span class="text-xs font-extrabold text-purple-600 dark:text-purple-400 uppercase tracking-wider block mb-1">Samedi 29 août 2026</span>
                     <div class="w-8 h-[1px] bg-purple-500 my-2"></div>
                     <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm leading-relaxed mt-2">
@@ -334,19 +248,32 @@
                 </div>
             </div>
 
-            <!-- COMPTE À REBOURS COMPACT AVEC COULEURS SPECIFIQUES DANS CHAQUE CHIFFRE -->
+            <!-- COMPTE À REBOURS -->
             <div class="space-y-3 pt-4 text-center">
                 <p class="text-stone-500 dark:text-stone-400 text-[10px] tracking-wider uppercase font-bold">Début de la célébration dans :</p>
                 <div class="grid grid-cols-4 gap-2 md:gap-3 max-w-sm mx-auto text-center font-sans-clean px-2">
-                    <!-- Jours : Dégradé Ambre / Or -->
-                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-amber-500/20 p-2 md:p-3 rounded-xl shadow-md transform hover:scale-105 transition-all">
+                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-amber-500/20 p-2 md:p-3 rounded-xl shadow-md">
                         <span id="days" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-amber-500 to-yellow-500 bg-clip-text text-transparent">00</span>
                         <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Jours</span>
                     </div>
-                    <!-- Heures : Dégradé Cyan / Saphir -->
-                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-blue-500/20 p-2 md:p-3 rounded-xl shadow-md transform hover:scale-105 transition-all">
+                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-blue-500/20 p-2 md:p-3 rounded-xl shadow-md">
                         <span id="hours" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-cyan-500 to-blue-600 bg-clip-text text-transparent">00</span>
-    <!-- 4. SECTION : FAIRE-PART (Téléchargement & Consultation directe) -->
+                        <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Heures</span>
+                    </div>
+                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-emerald-500/20 p-2 md:p-3 rounded-xl shadow-md">
+                        <span id="minutes" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-emerald-500 to-green-600 bg-clip-text text-transparent">00</span>
+                        <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Minutes</span>
+                    </div>
+                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-purple-500/20 p-2 md:p-3 rounded-xl shadow-md">
+                        <span id="seconds" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-purple-500 to-pink-600 bg-clip-text text-transparent">00</span>
+                        <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Secondes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAIRE-PART NUMÉRIQUE INTEGRÉ -->
     <section id="fairepart" class="py-10 px-4 bg-stone-100/50 dark:bg-stone-900/10 border-b border-stone-200/50 dark:border-stone-900/50">
         <div class="max-w-4xl mx-auto text-center space-y-6">
             <div class="space-y-1">
@@ -357,13 +284,12 @@
                 </p>
             </div>
 
-            <!-- Carte Faire-Part interactive avec Visionneuse Intégrée -->
+            <!-- Lecteur PDF Intégré -->
             <div class="max-w-2xl mx-auto bg-stone-950 text-white p-5 md:p-6 rounded-2xl border border-amber-400/40 shadow-xl space-y-5 relative overflow-hidden card-3d-tilt glow-gold">
-                <div class="absolute inset-0 bg-gradient-to-b from-stone-900 via-stone-950 to-stone-950 opacity-95"></div>
                 <div class="relative z-10 space-y-4">
                     <div class="flex items-center justify-center gap-3">
                         <div class="w-12 h-12 rounded-full border-2 border-amber-400 overflow-hidden shadow-md shrink-0">
-                            <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Séraphin GBINLO" class="w-full h-full object-cover">
+                            <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Séraphin GBINLO" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1c1917/d97706?text=S.M.G'">
                         </div>
                         <div class="text-left">
                             <h3 class="font-tnr text-sm text-amber-400 font-bold">M. SÉRAPHIN MAKPONFA GBINLO</h3>
@@ -371,14 +297,12 @@
                         </div>
                     </div>
 
-                    <!-- Visionneuse PDF / Aperçu Intégré sur le Site -->
                     <div class="w-full bg-stone-900 rounded-xl overflow-hidden border border-amber-500/20 shadow-inner h-80 md:h-96 relative">
                         <iframe src="P%C3%A9p%C3%A9%20GBINLO%20S%C3%89RAPHIN%20%20%281%29_compressed.pdf" class="w-full h-full border-none" title="Faire-part officiel PDF">
-                            <p class="text-xs text-stone-400 p-4">Votre navigateur ne prend pas en charge l'affichage direct du PDF. Vous pouvez le télécharger avec le bouton ci-dessous.</p>
+                            <p class="text-xs text-stone-400 p-4">Votre navigateur ne prend pas en charge l'affichage direct du PDF. Utilisez les boutons ci-dessous.</p>
                         </iframe>
                     </div>
 
-                    <!-- Actions : Télécharger & Plein Écran -->
                     <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
                         <a href="P%C3%A9p%C3%A9%20GBINLO%20S%C3%89RAPHIN%20%20%281%29_compressed.pdf" download="Faire-part_Inspecteur_Seraphin_GBINLO.pdf" 
                            class="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 active:scale-95 text-white font-semibold py-2 px-5 rounded-xl shadow-lg transition-all w-full text-xs">
@@ -400,14 +324,13 @@
         </div>
     </section>
 
-    <!-- 6. SECTION : SINCÈRES REMERCIEMENTS (En Gras) -->
+    <!-- REMERCIEMENTS -->
     <section id="remerciements" class="bg-stone-200/50 dark:bg-stone-900/60 text-stone-800 dark:text-stone-200 py-10 px-4 shadow-inner transition-colors duration-500">
         <div class="max-w-2xl mx-auto text-center space-y-4">
             <h3 class="font-tnr text-lg tracking-wider text-stone-900 dark:text-amber-400 uppercase">Remerciements</h3>
             <div class="w-8 h-[1px] bg-amber-600 dark:bg-amber-400 mx-auto"></div>
             
-            <!-- Citation de remerciements en Gras demandée (Points-virgules retirés) -->
-            <div class="space-y-3 text-stone-700 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-bold font-sans-clean font-normal">
+            <div class="space-y-3 text-stone-700 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-sans-clean font-normal">
                 <p class="italic">
                     « Les familles éplorées, profondément touchées par les nombreuses marques de sympathie, de compassion et d'affection que vous leur avez témoignées lors du décès, des obsèques et de l'inhumation de leur regretté parent, vous prient de trouver ici l'expression de leur profonde gratitude. »
                 </p>
@@ -421,36 +344,25 @@
         </div>
     </section>
 
-    <!-- 7. SECTION CRÉATEUR : VOTRE ENTREPRISE "WELT DER KOMPETENZEN" (Redirection vers Netlify d'affaires) -->
+    <!-- SECTION DÉVELOPPEUR -->
     <section class="bg-stone-100/90 dark:bg-stone-950/90 py-8 px-4 border-t border-stone-200/40 dark:border-stone-900/40 transition-colors duration-500">
         <div class="max-w-xl mx-auto bg-white/70 dark:bg-stone-900/70 backdrop-blur-sm p-4 md:p-5 rounded-xl shadow-md border border-stone-200/50 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left glow-gold card-3d-tilt">
-            
-            <!-- Logo Numérique Épuré & Photo de profil -->
             <div class="flex items-center gap-3 shrink-0">
                 <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-amber-400 shadow-md">
-                    <img src="emmanuel-clarius.png" alt="Emmanuel" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1c1917/d97706?text=WELT'">
-                </div>
-                <!-- Icône Numérique SVG (Logo de l'agence) -->
-                <div class="bg-amber-500/10 p-2 md:p-2.5 rounded-lg border border-amber-500/25">
-                    <svg class="w-6 h-6 md:w-7 md:h-7 text-amber-600 dark:text-amber-400 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
+                    <img src="emmanuel-clarius.png" alt="WELT DER KOMPETENZEN" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1c1917/d97706?text=WELT'">
                 </div>
             </div>
 
-            <!-- Description d'affaires avec taille de police optimisée -->
             <div class="space-y-2.5 flex-1 text-sm font-sans-clean">
                 <div class="space-y-1">
                     <span class="text-[9px] uppercase tracking-widest text-amber-600 dark:text-amber-400 font-extrabold block">Conception & Développement Web</span>
                     <h4 class="font-tnr text-sm md:text-md tracking-wide text-stone-900 dark:text-stone-100">WELT DER KOMPETENZEN</h4>
-                    <p class="text-stone-600 dark:text-stone-300 leading-relaxed font-normal text-xs font-bold font-sans-clean">
-                        <strong>Nous créons des solutions numériques pour l'avenir.</strong> Vous souhaitez concevoir un site d'hommage interactif, un faire-part professionnel ou un portail web haute performance ?
+                    <p class="text-stone-600 dark:text-stone-300 leading-relaxed text-xs font-sans-clean">
+                        <strong>Nous créons des solutions numériques pour l'avenir.</strong> Vous souhaitez concevoir un site d'hommage interactif ou un faire-part professionnel ?
                     </p>
                 </div>
 
-                <!-- Bouton d'affaires pointant vers votre site officiel Netlify d'affaires -->
-                <a href="https://delicate-tartufo-f53f09.netlify.app/" 
-                   target="_blank" 
+                <a href="https://delicate-tartufo-f53f09.netlify.app/" target="_blank" 
                    class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-[11px] font-bold px-3 py-1.5 rounded-lg hover:bg-amber-600 dark:hover:bg-amber-400 active:scale-95 transition-all shadow-sm">
                     <span>💬</span> Commander un site similaire
                 </a>
@@ -458,252 +370,16 @@
         </div>
     </section>
 
-    <!-- PIED DE PAGE ENTIÈREMENT PERSONNALISÉ -->
+    <!-- PIED DE PAGE -->
     <footer class="bg-stone-950 text-stone-600 text-center py-5 border-t border-stone-900 text-[9px] tracking-wider space-y-0.5 px-4">
         <p>© 2026 — Famille GBINLO. Tous droits réservés.</p>
-        <p class="text-stone-500 dark:text-stone-400 font-semibold uppercase tracking-wide leading-relaxed">
-            Développé par <span class="text-amber-500 font-extrabold">WELT DER KOMPETENZEN</span> — Contact direct : 
-            <a href="tel:+2290158255572" class="text-amber-400 hover:underline hover:text-amber-300 font-bold whitespace-nowrap">+229 01 58 25 55 72</a>
+        <p class="text-stone-500 dark:text-stone-400 font-semibold uppercase tracking-wide">
+            Développé par <span class="text-amber-500 font-extrabold">WELT DER KOMPETENZEN</span> — Contact : 
+            <a href="tel:+2290158255572" class="text-amber-400 hover:underline font-bold">+229 01 58 25 55 72</a>
         </p>
     </footer>
 
-    <!-- ========================================================================= -->
-    <!-- 🧱 FIN DU CODE HTML                                                       -->
-    <!-- ========================================================================= -->
-
-
-    <!-- ========================================================================= -->
-    <!-- ⚡ DEBUT DU CODE JAVASCRIPT (À copier dans "script.js" si séparé)        -->
-    <!-- ========================================================================= -->
-    <script>
-        // =========================================================================
-        // 1. ARRIÈRE-PLAN DE MODÉLISATION 3D DYNAMIQUE 4K (Three.js)
-        // =========================================================================
-        let scene, camera, renderer, starGeo, stars, starCount = 500;
-        let mouseX = 0, mouseY = 0;
-        let targetX = 0, targetY = 0; // Pour l'effet de momentum/inertie ultra-fluide
-
-        function init3DBackground() {
-            if (typeof THREE === 'undefined') {
-                // Relancement de sécurité si Three.js se charge lentement
-                setTimeout(init3DBackground, 100);
-                return;
-            }
-
-            const container = document.getElementById('canvas3d-container');
-            if(!container) return;
-
-            scene = new THREE.Scene();
-
-            // Caméra avec champ visuel optimisé
-            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-            camera.position.z = 1.5;
-            camera.rotation.x = Math.PI/2;
-
-            // Rendu 4K adapté à la densité de pixels de l'appareil (téléphone, tablette, laptop)
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limité à 2 pour optimiser l'autonomie mobile tout en restant ultra-net
-            container.appendChild(renderer.domElement);
-
-            starGeo = new THREE.BufferGeometry();
-            const positions = new Float32Array(starCount * 3);
-
-            for(let i=0; i<starCount; i++) {
-                // Modélisation spatiale multidimensionnelle des particules d'ambre dorées
-                positions[i*3] = Math.random() * 600 - 300;
-                positions[i*3+1] = Math.random() * 600 - 300;
-                positions[i*3+2] = Math.random() * 600 - 300;
-            }
-
-            starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-            // CRÉATION D'UNE TEXTURE 4K BOKEH RADIALE SANS LIEN EXTERNE (Mathématique pure)
-            const pCanvas = document.createElement('canvas');
-            pCanvas.width = 64;
-            pCanvas.height = 64;
-            const pCtx = pCanvas.getContext('2d');
-            const gradient = pCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
-            gradient.addColorStop(0, 'rgba(217, 119, 6, 1)');     // Or vif au cœur
-            gradient.addColorStop(0.2, 'rgba(245, 158, 11, 0.8)'); // Ambre intermédiaire
-            gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');          // Fondu transparent complet
-            pCtx.fillStyle = gradient;
-            pCtx.fillRect(0, 0, 64, 64);
-            
-            const pTexture = new THREE.CanvasTexture(pCanvas);
-
-            // Matériau HD Premium Bokeh radiale
-            const starMaterial = new THREE.PointsMaterial({
-                size: window.innerWidth < 768 ? 3.0 : 4.5, // Particules légèrement plus larges pour lisibilité écran retina
-                map: pTexture,
-                transparent: true,
-                blending: THREE.AdditiveBlending,
-                depthWrite: false
-            });
-
-            stars = new THREE.Points(starGeo, starMaterial);
-            scene.add(stars);
-
-            // Écouteurs de mouvements d'ordinateurs (Souris)
-            document.addEventListener('mousemove', (e) => {
-                targetX = (e.clientX - window.innerWidth / 2) * 0.02;
-                targetY = (e.clientY - window.innerHeight / 2) * 0.02;
-            });
-
-            window.addEventListener('resize', onWindowResize);
-            
-            animate3D();
-        }
-
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
-
-        // Boucle d'animation HD à 60 FPS avec logique de momentum physique (glissement)
-        function animate3D() {
-            requestAnimationFrame(animate3D);
-
-            const positions = starGeo.attributes.position.array;
-            
-            for(let i=0; i<starCount; i++) {
-                positions[i*3+1] -= 0.12; // Chute stellaire fluide et poétique
-                if (positions[i*3+1] < -200) {
-                    positions[i*3+1] = 200;
-                }
-            }
-            starGeo.attributes.position.needsUpdate = true;
-
-            // Application du momentum fluide (Lerp physique)
-            mouseX += (targetX - mouseX) * 0.08;
-            mouseY += (targetY - mouseY) * 0.08;
-
-            stars.rotation.y += 0.0008 + (mouseX * 0.0003);
-            stars.rotation.x += 0.0003 + (mouseY * 0.0003);
-
-            renderer.render(scene, camera);
-        }
-
-        // DOMContentLoaded pour garantir une exécution immédiate sans bloquer le chargement
-        document.addEventListener('DOMContentLoaded', () => {
-            init3DBackground();
-            init3DCardTilt();
-        });
-
-        // =========================================================================
-        // 2. EFFET D'INCLINAISON INTERACTIF 3D PHYSIQUE (Uniquement Ordinateurs)
-        // =========================================================================
-        function init3DCardTilt() {
-            const cards = document.querySelectorAll('.card-3d-tilt');
-            
-            // On active l'effet SEULEMENT sur ordinateur (souris) pour ne pas casser le scrolling mobile
-            if (window.matchMedia("(pointer: fine)").matches) {
-                cards.forEach(card => {
-                    card.addEventListener('mousemove', (e) => {
-                        handleTilt(e, card);
-                    });
-                    card.addEventListener('mouseleave', () => {
-                        resetTilt(card);
-                    });
-                });
-            }
-        }
-
-        function handleTilt(inputEvent, card) {
-            const rect = card.getBoundingClientRect();
-            const x = inputEvent.clientX - rect.left; 
-            const y = inputEvent.clientY - rect.top;  
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            // Inclinaison de 12 degrés max, parfaitement balancée
-            const rotateX = ((centerY - y) / centerY) * 12;
-            const rotateY = ((x - centerX) / centerX) * 12;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        }
-
-        function resetTilt(card) {
-            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-        }
-
-        // =========================================================================
-        // 3. LOGIQUE DU COMPTE À REBOURS DE L'HOMMAGE
-        // =========================================================================
-        const targetDate = new Date("August 27, 2026 20:00:00").getTime();
-
-        const countdownInterval = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            const daysEl = document.getElementById("days");
-            const hoursEl = document.getElementById("hours");
-            const minutesEl = document.getElementById("minutes");
-            const secondsEl = document.getElementById("seconds");
-
-            if (daysEl) daysEl.innerText = String(days).padStart(2, '0');
-            if (hoursEl) hoursEl.innerText = String(hours).padStart(2, '0');
-            if (minutesEl) minutesEl.innerText = String(minutes).padStart(2, '0');
-            if (secondsEl) secondsEl.innerText = String(seconds).padStart(2, '0');
-
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                const countdownContainer = document.querySelector("#programme .grid-cols-4");
-                if (countdownContainer) {
-                    countdownContainer.innerHTML = "<p class='col-span-4 text-amber-500 font-tnr text-sm uppercase tracking-wider'>La célébration a commencé</p>";
-                }
-            }
-        }, 1000);
-
-        // =========================================================================
-        // 4. GESTION DU MODE SOMBRE / CLAIR (Default: Dark Mode)
-        // =========================================================================
-        function toggleDarkMode() {
-            const html = document.documentElement;
-            const themeIcon = document.getElementById("themeIcon");
-            const themeText = document.getElementById("themeText");
-
-            if (html.classList.contains("dark")) {
-                html.classList.remove("dark");
-                localStorage.setItem("theme", "light");
-                if (themeIcon) themeIcon.innerText = "🌙";
-                if (themeText) themeText.innerText = "Mode Sombre";
-            } else {
-                html.classList.add("dark");
-                localStorage.setItem("theme", "dark");
-                if (themeIcon) themeIcon.innerText = "☀️";
-                if (themeText) themeText.innerText = "Mode Clair";
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const savedTheme = localStorage.getItem("theme");
-            const html = document.documentElement;
-            const themeIcon = document.getElementById("themeIcon");
-            const themeText = document.getElementById("themeText");
-
-            // Si l'utilisateur n'a pas encore choisi de thème, on force le Mode Sombre
-            if (savedTheme === "light") {
-                html.classList.remove("dark");
-                if (themeIcon) themeIcon.innerText = "🌙";
-                if (themeText) themeText.innerText = "Mode Sombre";
-            } else {
-                html.classList.add("dark");
-                localStorage.setItem("theme", "dark");
-                if (themeIcon) themeIcon.innerText = "☀️";
-                if (themeText) themeText.innerText = "Mode Clair";
-            }
-        });
-    </script>
-    <!-- ========================================================================= -->
-    <!-- ⚡ FIN DU CODE JAVASCRIPT                                                 -->
-    <!-- ========================================================================= -->
+    <!-- Script JavaScript externe -->
+    <script src="script.js" defer></script>
 </body>
 </html>
