@@ -1,106 +1,32 @@
-/* Importation de la police Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+$loader-svg-width: 250px;
+$loader-svg-height: 200px;
 
-/* Typography */
-.font-tnr {
-    font-family: 'Times New Roman', Times, FreeSerif, serif !important;
-    font-weight: bold !important;
+
+.svg-def {
+    position: absolute;
+    width: 0;
+    height: 0;
 }
 
-.font-sans-clean {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+body,
+.main-view-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: hsla(150, 2%, 16%, 1);
 }
 
-/* Hide Horizontal Scrollbar */
-.scrollbar-none::-webkit-scrollbar {
-    display: none;
-}
-.scrollbar-none {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/* Canvas background fixed */
-#canvas3d-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    will-change: transform;
-    /* Correctif : force ce calque sur sa propre couche GPU pour éviter
-       les bugs de compositing avec les éléments "fixed" + backdrop-blur
-       sur les navigateurs WebView mobiles (Safari iOS, navigateur intégré
-       WhatsApp/Facebook, etc.) */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    isolation: isolate;
+.loader-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -$loader-svg-width / 2;
+    margin-top: -$loader-svg-height / 2;
 }
 
-/* Correctif : toute couche "position: fixed" (nav, boutons flottants)
-   doit aussi être isolée sur sa propre couche graphique, pour la même
-   raison que ci-dessus. Sans ça, certains navigateurs mobiles peuvent
-   faire "fuiter" le contenu d'une section dans une autre lors du scroll. */
-nav.fixed,
-.fixed {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-}
-
-/* 3D Tilt Effect */
-.card-3d-tilt {
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease;
-    will-change: transform;
-}
-
-/* Gold Shimmer Animation */
-@keyframes goldShimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
-}
-
-.text-shimmer-gold {
-    background: linear-gradient(90deg, #b45309, #f59e0b, #fffbeb, #f59e0b, #b45309);
-    background-size: 200% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: goldShimmer 6s linear infinite;
-}
-
-/* Gold Glow */
-.glow-gold {
-    box-shadow: 0 0 15px rgba(217, 119, 6, 0.15);
-}
-
-/* Fade In Animation */
-@keyframes fadeInSubtle {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-    animation: fadeInSubtle 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* ===== CORRECTIF COMPTE À REBOURS =====
-   Empêche les 4 cases (Jours/Heures/Minutes/Secondes) de s'étirer sur
-   toute la hauteur de la page si le navigateur calcule mal la grille
-   (bug observé sur navigateurs WebView mobiles). Chaque case garde
-   désormais une hauteur fixée à son contenu, quoi qu'il arrive autour. */
-#programme .grid-cols-4 {
-    align-items: start;
-}
-
-#programme .grid-cols-4 > div {
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    overflow: hidden;
-    contain: layout;
-    align-self: start;
+.reflection {
+    transform-origin: 50% 110%;
+    transform: scaleY(-1);
+    opacity: 0.09;
 }
