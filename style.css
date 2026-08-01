@@ -1,146 +1,106 @@
-$loader-svg-width: 250px;
-$loader-svg-height: 200px;
+/* Importation de la police Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-
-.svg-def {
-    position: absolute;
-    width: 0;
-    height: 0;
+/* Typography */
+.font-tnr {
+    font-family: 'Times New Roman', Times, FreeSerif, serif !important;
+    font-weight: bold !important;
 }
 
-body,
-.main-view-container {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-color: hsla(150, 2%, 16%, 1);
+.font-sans-clean {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-.loader-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -$loader-svg-width / 2;
-    margin-top: -$loader-svg-height / 2;
+/* Hide Horizontal Scrollbar */
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-.reflection {
-    transform-origin: 50% 110%;
-    transform: scaleY(-1);
-    opacity: 0.09;
+/* Canvas background fixed */
+#canvas3d-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    will-change: transform;
+    /* Correctif : force ce calque sur sa propre couche GPU pour éviter
+       les bugs de compositing avec les éléments "fixed" + backdrop-blur
+       sur les navigateurs WebView mobiles (Safari iOS, navigateur intégré
+       WhatsApp/Facebook, etc.) */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    isolation: isolate;
 }
-/**
-     * Set the filter property for an element, accounting for both
-     * 'webkitFilter' and 'filter'
-     *
-     * example: setFilter('url("/svg/filters/gooey-effects.svg#goo")', menuContainerElem);
-     */
-    var setFilter = function setFilter(path, elem) {
-      elem.style.filter = path;
-      elem.style.webkitFilter = path;
-    };
 
-    var loaderContainer = document.querySelector('.loader-container'),
-      loaderSVG = document.querySelector('#loader'),
-      circleL = document.querySelector('#circleL'),
-      circleR = document.querySelector('#circleR'),
-      jumpArc = document.querySelector('#jump'),
+/* Correctif : toute couche "position: fixed" (nav, boutons flottants)
+   doit aussi être isolée sur sa propre couche graphique, pour la même
+   raison que ci-dessus. Sans ça, certains navigateurs mobiles peuvent
+   faire "fuiter" le contenu d'une section dans une autre lors du scroll. */
+nav.fixed,
+.fixed {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
 
-      BASE_DURATION_MULTIPLIER = 1.0;
+/* 3D Tilt Effect */
+.card-3d-tilt {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease;
+    will-change: transform;
+}
 
-    var jumpArcReflection = jumpArc.cloneNode();
+/* Gold Shimmer Animation */
+@keyframes goldShimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
 
-    jumpArcReflection.setAttribute('class', 'reflection'); // setAttribute needs to be used for classing SVG in JS
-    loaderSVG.appendChild(jumpArcReflection);
+.text-shimmer-gold {
+    background: linear-gradient(90deg, #b45309, #f59e0b, #fffbeb, #f59e0b, #b45309);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: goldShimmer 6s linear infinite;
+}
 
-    setFilter('url("#strokeGlow")', jumpArc);
-    setFilter('url("#strokeGlow")', jumpArcReflection);
+/* Gold Glow */
+.glow-gold {
+    box-shadow: 0 0 15px rgba(217, 119, 6, 0.15);
+}
 
-    var masterTL = new TimelineMax({
-      repeat: -1
-    });
+/* Fade In Animation */
+@keyframes fadeInSubtle {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    function jump() {
+.animate-fade-in {
+    animation: fadeInSubtle 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
-      var jumpTL = new TimelineMax();
+/* ===== CORRECTIF COMPTE À REBOURS =====
+   Empêche les 4 cases (Jours/Heures/Minutes/Secondes) de s'étirer sur
+   toute la hauteur de la page si le navigateur calcule mal la grille
+   (bug observé sur navigateurs WebView mobiles). Chaque case garde
+   désormais une hauteur fixée à son contenu, quoi qu'il arrive autour. */
+#programme .grid-cols-4 {
+    align-items: start;
+}
 
-      jumpTL
-        .set(
-          [jumpArc, jumpArcReflection], {
-            drawSVG: '0% 0%'
-          }
-        )
-        .set(
-          [circleL, circleR], {
-            attr: {
-              rx: 0,
-              ry: 0
-            }
-          }
-        )
-        .to(
-          [jumpArc, jumpArcReflection],
-          BASE_DURATION_MULTIPLIER * 0.4, {
-            drawSVG: '0% 30%',
-            ease: Linear.easeNone
-          }
-        )
-
-      // scale up the ripple ovals (with x scaling a bit more since, you know, it's a horizontal oval :-) )
-      .to(
-        circleL,
-        BASE_DURATION_MULTIPLIER * 2, {
-          attr: {
-            rx: '+=30',
-            ry: '+=10'
-          },
-          opacity: 0, // ripple, then fade out
-          ease: Power1.easeOut
-        },
-        '-=0.1'
-      )
-
-      .to(
-        [jumpArc, jumpArcReflection],
-        BASE_DURATION_MULTIPLIER * 1.0, {
-          drawSVG: '50% 80%',
-          ease: Linear.easeNone
-        },
-        '-=1.9'
-      )
-
-      .to(
-        [jumpArc, jumpArcReflection],
-        BASE_DURATION_MULTIPLIER * 0.7, {
-          drawSVG: '100% 100%',
-          ease: Linear.easeNone
-        },
-        '-=0.9'
-      )
-
-      // finish by animating the right circle ripple
-      .to(
-        circleR,
-        BASE_DURATION_MULTIPLIER * 2, {
-          attr: {
-            rx: '+=30',
-            ry: '+=10'
-          },
-          opacity: 0, // ripple, then fade out
-          ease: Power1.easeOut
-        },
-        '-=0.5'
-      );
-
-      jumpTL.timeScale(3);
-
-      return jumpTL;
-
-    }
-
-    window.onload = function() {
-
-      masterTL.add(jump());
-
-    };
+#programme .grid-cols-4 > div {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: hidden;
+    contain: layout;
+    align-self: start;
+}
