@@ -1,372 +1,196 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth dark">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hommage à l'Inspecteur Séraphin M. GBINLO</title>
-    <!-- Tailwind CSS pour les utilitaires de style -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Bibliothèque Three.js pour le fond 3D -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class'
-        }
-    </script>
-    <!-- Feuille de style personnalisée -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WELT DER KOMPETENZEN - Portfolio Premium & Immersif. Solutions sur mesure en Design UX/UI, Développement SaaS, Applications Mobiles, Cours d'Allemand et Automatisations IA.">
+    <title>WELT DER KOMPETENZEN | Agence Numérique & Formation Premium</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@300;400;600;700&family=Saira+Semi+Condensed:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-stone-50/80 text-stone-900 dark:bg-stone-950/85 dark:text-stone-100 font-sans-clean transition-colors duration-500 pt-12 md:pt-16 relative overflow-x-hidden">
+<body class="dark-theme">
 
-    <!-- Canvas Arrière-plan 3D -->
-    <div id="canvas3d-container"></div>
+    <!-- Toile pour les Particules Dynamiques -->
+    <canvas id="particleCanvas"></canvas>
 
-    <!-- BARRE DE NAVIGATION -->
-    <nav class="fixed top-0 left-0 w-full bg-white/80 dark:bg-stone-950/80 backdrop-blur-md z-40 border-b border-stone-200/50 dark:border-stone-900/50 transition-colors duration-500">
-        <div class="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
-            <a href="#" class="font-tnr text-amber-600 dark:text-amber-400 tracking-wider text-xs md:text-sm">HOMMAGE — S.M.G</a>
+    <!-- En-tête / Navigation -->
+    <header class="main-header">
+        <div class="logo">WELT DER KOMPETENZEN</div>
+        <nav class="nav-menu">
+            <a href="#accueil">Accueil</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Projets</a>
+            <a href="#temoignages">Avis</a>
+        </nav>
+        <button id="themeToggle" class="theme-btn" aria-label="Changer de thème">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <!-- SECTION 1 : ACCUEIL -->
+    <section id="accueil" class="hero-section">
+        <div class="parallax-bg" id="parallaxBg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <h1 class="kinetic-title" id="interactiveTitle">WELT DER KOMPETENZEN</h1>
+            <p class="hero-subtitle">L'univers des compétences numériques et linguistiques d'élite.</p>
             
-            <div class="hidden md:flex items-center gap-6 text-[10px] lg:text-xs uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300">
-                <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
-                <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
-                <a href="#fairepart" class="hover:text-amber-500 transition-colors">Faire-part</a>
-                <a href="#remerciements" class="hover:text-amber-500 transition-colors">Remerciements</a>
+            <div class="founder-card">
+                <div class="founder-avatar">
+                    <!-- Remplacer par l'URL réelle de la photo du fondateur -->
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Fondateur Emmanuel Clarius">
+                </div>
+                <div class="founder-info">
+                    <h3>Emmanuel Clarius</h3>
+                    <p>Développeur Principal & Concepteur Visionnaire</p>
+                </div>
             </div>
-
-            <!-- Bouton Mode Sombre -->
-            <button onclick="toggleDarkMode()" id="themeBtn" class="bg-stone-100/90 dark:bg-stone-900/90 text-stone-800 dark:text-amber-400 p-1.5 px-3 rounded-full border border-stone-200/40 dark:border-stone-800/40 hover:scale-105 transition-all text-[9px] flex items-center gap-1.5">
-                <span id="themeIcon">☀️</span> 
-                <span id="themeText" class="hidden sm:inline uppercase tracking-wider font-bold text-[8px]">Mode Clair</span>
-            </button>
+            
+            <a href="#services" class="cta-scroll">Découvrir Notre Univers <i class="fas fa-chevron-down"></i></a>
         </div>
+    </section>
 
-        <!-- Menu Mobile -->
-        <div class="flex md:hidden bg-stone-100/95 dark:bg-stone-900/95 overflow-x-auto border-t border-stone-200/40 dark:border-stone-800/40 scrollbar-none py-1.5 px-4 gap-4 text-[9px] uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300 whitespace-nowrap">
-            <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
-            <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
-            <a href="#fairepart" class="hover:text-amber-500 transition-colors">Faire-part</a>
-            <a href="#remerciements" class="hover:text-amber-500 transition-colors">Remerciements</a>
+    <!-- SECTION 2 : LES SERVICES -->
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <h2>Nos Services Premium</h2>
+            <p>Une expertise de pointe pour propulser vos ambitions globales.</p>
         </div>
-    </nav>
+        
+        <div class="services-grid" id="servicesGrid">
+            <!-- Injecté dynamiquement par JavaScript pour assurer l'intégration UX/UI -->
+        </div>
+    </section>
 
-    <!-- BOUTONS FLOTTANTS DE CONTACT -->
-    <div class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col gap-2 font-sans-clean">
-        <a href="tel:+2290168049979" title="Appeler pour un renseignement" 
-           class="relative flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white px-2.5 py-1.5 md:px-3 md:py-2 rounded-full shadow-[0_4px_15px_rgba(37,99,235,0.4)] hover:scale-105 transition-all duration-300 border border-white/20 group text-[9px] md:text-xs">
-            <span class="absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-20 animate-ping left-0 top-0 -z-10 pointer-events-none"></span>
-            <span class="bg-white/15 p-1 rounded-full shrink-0">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                </svg>
-            </span>
-            <span class="font-bold tracking-wider uppercase">Appel</span>
+    <!-- SECTION 3 : PORTFOLIO -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-header">
+            <h2>Projets Réalisés & Succès Clients</h2>
+            <p>Aperçu concret des architectures et designs livrés à l'international.</p>
+        </div>
+        
+        <div class="portfolio-grid" id="portfolioGrid">
+            <!-- Injecté par JS pour correspondre rigoureusement aux requis -->
+        </div>
+    </section>
+
+    <!-- SECTION 5 : TÉMOIGNAGES -->
+    <section id="temoignages" class="testimonials-section">
+        <div class="section-header">
+            <h2>Témoignages Clients Internationaux</h2>
+            <p>Ce qu'en disent nos partenaires en Europe, en Afrique et dans le reste du monde.</p>
+        </div>
+        <div class="testimonials-grid" id="testimonialsGrid">
+            <!-- Injecté par JS -->
+        </div>
+    </section>
+
+    <!-- SECTION 4 & MODAL DE COMMANDE -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 class="modal-title">Lancer Votre Projet Premium</h2>
+            <p class="modal-subtitle">Configurez vos besoins. Votre demande sera routée directement vers l'expert dédié.</p>
+            
+            <form id="orderForm" novalidate>
+                <input type="hidden" id="selectedServiceIndex" value="">
+                
+                <div class="form-group">
+                    <label for="clientName">Nom complet *</label>
+                    <input type="text" id="clientName" required placeholder="Ex: Jean Dupont">
+                </div>
+                
+                <div class="form-group">
+                    <label for="clientWhatsapp">Numéro WhatsApp (Avec code pays) *</label>
+                    <input type="tel" id="clientWhatsapp" required placeholder="Ex: +2250102030405 ou +33612345678">
+                </div>
+                
+                <div class="form-group">
+                    <label for="projectDesc">Cahier des charges ou Description du Projet *</label>
+                    <textarea id="projectDesc" rows="4" required placeholder="Décrivez précisément votre besoin..."></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="projectBudget">Fourchette Budgétaire ($ / € / CFA)</label>
+                        <input type="text" id="projectBudget" placeholder="Ex: 1500 € ou Budget ouvert">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="projectUrgency">Degré d'Urgence</label>
+                        <select id="projectUrgency">
+                            <option value="Normal">Normal</option>
+                            <option value="Pressé">Pressé (Délai court)</option>
+                            <option value="Urgent">Urgent (Priorité absolue)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Méthode de validation préférée :</label>
+                    <div class="radio-tabs">
+                        <label class="radio-tab-label">
+                            <input type="radio" name="outputOption" value="direct" checked>
+                            <span class="tab-design"><i class="fas fa-comments"></i> Contact Direct</span>
+                        </label>
+                        <label class="radio-tab-label">
+                            <input type="radio" name="outputOption" value="api">
+                            <span class="tab-design"><i class="fas fa-credit-card"></i> Simulation API Paiement</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Envoyer la demande sur WhatsApp <i class="fab fa-whatsapp"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION SYSTEM -->
+    <div id="toastNotification" class="toast">
+        <i class="fas fa-check-circle"></i> <span id="toastMessage">Le développeur va vous contacter dans quelques minutes.</span>
+    </div>
+
+    <!-- COMPOSANTS FLOTTANTS DE COMMUNICATION RAPIDE -->
+    <div class="floating-actions">
+        <a href="tel:0158255572" class="float-btn phone-float" aria-label="Appeler le secrétariat central">
+            <i class="fas fa-phone-alt"></i>
         </a>
-
-        <a href="https://wa.me/22969320612?text=Bonjour,%20je%20souhaite%20avoir%20des%20renseignements%20concernant%20les%20obsèques%20de%20l'Inspecteur%20GBINLO." 
-           target="_blank" title="Écrire sur WhatsApp" 
-           class="relative flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-white px-2.5 py-1.5 md:px-3 md:py-2 rounded-full shadow-[0_4px_15px_rgba(16,185,129,0.4)] hover:scale-105 transition-all duration-300 border border-white/20 group text-[9px] md:text-xs">
-            <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-20 animate-ping left-0 top-0 -z-10 pointer-events-none"></span>
-            <span class="bg-white/15 p-1 rounded-full shrink-0">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.863-9.864.001-2.637-1.03-5.114-2.905-6.989-1.874-1.875-4.351-2.903-6.985-2.904-5.442 0-9.867 4.42-9.87 9.865-.001 1.748.46 3.454 1.331 4.966L1.9 22.044l4.747-1.247zm11.417-6.52c-.312-.156-1.844-.91-2.128-1.012-.283-.102-.49-.153-.695.156-.205.307-.795 1.012-.974 1.218-.178.205-.356.23-.668.074-1.09-.546-1.8-1.002-2.518-2.233-.19-.327.19-.304.544-1.013.056-.111.028-.208-.014-.287-.04-.079-.356-.856-.489-1.17-.129-.313-.26-.27-.356-.275-.092-.005-.198-.005-.304-.005s-.278.04-.424.198c-.146.158-.557.545-.557 1.328 0 .783.57 1.538.65 1.644.079.105 1.122 1.714 2.718 2.404.379.164.675.263.906.337.38.12.727.103 1.001.063.305-.045.91-.372 1.038-.73.127-.359.127-.668.09-.729-.04-.061-.147-.098-.459-.254z"/>
-                </svg>
-            </span>
-            <span class="font-bold tracking-wider uppercase">WhatsApp</span>
+        <a href="https://wa.me/0158255572" target="_blank" rel="noopener noreferrer" class="float-btn whatsapp-float" aria-label="Discuter sur WhatsApp">
+            <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
-    <!-- HERO EN-TÊTE -->
-    <header class="relative min-h-[40vh] md:min-h-[45vh] flex items-center justify-center overflow-hidden bg-transparent pt-6 pb-2">
-        <div class="relative z-10 text-center text-stone-900 dark:text-white px-4 space-y-3 max-w-2xl">
-            <span class="text-[8px] md:text-[10px] uppercase tracking-[0.25em] text-amber-600 dark:text-amber-400 font-bold block leading-relaxed">
-                ANNONCE DE DEUILS, MESSES D'ACTION DE GRÂCE ET DE REMERCIEMENTS
-            </span>
-            <h1 class="font-tnr text-3xl md:text-5xl tracking-wide leading-tight drop-shadow-md">
-                M. Séraphin Makponfa<br><span class="text-shimmer-gold">GBINLO</span>
-            </h1>
-            <div class="w-8 h-[1px] bg-amber-500 mx-auto"></div>
-            
-            <p class="text-xs md:text-sm font-bold italic text-stone-700 dark:text-stone-300 max-w-lg mx-auto leading-relaxed">
-                « Que votre cœur ne se trouble pas. Croyez en Dieu, croyez aussi en moi. Il y a plusieurs demeures dans la maison de mon Père. Si cela n'était pas, je vous l'aurais dit. Je vais vous préparer une place. »
-                <span class="block text-[9px] mt-1 text-amber-600 dark:text-amber-400 not-italic tracking-widest font-extrabold">— Jean 14, 1-2</span>
+    <!-- PIED DE PAGE & RÈGLEMENTATIONS -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>WELT DER KOMPETENZEN</h4>
+                <p><i class="fas fa-envelope"></i> weltderkompetenz@gmail.com</p>
+                <p><i class="fas fa-phone"></i> Numéro Central : 0158255572</p>
+            </div>
+            <div class="footer-designer">
+                <p>Concepteur & Développeur d'élite :</p>
+                <div class="designer-credit">
+                    <strong>EMMANUEL CLARIUS</strong>
+                </div>
+            </div>
+        </div>
+        <div class="footer-legal">
+            <p class="rgpd-text">
+                <i class="fas fa-shield-alt"></i> Respect des données personnelles (RGPD) — Les informations saisies au sein de ce portfolio sont uniquement et strictement utilisées pour l'établissement de la relation commerciale. Aucun stockage malveillant n'est effectué.
             </p>
+            <p class="copyright">&copy; 2026 WELT DER KOMPETENZEN. Tous droits réservés.</p>
         </div>
-    </header>
-
-    <!-- ANNONCE DE DEUIL -->
-    <section id="propos" class="py-4 md:py-6 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
-        <div class="space-y-6">
-            <div class="bg-white/60 dark:bg-stone-900/40 backdrop-blur-sm border border-stone-200/40 dark:border-stone-800/40 rounded-xl p-4 md:p-6 shadow-sm glow-gold card-3d-tilt">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2.5 text-xs md:text-sm text-stone-700 dark:text-stone-300 font-medium leading-relaxed">
-                    <p class="flex items-start gap-1.5">
-                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                        <span>La collectivité <strong>GBINLO – GUEGUELIGUE – AZONTOKPO – AGBOFO – AGBOLEAFI</strong> de Fonkpamè Agondji</span>
-                    </p>
-                    <p class="flex items-start gap-1.5">
-                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                        <span>La collectivité <strong>GBASSI – DEDAGO</strong> d'Ahozoun Oumbèga</span>
-                    </p>
-                    <p class="flex items-start gap-1.5">
-                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                        <span>La collectivité <strong>TANHOUNNON – GBADENON</strong> de Zounmè Oumbèga</span>
-                    </p>
-                    <p class="flex items-start gap-1.5">
-                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                        <span>La collectivité <strong>BOCODAHO – GBEHOLO</strong> de Tchêly, Abomey</span>
-                    </p>
-                </div>
-
-                <div class="mt-3 text-xs md:text-sm text-stone-700 dark:text-stone-300 leading-relaxed font-sans-clean font-normal">
-                    <p class="flex items-start gap-1.5">
-                        <span class="text-amber-500 mt-0.5 shrink-0">•</span>
-                        <span><strong>Les frères et sœurs du regretté défunt, les enfants du défunt :</strong> CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, <span class="font-semibold text-stone-500 dark:text-stone-400">Feue EUDOXIE</span>, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE, leurs épouses et époux, ainsi que les petits-enfants, arrière-petits-enfants, cousins, cousines, neveux et nièces.</span>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Familles Alliées -->
-            <div class="space-y-4">
-                <p class="text-center text-[10px] md:text-xs uppercase tracking-wider text-amber-600 dark:text-amber-400 font-extrabold">Les familles parentes, alliées et amies</p>
-                <div class="flex flex-wrap justify-center gap-1.5 md:gap-2 max-w-5xl mx-auto py-2">
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">AHO-GLELE</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">GBASSI</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20 shadow-sm">FELIHO</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBI-DAVO</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">ADJALIAN</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHALOKO</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GBAGUIDI</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DENAKPO</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEKPE</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DOSSOUHOUAN</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SEGBOZO</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">BAHINLIN</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">EROUBINOU</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBIDI</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">WOUEHA</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AGBESSI</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AHOUISSOU</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOKOU</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKONON</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUADJETO</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TONOUEHOUA</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">KPOMALEGNI</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">AYIVI</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">DEGBE</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">SOUTON</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOGBE</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TOUGAN</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">LOKPO</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">HOUNSOUNOU</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">TCHOBO</span>
-                    <span class="text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-lg border bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20 shadow-sm">GOÏTO</span>
-                </div>
-                <p class="text-center text-xs md:text-sm text-stone-700 dark:text-stone-300 font-bold max-w-3xl mx-auto leading-relaxed">
-                    vous annoncent le rappel à Dieu de leur très cher et regretté fils, frère, oncle, père, beau-père, grand-père et arrière-grand-père,
-                </p>
-            </div>
-
-            <!-- Portrait du Défunt -->
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center pt-2">
-                <div class="md:col-span-5 flex justify-center">
-                    <div class="relative max-w-xs rounded-xl overflow-hidden shadow-lg border border-white dark:border-stone-900 card-3d-tilt glow-gold">
-                        <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Monsieur SÉRAPHIN MAKPONFA GBINLO" class="w-56 md:w-64 h-auto object-cover" onerror="this.src='https://placehold.co/400x500/1c1917/d97706?text=S.M.+GBINLO'">
-                    </div>
-                </div>
-
-                <div class="md:col-span-7 space-y-3">
-                    <div class="border-l-4 border-amber-500 pl-3 space-y-0.5">
-                        <span class="text-[9px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold block">RECONNAISSANCE SOLENNELLE</span>
-                        <h2 class="font-tnr text-xl md:text-2xl leading-tight">
-                            Monsieur SÉRAPHIN MAKPONFA GBINLO
-                        </h2>
-                        <p class="text-[11px] uppercase tracking-wide text-stone-500 dark:text-stone-400 font-bold font-sans-clean">
-                            Inspecteur de l'Enseignement du Premier Degré à la retraite
-                        </p>
-                    </div>
-                    
-                    <p class="text-stone-700 dark:text-stone-300 text-xs md:text-sm leading-relaxed font-normal">
-                        Rappelé à Dieu <strong>le jeudi 4 décembre 2025, dans sa 83ᵉ année</strong> au CNHU-HKM de Cotonou, et vous prient de bien vouloir assister ou de vous unir d'intention aux messes d'action de grâce suivant le programme ci-après.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROGRAMME OFFICIEL -->
-    <section id="programme" class="py-10 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
-        <div class="space-y-8">
-            <div class="text-center space-y-0.5">
-                <span class="text-[9px] uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold">CHRONOGRAMME</span>
-                <h2 class="font-tnr text-xl md:text-2xl">Le Programme Officiel</h2>
-            </div>
-
-            <!-- Grille du Programme -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 font-sans-clean">
-                <!-- Jeudi -->
-                <div class="card-3d-tilt bg-gradient-to-br from-amber-50/90 to-amber-100/50 dark:from-amber-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-amber-500/20 dark:border-amber-500/10 shadow-md">
-                    <span class="text-xs font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-wider block mb-1">Jeudi 27 août 2026</span>
-                    <div class="w-8 h-[1.5px] bg-amber-500 my-2"></div>
-                    <p class="text-lg md:text-xl font-bold text-stone-800 dark:text-stone-200">20 h 00</p>
-                    <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm mt-2 leading-relaxed">
-                        Veillée de prières à <strong class="text-stone-800 dark:text-stone-200">Fonkpamè</strong> dans la maison GBINLO, suivie d'une animation folklorique.
-                    </p>
-                </div>
-
-                <!-- Vendredi -->
-                <div class="card-3d-tilt bg-gradient-to-br from-blue-50/90 to-blue-100/50 dark:from-blue-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-blue-500/20 dark:border-blue-500/10 shadow-md">
-                    <span class="text-xs font-extrabold text-blue-600 dark:text-blue-400 uppercase tracking-wider block mb-1">Vendredi 28 août 2026</span>
-                    <div class="w-8 h-[1.5px] bg-blue-500 my-2"></div>
-                    <p class="text-lg md:text-xl font-bold text-stone-800 dark:text-stone-200">09 h 00</p>
-                    <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm mt-2 leading-relaxed">
-                        Messe dans la maison <strong class="text-stone-800 dark:text-stone-200">GBINLO</strong> suivie d'une réception.
-                    </p>
-                </div>
-
-                <!-- Samedi -->
-                <div class="card-3d-tilt bg-gradient-to-br from-purple-50/90 to-purple-100/50 dark:from-purple-950/20 dark:to-stone-900/60 p-5 rounded-xl border border-purple-500/20 dark:border-purple-500/10 shadow-md">
-                    <span class="text-xs font-extrabold text-purple-600 dark:text-purple-400 uppercase tracking-wider block mb-1">Samedi 29 août 2026</span>
-                    <div class="w-8 h-[1px] bg-purple-500 my-2"></div>
-                    <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm leading-relaxed mt-2">
-                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-sm md:text-base mb-1">11 h 00 :</strong> Messe en l'église Bon Pasteur d'Adandokpodji <strong class="text-stone-800 dark:text-stone-200 font-extrabold">ABOMEY</strong>.
-                    </p>
-                    <p class="text-stone-600 dark:text-stone-300 text-xs md:text-sm leading-relaxed mt-2.5 pt-2 border-t border-purple-500/10">
-                        <strong class="text-stone-800 dark:text-stone-200 font-bold block text-sm md:text-base mb-1">13 h 00 :</strong> Réception au <strong class="text-stone-800 dark:text-stone-200 font-extrabold">Cours Secondaire Sainte Jeanne d'Arc d'Abomey</strong> (tronçon Carrefour GOHO – Préfecture d'Abomey, en face de la voie de l'Évêché d'Abomey).
-                    </p>
-                </div>
-            </div>
-
-            <!-- COMPTE À REBOURS -->
-            <div class="space-y-3 pt-4 text-center">
-                <p class="text-stone-500 dark:text-stone-400 text-[10px] tracking-wider uppercase font-bold">Messe du samedi 29 août à Adandokpodji, dans :</p>
-                <div class="grid grid-cols-4 gap-2 md:gap-3 max-w-sm mx-auto text-center font-sans-clean px-2">
-                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-amber-500/20 p-2 md:p-3 rounded-xl shadow-md">
-                        <span id="days" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-amber-500 to-yellow-500 bg-clip-text text-transparent">00</span>
-                        <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Jours</span>
-                    </div>
-                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-blue-500/20 p-2 md:p-3 rounded-xl shadow-md">
-                        <span id="hours" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-cyan-500 to-blue-600 bg-clip-text text-transparent">00</span>
-                        <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Heures</span>
-                    </div>
-                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-emerald-500/20 p-2 md:p-3 rounded-xl shadow-md">
-                        <span id="minutes" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-emerald-500 to-green-600 bg-clip-text text-transparent">00</span>
-                        <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Minutes</span>
-                    </div>
-                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-purple-500/20 p-2 md:p-3 rounded-xl shadow-md">
-                        <span id="seconds" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-purple-500 to-pink-600 bg-clip-text text-transparent">00</span>
-                        <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Secondes</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAIRE-PART NUMÉRIQUE INTEGRÉ -->
-    <section id="fairepart" class="py-10 px-4 bg-stone-100/50 dark:bg-stone-900/10 border-b border-stone-200/50 dark:border-stone-900/50">
-        <div class="max-w-4xl mx-auto text-center space-y-6">
-            <div class="space-y-1">
-                <span class="text-[9px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">FAIRE-PART NUMÉRIQUE OFFICIEL</span>
-                <h2 class="font-tnr text-xl md:text-2xl">Consultez ou Téléchargez le Faire-part</h2>
-                <p class="text-stone-600 dark:text-stone-400 max-w-md mx-auto text-xs font-light leading-relaxed">
-                    Retrouvez l'intégralité du faire-part officiel des obsèques. Vous pouvez le consulter directement ci-dessous ou le télécharger au format PDF.
-                </p>
-            </div>
-
-            <!-- Lecteur PDF Intégré -->
-            <div class="max-w-2xl mx-auto bg-stone-950 text-white p-5 md:p-6 rounded-2xl border border-amber-400/40 shadow-xl space-y-5 relative overflow-hidden card-3d-tilt glow-gold">
-                <div class="relative z-10 space-y-4">
-                    <div class="flex items-center justify-center gap-3">
-                        <div class="w-12 h-12 rounded-full border-2 border-amber-400 overflow-hidden shadow-md shrink-0">
-                            <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Séraphin GBINLO" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1c1917/d97706?text=S.M.G'">
-                        </div>
-                        <div class="text-left">
-                            <h3 class="font-tnr text-sm text-amber-400 font-bold">M. SÉRAPHIN MAKPONFA GBINLO</h3>
-                            <p class="text-[10px] text-stone-400 font-light">Document officiel d'invitation (PDF)</p>
-                        </div>
-                    </div>
-
-                    <div class="w-full bg-stone-900 rounded-xl overflow-hidden border border-amber-500/20 shadow-inner h-80 md:h-96 relative">
-                        <iframe src="faire-part.pdf" class="w-full h-full border-none" title="Faire-part officiel PDF">
-                            <p class="text-xs text-stone-400 p-4">Votre navigateur ne prend pas en charge l'affichage direct du PDF. Utilisez les boutons ci-dessous.</p>
-                        </iframe>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
-                        <a href="faire-part.pdf" download="Faire-part_Inspecteur_Seraphin_GBINLO.pdf" 
-                           class="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 active:scale-95 text-white font-semibold py-2 px-5 rounded-xl shadow-lg transition-all w-full text-xs">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                            Télécharger le Faire-part (PDF)
-                        </a>
-                        <a href="faire-part.pdf" target="_blank" 
-                           class="inline-flex items-center justify-center gap-2 bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold py-2 px-5 rounded-xl border border-stone-700 transition-all w-full sm:w-auto text-xs whitespace-nowrap">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                            </svg>
-                            Ouvrir en grand
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- REMERCIEMENTS -->
-    <section id="remerciements" class="bg-stone-200/50 dark:bg-stone-900/60 text-stone-800 dark:text-stone-200 py-10 px-4 shadow-inner transition-colors duration-500">
-        <div class="max-w-2xl mx-auto text-center space-y-4">
-            <h3 class="font-tnr text-lg tracking-wider text-stone-900 dark:text-amber-400 uppercase">Remerciements</h3>
-            <div class="w-8 h-[1px] bg-amber-600 dark:bg-amber-400 mx-auto"></div>
-            
-            <div class="space-y-3 text-stone-700 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-sans-clean font-normal">
-                <p class="italic">
-                    « Les familles éplorées, profondément touchées par les nombreuses marques de sympathie, de compassion et d'affection que vous leur avez témoignées lors du décès, des obsèques et de l'inhumation de leur regretté parent, vous prient de trouver ici l'expression de leur profonde gratitude. »
-                </p>
-                <p class="italic">
-                    « Votre présence ou votre union de prières à ces messes d'action de grâce et à ces réceptions constituera pour elles un précieux témoignage de soutien et de fraternité. »
-                </p>
-                <p class="font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-wide mt-4">
-                    Que le Dieu Tout-Puissant vous comble de ses abondantes grâces et vous le rende au centuple.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION DÉVELOPPEUR -->
-    <section class="bg-stone-100/90 dark:bg-stone-950/90 py-8 px-4 border-t border-stone-200/40 dark:border-stone-900/40 transition-colors duration-500">
-        <div class="max-w-xl mx-auto bg-white/70 dark:bg-stone-900/70 backdrop-blur-sm p-4 md:p-5 rounded-xl shadow-md border border-stone-200/50 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left glow-gold card-3d-tilt">
-            <div class="flex items-center gap-3 shrink-0">
-                <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-amber-400 shadow-md">
-                    <img src="emmanuel-clarius.png" alt="WELT DER KOMPETENZEN" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1c1917/d97706?text=WELT'">
-                </div>
-            </div>
-
-            <div class="space-y-2.5 flex-1 text-sm font-sans-clean">
-                <div class="space-y-1">
-                    <span class="text-[9px] uppercase tracking-widest text-amber-600 dark:text-amber-400 font-extrabold block">Conception & Développement Web</span>
-                    <h4 class="font-tnr text-sm md:text-md tracking-wide text-stone-900 dark:text-stone-100">WELT DER KOMPETENZEN</h4>
-                    <p class="text-stone-600 dark:text-stone-300 leading-relaxed text-xs font-sans-clean">
-                        <strong>Nous créons des solutions numériques pour l'avenir.</strong> Vous souhaitez concevoir un site d'hommage interactif ou un faire-part professionnel ?
-                    </p>
-                </div>
-
-                <a href="https://delicate-tartufo-f53f09.netlify.app/" target="_blank" 
-                   class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-[11px] font-bold px-3 py-1.5 rounded-lg hover:bg-amber-600 dark:hover:bg-amber-400 active:scale-95 transition-all shadow-sm">
-                    <span>💬</span> Commander un site similaire
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PIED DE PAGE -->
-    <footer class="bg-stone-950 text-stone-600 text-center py-5 border-t border-stone-900 text-[9px] tracking-wider space-y-0.5 px-4">
-        <p>© 2026 — Famille GBINLO. Tous droits réservés.</p>
-        <p class="text-stone-500 dark:text-stone-400 font-semibold uppercase tracking-wide">
-            Développé par <span class="text-amber-500 font-extrabold">WELT DER KOMPETENZEN</span> — Contact : 
-            <a href="tel:+2290158255572" class="text-amber-400 hover:underline font-bold">+229 01 58 25 55 72</a>
-        </p>
     </footer>
 
-    <!-- Script JavaScript externe -->
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,106 +1,673 @@
-/* Importation de la police Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-/* Typography */
-.font-tnr {
-    font-family: 'Times New Roman', Times, FreeSerif, serif !important;
-    font-weight: bold !important;
+/* --- CONFIGURATION GLOBALE & VARIABLES DE THÈME --- */
+:root {
+    --bg-color: #050508;
+    --card-bg: rgba(15, 15, 25, 0.7);
+    --text-main: #f0f2f5;
+    --text-muted: #a0aec0;
+    --accent: #00ffcc;
+    --accent-glow: rgba(0, 255, 204, 0.4);
+    --primary: #7928ca;
+    --overlay: rgba(5, 5, 8, 0.6);
+    --parallax-filter: brightness(0.4) contrast(1.1);
+    --transition-speed: 0.4s;
+    --font-heading: 'Saira Semi Condensed', sans-serif;
+    --font-body: 'Raleway', sans-serif;
+    --font-kinetic: 'Oswald', sans-serif;
 }
 
-.font-sans-clean {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+.light-theme {
+    --bg-color: #f4f6f9;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --text-main: #1a202c;
+    --text-muted: #4a5568;
+    --accent: #0088cc;
+    --accent-glow: rgba(0, 136, 204, 0.3);
+    --primary: #ff007f;
+    --overlay: rgba(255, 255, 255, 0.5);
+    --parallax-filter: brightness(1.2) contrast(0.95) saturate(1.1);
 }
 
-/* Hide Horizontal Scrollbar */
-.scrollbar-none::-webkit-scrollbar {
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Toile Canvas en arrière-plan */
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* --- HEADER & NAVIGATION --- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(5, 5, 8, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.nav-menu a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin: 0 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--accent);
+}
+
+.theme-btn {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--accent-glow);
+    transition: all 0.3s;
+}
+
+.theme-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* --- ACCUEIL & EFFET PARALLAXE --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    transform: translate3d(0, 0, 0);
+    filter: var(--parallax-filter);
+    transition: filter var(--transition-speed) ease;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay);
+    z-index: -1;
+}
+
+.hero-container {
+    max-width: 900px;
+    padding: 2rem;
+}
+
+/* Effet Masking interactif sur le titre cinétique */
+.kinetic-title {
+    font-family: var(--font-kinetic);
+    font-size: 5.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    background: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=80') center;
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 4px 15px rgba(0,0,0,0.5));
+    transition: background-position 0.1s linear;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+/* Carte Fondateur */
+.founder-card {
+    display: inline-flex;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.founder-avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    margin-right: 1.5rem;
+}
+
+.founder-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+.founder-info p {
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+
+.cta-scroll {
+    display: block;
+    margin-top: 3rem;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+}
+
+/* --- STRUCTURE DES SECTIONS --- */
+.services-section, .portfolio-section, .testimonials-section {
+    position: relative;
+    padding: 8rem 5% 4rem 5%;
+    z-index: 2;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* --- GRILLE DE CARTES SERVICES (UX 4K) --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.service-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s;
+    backdrop-filter: blur(10px);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+}
+
+.service-img-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.service-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.service-content {
+    padding: 2rem;
+}
+
+/* Animation de lettres spécifiques au survol */
+.service-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+    display: inline-block;
+}
+
+.letter-span {
+    display: inline-block;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.service-card:hover .letter-span {
+    color: var(--accent);
+    animation: glitchLetter 0.4s ease forwards;
+}
+
+.service-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Boutons premium */
+.btn-premium {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, var(--primary), rgba(0,0,0,0.2));
+    border: 1px solid var(--accent);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-premium:hover {
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* --- PORTFOLIO DYNAMIQUE --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+.portfolio-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+.portfolio-info {
+    padding: 1.5rem;
+}
+
+.portfolio-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* --- TEXTE BULLES TÉMOIGNAGES --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+}
+
+.client-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.flag-icon {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+}
+
+.client-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.stars {
+    color: #ffcc00;
+    margin-bottom: 1rem;
+}
+
+/* --- MODULE DE COMMANDE (MODAL UI/UX) --- */
+.modal {
     display: none;
-}
-.scrollbar-none {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/* Canvas background fixed */
-#canvas3d-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    will-change: transform;
-    /* Correctif : force ce calque sur sa propre couche GPU pour éviter
-       les bugs de compositing avec les éléments "fixed" + backdrop-blur
-       sur les navigateurs WebView mobiles (Safari iOS, navigateur intégré
-       WhatsApp/Facebook, etc.) */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    isolation: isolate;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
-/* Correctif : toute couche "position: fixed" (nav, boutons flottants)
-   doit aussi être isolée sur sa propre couche graphique, pour la même
-   raison que ci-dessus. Sans ça, certains navigateurs mobiles peuvent
-   faire "fuiter" le contenu d'une section dans une autre lors du scroll. */
-nav.fixed,
-.fixed {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+.modal.active {
+    display: flex;
 }
 
-/* 3D Tilt Effect */
-.card-3d-tilt {
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease;
-    will-change: transform;
+.modal-content {
+    background: #0d0e16;
+    border: 1px solid var(--accent);
+    border-radius: 24px;
+    max-width: 650px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 3rem;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
-/* Gold Shimmer Animation */
-@keyframes goldShimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
+.light-theme .modal-content {
+    background: #ffffff;
+    border: 1px solid var(--accent);
 }
 
-.text-shimmer-gold {
-    background: linear-gradient(90deg, #b45309, #f59e0b, #fffbeb, #f59e0b, #b45309);
-    background-size: 200% auto;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: goldShimmer 6s linear infinite;
+.close-modal {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.3s;
 }
 
-/* Gold Glow */
-.glow-gold {
-    box-shadow: 0 0 15px rgba(217, 119, 6, 0.15);
+.close-modal:hover {
+    color: var(--accent);
 }
 
-/* Fade In Animation */
-@keyframes fadeInSubtle {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+.form-group {
+    margin-bottom: 1.5rem;
 }
 
-.animate-fade-in {
-    animation: fadeInSubtle 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
 }
 
-/* ===== CORRECTIF COMPTE À REBOURS =====
-   Empêche les 4 cases (Jours/Heures/Minutes/Secondes) de s'étirer sur
-   toute la hauteur de la page si le navigateur calcule mal la grille
-   (bug observé sur navigateurs WebView mobiles). Chaque case garde
-   désormais une hauteur fixée à son contenu, quoi qu'il arrive autour. */
-#programme .grid-cols-4 {
-    align-items: start;
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
-#programme .grid-cols-4 > div {
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    overflow: hidden;
-    contain: layout;
-    align-self: start;
+input[type="text"], input[type="tel"], textarea, select {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.light-theme input, .light-theme textarea, .light-theme select {
+    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Onglets Radio-Tabs */
+.radio-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.radio-tab-label {
+    flex: 1;
+    cursor: pointer;
+}
+
+.radio-tab-label input {
+    display: none;
+}
+
+.tab-design {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.02);
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.light-theme .tab-design {
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.radio-tab-label input:checked + .tab-design {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #000;
+}
+
+/* --- TOAST SYSTEM --- */
+.toast {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00ffcc;
+    color: #000;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    z-index: 2000;
+    box-shadow: 0 10px 30px rgba(0,255,204,0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast.show {
+    bottom: 40px;
+}
+
+/* --- SYSTEM FLOTTANT --- */
+.floating-actions {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+}
+
+.float-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.6rem;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.float-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.phone-float { background-color: #0088cc; }
+.whatsapp-float { background-color: #25d366; }
+
+/* --- FOOTER --- */
+.main-footer {
+    background: #030305;
+    padding: 4rem 5% 2rem 5%;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    z-index: 2;
+    position: relative;
+}
+
+.light-theme .main-footer {
+    background: #e9ecf0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-info h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.footer-info p {
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+.designer-credit strong {
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.footer-legal {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.rgpd-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+    line-height: 1.5;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* --- ANIMATIONS KEYS --- */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+@keyframes glitchLetter {
+    0% { transform: skewX(0deg); }
+    20% { transform: skewX(-20deg) scaleY(0.9); }
+    40% { transform: skewX(15deg); }
+    60% { transform: skewX(-5deg); }
+    100% { transform: skewX(0deg); }
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width: 768px) {
+    .nav-menu { display: none; }
+    .kinetic-title { font-size: 3.2rem; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .modal-content { padding: 1.5rem; }
 }
