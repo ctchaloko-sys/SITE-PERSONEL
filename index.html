@@ -1,324 +1,97 @@
-<!DOCTYPE html>
-<html lang="fr" data-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>En Mémoire de Pépé GBINLO Séraphin</title>
-    
-    <!-- Polices Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome pour les icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Feuille de style CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!-- SECTION SERVICES (Avec cartes interactives 3D) -->
+    <section id="services" class="services-section">
+        <div class="section-header">
+            <span class="badge">Mes Prestations</span>
+            <h2>Des services uniques pour booster votre allemand</h2>
+            <p>Une approche moderne qui combine l'apprentissage linguistique avec les outils technologiques de pointe.</p>
+        </div>
 
-    <!-- ==========================================================================
-       NAVIGATION & HEADER
-       ========================================================================== -->
-    <header class="site-header">
-        <div class="nav-container">
-            <div class="logo-text">In Memoriam</div>
-            
-            <nav class="nav-menu" id="nav-menu">
-                <ul>
-                    <li><a href="#hero" class="nav-link active">Accueil</a></li>
-                    <li><a href="#famille" class="nav-link">Avis & Famille</a></li>
-                    <li><a href="#programme" class="nav-link">Programme</a></li>
-                    <li><a href="#localisation" class="nav-link">Localisation</a></li>
-                    <li><a href="#remerciements" class="nav-link">Remerciements</a></li>
-                </ul>
-            </nav>
+        <div class="services-grid">
+            <!-- Carte 1 : Cours d'allemand -->
+            <div class="card-3d" data-tilt>
+                <div class="card-content">
+                    <div class="card-icon icon-de">
+                        <i data-lucide="languages"></i>
+                    </div>
+                    <h3>Deutsch Coaching</h3>
+                    <p>Cours d'allemand personnalisés du niveau A1 à C2. Apprenez deux fois plus vite grâce à une méthodologie active et des supports visuels impactants.</p>
+                    <span class="card-tag">Individuel ou Groupe</span>
+                </div>
+            </div>
 
-            <div class="header-actions">
-                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Changer de thème">
-                    <i class="fa-solid fa-sun icon-light"></i>
-                    <i class="fa-solid fa-moon icon-dark"></i>
-                </button>
-                
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+            <!-- Carte 2 : IA & Prompt Engineering -->
+            <div class="card-3d" data-tilt>
+                <div class="card-content">
+                    <div class="card-icon icon-ia">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                    <h3>IA & Pédagogie</h3>
+                    <p>Apprenez à utiliser l'IA (ChatGPT, Midjourney) pour automatiser vos révisions, générer des exercices interactifs et créer vos propres tuteurs virtuels.</p>
+                    <span class="card-tag">Workshop & Formation</span>
+                </div>
+            </div>
+
+            <!-- Carte 3 : Design de ressources -->
+            <div class="card-3d" data-tilt>
+                <div class="card-content">
+                    <div class="card-icon icon-design">
+                        <i data-lucide="palette"></i>
+                    </div>
+                    <h3>Design Pédagogique</h3>
+                    <p>Création de supports de cours ultra-visuels sur Canva (fiches de grammaire, infographies, e-books). Idéal pour enseignants et étudiants visuels.</p>
+                    <span class="card-tag">Sur-mesure</span>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <!-- ==========================================================================
-           HERO SECTION
-           ========================================================================== -->
-        <section id="hero" class="hero-section">
-            <div class="container hero-content">
-                <div class="portrait-frame">
-                    <!-- Insérez le chemin de votre image ici -->
-                    <img src="portrait.jpg" alt="Pépé GBINLO Séraphin" class="portrait-img">
-                    <div class="ribbon-memorial">En Mémoire</div>
-                </div>
-
-                <div class="hero-text">
-                    <span class="cross-symbol">✝</span>
-                    <h1 class="defunct-name">Pépé GBINLO SÉRAPHIN</h1>
-                    <p class="defunct-title">Rappelé à Dieu dans la paix du Seigneur</p>
-                    <p class="defunct-dates">1945 — 2026</p>
-                </div>
-
-                <div class="bible-verse">
-                    <i class="fa-solid fa-quote-left quote-icon"></i>
-                    <p>« J'ai combattu le bon combat, j'ai achevé la course, j'ai gardé la foi. »</p>
-                    <cite>2 Timothée 4:7</cite>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================================================
-           COMPTE À REBOURS
-           ========================================================================== -->
-        <section class="countdown-section">
-            <div class="container text-center">
-                <div class="section-title">
-                    <h2>Les Obsèques</h2>
-                    <div class="gold-divider"></div>
-                </div>
+    <!-- SECTION CONTACT & RÉSERVATION -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <span class="badge">Discutons de votre projet</span>
+                <h2>Prêt à réinventer votre apprentissage ?</h2>
+                <p>Que vous soyez un particulier souhaitant maîtriser l'allemand ou une structure intéressée par une formation sur l'IA, envoyez-moi un message.</p>
                 
-                <div class="countdown-grid" id="countdown">
-                    <div class="timer-card">
-                        <span class="timer-number" id="days">00</span>
-                        <span class="timer-label">Jours</span>
-                    </div>
-                    <div class="timer-card">
-                        <span class="timer-number" id="hours">00</span>
-                        <span class="timer-label">Heures</span>
-                    </div>
-                    <div class="timer-card">
-                        <span class="timer-number" id="minutes">00</span>
-                        <span class="timer-label">Minutes</span>
-                    </div>
-                    <div class="timer-card">
-                        <span class="timer-number" id="seconds">00</span>
-                        <span class="timer-label">Secondes</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================================================
-           SECTION FAMILLE ET AVIS DE DÉCÈS
-           ========================================================================== -->
-        <section id="famille" class="famille-section">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h2>Avis de Décès & Familles</h2>
-                    <div class="gold-divider"></div>
-                    <p>Les familles parentes, alliées et amies ont la profonde douleur d'annoncer le rappel à Dieu de leur cher disparu.</p>
-                </div>
-
-                <div class="notice-card">
-                    <div class="notice-block">
-                        <h3><i class="fa-solid fa-hands-praying"></i> Les Familles Éplorées</h3>
-                        <ul class="styled-list">
-                            <li>La famille GBINLO et familles alliées.</li>
-                            <li>Les enfants, petits-enfants et arrière-petits-enfants.</li>
-                        </ul>
-                    </div>
-
-                    <div class="notice-block">
-                        <h3><i class="fa-solid fa-heart"></i> Les Enfants</h3>
-                        <div class="children-list">
-                            <p>Les enfants du défunt exprimant leur profonde gratitude et leur amour éternel pour leur père et grand-père.</p>
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <i data-lucide="mail"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contact@emmanuelclarius.com</p>
                         </div>
                     </div>
-
-                    <div class="notice-block">
-                        <h3><i class="fa-solid fa-users"></i> Familles Alliées</h3>
-                        <div class="allied-tags">
-                            <span>GBINLO</span>
-                            <span>Familles Alliées</span>
-                            <span>Amis & Proches</span>
+                    <div class="detail-item">
+                        <i data-lucide="map-pin"></i>
+                        <div>
+                            <h4>Localisation</h4>
+                            <p>Cotonou, Bénin & En ligne</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- ==========================================================================
-           TIMELINE PROGRAMME
-           ========================================================================== -->
-        <section id="programme" class="programme-section">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h2>Programme des Obsèques</h2>
-                    <div class="gold-divider"></div>
-                    <p>Déroulement des cérémonies d'adieu</p>
-                </div>
-
-                <div class="timeline">
-                    <!-- Événement 1 -->
-                    <div class="timeline-item">
-                        <div class="timeline-badge"><i class="fa-solid fa-church"></i></div>
-                        <div class="timeline-panel">
-                            <span class="date-tag">Veillée de Prière</span>
-                            <div class="timeline-heading">
-                                <h3>Veillée de Prières & Hommages</h3>
-                            </div>
-                            <div class="timeline-body">
-                                <p><i class="fa-regular fa-clock"></i> 19h00 - 21h30</p>
-                                <p>Veillée de prières et de témoignages en la mémoire de Pépé GBINLO Séraphin.</p>
-                            </div>
-                        </div>
+            <!-- Formulaire 3D dynamique -->
+            <div class="contact-form-container" data-tilt>
+                <form id="interactive-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Votre Nom</label>
+                        <input type="text" id="name" required placeholder="Ex: Emmanuel Clarius">
                     </div>
-
-                    <!-- Événement 2 (Mise en valeur) -->
-                    <div class="timeline-item highlight">
-                        <div class="timeline-badge"><i class="fa-solid fa-cross"></i></div>
-                        <div class="timeline-panel">
-                            <span class="date-tag">Messe d'Obsèques</span>
-                            <div class="timeline-heading">
-                                <h3>Célébration Eucharistique & Inhumation</h3>
-                            </div>
-                            <div class="timeline-body">
-                                <p><i class="fa-regular fa-clock"></i> 10h00</p>
-                                <p>Messe d'enterrement suivie de l'inhumation dans la stricte intimité familiale.</p>
-                                
-                                <div class="sub-event">
-                                    <h4>Réception & Rafraîchissements</h4>
-                                    <p>Un vin d'honneur sera servi immédiatement après l'inhumation.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="email">Votre Email</label>
+                        <input type="email" id="email" required placeholder="Ex: nom@domaine.com">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="message">Votre Message</label>
+                        <textarea id="message" rows="5" required placeholder="Décrivez votre besoin en quelques lignes..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <span>Envoyer le message</span>
+                        <i data-lucide="send"></i>
+                    </button>
+                </form>
+                <div id="form-status" class="form-status hidden"></div>
             </div>
-        </section>
-
-        <!-- ==========================================================================
-           LOCALISATION & ORIENTATION
-           ========================================================================== -->
-        <section id="localisation" class="localisation-section">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h2>Lieux & Localisation</h2>
-                    <div class="gold-divider"></div>
-                </div>
-
-                <div class="location-grid">
-                    <div class="location-info">
-                        <div class="info-card">
-                            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-                            <div class="info-details">
-                                <h3>Lieu de la Cérémonie</h3>
-                                <p>Église / Paroisse Principale</p>
-                                <span class="time-badge">Accueil des condoléances sur place</span>
-                            </div>
-                        </div>
-
-                        <div class="route-directions">
-                            <h4><i class="fa-solid fa-route"></i> Indications d'accès</h4>
-                            <ul>
-                                <li>Accès facile via l'axe principal.</li>
-                                <li>Un parking est mis à disposition des visiteurs.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="map-placeholder">
-                        <i class="fa-solid fa-map-location-dot map-icon"></i>
-                        <h3>Carte d'Accès</h3>
-                        <p>Retrouvez le lieu exact de la cérémonie sur Google Maps.</p>
-                        <a href="#" target="_blank" class="btn-map">Ouvrir dans Google Maps</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================================================
-           SECTION REMERCIEMENTS
-           ========================================================================== -->
-        <section id="remerciements" class="condoleances-section">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h2>Remerciements</h2>
-                    <div class="gold-divider"></div>
-                </div>
-
-                <div class="notice-card text-center" style="max-width: 800px; margin: 0 auto;">
-                    <i class="fa-solid fa-hands-praying" style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 20px;"></i>
-                    
-                    <h3 style="justify-content: center; font-size: 1.5rem; margin-bottom: 20px;">
-                        REMERCIEMENTS DE LA FAMILLE
-                    </h3>
-                    
-                    <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-primary); margin-bottom: 25px; text-transform: uppercase;">
-                        Les familles éplorées, profondément touchées des marques de sympathie et d'affection que vous leur avez témoignées de diverses manières, vous prient de trouver ici l'expression de leurs sincères remerciements[cite: 4].
-                    </p>
-
-                    <div class="bible-verse" style="border-left: none; border-top: 2px solid var(--accent-gold); border-bottom: 2px solid var(--accent-gold); border-radius: 0; padding: 15px 0;">
-                        <p style="font-size: 1.2rem; font-weight: 600; color: var(--accent-gold); margin: 0; text-transform: uppercase;">
-                            Que le Tout-Puissant vous comble de Ses grâces[cite: 4].
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
-    <footer class="site-footer text-center">
-        <div class="container">
-            <p class="footer-quote">« Dans le cœur de ceux qui t'aiment, tu ne mourras jamais. »</p>
-            <div class="gold-divider" style="margin: 15px auto;"></div>
-            <p class="copyright">&copy; 2026 — En mémoire de Pépé GBINLO Séraphin</p>
         </div>
-    </footer>
-
-    <!-- Script JavaScript pour le thème et le compte à rebours -->
-    <script>
-        // Gestion du thème Sombre / Clair
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const htmlElement = document.documentElement;
-
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlElement.setAttribute('data-theme', newTheme);
-        });
-
-        // Gestion du menu mobile
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navMenu = id = document.getElementById('nav-menu');
-
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Exemple simple de Compte à Rebours (Ajustez la date cible selon besoin)
-        const targetDate = new Date("December 31, 2026 00:00:00").getTime();
-
-        const updateCountdown = () => {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-                document.getElementById('days').innerText = days < 10 ? '0' + days : days;
-                document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
-                document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
-                document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
-            }
-        };
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
-</body>
-</html>
+    </section>
