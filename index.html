@@ -1,196 +1,364 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WELT DER KOMPETENZEN - Portfolio Premium & Immersif. Solutions sur mesure en Design UX/UI, Développement SaaS, Applications Mobiles, Cours d'Allemand et Automatisations IA.">
-    <title>WELT DER KOMPETENZEN | Agence Numérique & Formation Premium</title>
-    
+    <title>Hommage à Pépé Séraphin Makponfa GBINLO (1942 - 2025)</title>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:wght@300;400;600;700&family=Saira+Semi+Condensed:wght@400;600;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme">
+<body>
 
-    <!-- Toile pour les Particules Dynamiques -->
-    <canvas id="particleCanvas"></canvas>
-
-    <!-- En-tête / Navigation -->
-    <header class="main-header">
-        <div class="logo">WELT DER KOMPETENZEN</div>
-        <nav class="nav-menu">
-            <a href="#accueil">Accueil</a>
-            <a href="#services">Services</a>
-            <a href="#portfolio">Projets</a>
-            <a href="#temoignages">Avis</a>
-        </nav>
-        <button id="themeToggle" class="theme-btn" aria-label="Changer de thème">
-            <i class="fas fa-moon"></i>
-        </button>
+    <!-- Navigation Header -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="#hero" class="logo-link">
+                <span class="logo-text">Séraphin M. GBINLO</span>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#hero" class="nav-link active">Accueil</a></li>
+                    <li><a href="#famille" class="nav-link">Avis & Familles</a></li>
+                    <li><a href="#programme" class="nav-link">Programme</a></li>
+                    <li><a href="#localisation" class="nav-link">Localisation</a></li>
+                    <li><a href="#condoleances" class="nav-link">Condoléances</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <!-- Theme Toggle Switch -->
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Changer le thème">
+                    <i class="fa-solid fa-moon icon-dark"></i>
+                    <i class="fa-solid fa-sun icon-light"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Menu mobile">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <!-- SECTION 1 : ACCUEIL -->
-    <section id="accueil" class="hero-section">
-        <div class="parallax-bg" id="parallaxBg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-container">
-            <h1 class="kinetic-title" id="interactiveTitle">WELT DER KOMPETENZEN</h1>
-            <p class="hero-subtitle">L'univers des compétences numériques et linguistiques d'élite.</p>
-            
-            <div class="founder-card">
-                <div class="founder-avatar">
-                    <!-- Remplacer par l'URL réelle de la photo du fondateur -->
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Fondateur Emmanuel Clarius">
-                </div>
-                <div class="founder-info">
-                    <h3>Emmanuel Clarius</h3>
-                    <p>Développeur Principal & Concepteur Visionnaire</p>
-                </div>
-            </div>
-            
-            <a href="#services" class="cta-scroll">Découvrir Notre Univers <i class="fas fa-chevron-down"></i></a>
-        </div>
-    </section>
-
-    <!-- SECTION 2 : LES SERVICES -->
-    <section id="services" class="services-section">
-        <div class="section-header">
-            <h2>Nos Services Premium</h2>
-            <p>Une expertise de pointe pour propulser vos ambitions globales.</p>
-        </div>
-        
-        <div class="services-grid" id="servicesGrid">
-            <!-- Injecté dynamiquement par JavaScript pour assurer l'intégration UX/UI -->
-        </div>
-    </section>
-
-    <!-- SECTION 3 : PORTFOLIO -->
-    <section id="portfolio" class="portfolio-section">
-        <div class="section-header">
-            <h2>Projets Réalisés & Succès Clients</h2>
-            <p>Aperçu concret des architectures et designs livrés à l'international.</p>
-        </div>
-        
-        <div class="portfolio-grid" id="portfolioGrid">
-            <!-- Injecté par JS pour correspondre rigoureusement aux requis -->
-        </div>
-    </section>
-
-    <!-- SECTION 5 : TÉMOIGNAGES -->
-    <section id="temoignages" class="testimonials-section">
-        <div class="section-header">
-            <h2>Témoignages Clients Internationaux</h2>
-            <p>Ce qu'en disent nos partenaires en Europe, en Afrique et dans le reste du monde.</p>
-        </div>
-        <div class="testimonials-grid" id="testimonialsGrid">
-            <!-- Injecté par JS -->
-        </div>
-    </section>
-
-    <!-- SECTION 4 & MODAL DE COMMANDE -->
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <h2 class="modal-title">Lancer Votre Projet Premium</h2>
-            <p class="modal-subtitle">Configurez vos besoins. Votre demande sera routée directement vers l'expert dédié.</p>
-            
-            <form id="orderForm" novalidate>
-                <input type="hidden" id="selectedServiceIndex" value="">
-                
-                <div class="form-group">
-                    <label for="clientName">Nom complet *</label>
-                    <input type="text" id="clientName" required placeholder="Ex: Jean Dupont">
-                </div>
-                
-                <div class="form-group">
-                    <label for="clientWhatsapp">Numéro WhatsApp (Avec code pays) *</label>
-                    <input type="tel" id="clientWhatsapp" required placeholder="Ex: +2250102030405 ou +33612345678">
-                </div>
-                
-                <div class="form-group">
-                    <label for="projectDesc">Cahier des charges ou Description du Projet *</label>
-                    <textarea id="projectDesc" rows="4" required placeholder="Décrivez précisément votre besoin..."></textarea>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="projectBudget">Fourchette Budgétaire ($ / € / CFA)</label>
-                        <input type="text" id="projectBudget" placeholder="Ex: 1500 € ou Budget ouvert">
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content container">
+                <div class="portrait-wrapper">
+                    <div class="portrait-frame">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Portrait de Pépé Séraphin Makponfa GBINLO" class="portrait-img">
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="projectUrgency">Degré d'Urgence</label>
-                        <select id="projectUrgency">
-                            <option value="Normal">Normal</option>
-                            <option value="Pressé">Pressé (Délai court)</option>
-                            <option value="Urgent">Urgent (Priorité absolue)</option>
-                        </select>
+                    <div class="ribbon-memorial">
+                        <span>En Mémoire</span>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Méthode de validation préférée :</label>
-                    <div class="radio-tabs">
-                        <label class="radio-tab-label">
-                            <input type="radio" name="outputOption" value="direct" checked>
-                            <span class="tab-design"><i class="fas fa-comments"></i> Contact Direct</span>
-                        </label>
-                        <label class="radio-tab-label">
-                            <input type="radio" name="outputOption" value="api">
-                            <span class="tab-design"><i class="fas fa-credit-card"></i> Simulation API Paiement</span>
-                        </label>
+                <div class="hero-text">
+                    <span class="cross-symbol">✝</span>
+                    <h1 class="defunct-name">Pépé Séraphin Makponfa GBINLO</h1>
+                    <p class="defunct-title">Inspecteur de l'Enseignement du Premier Degré à la retraite</p>
+                    <p class="defunct-dates">
+                        <span><i class="fa-regular fa-calendar-alt"></i> Remis à Dieu le Jeudi 04 Décembre 2025 (dans sa 83ᵉ année)</span><br>
+                        <span><i class="fa-solid fa-hospital"></i> CNHU-HKM de Cotonou</span>
+                    </p>
+
+                    <blockquote class="bible-verse">
+                        <i class="fa-solid fa-quote-left quote-icon"></i>
+                        <p>« Que votre cœur ne se trouble pas. Croyez en Dieu, croyez aussi en moi. Il y a beaucoup de demeures dans la maison de mon Père. »</p>
+                        <cite>— Jean 14, 1-2</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section id="countdown" class="countdown-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Compte à Rebours des Obsèques</h2>
+                    <p>Messe d'Aieu — Samedi 29 août 2026 à 11h00 (Église Bon Pasteur d'Adandokpodji, Abomey)</p>
+                </div>
+
+                <div class="countdown-grid" id="timerGrid">
+                    <div class="timer-card">
+                        <span class="timer-number" id="days">00</span>
+                        <span class="timer-label">Jours</span>
+                    </div>
+                    <div class="timer-card">
+                        <span class="timer-number" id="hours">00</span>
+                        <span class="timer-label">Heures</span>
+                    </div>
+                    <div class="timer-card">
+                        <span class="timer-number" id="minutes">00</span>
+                        <span class="timer-label">Minutes</span>
+                    </div>
+                    <div class="timer-card">
+                        <span class="timer-number" id="seconds">00</span>
+                        <span class="timer-label">Secondes</span>
                     </div>
                 </div>
-
-                <button type="submit" class="submit-btn">Envoyer la demande sur WhatsApp <i class="fab fa-whatsapp"></i></button>
-            </form>
-        </div>
-    </div>
-
-    <!-- NOTIFICATION SYSTEM -->
-    <div id="toastNotification" class="toast">
-        <i class="fas fa-check-circle"></i> <span id="toastMessage">Le développeur va vous contacter dans quelques minutes.</span>
-    </div>
-
-    <!-- COMPOSANTS FLOTTANTS DE COMMUNICATION RAPIDE -->
-    <div class="floating-actions">
-        <a href="tel:0158255572" class="float-btn phone-float" aria-label="Appeler le secrétariat central">
-            <i class="fas fa-phone-alt"></i>
-        </a>
-        <a href="https://wa.me/0158255572" target="_blank" rel="noopener noreferrer" class="float-btn whatsapp-float" aria-label="Discuter sur WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-
-    <!-- PIED DE PAGE & RÈGLEMENTATIONS -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h4>WELT DER KOMPETENZEN</h4>
-                <p><i class="fas fa-envelope"></i> weltderkompetenz@gmail.com</p>
-                <p><i class="fas fa-phone"></i> Numéro Central : 0158255572</p>
-            </div>
-            <div class="footer-designer">
-                <p>Concepteur & Développeur d'élite :</p>
-                <div class="designer-credit">
-                    <strong>EMMANUEL CLARIUS</strong>
+                
+                <div class="countdown-status" id="timerStatus">
+                    <p><i class="fa-solid fa-clock"></i> Les cérémonies d'adieu approchent.</p>
                 </div>
             </div>
-        </div>
-        <div class="footer-legal">
-            <p class="rgpd-text">
-                <i class="fas fa-shield-alt"></i> Respect des données personnelles (RGPD) — Les informations saisies au sein de ce portfolio sont uniquement et strictement utilisées pour l'établissement de la relation commerciale. Aucun stockage malveillant n'est effectué.
-            </p>
-            <p class="copyright">&copy; 2026 WELT DER KOMPETENZEN. Tous droits réservés.</p>
+        </section>
+
+        <!-- Family & Avis de Décès Section -->
+        <section id="famille" class="famille-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Avis de Décès & Collectivités Éplorées</h2>
+                    <div class="gold-divider"></div>
+                    <p class="section-intro">Les grandes familles, collectivités, enfants, petits-enfants et familles alliées ont la profonde douleur d'annoncer le rappel à Dieu de leur très cher et regretté père, grand-père, frère, oncle et parent.</p>
+                </div>
+
+                <div class="notice-card">
+                    <!-- Collectivités -->
+                    <div class="notice-block">
+                        <h3><i class="fa-solid fa-landmark"></i> Collectivités & Familles Éplorées</h3>
+                        <ul class="styled-list">
+                            <li><strong>GBINLO - GUEGUELIGUE - AZONTOKPO – AGBOFO - AGBOLEAFI</strong> de Fonkpamè Agondji</li>
+                            <li><strong>TANHOUNNON - GBADENON</strong> de Zounmè Oumbèga</li>
+                            <li><strong>GBASSI-DEDAGO</strong> d'Ahozoun Oumbèga</li>
+                            <li><strong>BOCODAHO – GBEHOLO</strong> de Tchêly, Abomey</li>
+                            <li>Les frères et sœurs du défunt</li>
+                        </ul>
+                    </div>
+
+                    <!-- Enfants -->
+                    <div class="notice-block">
+                        <h3><i class="fa-solid fa-users"></i> Les Enfants, Petits-Enfants & Arrière-Petits-Enfants</h3>
+                        <p class="children-list">
+                            CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, FEUE EUDOXIE, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE, leurs époux/épouses, leurs enfants et arrière-petits-enfants.
+                        </p>
+                    </div>
+
+                    <!-- Familles Alliées -->
+                    <div class="notice-block">
+                        <h3><i class="fa-solid fa-hands-holding"></i> Familles Alliées</h3>
+                        <div class="allied-tags">
+                            <span>AHO-GLELÈ</span> <span>GBASSI</span> <span>FELIHO</span> <span>AGBI-DAVO</span> <span>ADJALIAN</span> 
+                            <span>TCHALOKO</span> <span>GBAGUIDI</span> <span>DENAKPO</span> <span>SEKPE</span> <span>DOSSOUHOUAN</span> 
+                            <span>SEGBOZO</span> <span>BAHINLIN</span> <span>EROUBINOU</span> <span>AGBIDI</span> <span>WOUEHA</span> 
+                            <span>AGBESSI</span> <span>AHOUISSOU</span> <span>TOKOU</span> <span>LOKONON</span> <span>HOUADJÉTO</span> 
+                            <span>TONOUÉHOUA</span> <span>KPOMALEGNI</span> <span>AYIVI</span> <span>DEGBE</span> <span>SOUTON</span> 
+                            <span>TOGBE</span> <span>TOUGAN</span> <span>LOKPO</span> <span>HOUNSOUNON</span> <span>TCHOBO</span> 
+                            <span>GOÏTO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Funeral Program Section -->
+        <section id="programme" class="programme-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Programme Officiel des Obsèques</h2>
+                    <div class="gold-divider"></div>
+                    <p>Déroulement des cérémonies religieuses et hommages</p>
+                </div>
+
+                <div class="timeline">
+                    <!-- Jour 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="fa-solid fa-moon"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <span class="date-tag">Jeudi 27 Août 2026</span>
+                                <h3>Veillée de Prières & Animation Folklorique</h3>
+                            </div>
+                            <div class="timeline-body">
+                                <p><i class="fa-regular fa-clock"></i> <strong>20h00 :</strong> Veillée de prières à Fonkpamè, dans la maison GBINLO.</p>
+                                <p><i class="fa-solid fa-music"></i> Suivie d'une animation folklorique d'hommage traditionnel.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jour 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge"><i class="fa-solid fa-church"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <span class="date-tag">Vendredi 28 Août 2026</span>
+                                <h3>Messe en la Maison Familiale</h3>
+                            </div>
+                            <div class="timeline-body">
+                                <p><i class="fa-regular fa-clock"></i> <strong>09h00 :</strong> Messe de requiem célébrée dans la maison GBINLO.</p>
+                                <p><i class="fa-solid fa-utensils"></i> La messe sera suivie d'une réception des invités sur place.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jour 3 -->
+                    <div class="timeline-item highlight">
+                        <div class="timeline-badge"><i class="fa-solid fa-cross"></i></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <span class="date-tag">Samedi 29 Août 2026</span>
+                                <h3>Grande Messe d'Adieu & Réception Solennelle</h3>
+                            </div>
+                            <div class="timeline-body">
+                                <div class="sub-event">
+                                    <h4><i class="fa-solid fa-church"></i> 11h00 — Messe d'Aieu</h4>
+                                    <p>Célébrée en <strong>l'église Bon Pasteur d'Adandokpodji</strong> (Abomey).</p>
+                                </div>
+                                <div class="sub-event">
+                                    <h4><i class="fa-solid fa-glass-cheers"></i> 13h00 — Réception & Hommages</h4>
+                                    <p>Au <strong>Cours Secondaire Sainte Jeanne d'Arc d'Abomey</strong> (Tronçon Carrefour GOHO - Préfecture d'Abomey, en face de la voie de l'Évêché d'Abomey).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="localisation" class="localisation-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Orientation & Plan de Localisation</h2>
+                    <div class="gold-divider"></div>
+                    <p>Instructions d'accès pour assister aux cérémonies d'Abomey</p>
+                </div>
+
+                <div class="location-grid">
+                    <div class="location-info">
+                        <div class="info-card">
+                            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="info-details">
+                                <h3>Lieu de la Grande Messe</h3>
+                                <p><strong>Église Bon Pasteur d'Adandokpodji</strong></p>
+                                <p>Abomey, Bénin</p>
+                                <span class="time-badge"><i class="fa-regular fa-clock"></i> Samedi 29 Août à 11h00</span>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-icon"><i class="fa-solid fa-utensils"></i></div>
+                            <div class="info-details">
+                                <h3>Lieu de la Réception Solennelle</h3>
+                                <p><strong>Cours Secondaire Sainte Jeanne d'Arc d'Abomey</strong></p>
+                                <p><em>Tronçon Carrefour GOHO — Préfecture d'Abomey</em></p>
+                                <p>(Situé exactement en face de la voie de l'Évêché d'Abomey)</p>
+                                <span class="time-badge"><i class="fa-regular fa-clock"></i> Samedi 29 Août à 13h00</span>
+                            </div>
+                        </div>
+
+                        <div class="route-directions">
+                            <h4><i class="fa-solid fa-route"></i> Repères d'Itinéraire :</h4>
+                            <ul>
+                                <li>Depuis le <strong>Carrefour GOHO</strong>, prendre l'axe menant vers la Préfecture d'Abomey.</li>
+                                <li>Le Cours Secondaire Sainte Jeanne d'Arc se trouve sur votre trajet, directement en face de la voie menant à l'Évêché.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <i class="fa-solid fa-map-location-dot map-icon"></i>
+                            <h3>Carte d'Orientation Abomey</h3>
+                            <p>Carrefour GOHO / Cours Secondaire Sainte Jeanne d'Arc</p>
+                            <a href="https://maps.google.com/?q=Carrefour+GOHO+Abomey+Benin" target="_blank" rel="noopener noreferrer" class="btn-map">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir dans Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Condolences & Guestbook Section -->
+        <section id="condoleances" class="condoleances-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Remerciements & Livre d'Or</h2>
+                    <div class="gold-divider"></div>
+                    <p>Laissez un message d'hommage ou une prière en la mémoire de Pépé Séraphin</p>
+                </div>
+
+                <div class="condolence-wrapper">
+                    <!-- Formulaire -->
+                    <div class="form-card">
+                        <h3><i class="fa-regular fa-pen-to-square"></i> Laisser un message de condoléances</h3>
+                        <form id="condolenceForm">
+                            <div class="form-group">
+                                <label for="authorName">Votre Nom & Prénom *</label>
+                                <input type="text" id="authorName" required placeholder="Ex: Jean DOSSOU">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="authorRelation">Votre relation ou affiliation (optionnel)</label>
+                                <input type="text" id="authorRelation" placeholder="Ex: Ancien collègue, Ami de la famille...">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="condolenceMessage">Votre Message d'Hommage *</label>
+                                <textarea id="condolenceMessage" rows="5" required placeholder="Exprimez vos pensées, souvenir ou prière..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-submit">
+                                <i class="fa-solid fa-paper-plane"></i> Publier l'hommage
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Liste des messages -->
+                    <div class="messages-card">
+                        <h3><i class="fa-solid fa-comments"></i> Messages d'Hommage (<span id="msgCount">3</span>)</h3>
+                        <div class="messages-list" id="messagesList">
+                            <div class="message-item">
+                                <div class="message-header">
+                                    <span class="author-name">Famille AHO-GLELÈ</span>
+                                    <span class="message-date">05 Décembre 2025</span>
+                                </div>
+                                <p class="author-tag"><i class="fa-solid fa-user-tag"></i> Famille Alliée</p>
+                                <p class="message-content">Nos prières accompagnent toute la famille GBINLO dans cette grande épreuve. Que l'âme de Pépé Séraphin repose dans la paix du Seigneur.</p>
+                            </div>
+
+                            <div class="message-item">
+                                <div class="message-header">
+                                    <span class="author-name">Koffi Martial S.</span>
+                                    <span class="message-date">10 Décembre 2025</span>
+                                </div>
+                                <p class="author-tag"><i class="fa-solid fa-graduation-cap"></i> Ancien Élève / Collègue</p>
+                                <p class="message-content">Un grand Inspecteur s'en est allé. Son dévouement pour l'éducation au Bénin restera gravé dans nos mémoires. Sincères condoléances aux enfants.</p>
+                            </div>
+
+                            <div class="message-item">
+                                <div class="message-header">
+                                    <span class="author-name">Pauline & Modeste</span>
+                                    <span class="message-date">15 Janvier 2026</span>
+                                </div>
+                                <p class="author-tag"><i class="fa-solid fa-heart"></i> Amis proches</p>
+                                <p class="message-content">Pépé Séraphin laisse derrière lui un héritage de bonté et de sagesse. Union de prière avec toute la famille GBINLO.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="footer-quote">« Je suis la résurrection et la vie. Celui qui croit en moi vivra, quand même il serait mort. » — Jean 11, 25</p>
+            <div class="gold-divider"></div>
+            <p class="copyright">&copy; 2026 — Site Mémorial Hommage à Pépé Séraphin Makponfa GBINLO. Réalisé dans le respect et la mémoire.</p>
         </div>
     </footer>
 
+    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 </html>
