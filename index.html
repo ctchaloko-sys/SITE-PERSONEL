@@ -3,565 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hommage à Pépé Séraphin Makponfa GBINLO (1942 - 2025)</title>
-
-    <!-- Google Fonts -->
+    <title>En Mémoire de Pépé GBINLO Séraphin</title>
+    
+    <!-- Polices Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Styles CSS Intégrés -->
-    <style>
-        :root {
-            --bg-primary: #121212;
-            --bg-secondary: #1e1e1e;
-            --bg-card: #252525;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --accent-gold: #d4af37;
-            --accent-gold-hover: #f3e5ab;
-            --border-color: #333333;
-            --shadow-color: rgba(0, 0, 0, 0.5);
-            --font-heading: 'Cinzel', serif;
-            --font-body: 'Montserrat', sans-serif;
-        }
-
-        [data-theme="light"] {
-            --bg-primary: #f8f9fa;
-            --bg-secondary: #ffffff;
-            --bg-card: #f1f3f5;
-            --text-primary: #212529;
-            --text-secondary: #6c757d;
-            --accent-gold: #b8860b;
-            --accent-gold-hover: #8b6508;
-            --border-color: #dee2e6;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .text-center { text-align: center; }
-
-        .gold-divider {
-            height: 2px;
-            width: 80px;
-            background: var(--accent-gold);
-            margin: 15px auto;
-        }
-
-        /* Header Navigation */
-        .site-header {
-            position: sticky;
-            top: 0;
-            background-color: var(--bg-secondary);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            box-shadow: 0 2px 10px var(--shadow-color);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo-text {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--accent-gold);
-            text-decoration: none;
-        }
-
-        .logo-link { text-decoration: none; }
-
-        .nav-menu ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-link {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--accent-gold);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .theme-toggle-btn, .mobile-toggle {
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-
-        .icon-light { display: none; }
-        [data-theme="light"] .icon-dark { display: none; }
-        [data-theme="light"] .icon-light { display: inline-block; color: var(--accent-gold); }
-
-        .mobile-toggle { display: none; }
-
-        /* Sections General */
-        section {
-            padding: 60px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .section-title h2 {
-            font-family: var(--font-heading);
-            color: var(--accent-gold);
-            font-size: 2rem;
-        }
-
-        .section-intro {
-            color: var(--text-secondary);
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            padding: 80px 0 60px;
-            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 25px;
-        }
-
-        .portrait-frame {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid var(--accent-gold);
-            overflow: hidden;
-            box-shadow: 0 0 20px var(--shadow-color);
-        }
-
-        .portrait-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .ribbon-memorial {
-            margin-top: -15px;
-            background: var(--accent-gold);
-            color: #000;
-            padding: 3px 15px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .cross-symbol {
-            font-size: 1.5rem;
-            color: var(--accent-gold);
-        }
-
-        .defunct-name {
-            font-family: var(--font-heading);
-            font-size: 2.2rem;
-            margin: 10px 0;
-        }
-
-        .defunct-title {
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .defunct-dates {
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-        }
-
-        .bible-verse {
-            max-width: 650px;
-            background: var(--bg-card);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 3px solid var(--accent-gold);
-            font-style: italic;
-        }
-
-        .bible-verse cite {
-            display: block;
-            margin-top: 10px;
-            font-weight: 600;
-            font-style: normal;
-            color: var(--accent-gold);
-        }
-
-        /* Countdown */
-        .countdown-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .timer-card {
-            background: var(--bg-card);
-            padding: 20px;
-            border-radius: 8px;
-            min-width: 100px;
-            text-align: center;
-            border: 1px solid var(--border-color);
-        }
-
-        .timer-number {
-            display: block;
-            font-size: 2.5rem;
-            font-family: var(--font-heading);
-            color: var(--accent-gold);
-            font-weight: bold;
-        }
-
-        .timer-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-        }
-
-        .countdown-status {
-            text-align: center;
-            margin-top: 20px;
-            color: var(--text-secondary);
-        }
-
-        /* Famille & Avis */
-        .notice-card {
-            background: var(--bg-secondary);
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .notice-block h3 {
-            font-family: var(--font-heading);
-            color: var(--accent-gold);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .styled-list {
-            list-style: none;
-            padding-left: 10px;
-        }
-
-        .styled-list li {
-            margin-bottom: 8px;
-            position: relative;
-        }
-
-        .allied-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .allied-tags span {
-            background: var(--bg-card);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            border: 1px solid var(--border-color);
-        }
-
-        /* Programme */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 20px;
-            background: var(--bg-secondary);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .timeline-item.highlight {
-            border-color: var(--accent-gold);
-        }
-
-        .timeline-badge {
-            background: var(--bg-card);
-            color: var(--accent-gold);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .date-tag {
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
-
-        .sub-event {
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px dashed var(--border-color);
-        }
-
-        /* Localisation */
-        .location-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .info-card {
-            display: flex;
-            gap: 15px;
-            background: var(--bg-secondary);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border: 1px solid var(--border-color);
-        }
-
-        .info-icon {
-            color: var(--accent-gold);
-            font-size: 1.5rem;
-        }
-
-        .time-badge {
-            display: inline-block;
-            margin-top: 8px;
-            font-size: 0.85rem;
-            color: var(--accent-gold);
-        }
-
-        .map-placeholder {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            height: 100%;
-            min-height: 250px;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .map-icon {
-            font-size: 3rem;
-            color: var(--accent-gold);
-            margin-bottom: 15px;
-        }
-
-        .btn-map {
-            margin-top: 15px;
-            display: inline-block;
-            background: var(--accent-gold);
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* Condolences */
-        .condolence-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .form-card, .messages-card {
-            background: var(--bg-secondary);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .form-card h3, .messages-card h3 {
-            font-family: var(--font-heading);
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            color: var(--text-primary);
-            font-family: inherit;
-        }
-
-        .btn-submit {
-            background: var(--accent-gold);
-            color: #000;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .messages-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .message-item {
-            background: var(--bg-primary);
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 3px solid var(--accent-gold);
-        }
-
-        .message-header {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .message-date {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        .author-tag {
-            font-size: 0.8rem;
-            color: var(--accent-gold);
-            margin-bottom: 8px;
-        }
-
-        /* Footer */
-        .site-footer {
-            padding: 40px 0;
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .footer-quote {
-            font-style: italic;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .mobile-toggle { display: block; }
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--bg-secondary);
-                border-bottom: 1px solid var(--border-color);
-                padding: 20px;
-            }
-            .nav-menu.active { display: block; }
-            .nav-menu ul { flex-direction: column; gap: 15px; }
-            .location-grid, .condolence-wrapper { grid-template-columns: 1fr; }
-        }
-    </style>
+    
+    <!-- Feuille de style CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- ==========================================================================
+       NAVIGATION & HEADER
+       ========================================================================== -->
     <header class="site-header">
         <div class="nav-container">
-            <a href="#hero" class="logo-link">
-                <span class="logo-text">Séraphin M. GBINLO</span>
-            </a>
-            <nav class="nav-menu" id="navMenu">
+            <div class="logo-text">In Memoriam</div>
+            
+            <nav class="nav-menu" id="nav-menu">
                 <ul>
                     <li><a href="#hero" class="nav-link active">Accueil</a></li>
-                    <li><a href="#famille" class="nav-link">Avis & Familles</a></li>
+                    <li><a href="#famille" class="nav-link">Avis & Famille</a></li>
                     <li><a href="#programme" class="nav-link">Programme</a></li>
                     <li><a href="#localisation" class="nav-link">Localisation</a></li>
-                    <li><a href="#condoleances" class="nav-link">Condoléances</a></li>
+                    <li><a href="#remerciements" class="nav-link">Remerciements</a></li>
                 </ul>
             </nav>
+
             <div class="header-actions">
-                <!-- Toggle Dark/Light Mode -->
-                <button id="themeToggle" class="theme-toggle-btn" aria-label="Changer le thème">
-                    <i class="fa-solid fa-moon icon-dark"></i>
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Changer de thème">
                     <i class="fa-solid fa-sun icon-light"></i>
+                    <i class="fa-solid fa-moon icon-dark"></i>
                 </button>
-                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Menu mobile">
+                
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -569,46 +49,43 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- ==========================================================================
+           HERO SECTION
+           ========================================================================== -->
         <section id="hero" class="hero-section">
-            <div class="hero-overlay"></div>
-            <div class="hero-content container">
-                <div class="portrait-wrapper">
-                    <div class="portrait-frame">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Portrait de Pépé Séraphin Makponfa GBINLO" class="portrait-img">
-                    </div>
-                    <div class="ribbon-memorial">
-                        <span>En Mémoire</span>
-                    </div>
+            <div class="container hero-content">
+                <div class="portrait-frame">
+                    <!-- Insérez le chemin de votre image ici -->
+                    <img src="portrait.jpg" alt="Pépé GBINLO Séraphin" class="portrait-img">
+                    <div class="ribbon-memorial">En Mémoire</div>
                 </div>
 
                 <div class="hero-text">
                     <span class="cross-symbol">✝</span>
-                    <h1 class="defunct-name">Pépé Séraphin Makponfa GBINLO</h1>
-                    <p class="defunct-title">Inspecteur de l'Enseignement du Premier Degré à la retraite</p>
-                    <p class="defunct-dates">
-                        <span><i class="fa-regular fa-calendar-alt"></i> Remis à Dieu le Jeudi 04 Décembre 2025 (dans sa 83ᵉ année)</span><br>
-                        <span><i class="fa-solid fa-hospital"></i> CNHU-HKM de Cotonou</span>
-                    </p>
+                    <h1 class="defunct-name">Pépé GBINLO SÉRAPHIN</h1>
+                    <p class="defunct-title">Rappelé à Dieu dans la paix du Seigneur</p>
+                    <p class="defunct-dates">1945 — 2026</p>
+                </div>
 
-                    <blockquote class="bible-verse">
-                        <i class="fa-solid fa-quote-left quote-icon"></i>
-                        <p>« Que votre cœur ne se trouble pas. Croyez en Dieu, croyez aussi en moi. Il y a beaucoup de demeures dans la maison de mon Père. »</p>
-                        <cite>— Jean 14, 1-2</cite>
-                    </blockquote>
+                <div class="bible-verse">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p>« J'ai combattu le bon combat, j'ai achevé la course, j'ai gardé la foi. »</p>
+                    <cite>2 Timothée 4:7</cite>
                 </div>
             </div>
         </section>
 
-        <!-- Countdown Section -->
-        <section id="countdown" class="countdown-section">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h2>Compte à Rebours des Obsèques</h2>
-                    <p>Messe d'Adieu — Samedi 29 août 2026 à 11h00 (Église Bon Pasteur d'Adandokpodji, Abomey)</p>
+        <!-- ==========================================================================
+           COMPTE À REBOURS
+           ========================================================================== -->
+        <section class="countdown-section">
+            <div class="container text-center">
+                <div class="section-title">
+                    <h2>Les Obsèques</h2>
+                    <div class="gold-divider"></div>
                 </div>
-
-                <div class="countdown-grid" id="timerGrid">
+                
+                <div class="countdown-grid" id="countdown">
                     <div class="timer-card">
                         <span class="timer-number" id="days">00</span>
                         <span class="timer-label">Jours</span>
@@ -626,116 +103,90 @@
                         <span class="timer-label">Secondes</span>
                     </div>
                 </div>
-                
-                <div class="countdown-status" id="timerStatus">
-                    <p><i class="fa-solid fa-clock"></i> Les cérémonies d'adieu approchent.</p>
-                </div>
             </div>
         </section>
 
-        <!-- Family & Avis Section -->
+        <!-- ==========================================================================
+           SECTION FAMILLE ET AVIS DE DÉCÈS
+           ========================================================================== -->
         <section id="famille" class="famille-section">
             <div class="container">
                 <div class="section-title text-center">
-                    <h2>Avis de Décès & Collectivités Éplorées</h2>
+                    <h2>Avis de Décès & Familles</h2>
                     <div class="gold-divider"></div>
-                    <p class="section-intro">Les grandes familles, collectivités, enfants, petits-enfants et familles alliées ont la profonde douleur d'annoncer le rappel à Dieu de leur très cher et regretté père, grand-père, frère, oncle et parent.</p>
+                    <p>Les familles parentes, alliées et amies ont la profonde douleur d'annoncer le rappel à Dieu de leur cher disparu.</p>
                 </div>
 
                 <div class="notice-card">
-                    <!-- Collectivités -->
                     <div class="notice-block">
-                        <h3><i class="fa-solid fa-landmark"></i> Collectivités & Familles Éplorées</h3>
+                        <h3><i class="fa-solid fa-hands-praying"></i> Les Familles Éplorées</h3>
                         <ul class="styled-list">
-                            <li><strong>GBINLO - GUEGUELIGUE - AZONTOKPO – AGBOFO - AGBOLEAFI</strong> de Fonkpamè Agondji</li>
-                            <li><strong>TANHOUNNON - GBADENON</strong> de Zounmè Oumbèga</li>
-                            <li><strong>GBASSI-DEDAGO</strong> d'Ahozoun Oumbèga</li>
-                            <li><strong>BOCODAHO – GBEHOLO</strong> de Tchêly, Abomey</li>
-                            <li>Les frères et sœurs du défunt</li>
+                            <li>La famille GBINLO et familles alliées.</li>
+                            <li>Les enfants, petits-enfants et arrière-petits-enfants.</li>
                         </ul>
                     </div>
 
-                    <!-- Enfants -->
                     <div class="notice-block">
-                        <h3><i class="fa-solid fa-users"></i> Les Enfants, Petits-Enfants & Arrière-Petits-Enfants</h3>
-                        <p class="children-list">
-                            CLÉMENCE, EDGARD, HOSPICE, MICHAEL, HERVÉ, GINETTE, FEUE EUDOXIE, ÉLOÏSE, MODESTE, ÉRIC, FLORINE et AUGUSTE, leurs époux/épouses, leurs enfants et arrière-petits-enfants.
-                        </p>
+                        <h3><i class="fa-solid fa-heart"></i> Les Enfants</h3>
+                        <div class="children-list">
+                            <p>Les enfants du défunt exprimant leur profonde gratitude et leur amour éternel pour leur père et grand-père.</p>
+                        </div>
                     </div>
 
-                    <!-- Familles Alliées -->
                     <div class="notice-block">
-                        <h3><i class="fa-solid fa-hands-holding"></i> Familles Alliées</h3>
+                        <h3><i class="fa-solid fa-users"></i> Familles Alliées</h3>
                         <div class="allied-tags">
-                            <span>AHO-GLELÈ</span> <span>GBASSI</span> <span>FELIHO</span> <span>AGBI-DAVO</span> <span>ADJALIAN</span> 
-                            <span>TCHALOKO</span> <span>GBAGUIDI</span> <span>DENAKPO</span> <span>SEKPE</span> <span>DOSSOUHOUAN</span> 
-                            <span>SEGBOZO</span> <span>BAHINLIN</span> <span>EROUBINOU</span> <span>AGBIDI</span> <span>WOUEHA</span> 
-                            <span>AGBESSI</span> <span>AHOUISSOU</span> <span>TOKOU</span> <span>LOKONON</span> <span>HOUADJÉTO</span> 
-                            <span>TONOUÉHOUA</span> <span>KPOMALEGNI</span> <span>AYIVI</span> <span>DEGBE</span> <span>SOUTON</span> 
-                            <span>TOGBE</span> <span>TOUGAN</span> <span>LOKPO</span> <span>HOUNSOUNON</span> <span>TCHOBO</span> 
-                            <span>GOÏTO</span>
+                            <span>GBINLO</span>
+                            <span>Familles Alliées</span>
+                            <span>Amis & Proches</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Funeral Program Section -->
+        <!-- ==========================================================================
+           TIMELINE PROGRAMME
+           ========================================================================== -->
         <section id="programme" class="programme-section">
             <div class="container">
                 <div class="section-title text-center">
-                    <h2>Programme Officiel des Obsèques</h2>
+                    <h2>Programme des Obsèques</h2>
                     <div class="gold-divider"></div>
-                    <p>Déroulement des cérémonies religieuses et hommages</p>
+                    <p>Déroulement des cérémonies d'adieu</p>
                 </div>
 
                 <div class="timeline">
-                    <!-- Jour 1 -->
-                    <div class="timeline-item">
-                        <div class="timeline-badge"><i class="fa-solid fa-moon"></i></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <span class="date-tag">Jeudi 27 Août 2026</span>
-                                <h3>Veillée de Prières & Animation Folklorique</h3>
-                            </div>
-                            <div class="timeline-body">
-                                <p><i class="fa-regular fa-clock"></i> <strong>20h00 :</strong> Veillée de prières à Fonkpamè, dans la maison GBINLO.</p>
-                                <p><i class="fa-solid fa-music"></i> Suivie d'une animation folklorique d'hommage traditionnel.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Jour 2 -->
+                    <!-- Événement 1 -->
                     <div class="timeline-item">
                         <div class="timeline-badge"><i class="fa-solid fa-church"></i></div>
                         <div class="timeline-panel">
+                            <span class="date-tag">Veillée de Prière</span>
                             <div class="timeline-heading">
-                                <span class="date-tag">Vendredi 28 Août 2026</span>
-                                <h3>Messe en la Maison Familiale</h3>
+                                <h3>Veillée de Prières & Hommages</h3>
                             </div>
                             <div class="timeline-body">
-                                <p><i class="fa-regular fa-clock"></i> <strong>09h00 :</strong> Messe de requiem célébrée dans la maison GBINLO.</p>
-                                <p><i class="fa-solid fa-utensils"></i> La messe sera suivie d'une réception des invités sur place.</p>
+                                <p><i class="fa-regular fa-clock"></i> 19h00 - 21h30</p>
+                                <p>Veillée de prières et de témoignages en la mémoire de Pépé GBINLO Séraphin.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Jour 3 -->
+                    <!-- Événement 2 (Mise en valeur) -->
                     <div class="timeline-item highlight">
                         <div class="timeline-badge"><i class="fa-solid fa-cross"></i></div>
                         <div class="timeline-panel">
+                            <span class="date-tag">Messe d'Obsèques</span>
                             <div class="timeline-heading">
-                                <span class="date-tag">Samedi 29 Août 2026</span>
-                                <h3>Grande Messe d'Adieu & Réception Solennelle</h3>
+                                <h3>Célébration Eucharistique & Inhumation</h3>
                             </div>
                             <div class="timeline-body">
+                                <p><i class="fa-regular fa-clock"></i> 10h00</p>
+                                <p>Messe d'enterrement suivie de l'inhumation dans la stricte intimité familiale.</p>
+                                
                                 <div class="sub-event">
-                                    <h4><i class="fa-solid fa-church"></i> 11h00 — Messe d'Adieu</h4>
-                                    <p>Célébrée en <strong>l'église Bon Pasteur d'Adandokpodji</strong> (Abomey).</p>
-                                </div>
-                                <div class="sub-event">
-                                    <h4><i class="fa-solid fa-glass-cheers"></i> 13h00 — Réception & Hommages</h4>
-                                    <p>Au <strong>Cours Secondaire Sainte Jeanne d'Arc d'Abomey</strong> (Tronçon Carrefour GOHO - Préfecture d'Abomey, en face de la voie de l'Évêché d'Abomey).</p>
+                                    <h4>Réception & Rafraîchissements</h4>
+                                    <p>Un vin d'honneur sera servi immédiatement après l'inhumation.</p>
                                 </div>
                             </div>
                         </div>
@@ -744,13 +195,14 @@
             </div>
         </section>
 
-        <!-- Location Section -->
+        <!-- ==========================================================================
+           LOCALISATION & ORIENTATION
+           ========================================================================== -->
         <section id="localisation" class="localisation-section">
             <div class="container">
                 <div class="section-title text-center">
-                    <h2>Orientation & Plan de Localisation</h2>
+                    <h2>Lieux & Localisation</h2>
                     <div class="gold-divider"></div>
-                    <p>Instructions d'accès pour assister aux cérémonies d'Abomey</p>
                 </div>
 
                 <div class="location-grid">
@@ -758,227 +210,115 @@
                         <div class="info-card">
                             <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
                             <div class="info-details">
-                                <h3>Lieu de la Grande Messe</h3>
-                                <p><strong>Église Bon Pasteur d'Adandokpodji</strong></p>
-                                <p>Abomey, Bénin</p>
-                                <span class="time-badge"><i class="fa-regular fa-clock"></i> Samedi 29 Août à 11h00</span>
-                            </div>
-                        </div>
-
-                        <div class="info-card">
-                            <div class="info-icon"><i class="fa-solid fa-utensils"></i></div>
-                            <div class="info-details">
-                                <h3>Lieu de la Réception Solennelle</h3>
-                                <p><strong>Cours Secondaire Sainte Jeanne d'Arc d'Abomey</strong></p>
-                                <p><em>Tronçon Carrefour GOHO — Préfecture d'Abomey</em></p>
-                                <p>(Situé exactement en face de la voie de l'Évêché d'Abomey)</p>
-                                <span class="time-badge"><i class="fa-regular fa-clock"></i> Samedi 29 Août à 13h00</span>
+                                <h3>Lieu de la Cérémonie</h3>
+                                <p>Église / Paroisse Principale</p>
+                                <span class="time-badge">Accueil des condoléances sur place</span>
                             </div>
                         </div>
 
                         <div class="route-directions">
-                            <h4><i class="fa-solid fa-route"></i> Repères d'Itinéraire :</h4>
+                            <h4><i class="fa-solid fa-route"></i> Indications d'accès</h4>
                             <ul>
-                                <li>Depuis le <strong>Carrefour GOHO</strong>, prendre l'axe menant vers la Préfecture d'Abomey.</li>
-                                <li>Le Cours Secondaire Sainte Jeanne d'Arc se trouve sur votre trajet, directement en face de la voie menant à l'Évêché.</li>
+                                <li>Accès facile via l'axe principal.</li>
+                                <li>Un parking est mis à disposition des visiteurs.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="map-container">
-                        <div class="map-placeholder">
-                            <i class="fa-solid fa-map-location-dot map-icon"></i>
-                            <h3>Carte d'Orientation Abomey</h3>
-                            <p>Carrefour GOHO / Cours Secondaire Sainte Jeanne d'Arc</p>
-                            <a href="https://maps.google.com/?q=Carrefour+GOHO+Abomey+Benin" target="_blank" rel="noopener noreferrer" class="btn-map">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir dans Google Maps
-                            </a>
-                        </div>
+                    <div class="map-placeholder">
+                        <i class="fa-solid fa-map-location-dot map-icon"></i>
+                        <h3>Carte d'Accès</h3>
+                        <p>Retrouvez le lieu exact de la cérémonie sur Google Maps.</p>
+                        <a href="#" target="_blank" class="btn-map">Ouvrir dans Google Maps</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Condolences Section -->
-        <section id="condoleances" class="condoleances-section">
+        <!-- ==========================================================================
+           SECTION REMERCIEMENTS
+           ========================================================================== -->
+        <section id="remerciements" class="condoleances-section">
             <div class="container">
                 <div class="section-title text-center">
-                    <h2>Remerciements & Livre d'Or</h2>
+                    <h2>Remerciements</h2>
                     <div class="gold-divider"></div>
-                    <p>Laissez un message d'hommage ou une prière en la mémoire de Pépé Séraphin</p>
                 </div>
 
-                <div class="condolence-wrapper">
-                    <!-- Formulaire -->
-                    <div class="form-card">
-                        <h3><i class="fa-regular fa-pen-to-square"></i> Laisser un message de condoléances</h3>
-                        <form id="condolenceForm">
-                            <div class="form-group">
-                                <label for="authorName">Votre Nom & Prénom *</label>
-                                <input type="text" id="authorName" required placeholder="Ex: Jean DOSSOU">
-                            </div>
+                <div class="notice-card text-center" style="max-width: 800px; margin: 0 auto;">
+                    <i class="fa-solid fa-hands-praying" style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 20px;"></i>
+                    
+                    <h3 style="justify-content: center; font-size: 1.5rem; margin-bottom: 20px;">
+                        REMERCIEMENTS DE LA FAMILLE
+                    </h3>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-primary); margin-bottom: 25px; text-transform: uppercase;">
+                        Les familles éplorées, profondément touchées des marques de sympathie et d'affection que vous leur avez témoignées de diverses manières, vous prient de trouver ici l'expression de leurs sincères remerciements[cite: 4].
+                    </p>
 
-                            <div class="form-group">
-                                <label for="authorRelation">Votre relation ou affiliation (optionnel)</label>
-                                <input type="text" id="authorRelation" placeholder="Ex: Ancien collègue, Ami de la famille...">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="condolenceMessage">Votre Message d'Hommage *</label>
-                                <textarea id="condolenceMessage" rows="5" required placeholder="Exprimez vos pensées, souvenir ou prière..."></textarea>
-                            </div>
-
-                            <button type="submit" class="btn-submit">
-                                <i class="fa-solid fa-paper-plane"></i> Publier l'hommage
-                            </button>
-                        </form>
-                    </div>
-
-                    <!-- Liste des messages -->
-                    <div class="messages-card">
-                        <h3><i class="fa-solid fa-comments"></i> Messages d'Hommage (<span id="msgCount">3</span>)</h3>
-                        <div class="messages-list" id="messagesList">
-                            <div class="message-item">
-                                <div class="message-header">
-                                    <span class="author-name">Famille AHO-GLELÈ</span>
-                                    <span class="message-date">05 Décembre 2025</span>
-                                </div>
-                                <p class="author-tag"><i class="fa-solid fa-user-tag"></i> Famille Alliée</p>
-                                <p class="message-content">Nos prières accompagnent toute la famille GBINLO dans cette grande épreuve. Que l'âme de Pépé Séraphin repose dans la paix du Seigneur.</p>
-                            </div>
-
-                            <div class="message-item">
-                                <div class="message-header">
-                                    <span class="author-name">Koffi Martial S.</span>
-                                    <span class="message-date">10 Décembre 2025</span>
-                                </div>
-                                <p class="author-tag"><i class="fa-solid fa-graduation-cap"></i> Ancien Élève / Collègue</p>
-                                <p class="message-content">Un grand Inspecteur s'en est allé. Son dévouement pour l'éducation au Bénin restera gravé dans nos mémoires. Sincères condoléances aux enfants.</p>
-                            </div>
-
-                            <div class="message-item">
-                                <div class="message-header">
-                                    <span class="author-name">Pauline & Modeste</span>
-                                    <span class="message-date">15 Janvier 2026</span>
-                                </div>
-                                <p class="author-tag"><i class="fa-solid fa-heart"></i> Amis proches</p>
-                                <p class="message-content">Pépé Séraphin laisse derrière lui un héritage de bonté et de sagesse. Union de prière avec toute la famille GBINLO.</p>
-                            </div>
-                        </div>
+                    <div class="bible-verse" style="border-left: none; border-top: 2px solid var(--accent-gold); border-bottom: 2px solid var(--accent-gold); border-radius: 0; padding: 15px 0;">
+                        <p style="font-size: 1.2rem; font-weight: 600; color: var(--accent-gold); margin: 0; text-transform: uppercase;">
+                            Que le Tout-Puissant vous comble de Ses grâces[cite: 4].
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container text-center">
-            <p class="footer-quote">« Je suis la résurrection et la vie. Celui qui croit en moi vivra, quand même il serait mort. » — Jean 11, 25</p>
-            <div class="gold-divider"></div>
-            <p class="copyright">&copy; 2026 — Site Mémorial Hommage à Pépé Séraphin Makponfa GBINLO. Réalisé dans le respect et la mémoire.</p>
+    <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+    <footer class="site-footer text-center">
+        <div class="container">
+            <p class="footer-quote">« Dans le cœur de ceux qui t'aiment, tu ne mourras jamais. »</p>
+            <div class="gold-divider" style="margin: 15px auto;"></div>
+            <p class="copyright">&copy; 2026 — En mémoire de Pépé GBINLO Séraphin</p>
         </div>
     </footer>
 
-    <!-- Scripts JavaScript Intégrés -->
+    <!-- Script JavaScript pour le thème et le compte à rebours -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Thème Sombre / Clair
-            const themeToggleBtn = document.getElementById('themeToggle');
-            const htmlElement = document.documentElement;
+        // Gestion du thème Sombre / Clair
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
 
-            themeToggleBtn.addEventListener('click', () => {
-                const currentTheme = htmlElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                htmlElement.setAttribute('data-theme', newTheme);
-            });
-
-            // 2. Menu Mobile
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navMenu = document.getElementById('navMenu');
-
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-
-            // 3. Compte à Rebours (Obsèques du 29 Août 2026 à 11h00)
-            const targetDate = new Date('August 29, 2026 11:00:00').getTime();
-
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const difference = targetDate - now;
-
-                if (difference > 0) {
-                    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-                    document.getElementById('days').innerText = String(days).padStart(2, '0');
-                    document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-                    document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-                    document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
-                } else {
-                    document.getElementById('timerGrid').style.display = 'none';
-                    document.getElementById('timerStatus').innerHTML = '<p><i class="fa-solid fa-cross"></i> Les cérémonies d\'obsèques ont eu lieu.</p>';
-                }
-            }
-
-            setInterval(updateCountdown, 1000);
-            updateCountdown();
-
-            // 4. Formulaire de Condoléances (Livre d'or dynamique)
-            const condolenceForm = document.getElementById('condolenceForm');
-            const messagesList = document.getElementById('messagesList');
-            const msgCount = document.getElementById('msgCount');
-
-            condolenceForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-
-                const name = document.getElementById('authorName').value.trim();
-                const relation = document.getElementById('authorRelation').value.trim();
-                const message = document.getElementById('condolenceMessage').value.trim();
-
-                if (name && message) {
-                    const today = new Date();
-                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                    const formattedDate = today.toLocaleDateString('fr-FR', options);
-
-                    const messageItem = document.createElement('div');
-                    messageItem.classList.add('message-item');
-
-                    messageItem.innerHTML = `
-                        <div class="message-header">
-                            <span class="author-name">${escapeHTML(name)}</span>
-                            <span class="message-date">${formattedDate}</span>
-                        </div>
-                        ${relation ? `<p class="author-tag"><i class="fa-solid fa-user-tag"></i> ${escapeHTML(relation)}</p>` : ''}
-                        <p class="message-content">${escapeHTML(message)}</p>
-                    `;
-
-                    messagesList.prepend(messageItem);
-                    
-                    // Mise à jour du compteur
-                    let currentCount = parseInt(msgCount.innerText);
-                    msgCount.innerText = currentCount + 1;
-
-                    // Réinitialisation du formulaire
-                    condolenceForm.reset();
-                }
-            });
-
-            function escapeHTML(str) {
-                return str.replace(/[&<>'"]/g, 
-                    tag => ({
-                        '&': '&amp;',
-                        '<': '&lt;',
-                        '>': '&gt;',
-                        "'": '&#39;',
-                        '"': '&quot;'
-                    }[tag] || tag)
-                );
-            }
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlElement.setAttribute('data-theme', newTheme);
         });
+
+        // Gestion du menu mobile
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = id = document.getElementById('nav-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Exemple simple de Compte à Rebours (Ajustez la date cible selon besoin)
+        const targetDate = new Date("December 31, 2026 00:00:00").getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+                document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+            }
+        };
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
     </script>
 </body>
 </html>
