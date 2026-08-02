@@ -1,7 +1,7 @@
 // =============================================================
 // script.js — Hommage S.M. GBINLO
-// Fond animé (Three.js), mode sombre, animations d'entrée du
-// texte, et chronogramme fonctionnel.
+// Fond animé (champ d'étoiles Three.js), mode sombre, animations
+// d'entrée du texte, et chronogramme fonctionnel (samedi 29 août).
 // =============================================================
 
 import {
@@ -21,95 +21,144 @@ function updateThemeUI(isDark) {
   if (text) text.textContent = isDark ? 'Mode Sombre' : 'Mode Clair';
 }
 
-function toggleDarkMode() {
-  const isDark = document.documentElement.classList.toggle('dark');
-  localStorage.setItem('smg-theme', isDark ? 'dark' : 'light');
+function setDarkMode(isDark) {
+  const html = document.documentElement;
+  html.classList.toggle('dark', isDark);
+  try {
+    localStorage.setItem('smg-theme', isDark ? 'dark' : 'light');
+  } catch (e) {
+    // stockage indisponible (navigation privée, etc.) — pas bloquant
+  }
   updateThemeUI(isDark);
+}
+
+function toggleDarkMode() {
+  const isCurrentlyDark = document.documentElement.classList.contains('dark');
+  setDarkMode(!isCurrentlyDark);
 }
 // Exposé globalement car appelé via onclick="toggleDarkMode()" dans index.html
 window.toggleDarkMode = toggleDarkMode;
 
 (function initTheme() {
-  const saved = localStorage.getItem('smg-theme');
+  let saved = null;
+  try {
+    saved = localStorage.getItem('smg-theme');
+  } catch (e) {
+    saved = null;
+  }
   const html = document.documentElement;
   if (saved === 'light') {
     html.classList.remove('dark');
   } else if (saved === 'dark') {
     html.classList.add('dark');
   }
-  // Si rien n'est enregistré, on respecte la classe déjà présente dans le HTML (dark par défaut)
+  // Si rien n'est enregistré, on respecte la classe déjà présente dans le HTML
   updateThemeUI(html.classList.contains('dark'));
+
+  // Sécurité : si le bouton existe mais que l'attribut onclick n'a pas
+  // été correctement lié (ex. cache navigateur), on rattache l'événement.
+  const btn = document.getElementById('themeBtn');
+  if (btn) {
+    btn.addEventListener('click', toggleDarkMode);
+  }
 })();
 
 // =============================================================
-// 2. FOND 3D ANIMÉ (particules dorées, façon lueur de bougie)
+// 2. FOND ANIMÉ — CHAMP D'ÉTOILES QUI SCINTILLENT ET DÉRIVENT
 // =============================================================
-(function initBackground3D() {
+(function initStarfield() {
   const container = document.getElementById('canvas3d-container');
   if (!container || typeof THREE === 'undefined') return;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(
-    55,
+    60,
     window.innerWidth / window.innerHeight,
     0.1,
-    1000
+    2000
   );
-  camera.position.z = 60;
+  camera.position.z = 100;
 
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   container.appendChild(renderer.domElement);
 
-  // Particules dorées, comme des lueurs de bougie flottant doucement
-  const COUNT = 220;
-  const positions = new Float32Array(COUNT * 3);
-  const speeds = new Float32Array(COUNT);
+  // --- Shader d'étoiles avec scintillement individuel ---
+  const starVertexShader = `
+    attribute float aSize;
+    attribute float aPhase;
+    attribute float aSpeed;
+    varying float vTwinkle;
+    uniform float uTime;
+    uniform float uPixelRatio;
+    void main() {
+      vTwinkle = 0.35 + 0.65 * (0.5 + 0.5 * sin(uTime * aSpeed + aPhase));
+      vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+      gl_PointSize = aSize * uPixelRatio * (200.0 / -mvPosition.z);
+      gl_Position = projectionMatrix * mvPosition;
+    }
+  `;
 
-  for (let i = 0; i < COUNT; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 160;
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 120;
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 90;
-    speeds[i] = 0.03 + Math.random() * 0.06;
+  const starFragmentShader = `
+    varying float vTwinkle;
+    uniform vec3 uColor;
+    void main() {
+      vec2 uv = gl_PointCoord - vec2(0.5);
+      float d = length(uv);
+      float alpha = smoothstep(0.5, 0.0, d) * vTwinkle;
+      if (alpha < 0.02) discard;
+      gl_FragColor = vec4(uColor, alpha);
+    }
+  `;
+
+  function makeStarLayer(count, spread, depthRange, size, color, opacityScale) {
+    const positions = new Float32Array(count * 3);
+    const sizes = new Float32Array(count);
+    const phases = new Float32Array(count);
+    const speeds = new Float32Array(count);
+
+    for (let i = 0; i < count; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * spread;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * spread * 0.6;
+      positions[i * 3 + 2] = -Math.random() * depthRange;
+      sizes[i] = size * (0.5 + Math.random());
+      phases[i] = Math.random() * Math.PI * 2;
+      speeds[i] = 0.4 + Math.random() * 1.1;
+    }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('aSize', new THREE.BufferAttribute(sizes, 1));
+    geometry.setAttribute('aPhase', new THREE.BufferAttribute(phases, 1));
+    geometry.setAttribute('aSpeed', new THREE.BufferAttribute(speeds, 1));
+
+    const material = new THREE.ShaderMaterial({
+      uniforms: {
+        uTime: { value: 0 },
+        uPixelRatio: { value: Math.min(window.devicePixelRatio || 1, 2) },
+        uColor: { value: new THREE.Color(color) }
+      },
+      vertexShader: starVertexShader,
+      fragmentShader: starFragmentShader,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending
+    });
+
+    return { points: new THREE.Points(geometry, material), material, count, spread, depthRange };
   }
 
-  const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  // Trois couches : étoiles lointaines (petites, nombreuses), moyennes, proches (dorées, rares)
+  const farLayer = makeStarLayer(700, 900, 700, 1.1, 0xffffff, 1);
+  const midLayer = makeStarLayer(320, 700, 500, 1.6, 0xf5eedd, 1);
+  const nearLayer = makeStarLayer(90, 500, 300, 2.4, 0xe6c866, 1);
 
-  const material = new THREE.PointsMaterial({
-    color: 0xd9a53a,
-    size: 0.75,
-    transparent: true,
-    opacity: 0.55,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false,
-    sizeAttenuation: true
-  });
+  scene.add(farLayer.points);
+  scene.add(midLayer.points);
+  scene.add(nearLayer.points);
 
-  const particles = new THREE.Points(geometry, material);
-  scene.add(particles);
-
-  // Second voile de particules plus fines, plus lentes, en arrière-plan
-  const farGeometry = new THREE.BufferGeometry();
-  const FAR_COUNT = 140;
-  const farPositions = new Float32Array(FAR_COUNT * 3);
-  for (let i = 0; i < FAR_COUNT; i++) {
-    farPositions[i * 3] = (Math.random() - 0.5) * 220;
-    farPositions[i * 3 + 1] = (Math.random() - 0.5) * 160;
-    farPositions[i * 3 + 2] = -60 - Math.random() * 80;
-  }
-  farGeometry.setAttribute('position', new THREE.BufferAttribute(farPositions, 3));
-  const farMaterial = new THREE.PointsMaterial({
-    color: 0xf3d98a,
-    size: 0.4,
-    transparent: true,
-    opacity: 0.25,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false
-  });
-  const farParticles = new THREE.Points(farGeometry, farMaterial);
-  scene.add(farParticles);
+  const layers = [farLayer, midLayer, nearLayer];
 
   let mouseX = 0;
   let mouseY = 0;
@@ -122,27 +171,27 @@ window.toggleDarkMode = toggleDarkMode;
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+    layers.forEach((l) => {
+      l.material.uniforms.uPixelRatio.value = Math.min(window.devicePixelRatio || 1, 2);
+    });
   });
 
   const clock = new THREE.Clock();
-  const riseSpeed = prefersReducedMotion ? 0 : 1;
+  const driftEnabled = !prefersReducedMotion;
 
   function renderFrame() {
     requestAnimationFrame(renderFrame);
     const t = clock.getElapsedTime();
 
-    if (riseSpeed) {
-      const pos = geometry.attributes.position.array;
-      for (let i = 0; i < COUNT; i++) {
-        pos[i * 3 + 1] += speeds[i] * 0.06;
-        if (pos[i * 3 + 1] > 65) pos[i * 3 + 1] = -65;
+    layers.forEach((l, i) => {
+      l.material.uniforms.uTime.value = t;
+      if (driftEnabled) {
+        // Dérive lente et continue, façon défilement du ciel étoilé
+        l.points.rotation.y = t * (0.006 + i * 0.003) + mouseX * (0.08 + i * 0.05);
+        l.points.rotation.x = mouseY * (0.05 + i * 0.03);
+        l.points.position.x = Math.sin(t * 0.02 + i) * 4;
       }
-      geometry.attributes.position.needsUpdate = true;
-
-      particles.rotation.y = t * 0.012 + mouseX * 0.25;
-      particles.rotation.x = mouseY * 0.12;
-      farParticles.rotation.y = -t * 0.006;
-    }
+    });
 
     renderer.render(scene, camera);
   }
@@ -153,7 +202,6 @@ window.toggleDarkMode = toggleDarkMode;
 // 3. ANIMATIONS D'ENTRÉE DU TEXTE (en-tête + chronogramme)
 // =============================================================
 if (!prefersReducedMotion) {
-  // En-tête : ANNONCE DE DEUILS... / Nom / citation Jean 14,1-2
   animate('header .relative.z-10.text-center > *', {
     opacity: [0, 1],
     translateY: [26, 0],
@@ -162,7 +210,6 @@ if (!prefersReducedMotion) {
     ease: 'outExpo'
   });
 
-  // Titre "CHRONOGRAMME — Le Programme Officiel"
   animate('#programme > div > div:first-child > *', {
     opacity: [0, 1],
     translateY: [18, 0],
@@ -171,7 +218,6 @@ if (!prefersReducedMotion) {
     ease: 'outExpo'
   });
 
-  // Cartes du programme (Jeudi / Vendredi / Samedi) en fondu progressif
   animate('#programme .grid.grid-cols-1.md\\:grid-cols-3 > div', {
     opacity: [0, 1],
     translateY: [24, 0],
@@ -180,7 +226,6 @@ if (!prefersReducedMotion) {
     ease: 'outExpo'
   });
 } else {
-  // Respect du mode "mouvement réduit" : contenu visible immédiatement
   document.querySelectorAll(
     'header .relative.z-10.text-center > *, #programme > div > div:first-child > *, #programme .grid.grid-cols-1.md\\:grid-cols-3 > div'
   ).forEach((el) => {
@@ -190,10 +235,11 @@ if (!prefersReducedMotion) {
 
 // =============================================================
 // 4. CHRONOGRAMME — COMPTE À REBOURS RÉEL
-// Cible : jeudi 27 août 2026, 20h00, heure de Cotonou (UTC+1)
+// Cible : samedi 29 août 2026, 11h00 — messe à l'église
+// Bon Pasteur d'Adandokpodji, Abomey (heure de Cotonou, UTC+1)
 // =============================================================
 (function initCountdown() {
-  const target = new Date('2026-08-27T20:00:00+01:00').getTime();
+  const target = new Date('2026-08-29T11:00:00+01:00').getTime();
 
   const elDays = document.getElementById('days');
   const elHours = document.getElementById('hours');
