@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ==========================================================================
-       1. DARK / LIGHT MODE TOGGLE
+       1. CHANGER DE THÈME (DARK / LIGHT MODE TOGGLE)
        ========================================================================== */
     const themeToggleBtn = document.getElementById('themeToggle');
     const htmlElement = document.documentElement;
 
-    // Check localStorage or keep default dark theme
     const savedTheme = localStorage.getItem('theme') || 'dark';
     htmlElement.setAttribute('data-theme', savedTheme);
 
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       2. MOBILE MENU TOGGLE
+       2. GESTION DU MENU MOBILE
        ========================================================================== */
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');
@@ -36,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Close mobile menu when clicking a link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -49,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       3. COUNTDOWN TIMER (Target: August 29, 2026 at 11:00 AM)
+       3. COMPTE À REBOURS (Objectif: 29 août 2026 à 11h00)
        ========================================================================== */
     const targetDate = new Date('2026-08-29T11:00:00').getTime();
 
@@ -75,16 +73,15 @@ document.addEventListener('DOMContentLoaded', () => {
             secondsEl.textContent = seconds < 10 ? '0' + seconds : seconds;
         } else {
             document.getElementById('timerGrid').style.display = 'none';
-            timerStatus.innerHTML = '<p class="text-gold" style="font-size:1.2rem; font-weight:600;"><i class="fa-solid fa-church"></i> Les cérémonies ont lieu aujourd'hui.</p>';
+            timerStatus.innerHTML = '<p style="color:var(--accent-gold); font-size:1.2rem; font-weight:600;"><i class="fa-solid fa-church"></i> Les cérémonies ont lieu aujourd\'hui.</p>';
         }
     }
 
-    // Run initial call and set interval
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
     /* ==========================================================================
-       4. CONDOLENCES FORM & DYNAMIC ADDITION
+       4. FORMULAIRE DE CONDOLÉANCES INTERACTIF
        ========================================================================== */
     const condolenceForm = document.getElementById('condolenceForm');
     const messagesList = document.getElementById('messagesList');
@@ -100,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const message = document.getElementById('condolenceMessage').value.trim();
 
         if (name && message) {
-            // Create new message HTML structure
             const newMsg = document.createElement('div');
             newMsg.className = 'message-item';
             
@@ -122,22 +118,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="message-content">${escapeHTML(message)}</p>
             `;
 
-            // Prepend new message
             messagesList.insertBefore(newMsg, messagesList.firstChild);
 
-            // Update counter
             currentCount++;
             msgCountEl.textContent = currentCount;
-
-            // Reset form
             condolenceForm.reset();
-
-            // Success feedback
-            alert('Votre message d'hommage a été publié avec succès.');
+            alert('Votre hommage a été publié avec succès.');
         }
     });
 
-    // Helper to prevent XSS attacks
     function escapeHTML(str) {
         return str.replace(/[&<>'"]/g, 
             tag => ({
