@@ -1,8 +1,8 @@
 /* ==========================================================================
-   CSS VARIABLES & THEME CONFIGURATION
+   VARIABLES CSS ET THEMES
    ========================================================================== */
 :root {
-    /* Dark Theme (Default) */
+    /* Mode Sombre (Par Défaut) */
     --bg-primary: #121418;
     --bg-secondary: #1a1d24;
     --bg-card: #222630;
@@ -29,7 +29,7 @@
 }
 
 [data-theme="light"] {
-    /* Light Theme Overrides */
+    /* Mode Clair (Bascule) */
     --bg-primary: #f8f9fa;
     --bg-secondary: #ffffff;
     --bg-card: #f1f3f5;
@@ -51,7 +51,7 @@
 }
 
 /* ==========================================================================
-   RESET & BASE STYLES
+   STYLES DE BASE & REINIT
    ========================================================================== */
 * {
     margin: 0;
@@ -99,7 +99,7 @@ a:hover {
     color: var(--accent-gold-hover);
 }
 
-/* Dividers & Headings */
+/* Séparateurs Dorés */
 .gold-divider {
     height: 2px;
     width: 80px;
@@ -114,7 +114,6 @@ a:hover {
 .section-title h2 {
     font-size: 2.2rem;
     color: var(--text-primary);
-    position: relative;
 }
 
 .section-title p {
@@ -123,7 +122,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   HEADER & NAVIGATION
+   NAVIGATION & HEADER
    ========================================================================== */
 .site-header {
     position: fixed;
@@ -134,7 +133,6 @@ a:hover {
     background: var(--bg-glass);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-subtle);
-    transition: background var(--transition-speed);
 }
 
 .nav-container {
@@ -151,7 +149,6 @@ a:hover {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--accent-gold);
-    letter-spacing: 1px;
 }
 
 .nav-menu ul {
@@ -243,10 +240,6 @@ a:hover {
     gap: 30px;
 }
 
-.portrait-wrapper {
-    position: relative;
-}
-
 .portrait-frame {
     width: 210px;
     height: 250px;
@@ -254,6 +247,7 @@ a:hover {
     padding: 8px;
     background: linear-gradient(135deg, var(--accent-gold), transparent, var(--accent-gold));
     box-shadow: var(--shadow-soft);
+    position: relative;
 }
 
 .portrait-img {
@@ -261,7 +255,7 @@ a:hover {
     height: 100%;
     object-fit: cover;
     border-radius: 4px;
-    filter: grayscale(40%);
+    filter: grayscale(35%);
 }
 
 .ribbon-memorial {
@@ -278,7 +272,6 @@ a:hover {
     padding: 4px 18px;
     border-radius: 20px;
     letter-spacing: 1px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .cross-symbol {
@@ -315,7 +308,6 @@ a:hover {
     border-radius: 0 8px 8px 0;
     max-width: 700px;
     margin: 0 auto;
-    position: relative;
     box-shadow: var(--shadow-card);
 }
 
@@ -340,7 +332,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   COUNTDOWN SECTION
+   COMPTE À REBOURS
    ========================================================================== */
 .countdown-section {
     padding: 60px 0;
@@ -383,24 +375,12 @@ a:hover {
     display: block;
 }
 
-.countdown-status {
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
 /* ==========================================================================
-   FAMILY & AVIS DE DECES SECTION
+   SECTION FAMILLE ET AVIS DE DÉCÈS
    ========================================================================== */
 .famille-section {
     padding: 80px 0;
     background-color: var(--bg-primary);
-}
-
-.section-intro {
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.7;
 }
 
 .notice-card {
@@ -411,7 +391,7 @@ a:hover {
     box-shadow: var(--shadow-card);
 }
 
-/* Removing any parasitic dividers between sections */
+/* Suppression des séparateurs centraux verticaux et optimisation de l'espacement */
 .notice-block {
     margin-bottom: 30px;
     padding-bottom: 25px;
@@ -477,16 +457,10 @@ a:hover {
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.9rem;
-    transition: all 0.2s ease;
-}
-
-.allied-tags span:hover {
-    border-color: var(--accent-gold);
-    color: var(--accent-gold);
 }
 
 /* ==========================================================================
-   FUNERAL PROGRAM SECTION (TIMELINE)
+   TIMELINE PROGRAMME
    ========================================================================== */
 .programme-section {
     padding: 80px 0;
@@ -568,7 +542,6 @@ a:hover {
 .timeline-body p {
     color: var(--text-secondary);
     margin-bottom: 10px;
-    font-size: 1rem;
 }
 
 .sub-event {
@@ -584,7 +557,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   LOCATION SECTION
+   LOCALISATION & ORIENTATION
    ========================================================================== */
 .localisation-section {
     padding: 80px 0;
@@ -678,17 +651,10 @@ a:hover {
     padding: 12px 24px;
     border-radius: 30px;
     font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-map:hover {
-    background: var(--accent-gold-hover);
-    color: #000;
-    transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   CONDOLENCES SECTION
+   CONDOLÉANCES ET LIVRE D'OR
    ========================================================================== */
 .condoleances-section {
     padding: 80px 0;
@@ -740,7 +706,6 @@ a:hover {
     color: var(--text-primary);
     font-family: var(--font-body);
     font-size: 0.95rem;
-    transition: border-color 0.3s;
 }
 
 .form-group input:focus,
@@ -759,27 +724,12 @@ a:hover {
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s;
-}
-
-.btn-submit:hover {
-    background: var(--accent-gold-hover);
 }
 
 .messages-list {
     max-height: 420px;
     overflow-y: auto;
     padding-right: 10px;
-}
-
-/* Custom Scrollbar */
-.messages-list::-webkit-scrollbar {
-    width: 6px;
-}
-
-.messages-list::-webkit-scrollbar-thumb {
-    background: var(--border-color);
-    border-radius: 4px;
 }
 
 .message-item {
@@ -813,12 +763,6 @@ a:hover {
     font-style: italic;
 }
 
-.message-content {
-    font-size: 0.95rem;
-    color: var(--text-primary);
-    line-height: 1.5;
-}
-
 /* ==========================================================================
    FOOTER
    ========================================================================== */
@@ -841,7 +785,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (MEDIA QUERIES)
+   RESPONSIVE DESIGN
    ========================================================================== */
 @media (max-width: 992px) {
     .location-grid,
