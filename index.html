@@ -106,7 +106,8 @@
             <div class="hidden md:flex items-center gap-6 text-[10px] lg:text-xs uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300">
                 <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
                 <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
-                <a href="#fairepart" class="hover:text-amber-500 transition-colors">Faire-part</a>
+                <a href="#localisation" class="hover:text-amber-500 transition-colors">Localisation</a>
+                <a href="#condoleances" class="hover:text-amber-500 transition-colors">Condoléances</a>
                 <a href="#remerciements" class="hover:text-amber-500 transition-colors">Remerciements</a>
             </div>
 
@@ -121,7 +122,8 @@
         <div class="flex md:hidden bg-stone-100/95 dark:bg-stone-900/95 overflow-x-auto border-t border-stone-200/40 dark:border-stone-800/40 scrollbar-none py-1.5 px-4 gap-4 text-[9px] uppercase tracking-wider font-bold text-stone-600 dark:text-stone-300 whitespace-nowrap">
             <a href="#propos" class="hover:text-amber-500 transition-colors">À Propos</a>
             <a href="#programme" class="hover:text-amber-500 transition-colors">Programme</a>
-            <a href="#fairepart" class="hover:text-amber-500 transition-colors">Faire-part</a>
+            <a href="#localisation" class="hover:text-amber-500 transition-colors">Localisation</a>
+            <a href="#condoleances" class="hover:text-amber-500 transition-colors">Condoléances</a>
             <a href="#remerciements" class="hover:text-amber-500 transition-colors">Remerciements</a>
         </div>
     </nav>
@@ -341,22 +343,22 @@
                     <!-- Jours : Dégradé Ambre / Or -->
                     <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-amber-500/20 p-2 md:p-3 rounded-xl shadow-md transform hover:scale-105 transition-all">
                         <span id="days" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-amber-500 to-yellow-500 bg-clip-text text-transparent">00</span>
-                        <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Jours</span>
+                        <span class="text-[8px] md:text-[9px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">Jours</span>
                     </div>
-                    <!-- Heures : Dégradé Cyan / Saphir -->
+                    <!-- Heures : Dégradé Bleu -->
                     <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-blue-500/20 p-2 md:p-3 rounded-xl shadow-md transform hover:scale-105 transition-all">
-                        <span id="hours" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-cyan-500 to-blue-600 bg-clip-text text-transparent">00</span>
-                        <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Heures</span>
+                        <span id="hours" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-blue-500 to-indigo-500 bg-clip-text text-transparent">00</span>
+                        <span class="text-[8px] md:text-[9px] uppercase tracking-wider text-blue-600 dark:text-blue-400 font-bold">Heures</span>
                     </div>
-                    <!-- Minutes : Dégradé Émeraude / Menthe -->
+                    <!-- Minutes : Dégradé Violet -->
+                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-purple-500/20 p-2 md:p-3 rounded-xl shadow-md transform hover:scale-105 transition-all">
+                        <span id="minutes" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text text-transparent">00</span>
+                        <span class="text-[8px] md:text-[9px] uppercase tracking-wider text-purple-600 dark:text-purple-400 font-bold">Minutes</span>
+                    </div>
+                    <!-- Secondes : Dégradé Émeraude -->
                     <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-emerald-500/20 p-2 md:p-3 rounded-xl shadow-md transform hover:scale-105 transition-all">
-                        <span id="minutes" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-emerald-500 to-teal-500 bg-clip-text text-transparent">00</span>
-                        <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Minutes</span>
-                    </div>
-                    <!-- Secondes : Dégradé Rubis / Rose -->
-                    <div class="bg-stone-100/95 dark:bg-stone-900/95 border border-rose-500/20 p-2 md:p-3 rounded-xl shadow-md transform hover:scale-105 transition-all">
-                        <span id="seconds" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-rose-500 to-purple-500 bg-clip-text text-transparent">00</span>
-                        <span class="text-[7px] md:text-[8px] uppercase tracking-widest font-extrabold text-stone-500 mt-1 block">Secondes</span>
+                        <span id="seconds" class="block font-tnr text-xl md:text-3xl bg-gradient-to-br from-emerald-500 to-teal-500 bg-clip-text text-transparent">00</span>
+                        <span class="text-[8px] md:text-[9px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-bold">Secondes</span>
                     </div>
                 </div>
             </div>
@@ -364,340 +366,177 @@
         </div>
     </section>
 
-    <!-- 4. SECTION : FAIRE-PART (Téléchargement direct) -->
-    <!-- STREAMING_CHUNK:Rendering direct PDF attachment interface... -->
-    <section id="fairepart" class="py-10 px-4 bg-stone-100/50 dark:bg-stone-900/10 border-b border-stone-200/50 dark:border-stone-900/50">
-        <div class="max-w-4xl mx-auto text-center space-y-4">
-            <div class="space-y-0.5">
-                <span class="text-[9px] uppercase tracking-wider text-amber-600 dark:text-amber-400 font-bold">FAIRE-PART NUMÉRIQUE</span>
-                <h2 class="font-tnr text-xl md:text-2xl">Téléchargez L'Invitation Officielle</h2>
-                <p class="text-stone-600 dark:text-stone-400 max-w-sm mx-auto text-[11px] font-light leading-relaxed">
-                    Téléchargez directement le faire-part numérique complet au format PDF pour conserver toutes les coordonnées de l'organisation.
-                </p>
+    <!-- 4. SECTION GOOGLE MAPS : LOCALISATION ET ITINÉRAIRES -->
+    <section id="localisation" class="py-10 px-4 max-w-5xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
+        <div class="space-y-6">
+            <div class="text-center space-y-0.5">
+                <span class="text-[9px] uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold">ACCÈS & ACCUEIL</span>
+                <h2 class="font-tnr text-xl md:text-2xl">Localisation des Lieux de Cérémonie</h2>
+                <p class="text-xs text-stone-600 dark:text-stone-400 max-w-md mx-auto">Retrouvez facilement les emplacements officiels pour vous déplacer lors des cérémonies à Abomey.</p>
             </div>
 
-            <div class="max-w-xs mx-auto bg-stone-950 text-white p-5 rounded-xl border border-amber-400/40 shadow-lg space-y-3 relative overflow-hidden card-3d-tilt glow-gold">
-                <div class="absolute inset-0 bg-gradient-to-b from-stone-900 via-blue-950/15 to-stone-950 opacity-95"></div>
-                <div class="relative z-10 space-y-3">
-                    <div class="w-14 h-14 rounded-full mx-auto border-2 border-amber-400 overflow-hidden shadow-md">
-                        <img src="file_0000000027fc71f48844c944a960cfdf.png" alt="Séraphin GBINLO" class="w-full h-full object-cover">
-                    </div>
+            <!-- Grille Carte + Sélecteur de lieux -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+                <!-- Choix rapides des lieux -->
+                <div class="space-y-3 lg:col-span-1">
+                    <button onclick="updateMap('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15814.78912345!2d1.983333!3d7.183333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102423f8510dd9f1%3A0x629a997ef08e9cf9!2sAbomey!5e0!3m2!1sfr!2sbj!4v1700000000000!5m2!1sfr!2sbj')" 
+                            class="w-full text-left p-3.5 rounded-xl border border-amber-500/30 bg-amber-500/10 dark:bg-amber-950/30 hover:border-amber-500 transition-all flex items-center gap-3 group">
+                        <span class="p-2 rounded-lg bg-amber-500/20 text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform">📍</span>
+                        <div>
+                            <h4 class="text-xs font-bold text-stone-900 dark:text-stone-100">Maison GBINLO (Fonkpamè)</h4>
+                            <p class="text-[10px] text-stone-600 dark:text-stone-400">Veillée de prières & Messes</p>
+                        </div>
+                    </button>
 
-                    <div class="space-y-0.5">
-                        <h3 class="font-tnr text-xs text-amber-400">M. SÉRAPHIN M. GBINLO</h3>
-                        <p class="text-[8px] text-stone-400 font-light">Faire-part officiel des Obsèques</p>
-                    </div>
+                    <button onclick="updateMap('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.518!2d1.9902!3d7.1815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102423a23a3a3a3a%3A0x1!2sAdandokpodji%2C%20Abomey!5e0!3m2!1sfr!2sbj!4v1700000000000!5m2!1sfr!2sbj')" 
+                            class="w-full text-left p-3.5 rounded-xl border border-purple-500/30 bg-purple-500/10 dark:bg-purple-950/30 hover:border-purple-500 transition-all flex items-center gap-3 group">
+                        <span class="p-2 rounded-lg bg-purple-500/20 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform">⛪</span>
+                        <div>
+                            <h4 class="text-xs font-bold text-stone-900 dark:text-stone-100">Église Bon Pasteur</h4>
+                            <p class="text-[10px] text-stone-600 dark:text-stone-400">Adandokpodji, Abomey</p>
+                        </div>
+                    </button>
 
-                    <!-- Lien vers le fichier PDF d'origine du faire-part -->
-                    <a href="P%C3%A9p%C3%A9%20GBINLO%20S%C3%89RAPHIN%20%20%281%29_compressed.pdf" download="Pépé GBINLO SÉRAPHIN  (1)_compressed.pdf" 
-                       class="inline-flex items-center justify-center gap-1.5 bg-amber-600 hover:bg-amber-700 active:scale-95 text-white font-semibold py-1.5 px-4 rounded-lg shadow-lg transition-all w-full text-[11px]">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                        Télécharger le Faire-part (PDF)
+                    <button onclick="updateMap('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.600!2d1.9950!3d7.1800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102423b1b1b1b1b1%3A0x2!2sGoho%2C%20Abomey!5e0!3m2!1sfr!2sbj!4v1700000000000!5m2!1sfr!2sbj')" 
+                            class="w-full text-left p-3.5 rounded-xl border border-blue-500/30 bg-blue-500/10 dark:bg-blue-950/30 hover:border-blue-500 transition-all flex items-center gap-3 group">
+                        <span class="p-2 rounded-lg bg-blue-500/20 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">🏛️</span>
+                        <div>
+                            <h4 class="text-xs font-bold text-stone-900 dark:text-stone-100">CNSS (ex OBSS) - Goho</h4>
+                            <p class="text-[10px] text-stone-600 dark:text-stone-400">Lieu de Réception à Abomey</p>
+                        </div>
+                    </button>
+
+                    <a href="https://maps.google.com/?q=Abomey+Benin" target="_blank" class="w-full mt-2 inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white py-2.5 px-4 rounded-xl text-xs font-bold transition-all shadow-md">
+                        <span>Ouvrir dans Google Maps</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                     </a>
                 </div>
+
+                <!-- Frame de la carte Google Maps -->
+                <div class="lg:col-span-2 rounded-xl overflow-hidden shadow-lg border border-stone-200/50 dark:border-stone-800 h-[300px] lg:h-auto min-h-[280px]">
+                    <iframe id="googleMapIframe" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15814.78912345!2d1.983333!3d7.183333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102423f8510dd9f1%3A0x629a997ef08e9cf9!2sAbomey!5e0!3m2!1sfr!2sbj!4v1700000000000!5m2!1sfr!2sbj" 
+                            class="w-full h-full border-0" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. SECTION : SINCÈRES REMERCIEMENTS (En Gras) -->
-    <!-- STREAMING_CHUNK:Rendering thank you quote... -->
-    <section id="remerciements" class="bg-stone-200/50 dark:bg-stone-900/60 text-stone-800 dark:text-stone-200 py-10 px-4 shadow-inner transition-colors duration-500">
-        <div class="max-w-2xl mx-auto text-center space-y-4">
-            <h3 class="font-tnr text-lg tracking-wider text-stone-900 dark:text-amber-400 uppercase">Remerciements</h3>
-            <div class="w-8 h-[1px] bg-amber-600 dark:bg-amber-400 mx-auto"></div>
-            
-            <!-- Citation de remerciements en Gras demandée (Points-virgules retirés) -->
-            <div class="space-y-3 text-stone-700 dark:text-stone-300 leading-relaxed text-xs md:text-sm font-bold font-sans-clean font-normal font-sans-clean">
-                <p class="italic">
-                    « Les familles éplorées, profondément touchées par les nombreuses marques de sympathie, de compassion et d'affection que vous leur avez témoignées lors du décès, des obsèques et de l'inhumation de leur regretté parent, vous prient de trouver ici l'expression de leur profonde gratitude. »
-                </p>
-                <p class="italic">
-                    « Votre présence ou votre union de prières à ces messes d'action de grâce et à ces réceptions constituera pour elles un précieux témoignage de soutien et de fraternité. »
-                </p>
-                <p class="font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-wide mt-4 font-sans-clean">
-                    Que le Dieu Tout-Puissant vous comble de ses abondantes grâces et vous le rende au centuple.
-                </p>
+    <!-- 5. SECTION FORMULAIRE DE CONDOLÉANCES ET DE REMERCIEMENTS -->
+    <section id="condoleances" class="py-10 px-4 max-w-4xl mx-auto border-b border-stone-200/50 dark:border-stone-900/50">
+        <div class="space-y-6">
+            <div class="text-center space-y-0.5">
+                <span class="text-[9px] uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400 font-bold">LIVRE D'OR NUMÉRIQUE</span>
+                <h2 class="font-tnr text-xl md:text-2xl">Condoléances & Remerciements</h2>
+                <p class="text-xs text-stone-600 dark:text-stone-400 max-w-md mx-auto">Laissez un mot de soutien, une pensée ou vos remerciements à la mémoire de l'Inspecteur Séraphin M. GBINLO.</p>
+            </div>
+
+            <!-- Formulaire de saisie -->
+            <form id="condoleanceForm" onsubmit="ajouterCondoleance(event)" class="bg-white/70 dark:bg-stone-900/50 backdrop-blur-sm p-5 md:p-6 rounded-2xl border border-stone-200/50 dark:border-stone-800 space-y-4 shadow-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1">Votre Nom / Famille</label>
+                        <input type="text" id="authorName" required placeholder="Ex: Famille AHO-GLELE, M. Dossou..." class="w-full bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 rounded-xl px-3.5 py-2 text-xs focus:ring-2 focus:ring-amber-500 outline-none text-stone-900 dark:text-stone-100">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1">Type de message</label>
+                        <select id="messageType" class="w-full bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 rounded-xl px-3.5 py-2 text-xs focus:ring-2 focus:ring-amber-500 outline-none text-stone-900 dark:text-stone-100">
+                            <option value="Condoléances">Message de Condoléances</option>
+                            <option value="Remerciement">Message de Remerciement</option>
+                            <option value="Hommage">Hommage & Témoignage</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[11px] font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 mb-1">Votre Message</label>
+                    <textarea id="messageContent" rows="3" required placeholder="Rédigez votre message ici..." class="w-full bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 rounded-xl px-3.5 py-2 text-xs focus:ring-2 focus:ring-amber-500 outline-none text-stone-900 dark:text-stone-100 resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg">
+                    Publier le message
+                </button>
+            </form>
+
+            <!-- Espace d'affichage des messages déposés -->
+            <div id="messagesList" class="space-y-3 pt-2">
+                <!-- Message d'exemple par défaut -->
+                <div class="p-4 rounded-xl bg-amber-500/5 border border-amber-500/20 text-xs space-y-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-amber-700 dark:text-amber-400">Famille GBINLO</span>
+                        <span class="text-[9px] uppercase px-2 py-0.5 rounded bg-amber-500/20 text-amber-800 dark:text-amber-300 font-semibold">Remerciement</span>
+                    </div>
+                    <p class="text-stone-700 dark:text-stone-300 italic">« Que l'âme de notre cher père et grand-père repose dans la paix céleste. Merci à tous pour vos prières et soutiens. »</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. SECTION CRÉATEUR : VOTRE ENTREPRISE "WELT DER KOMPETENZEN" (Redirection vers Netlify) -->
-    <!-- STREAMING_CHUNK:Rendering corporate card signature... -->
-    <section class="bg-stone-100/90 dark:bg-stone-950/90 py-8 px-4 border-t border-stone-200/40 dark:border-stone-900/40 transition-colors duration-500">
-        <div class="max-w-xl mx-auto bg-white/70 dark:bg-stone-900/70 backdrop-blur-sm p-4 md:p-5 rounded-xl shadow-md border border-stone-200/50 dark:border-stone-800/80 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left glow-gold card-3d-tilt">
-            
-            <!-- Logo Numérique Épuré & Photo de profil -->
-            <div class="flex items-center gap-3 shrink-0">
-                <div class="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-amber-400 shadow-md">
-                    <img src="emmanuel-clarius.png" alt="Emmanuel" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/1c1917/d97706?text=WELT'">
-                </div>
-                <!-- Icône Numérique SVG (Logo de l'agence) -->
-                <div class="bg-amber-500/10 p-2 md:p-2.5 rounded-lg border border-amber-500/25">
-                    <svg class="w-6 h-6 md:w-7 md:h-7 text-amber-600 dark:text-amber-400 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Description d'affaires avec taille de police optimisée -->
-            <div class="space-y-2.5 flex-1 text-sm font-sans-clean">
-                <div class="space-y-1">
-                    <span class="text-[9px] uppercase tracking-widest text-amber-600 dark:text-amber-400 font-extrabold block">Conception & Développement Web</span>
-                    <h4 class="font-tnr text-sm md:text-md tracking-wide text-stone-900 dark:text-stone-100">WELT DER KOMPETENZEN</h4>
-                    <p class="text-stone-600 dark:text-stone-300 leading-relaxed font-normal text-xs font-bold font-sans-clean">
-                        <strong>Nous créons des solutions numériques pour l'avenir.</strong> Vous souhaitez concevoir un site d'hommage interactif, un faire-part professionnel ou un portail web haute performance ?
-                    </p>
-                </div>
-
-                <!-- Bouton d'affaires pointant vers votre site officiel Netlify d'affaires -->
-                <a href="https://delicate-tartufo-f53f09.netlify.app/" 
-                   target="_blank" 
-                   class="inline-flex items-center gap-1.5 bg-stone-900 dark:bg-amber-500 text-white dark:text-stone-950 text-[11px] font-bold px-3 py-1.5 rounded-lg hover:bg-amber-600 dark:hover:bg-amber-400 active:scale-95 transition-all shadow-sm">
-                    <span>💬</span> Commander un site similaire
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PIED DE PAGE ENTIÈREMENT PERSONNALISÉ -->
-    <footer class="bg-stone-950 text-stone-600 text-center py-5 border-t border-stone-900 text-[9px] tracking-wider space-y-0.5 px-4">
-        <p>© 2026 — Famille GBINLO. Tous droits réservés.</p>
-        <p class="text-stone-500 dark:text-stone-400 font-semibold uppercase tracking-wide leading-relaxed">
-            Développé par <span class="text-amber-500 font-extrabold">WELT DER KOMPETENZEN</span> — Contact direct : 
-            <a href="tel:+2290158255572" class="text-amber-400 hover:underline hover:text-amber-300 font-bold whitespace-nowrap">+229 01 58 25 55 72</a>
+    <!-- 6. SECTION REMERCIEMENTS & PIED DE PAGE -->
+    <section id="remerciements" class="py-12 px-4 max-w-4xl mx-auto text-center space-y-4">
+        <span class="text-[9px] uppercase tracking-[0.25em] text-amber-600 dark:text-amber-400 font-bold block">RECONNAISSANCE ET GRATITUDE</span>
+        <h2 class="font-tnr text-2xl md:text-3xl">Remerciements De La Famille</h2>
+        <p class="text-xs md:text-sm text-stone-700 dark:text-stone-300 leading-relaxed italic max-w-2xl mx-auto">
+            La famille GBINLO et l'ensemble des familles alliées expriment leur profonde gratitude envers toutes les personnes qui, par leur présence, leurs prières, leurs messages de soutien ou leurs pensées affectueuses, s'associent à leur deuil. Que Dieu vous bénisse et vous rende vos bienfaits au centuple.
         </p>
-    </footer>
+        <div class="pt-8 text-[10px] text-stone-500 dark:text-stone-400 font-medium">
+            © 2026 Hommage à l'Inspecteur Séraphin Mapkonfa GBINLO — Tous droits réservés.
+        </div>
+    </section>
 
-    <!-- TOUTES LES LOGIQUES JAVASCRIPT ET 3D INTERACTIVES (Three.js) -->
-    <!-- STREAMING_CHUNK:Activating ThreeJS WebGL engine... -->
+    <!-- LOGIQUE JAVASCRIPT : MODE SOMBRE, THREE.JS 3D, COMPTE À REBOURS, MAPS ET FORMULAIRE -->
     <script>
-        // =========================================================================
-        // 1. ARRIÈRE-PLAN DE MODÉLISATION 3D DYNAMIQUE 4K (Three.js)
-        // =========================================================================
-        let scene, camera, renderer, starGeo, stars, starCount = 500;
-        let mouseX = 0, mouseY = 0;
-        let targetX = 0, targetY = 0; // Pour l'effet de momentum/inertie ultra-fluide
-
-        function init3DBackground() {
-            if (typeof THREE === 'undefined') {
-                // Relancement de sécurité si Three.js se charge lentement
-                setTimeout(init3DBackground, 100);
-                return;
-            }
-
-            const container = document.getElementById('canvas3d-container');
-            if(!container) return;
-
-            scene = new THREE.Scene();
-
-            // Caméra avec champ visuel optimisé
-            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-            camera.position.z = 1.5;
-            camera.rotation.x = Math.PI/2;
-
-            // Rendu 4K adapté à la densité de pixels de l'appareil (téléphone, tablette, laptop)
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limité à 2 pour optimiser l'autonomie mobile tout en restant ultra-net
-            container.appendChild(renderer.domElement);
-
-            starGeo = new THREE.BufferGeometry();
-            const positions = new Float32Array(starCount * 3);
-
-            for(let i=0; i<starCount; i++) {
-                // Modélisation spatiale multidimensionnelle des particules d'ambre dorées
-                positions[i*3] = Math.random() * 600 - 300;
-                positions[i*3+1] = Math.random() * 600 - 300;
-                positions[i*3+2] = Math.random() * 600 - 300;
-            }
-
-            starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-            // CRÉATION D'UNE TEXTURE 4K BOKEH RADIALE SANS LIEN EXTERNE (Mathématique pure)
-            const pCanvas = document.createElement('canvas');
-            pCanvas.width = 64;
-            pCanvas.height = 64;
-            const pCtx = pCanvas.getContext('2d');
-            const gradient = pCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
-            gradient.addColorStop(0, 'rgba(217, 119, 6, 1)');     // Or vif au cœur
-            gradient.addColorStop(0.2, 'rgba(245, 158, 11, 0.8)'); // Ambre intermédiaire
-            gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');          // Fondu transparent complet
-            pCtx.fillStyle = gradient;
-            pCtx.fillRect(0, 0, 64, 64);
-            
-            const pTexture = new THREE.CanvasTexture(pCanvas);
-
-            // Matériau HD Premium Bokeh radiale
-            const starMaterial = new THREE.PointsMaterial({
-                size: window.innerWidth < 768 ? 3.0 : 4.5, // Particules légèrement plus larges pour lisibilité écran retina
-                map: pTexture,
-                transparent: true,
-                blending: THREE.AdditiveBlending,
-                depthWrite: false
-            });
-
-            stars = new THREE.Points(starGeo, starMaterial);
-            scene.add(stars);
-
-            // Écouteurs de mouvements d'ordinateurs (Souris)
-            document.addEventListener('mousemove', (e) => {
-                targetX = (e.clientX - window.innerWidth / 2) * 0.02;
-                targetY = (e.clientY - window.innerHeight / 2) * 0.02;
-            });
-
-            window.addEventListener('resize', onWindowResize);
-            
-            animate3D();
+        // 1. GESTION DU MODE SOMBRE
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const isDark = html.classList.toggle('dark');
+            document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+            document.getElementById('themeText').textContent = isDark ? 'Mode Clair' : 'Mode Sombre';
         }
 
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+        // 2. MISE À JOUR DE LA CARTE GOOGLE MAPS
+        function updateMap(embedUrl) {
+            document.getElementById('googleMapIframe').src = embedUrl;
         }
 
-        // Boucle d'animation HD à 60 FPS avec logique de momentum physique (glissement)
-        function animate3D() {
-            requestAnimationFrame(animate3D);
+        // 3. GESTION DU FORMULAIRE DE CONDOLÉANCES
+        function ajouterCondoleance(e) {
+            e.preventDefault();
+            const name = document.getElementById('authorName').value;
+            const type = document.getElementById('messageType').value;
+            const message = document.getElementById('messageContent').value;
 
-            const positions = starGeo.attributes.position.array;
-            
-            for(let i=0; i<starCount; i++) {
-                positions[i*3+1] -= 0.12; // Chute stellaire fluide et poétique
-                if (positions[i*3+1] < -200) {
-                    positions[i*3+1] = 200;
-                }
-            }
-            starGeo.attributes.position.needsUpdate = true;
+            const messageBox = document.createElement('div');
+            messageBox.className = "p-4 rounded-xl bg-white/60 dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 text-xs space-y-1 animate-fade-in shadow-sm";
+            messageBox.innerHTML = `
+                <div class="flex justify-between items-center">
+                    <span class="font-bold text-stone-800 dark:text-stone-200">${name}</span>
+                    <span class="text-[9px] uppercase px-2 py-0.5 rounded bg-amber-500/20 text-amber-700 dark:text-amber-400 font-semibold">${type}</span>
+                </div>
+                <p class="text-stone-700 dark:text-stone-300 italic">« ${message} »</p>
+            `;
 
-            // Application du momentum fluide (Lerp physique)
-            mouseX += (targetX - mouseX) * 0.08;
-            mouseY += (targetY - mouseY) * 0.08;
-
-            stars.rotation.y += 0.0008 + (mouseX * 0.0003);
-            stars.rotation.x += 0.0003 + (mouseY * 0.0003);
-
-            renderer.render(scene, camera);
+            document.getElementById('messagesList').prepend(messageBox);
+            document.getElementById('condoleanceForm').reset();
         }
 
-        // DOMContentLoaded pour garantir une exécution immédiate sans bloquer le chargement
-        document.addEventListener('DOMContentLoaded', () => {
-            init3DBackground();
-            init3DCardTilt();
-        });
-
-        // =========================================================================
-        // 2. EFFET D'INCLINAISON INTERACTIF 3D PHYSIQUE (Uniquement Ordinateurs)
-        // =========================================================================
-        function init3DCardTilt() {
-            const cards = document.querySelectorAll('.card-3d-tilt');
-            
-            // On active l'effet SEULEMENT sur ordinateur (souris) pour ne pas casser le scrolling mobile
-            if (window.matchMedia("(pointer: fine)").matches) {
-                cards.forEach(card => {
-                    card.addEventListener('mousemove', (e) => {
-                        handleTilt(e, card);
-                    });
-                    card.addEventListener('mouseleave', () => {
-                        resetTilt(card);
-                    });
-                });
-            }
-        }
-
-        function handleTilt(inputEvent, card) {
-            const rect = card.getBoundingClientRect();
-            const x = inputEvent.clientX - rect.left; 
-            const y = inputEvent.clientY - rect.top;  
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            // Inclinaison de 12 degrés max, parfaitement balancée
-            const rotateX = ((centerY - y) / centerY) * 12;
-            const rotateY = ((x - centerX) / centerX) * 12;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        }
-
-        function resetTilt(card) {
-            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-        }
-
-        // =========================================================================
-        // 3. LOGIQUE DU COMPTE À REBOURS DE L'HOMMAGE
-        // =========================================================================
+        // 4. COMPTE À REBOURS
         const targetDate = new Date("August 27, 2026 20:00:00").getTime();
 
-        const countdownInterval = setInterval(function() {
+        function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            const daysEl = document.getElementById("days");
-            const hoursEl = document.getElementById("hours");
-            const minutesEl = document.getElementById("minutes");
-            const secondsEl = document.getElementById("seconds");
-
-            if (daysEl) daysEl.innerText = String(days).padStart(2, '0');
-            if (hoursEl) hoursEl.innerText = String(hours).padStart(2, '0');
-            if (minutesEl) minutesEl.innerText = String(minutes).padStart(2, '0');
-            if (secondsEl) secondsEl.innerText = String(seconds).padStart(2, '0');
-
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                const countdownContainer = document.querySelector("#programme .grid-cols-4");
-                if (countdownContainer) {
-                    countdownContainer.innerHTML = "<p class='col-span-4 text-amber-500 font-tnr text-sm uppercase tracking-wider'>La célébration a commencé</p>";
-                }
-            }
-        }, 1000);
-
-        // =========================================================================
-        // 4. GESTION DU MODE SOMBRE / CLAIR (Default: Dark Mode)
-        // =========================================================================
-        function toggleDarkMode() {
-            const html = document.documentElement;
-            const themeIcon = document.getElementById("themeIcon");
-            const themeText = document.getElementById("themeText");
-
-            if (html.classList.contains("dark")) {
-                html.classList.remove("dark");
-                localStorage.setItem("theme", "light");
-                if (themeIcon) themeIcon.innerText = "🌙";
-                if (themeText) themeText.innerText = "Mode Sombre";
-            } else {
-                html.classList.add("dark");
-                localStorage.setItem("theme", "dark");
-                if (themeIcon) themeIcon.innerText = "☀️";
-                if (themeText) themeText.innerText = "Mode Clair";
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const savedTheme = localStorage.getItem("theme");
-            const html = document.documentElement;
-            const themeIcon = document.getElementById("themeIcon");
-            const themeText = document.getElementById("themeText");
-
-            // Si l'utilisateur n'a pas encore choisi de thème, on force le Mode Sombre
-            if (savedTheme === "light") {
-                html.classList.remove("dark");
-                if (themeIcon) themeIcon.innerText = "🌙";
-                if (themeText) themeText.innerText = "Mode Sombre";
-            } else {
-                html.classList.add("dark");
-                localStorage.setItem("theme", "dark");
-                if (themeIcon) themeIcon.innerText = "☀️";
-                if (themeText) themeText.innerText = "Mode Clair";
-            }
-        });
-    </script>
-</body>
-</html>
