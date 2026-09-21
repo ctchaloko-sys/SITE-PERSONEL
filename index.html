@@ -1,0 +1,43 @@
+--- public/index.html (原始)
+
+
++++ public/index.html (修改后)
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniActes - Portail de Gestion des Actes Académiques</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Arrière-plan dynamique -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Toast notifications -->
+  <div id="toast-container"></div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" onclick="navigate('home')">
+        <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+        <span class="logo-text">UniActes</span>
+      </a>
+      <div class="nav-links" id="nav-links"></div>
+      <div class="nav-right" id="nav-right"></div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars" id="menu-icon"></i>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu"></div>
+  </nav>
+
+  <!-- Contenu principal -->
+  <main id="app"></main>
+
+  <script src="app.js"></script>
+</body>
+</html>
