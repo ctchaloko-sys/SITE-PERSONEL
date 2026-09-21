@@ -1276,3 +1276,146 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackground();
   render();
 });
+--- index.html (原始)
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UniActes - Portail de Gestion des Actes Académiques</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* 内联样式确保主题色立即生效，避免闪烁 */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+      html.light,
+      html.light body {
+        background-color: #ffffff !important;
+        color: #000000;
+      }
+      html.dark,
+      html.dark body {
+        background-color: #1a1a1a !important;
+        color: #ffffff;
+      }
+    </style>
+    <script>
+      // 在 React 加载前立即设置主题，避免闪烁
+      (function () {
+        const isInIframe = window.self !== window.top;
+
+        function applyThemeToDOM(theme) {
+          document.documentElement.classList.remove("light", "dark");
+          document.documentElement.classList.add(theme);
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+
+        if (isInIframe) {
+          // 监听父窗口主动推送的主题消息
+          window.addEventListener("message", function (event) {
+            if (event.data && typeof event.data.theme === "string") {
+              const theme = event.data.theme;
+              if (theme === "light" || theme === "dark") {
+                applyThemeToDOM(theme);
+              }
+            }
+          });
+        } else {
+          // 非 iframe 环境，使用默认 light 主题
+          applyThemeToDOM("light");
+        }
+      })();
+    </script>
+      <script>
+      (function () {
+        if (window.self === window.top) return;
+        var reported = {};
+        window.addEventListener("error", function (event) {
+          // 资源加载失败的 error 事件没有 message，此处仅上报 JS 运行时错误
+          if (!event || !event.message) return;
+          var key =
+            event.message + "|" + (event.filename || "") + "|" + (event.lineno || 0);
+          if (reported[key]) return; // 相同错误只上报一次，避免渲染循环刷屏
+          reported[key] = true;
+          try {
+            window.parent.postMessage(
+              {
+                type: "sandbox-runtime-error",
+                payload: {
+                  message: String(event.message).slice(0, 500),
+                  filename: event.filename || "",
+                  lineno: event.lineno || 0,
+                  colno: event.colno || 0,
+                  stack:
+                    event.error && event.error.stack
+                      ? String(event.error.stack).slice(0, 2000)
+                      : ""
+                }
+              },
+              "*"
+            );
+          } catch (e) {
+            /* 上报失败不影响页面运行 */
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
++++ index.html (修改后)
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UniActes - Portail de Gestion des Actes Académiques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- Arrière-plan dynamique -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Toast notifications -->
+    <div id="toast-container"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+      <div class="nav-container">
+        <a href="#" class="nav-logo" onclick="navigate('home')">
+          <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+          <span class="logo-text">UniActes</span>
+        </a>
+        <div class="nav-links" id="nav-links"></div>
+        <div class="nav-right" id="nav-right"></div>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars" id="menu-icon"></i>
+        </button>
+      </div>
+      <div class="mobile-menu hidden" id="mobile-menu"></div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main id="app"></main>
+
+    <!-- Div root caché pour React (non utilisé) -->
+    <div id="root" style="display:none"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
